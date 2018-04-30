@@ -1,0 +1,29 @@
+From:
+Date: Wed, 25 Apr 2018 09:02:45 -0500
+Subject: Activate Your Miapp2 Account
+Message-Id: <8N6LVIAQ84U4.BZQ818PB5H8D2@localhost.localdomain>
+To: usuario@rocoranz.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Id: <Y27LVIAQ84U4.TOV77KOJ8FNB2@localhost.localdomain>
+
+
+<html>
+<head>
+    <title>Activate your Miapp2 account</title>
+</head>
+<body>
+    <p>usuario,</p>
+
+    <p>We received a request to create a new account on Miapp2 with your e-mail address.</p>
+
+    <p>Click the link below to activate your account:</p>
+
+    <p><a href="http://localhost:59952/Account/Activate?t=CfDJ8Cy%2FIRlofs5CsX%2B1sT4BoiVxHtDWsRNSj%2F9%2FjJ4y%2BisiYULR5rJYxmkxGjl%2FhX%2FacyDPS4IYwcIipsX0IdniFmPLvN7LnGHvucopkBbgbqpsKuN78ScvSD43DWhQ17TYbQ%3D%3D">http://localhost:59952/Account/Activate?t=CfDJ8Cy%2FIRlofs5CsX%2B1sT4BoiVxHtDWsRNSj%2F9%2FjJ4y%2BisiYULR5rJYxmkxGjl%2FhX%2FacyDPS4IYwcIipsX0IdniFmPLvN7LnGHvucopkBbgbqpsKuN78ScvSD43DWhQ17TYbQ%3D%3D</a></p>
+
+    <p>If it wasn't you who requested this, you can ignore this email.</p>
+
+    Thanks,
+    The "Miapp2" Team
+</body>
+</html>

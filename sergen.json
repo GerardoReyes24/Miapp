@@ -1,0 +1,59 @@
+{
+  "RootNamespace": "Miapp2",
+  "ServerTypings": {
+    "Assemblies": []
+  },
+  "Connections": [
+    {
+      "Key": "Northwind",
+      "Tables": [
+        {
+          "Tablename": "dbo.Design",
+          "Identifier": "Design",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.DesignType",
+          "Identifier": "DesignType",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Priority",
+          "Identifier": "Priority",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Production",
+          "Identifier": "Production",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ProductionSt",
+          "Identifier": "ProductionSt",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Project Details",
+          "Identifier": "ProjectDetails",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Projects",
+          "Identifier": "Projects",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        }
+      ]
+    }
+  ],
+  "BaseRowClasses": [],
+  "RemoveForeignFields": [],
+  "CustomGenerate": {},
+  "CustomSettings": {}
+}

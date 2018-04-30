@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.Northwind.ProjectDetails.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new Miapp2.Northwind.ProjectDetailsGrid($('#GridDiv'), {});
+        
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

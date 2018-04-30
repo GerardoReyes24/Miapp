@@ -1,0 +1,11 @@
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\bin\Debug\netcoreapp2.0\Miapp2.Web.deps.json
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\bin\Debug\netcoreapp2.0\Miapp2.Web.runtimeconfig.json
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\bin\Debug\netcoreapp2.0\Miapp2.Web.runtimeconfig.dev.json
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\bin\Debug\netcoreapp2.0\Miapp2.Web.dll
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\bin\Debug\netcoreapp2.0\Miapp2.Web.pdb
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.csproj.CoreCompileInputs.cache
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyInfoInputs.cache
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyInfo.cs
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.dll
+c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.pdb
+C:\Users\Usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.csprojResolveAssemblyReference.cache
