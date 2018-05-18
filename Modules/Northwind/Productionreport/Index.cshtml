@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Reporte producción";
+}
+
+@section ContentHeader {
+    <h1>@ViewBag.Title<small></small></h1>
+}
+
+
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new Miapp2.Northwind.ProductionreportsGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

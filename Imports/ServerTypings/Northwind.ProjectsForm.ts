@@ -7,6 +7,11 @@
         PriorityId: Serenity.LookupEditor;
         Aproved: Serenity.BooleanEditor;
         DetailList: ProjectDetailsEditor;
+        Blueprints: Serenity.BooleanEditor;
+        PorposalFirst: Serenity.BooleanEditor;
+        Measures: Serenity.BooleanEditor;
+        Corrections: Serenity.BooleanEditor;
+        PorposalFinal: Serenity.BooleanEditor;
     }
 
     export class ProjectsForm extends Serenity.PrefixedContext {
@@ -33,7 +38,12 @@
                     'RequiredDate', w2,
                     'PriorityId', w0,
                     'Aproved', w3,
-                    'DetailList', w4
+                    'DetailList', w4,
+                    'Blueprints', w3,
+                    'PorposalFirst', w3,
+                    'Measures', w3,
+                    'Corrections', w3,
+                    'PorposalFinal', w3
                 ]);
             }
         }

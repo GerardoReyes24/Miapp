@@ -24,11 +24,21 @@ namespace Miapp2.Northwind.Forms
         public Boolean Aproved { get; set; }
 
 
-
+        [Tab ("Diseños del proyecto")]
         [Category("Detalles por proyecto")]
         [ProjectDetailsEditor]
         public List<Entities.ProjectDetailsRow> DetailList { get; set; }
 
-    
+
+        [Tab("Estatus del diseño")]
+
+        [Category("Estatus Diseño")]
+        public Boolean? Blueprints { get; set; }
+        public Boolean? PorposalFirst { get; set; }
+        public Boolean? Measures { get; set; }
+        [HalfWidth]
+        public Boolean? Corrections { get; set; }
+
+        public Boolean? PorposalFinal { get; set; }
     }
 }

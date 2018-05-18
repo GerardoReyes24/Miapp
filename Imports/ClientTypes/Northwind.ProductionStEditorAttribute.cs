@@ -1,8 +1,9 @@
-﻿using Serenity.ComponentModel;
+﻿using Serenity;
+using Serenity.ComponentModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Miapp2.Northwind
 {
@@ -14,6 +15,5 @@ namespace Miapp2.Northwind
             : base(Key)
         {
         }
-
     }
 }

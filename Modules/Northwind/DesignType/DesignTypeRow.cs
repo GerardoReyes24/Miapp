@@ -23,7 +23,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.DesignTypeId[this] = value; }
         }
 
-        [DisplayName("Tipo de diseño"), Size(50), NotNull, QuickSearch]
+        [DisplayName("Tipo de diseño"), Size(50), NotNull, QuickSearch, LookupInclude]
         public String DesType
         {
             get { return Fields.DesType[this]; }

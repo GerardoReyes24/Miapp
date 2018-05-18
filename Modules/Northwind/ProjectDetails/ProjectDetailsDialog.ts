@@ -5,7 +5,7 @@ namespace Miapp2.Northwind {
     export class ProjectDetailsDialog extends Common.GridEditorDialog<ProjectDetailsRow> {
         protected getFormKey() { return ProjectDetailsForm.formKey; }
         protected getLocalTextPrefix() { return ProjectDetailsRow.localTextPrefix; }
-    
+        protected getService() { return ProjectDetailsService.baseUrl; }
         protected form: ProjectDetailsForm;
 
         constructor() {

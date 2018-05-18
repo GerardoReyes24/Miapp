@@ -1,6 +1,7 @@
 ﻿using Miapp2.BasicSamples.Pages;
 using Serenity.Navigation;
 
+
 [assembly: NavigationMenu(7950, "Temas/Grids")]
 [assembly: NavigationLink(7950, "Temas/Grids/Cancellable Bulk Action", typeof(BasicSamplesController), action: "CancellableBulkAction")]
 [assembly: NavigationLink(7950, "Temas/Grids/Conditional Formatting", typeof(BasicSamplesController), action: "ConditionalFormatting")]

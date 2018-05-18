@@ -1,5 +1,6 @@
 ﻿using Miapp2.BasicSamples.Pages;
 using Serenity.Navigation;
+/*
 
 [assembly: NavigationMenu(7910, "Temas/Dialogs")]
 [assembly: NavigationLink(7910, "Temas/Dialogs/Chart in a Dialog", typeof(BasicSamplesController), action: "ChartInDialog")]
@@ -13,3 +14,4 @@ using Serenity.Navigation;
 [assembly: NavigationLink(7910, "Temas/Dialogs/Populate Linked Data", typeof(BasicSamplesController), action: "PopulateLinkedData")]
 [assembly: NavigationLink(7910, "Temas/Dialogs/Read-Only Dialog", typeof(BasicSamplesController), action: "ReadOnlyDialog")]
 [assembly: NavigationLink(7910, "Temas/Dialogs/Serial Auto Numbering", typeof(BasicSamplesController), action: "SerialAutoNumber")]
+*/

@@ -1,6 +1,6 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProjectsRow {
-        ProjectId?: number;
+        ProjectID?: number;
         CustomerId?: string;
         ProjectName?: string;
         Description?: string;
@@ -20,15 +20,20 @@
         CustomerId1?: number;
         PriorityPriorityDescription?: string;
         DetailList?: ProjectDetailsRow[];
+        Blueprints?: boolean;
+        PorposalFirst?: boolean;
+        Measures?: boolean;
+        Corrections?: boolean;
+        PorposalFinal?: boolean;
     }
 
     export namespace ProjectsRow {
-        export const idProperty = 'ProjectId';
+        export const idProperty = 'ProjectID';
         export const nameProperty = 'CustomerId';
         export const localTextPrefix = 'Northwind.Projects';
 
         export declare const enum Fields {
-            ProjectId = "ProjectId",
+            ProjectID = "ProjectID",
             CustomerId = "CustomerId",
             ProjectName = "ProjectName",
             Description = "Description",
@@ -47,7 +52,12 @@
             CustomerFax = "CustomerFax",
             CustomerId1 = "CustomerId1",
             PriorityPriorityDescription = "PriorityPriorityDescription",
-            DetailList = "DetailList"
+            DetailList = "DetailList",
+            Blueprints = "Blueprints",
+            PorposalFirst = "PorposalFirst",
+            Measures = "Measures",
+            Corrections = "Corrections",
+            PorposalFinal = "PorposalFinal"
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Miapp2.Northwind
 {
     public class ProjectsListRequest : ListRequest
     {
-        public int? ProjectId { get; set; }
+        public int? ProjectID { get; set; }
     }
 }

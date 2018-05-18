@@ -54,7 +54,7 @@ namespace Miapp2.Northwind.Repositories
             {
                 base.ApplyFilters(query);
 
-                if (Request.ProjectId != null)
+                if (Request.ProjectID != null)
                 {
                     var od = Entities.ProjectDetailsRow.Fields.As("od");
 
@@ -63,7 +63,7 @@ namespace Miapp2.Northwind.Repositories
                             .Select("1")
                             .From(od)
                             .Where(
-                                od.ProjectId == fld.ProjectId )
+                                od.ProjectID == fld.ProjectID )
                             .ToString()));
                 }
             }

@@ -8,6 +8,7 @@ namespace Miapp2.Northwind.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.ProductionRepository;
     using MyRow = Entities.ProductionRow;
+    using Miapp2.Northwind.Production;
 
     [Route("Services/Northwind/Production/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -38,7 +39,7 @@ namespace Miapp2.Northwind.Endpoints
         }
 
         [HttpPost]
-        public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
+        public ListResponse<MyRow> List(IDbConnection connection, ProductionListRequest request)
         {
             return new MyRepository().List(connection, request);
         }

@@ -12,6 +12,7 @@
         Perforation35?: number;
         RauterM?: number;
         FormatM?: number;
+        FormatM2?: number;
         TotalOrder?: number;
         ClosedOrder?: number;
         OrderInTime?: number;
@@ -35,6 +36,7 @@
             Perforation35 = "Perforation35",
             RauterM = "RauterM",
             FormatM = "FormatM",
+            FormatM2 = "FormatM2",
             TotalOrder = "TotalOrder",
             ClosedOrder = "ClosedOrder",
             OrderInTime = "OrderInTime",

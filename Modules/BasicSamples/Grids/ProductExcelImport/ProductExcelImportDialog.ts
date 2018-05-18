@@ -29,7 +29,7 @@
                             return;
                         }
 
-                        ProductExcelImportService.ExcelImport({
+                        ImportFiles.PruebaService.ExcelImport({
                             FileName: this.form.FileName.value.Filename
                         }, response => {
                             Q.notifyInfo(

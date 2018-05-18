@@ -1,26 +1,28 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProductionStRow {
-        ProductionStId?: number;
-        DetailId?: number;
+        DetailID?: number;
         Cutter?: ProdStatus;
         Cnc?: ProdStatus;
         Plating?: ProdStatus;
+        Detailed?: ProdStatus;
         Armed?: ProdStatus;
         Packed?: ProdStatus;
+        Installed?: ProdStatus;
     }
 
     export namespace ProductionStRow {
-        export const idProperty = 'ProductionStId';
+        export const idProperty = 'DetailID';
         export const localTextPrefix = 'Northwind.ProductionSt';
 
         export declare const enum Fields {
-            ProductionStId = "ProductionStId",
-            DetailId = "DetailId",
+            DetailID = "DetailID",
             Cutter = "Cutter",
             Cnc = "Cnc",
             Plating = "Plating",
+            Detailed = "Detailed",
             Armed = "Armed",
-            Packed = "Packed"
+            Packed = "Packed",
+            Installed = "Installed"
         }
     }
 }

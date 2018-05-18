@@ -1,14 +1,14 @@
 ﻿
-namespace Miapp2.Northwind.Repositories
+namespace Miapp2.ImportFiles.Repositories
 {
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
     using System.Data;
-    using MyRow = Entities.ProductionStRow;
+    using MyRow = Entities.PruebaRow;
 
-    public class ProductionStRepository
+    public class PruebaRepository
     {
         private static MyRow.RowFields fld { get { return MyRow.Fields; } }
 

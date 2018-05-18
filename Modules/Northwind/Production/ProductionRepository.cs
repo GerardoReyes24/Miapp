@@ -1,6 +1,7 @@
 ﻿
 namespace Miapp2.Northwind.Repositories
 {
+    using Miapp2.Northwind.Production;
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
@@ -32,7 +33,7 @@ namespace Miapp2.Northwind.Repositories
             return new MyRetrieveHandler().Process(connection, request);
         }
 
-        public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
+        public ListResponse<MyRow> List(IDbConnection connection, ProductionListRequest request)
         {
             return new MyListHandler().Process(connection, request);
         }

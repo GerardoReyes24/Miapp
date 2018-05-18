@@ -23,16 +23,16 @@ namespace Miapp2.Common.Pages
                     var p = ProjectsRow.Fields;
                     using (var connection = SqlConnections.NewFor<OrderRow>())
                     {
-                        model.OpenOrders = connection.Count<OrderRow>(o.ShippingState == (int)OrderShippingState.NotShipped);
+                      /*  model.OpenOrders = connection.Count<OrderRow>(o.ShippingState == (int)OrderShippingState.NotShipped);
                         var closedOrders = connection.Count<OrderRow>(o.ShippingState == (int)OrderShippingState.Shipped);
                         var totalOrders = model.OpenOrders + closedOrders;
                         model.ClosedOrderPercent = (int)Math.Round(totalOrders == 0 ? 100 :
-                            ((double)closedOrders / (double)totalOrders * 100));
+                            ((double)closedOrders / (double)totalOrders * 100)); */
                         model.CustomerCount = connection.Count<CustomerRow>();
                         model.ProductCount = connection.Count<ProductRow>();
                         model.DesignCount = connection.Count<DesignRow>();
                         model.ProjectCount = connection.Count<ProjectsRow>();
-                      /*  model.ProjectAproved = connection.Count<ProjectsRow>(p.Started == 1); */
+                      model.ProjectAproved = connection.Count<ProjectsRow>(p.Aproved == 1); 
                     }
                     return model;
                 });

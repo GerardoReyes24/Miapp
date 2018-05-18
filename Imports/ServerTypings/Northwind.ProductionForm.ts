@@ -11,6 +11,7 @@
         Perforation35: Serenity.IntegerEditor;
         RauterM: Serenity.IntegerEditor;
         FormatM: Serenity.IntegerEditor;
+        FormatM2: Serenity.IntegerEditor;
         TotalOrder: Serenity.IntegerEditor;
         ClosedOrder: Serenity.IntegerEditor;
         OrderInTime: Serenity.IntegerEditor;
@@ -44,6 +45,7 @@
                     'Perforation35', w2,
                     'RauterM', w2,
                     'FormatM', w2,
+                    'FormatM2', w2,
                     'TotalOrder', w2,
                     'ClosedOrder', w2,
                     'OrderInTime', w2,

@@ -8,7 +8,7 @@ namespace Miapp2.Northwind
     [DisplayName("Northwind")]
     public class PermissionKeys
     {
-        [DisplayName("Customers")]
+        [DisplayName("Clientes")]
         public class Customer
         {
             [ImplicitPermission(General), ImplicitPermission(View)]
@@ -16,6 +16,16 @@ namespace Miapp2.Northwind
             [Description("Create/Update"), ImplicitPermission(General), ImplicitPermission(View)]
             public const string Modify = "Northwind:Customer:Modify";
             public const string View = "Northwind:Customer:View";
+        }
+
+        [DisplayName ("Proyectos")]
+        public class Projects
+        {
+            [ImplicitPermission(General), ImplicitPermission(View)]
+            public const string Delete = "Northwind:Projects:Delete";
+            [Description("Create/Update"), ImplicitPermission(General), ImplicitPermission(View)]
+            public const string Modify = "Northwind:Projects:Modify";
+            public const string View = "Northwind:Projects:View";
         }
 
         [Description("[General]")]

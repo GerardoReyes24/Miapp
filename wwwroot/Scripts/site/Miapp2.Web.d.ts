@@ -439,7 +439,7 @@ declare namespace Miapp2.BasicSamples {
 declare namespace Miapp2.BasicSamples {
     namespace CustomerGrossSalesService {
         const baseUrl = "BasicSamples/CustomerGrossSales";
-        function List(request: CustomerGrossSalesListRequest, onSuccess?: (response: Serenity.ListResponse<Northwind.CustomerGrossSalesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: CustomerGrossSalesListRequest, onSuccess?: (response: Serenity.ListResponse<Northwind.ProductionreportRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             List = "BasicSamples/CustomerGrossSales/List",
         }
@@ -594,6 +594,23 @@ declare namespace Miapp2.BasicSamples {
     }
 }
 declare namespace Miapp2.BasicSamples {
+}
+declare namespace Miapp2.BasicSamples {
+    interface ProductionreportListRequest extends Serenity.ListRequest {
+        StartDate?: string;
+        EndDate?: string;
+    }
+}
+declare namespace Miapp2.BasicSamples {
+    namespace ProductionreportService {
+        const baseUrl = "Northwind/Productionreport";
+        function List(request: ProductionreportListRequest, onSuccess?: (response: Serenity.ListResponse<Northwind.ProductionreportRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            List = "Northwind/Productionreport/List",
+        }
+    }
+}
+declare namespace Miapp2.BasicSamples {
     interface StaticTextBlockForm {
         StaticText: StaticTextBlock;
         SomeInput: Serenity.StringEditor;
@@ -688,6 +705,54 @@ declare namespace Miapp2 {
     interface GetNextNumberResponse extends Serenity.ServiceResponse {
         Number?: number;
         Serial?: string;
+    }
+}
+declare namespace Miapp2.ImportFiles {
+    interface PruebaForm {
+        Type1: Serenity.StringEditor;
+        Type2: Serenity.IntegerEditor;
+        Type3: Serenity.DecimalEditor;
+    }
+    class PruebaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace Miapp2.ImportFiles {
+    interface PruebaRow {
+        Type1?: string;
+        Type2?: number;
+        Type3?: number;
+    }
+    namespace PruebaRow {
+        const idProperty = "Type1";
+        const nameProperty = "Type1";
+        const localTextPrefix = "ImportFiles.Prueba";
+        const enum Fields {
+            Type1 = "Type1",
+            Type2 = "Type2",
+            Type3 = "Type3",
+        }
+    }
+}
+declare namespace Miapp2.ImportFiles {
+    namespace PruebaService {
+        const baseUrl = "ImportFiles/Prueba";
+        function Create(request: Serenity.SaveRequest<PruebaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PruebaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PruebaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PruebaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function ExcelImport(request: ExcelImportRequest, onSuccess?: (response: ExcelImportResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ImportFiles/Prueba/Create",
+            Update = "ImportFiles/Prueba/Update",
+            Delete = "ImportFiles/Prueba/Delete",
+            Retrieve = "ImportFiles/Prueba/Retrieve",
+            List = "ImportFiles/Prueba/List",
+            ExcelImport = "ImportFiles/Prueba/ExcelImport",
+        }
     }
 }
 declare namespace Miapp2.Membership {
@@ -1166,6 +1231,28 @@ declare namespace Miapp2.Northwind {
             Delete = "Northwind/Design/Delete",
             Retrieve = "Northwind/Design/Retrieve",
             List = "Northwind/Design/List",
+        }
+    }
+}
+declare namespace Miapp2.Northwind {
+    interface DesignStatusRow {
+        ProjectID?: number;
+        Blueprints?: boolean;
+        PorposalFirst?: boolean;
+        Measures?: boolean;
+        Corrections?: boolean;
+        PorposalFinal?: boolean;
+    }
+    namespace DesignStatusRow {
+        const idProperty = "ProjectID";
+        const localTextPrefix = "Northwind.DesignStatus";
+        const enum Fields {
+            ProjectID = "ProjectID",
+            Blueprints = "Blueprints",
+            PorposalFirst = "PorposalFirst",
+            Measures = "Measures",
+            Corrections = "Corrections",
+            PorposalFinal = "PorposalFinal",
         }
     }
 }
@@ -1650,6 +1737,12 @@ declare namespace Miapp2.Northwind {
         constructor(prefix: string);
     }
 }
+declare namespace Miapp2.Northwind.Production {
+    interface ProductionListRequest extends Serenity.ListRequest {
+        StartDate?: string;
+        EndDate?: string;
+    }
+}
 declare namespace Miapp2.Northwind {
 }
 declare namespace Miapp2.Northwind {
@@ -1665,6 +1758,7 @@ declare namespace Miapp2.Northwind {
         Perforation35: Serenity.IntegerEditor;
         RauterM: Serenity.IntegerEditor;
         FormatM: Serenity.IntegerEditor;
+        FormatM2: Serenity.IntegerEditor;
         TotalOrder: Serenity.IntegerEditor;
         ClosedOrder: Serenity.IntegerEditor;
         OrderInTime: Serenity.IntegerEditor;
@@ -1674,6 +1768,19 @@ declare namespace Miapp2.Northwind {
         static formKey: string;
         private static init;
         constructor(prefix: string);
+    }
+}
+declare namespace Miapp2.Northwind {
+    interface ProductionreportRow {
+        CutterM?: number;
+        Perforation5?: number;
+    }
+    namespace ProductionreportRow {
+        const localTextPrefix = "Northwind.Productionreport";
+        const enum Fields {
+            CutterM = "CutterM",
+            Perforation5 = "Perforation5",
+        }
     }
 }
 declare namespace Miapp2.Northwind {
@@ -1690,6 +1797,7 @@ declare namespace Miapp2.Northwind {
         Perforation35?: number;
         RauterM?: number;
         FormatM?: number;
+        FormatM2?: number;
         TotalOrder?: number;
         ClosedOrder?: number;
         OrderInTime?: number;
@@ -1711,6 +1819,7 @@ declare namespace Miapp2.Northwind {
             Perforation35 = "Perforation35",
             RauterM = "RauterM",
             FormatM = "FormatM",
+            FormatM2 = "FormatM2",
             TotalOrder = "TotalOrder",
             ClosedOrder = "ClosedOrder",
             OrderInTime = "OrderInTime",
@@ -1725,7 +1834,7 @@ declare namespace Miapp2.Northwind {
         function Update(request: Serenity.SaveRequest<ProductionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProductionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProductionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Northwind.Production.ProductionListRequest, onSuccess?: (response: Serenity.ListResponse<ProductionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Northwind/Production/Create",
             Update = "Northwind/Production/Update",
@@ -1736,60 +1845,28 @@ declare namespace Miapp2.Northwind {
     }
 }
 declare namespace Miapp2.Northwind {
-}
-declare namespace Miapp2.Northwind {
-    interface ProductionStForm {
-        DetailId: Serenity.IntegerEditor;
-        Cutter: Serenity.EnumEditor;
-        Cnc: Serenity.EnumEditor;
-        Plating: Serenity.EnumEditor;
-        Armed: Serenity.EnumEditor;
-        Packed: Serenity.EnumEditor;
-    }
-    class ProductionStForm extends Serenity.PrefixedContext {
-        static formKey: string;
-        private static init;
-        constructor(prefix: string);
-    }
-}
-declare namespace Miapp2.Northwind {
     interface ProductionStRow {
-        ProductionStId?: number;
-        DetailId?: number;
+        DetailID?: number;
         Cutter?: ProdStatus;
         Cnc?: ProdStatus;
         Plating?: ProdStatus;
+        Detailed?: ProdStatus;
         Armed?: ProdStatus;
         Packed?: ProdStatus;
+        Installed?: ProdStatus;
     }
     namespace ProductionStRow {
-        const idProperty = "ProductionStId";
+        const idProperty = "DetailID";
         const localTextPrefix = "Northwind.ProductionSt";
         const enum Fields {
-            ProductionStId = "ProductionStId",
-            DetailId = "DetailId",
+            DetailID = "DetailID",
             Cutter = "Cutter",
             Cnc = "Cnc",
             Plating = "Plating",
+            Detailed = "Detailed",
             Armed = "Armed",
             Packed = "Packed",
-        }
-    }
-}
-declare namespace Miapp2.Northwind {
-    namespace ProductionStService {
-        const baseUrl = "Northwind/ProductionSt";
-        function Create(request: Serenity.SaveRequest<ProductionStRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ProductionStRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProductionStRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProductionStRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        const enum Methods {
-            Create = "Northwind/ProductionSt/Create",
-            Update = "Northwind/ProductionSt/Update",
-            Delete = "Northwind/ProductionSt/Delete",
-            Retrieve = "Northwind/ProductionSt/Retrieve",
-            List = "Northwind/ProductionSt/List",
+            Installed = "Installed",
         }
     }
 }
@@ -1959,7 +2036,14 @@ declare namespace Miapp2.Northwind {
         Width: Serenity.DecimalEditor;
         High: Serenity.DecimalEditor;
         Deep: Serenity.DecimalEditor;
-        Observaciones: Serenity.StringEditor;
+        Observaciones: Serenity.TextAreaEditor;
+        Cutter: Serenity.EnumEditor;
+        Cnc: Serenity.EnumEditor;
+        Plating: Serenity.EnumEditor;
+        Detailed: Serenity.EnumEditor;
+        Armed: Serenity.EnumEditor;
+        Packed: Serenity.EnumEditor;
+        Installed: Serenity.EnumEditor;
     }
     class ProjectDetailsForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -1969,48 +2053,69 @@ declare namespace Miapp2.Northwind {
 }
 declare namespace Miapp2.Northwind {
     interface ProjectDetailsRow {
-        DetailId?: number;
-        ProjectId?: number;
+        DetailID?: number;
+        ProjectID?: number;
         DesignTypeId?: number;
         Width?: number;
         Deep?: number;
         High?: number;
         Observaciones?: string;
-        DesignType?: string;
+        DesType?: string;
         ProjectCustomerId?: string;
         ProjectProjectName?: string;
         ProjectDescription?: string;
         ProjectRequiredDate?: string;
         ProjectPriorityId?: number;
         ProjectAproved?: boolean;
+        Cutter?: ProdStatus;
+        Cnc?: ProdStatus;
+        Plating?: ProdStatus;
+        Detailed?: ProdStatus;
+        Armed?: ProdStatus;
+        Packed?: ProdStatus;
+        Installed?: ProdStatus;
     }
     namespace ProjectDetailsRow {
-        const idProperty = "DetailId";
+        const idProperty = "DetailID";
+        const nameProperty = "DesType";
         const localTextPrefix = "Northwind.ProjectDetails";
         const enum Fields {
-            DetailId = "DetailId",
-            ProjectId = "ProjectId",
+            DetailID = "DetailID",
+            ProjectID = "ProjectID",
             DesignTypeId = "DesignTypeId",
             Width = "Width",
             Deep = "Deep",
             High = "High",
             Observaciones = "Observaciones",
-            DesignType = "DesignType",
+            DesType = "DesType",
             ProjectCustomerId = "ProjectCustomerId",
             ProjectProjectName = "ProjectProjectName",
             ProjectDescription = "ProjectDescription",
             ProjectRequiredDate = "ProjectRequiredDate",
             ProjectPriorityId = "ProjectPriorityId",
             ProjectAproved = "ProjectAproved",
+            Cutter = "Cutter",
+            Cnc = "Cnc",
+            Plating = "Plating",
+            Detailed = "Detailed",
+            Armed = "Armed",
+            Packed = "Packed",
+            Installed = "Installed",
         }
     }
 }
 declare namespace Miapp2.Northwind {
     namespace ProjectDetailsService {
         const baseUrl = "Northwind/ProjectDetails";
+        function Create(request: Serenity.SaveRequest<ProjectDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProjectDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProjectDetailsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProjectDetailsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
+            Create = "Northwind/ProjectDetails/Create",
+            Update = "Northwind/ProjectDetails/Update",
+            Delete = "Northwind/ProjectDetails/Delete",
             Retrieve = "Northwind/ProjectDetails/Retrieve",
             List = "Northwind/ProjectDetails/List",
         }
@@ -2027,6 +2132,11 @@ declare namespace Miapp2.Northwind {
         PriorityId: Serenity.LookupEditor;
         Aproved: Serenity.BooleanEditor;
         DetailList: ProjectDetailsEditor;
+        Blueprints: Serenity.BooleanEditor;
+        PorposalFirst: Serenity.BooleanEditor;
+        Measures: Serenity.BooleanEditor;
+        Corrections: Serenity.BooleanEditor;
+        PorposalFinal: Serenity.BooleanEditor;
     }
     class ProjectsForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -2036,12 +2146,12 @@ declare namespace Miapp2.Northwind {
 }
 declare namespace Miapp2.Northwind {
     interface ProjectsListRequest extends Serenity.ListRequest {
-        ProjectId?: number;
+        ProjectID?: number;
     }
 }
 declare namespace Miapp2.Northwind {
     interface ProjectsRow {
-        ProjectId?: number;
+        ProjectID?: number;
         CustomerId?: string;
         ProjectName?: string;
         Description?: string;
@@ -2061,13 +2171,18 @@ declare namespace Miapp2.Northwind {
         CustomerId1?: number;
         PriorityPriorityDescription?: string;
         DetailList?: ProjectDetailsRow[];
+        Blueprints?: boolean;
+        PorposalFirst?: boolean;
+        Measures?: boolean;
+        Corrections?: boolean;
+        PorposalFinal?: boolean;
     }
     namespace ProjectsRow {
-        const idProperty = "ProjectId";
+        const idProperty = "ProjectID";
         const nameProperty = "CustomerId";
         const localTextPrefix = "Northwind.Projects";
         const enum Fields {
-            ProjectId = "ProjectId",
+            ProjectID = "ProjectID",
             CustomerId = "CustomerId",
             ProjectName = "ProjectName",
             Description = "Description",
@@ -2087,6 +2202,11 @@ declare namespace Miapp2.Northwind {
             CustomerId1 = "CustomerId1",
             PriorityPriorityDescription = "PriorityPriorityDescription",
             DetailList = "DetailList",
+            Blueprints = "Blueprints",
+            PorposalFirst = "PorposalFirst",
+            Measures = "Measures",
+            Corrections = "Corrections",
+            PorposalFinal = "PorposalFinal",
         }
     }
 }
@@ -2372,11 +2492,6 @@ declare namespace Miapp2 {
         };
     }
 }
-declare namespace Miapp2.LanguageList {
-    function getValue(): string[][];
-}
-declare namespace Miapp2.ScriptInitialization {
-}
 declare namespace Miapp2.Administration {
     class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
         protected getFormKey(): string;
@@ -2488,6 +2603,10 @@ declare namespace Miapp2.Administration {
         protected getDefaultSortBy(): UserRow.Fields[];
     }
 }
+declare namespace Miapp2.Authorization {
+    let userDefinition: ScriptUserDefinition;
+    function hasPermission(permissionKey: string): boolean;
+}
 declare namespace Miapp2.Administration {
     class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
         protected getIdProperty(): string;
@@ -2559,469 +2678,15 @@ declare namespace Miapp2.Administration {
         username: string;
     }
 }
-declare namespace Miapp2 {
-    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
-        constructor();
-        cancelled: boolean;
-        max: number;
-        value: number;
-        title: string;
-        cancelTitle: string;
-        getDialogOptions(): JQueryUI.DialogOptions;
-        initDialog(): void;
-        getTemplate(): string;
-    }
-}
-declare namespace Miapp2.Common {
-    class BulkServiceAction {
-        protected keys: string[];
-        protected queue: string[];
-        protected queueIndex: number;
-        protected progressDialog: BasicProgressDialog;
-        protected pendingRequests: number;
-        protected completedRequests: number;
-        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
-        private successCount;
-        private errorCount;
-        done: () => void;
-        protected createProgressDialog(): void;
-        protected getConfirmationFormat(): string;
-        protected getConfirmationMessage(targetCount: any): string;
-        protected confirm(targetCount: any, action: any): void;
-        protected getNothingToProcessMessage(): string;
-        protected nothingToProcess(): void;
-        protected getParallelRequests(): number;
-        protected getBatchSize(): number;
-        protected startParallelExecution(): void;
-        protected serviceCallCleanup(): void;
-        protected executeForBatch(batch: string[]): void;
-        protected executeNextBatch(): void;
-        protected getAllHadErrorsFormat(): string;
-        protected showAllHadErrors(): void;
-        protected getSomeHadErrorsFormat(): string;
-        protected showSomeHadErrors(): void;
-        protected getAllSuccessFormat(): string;
-        protected showAllSuccess(): void;
-        protected showResults(): void;
-        execute(keys: string[]): void;
-        get_successCount(): any;
-        set_successCount(value: number): void;
-        get_errorCount(): any;
-        set_errorCount(value: number): void;
-    }
-}
-declare namespace Miapp2.DialogUtils {
-    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
-}
-declare namespace Miapp2.Common {
-    class EnumSelectFormatter implements Slick.Formatter {
-        constructor();
-        format(ctx: Slick.FormatterContext): string;
-        enumKey: string;
-        allowClear: boolean;
-        emptyItemText: string;
-    }
-}
-declare namespace Miapp2.Common {
-    interface ExcelExportOptions {
-        grid: Serenity.DataGrid<any, any>;
-        service: string;
-        onViewSubmit: () => boolean;
-        title?: string;
-        hint?: string;
-        separator?: boolean;
-    }
-    namespace ExcelExportHelper {
-        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
-    }
-}
-declare namespace Miapp2.Common {
-    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        protected getIdProperty(): string;
-        protected nextId: number;
-        constructor(container: JQuery);
-        protected id(entity: TEntity): any;
-        protected getNextId(): string;
-        protected setNewId(entity: TEntity): void;
-        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
-        protected deleteEntity(id: number): boolean;
-        protected validateEntity(row: TEntity, id: number): boolean;
-        protected setEntities(items: TEntity[]): void;
-        protected getNewEntity(): TEntity;
-        protected getButtons(): Serenity.ToolButton[];
-        protected editItem(entityOrId: any): void;
-        getEditValue(property: any, target: any): void;
-        setEditValue(source: any, property: any): void;
-        value: TEntity[];
-        protected getGridCanLoad(): boolean;
-        protected usePager(): boolean;
-        protected getInitialTitle(): any;
-        protected createQuickSearchInput(): void;
-    }
-}
-declare namespace Miapp2.Common {
-    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
-        protected getIdProperty(): string;
-        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
-        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
-        destroy(): void;
-        protected updateInterface(): void;
-        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
-        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
-    }
-}
-declare namespace Miapp2 {
-    /**
-     * This is an editor widget but it only displays a text, not edits it.
-     *
-     */
-    class StaticTextBlock extends Serenity.Widget<StaticTextBlockOptions> implements Serenity.ISetEditValue {
-        private value;
-        constructor(container: JQuery, options: StaticTextBlockOptions);
-        private updateElementContent();
-        /**
-         * By implementing ISetEditValue interface, we allow this editor to display its field value.
-         * But only do this when our text content is not explicitly set in options
-         */
-        setEditValue(source: any, property: Serenity.PropertyItem): void;
-    }
-    interface StaticTextBlockOptions {
-        text: string;
-        isHtml: boolean;
-        isLocalText: boolean;
-        hideLabel: boolean;
-    }
-}
-declare namespace Miapp2.Common {
-    class LanguageSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery, currentLanguage: string);
-    }
-}
-declare namespace Miapp2.Common {
-    class SidebarSearch extends Serenity.Widget<any> {
-        private menuUL;
-        constructor(input: JQuery, menuUL: JQuery);
-        protected updateMatchFlags(text: string): void;
-    }
-}
-declare namespace Miapp2.Common {
-    class ThemeSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery);
-        protected getCurrentTheme(): string;
-    }
-}
-declare var jsPDF: any;
-declare namespace Miapp2.Common {
-    interface PdfExportOptions {
-        grid: Serenity.DataGrid<any, any>;
-        onViewSubmit: () => boolean;
-        title?: string;
-        hint?: string;
-        separator?: boolean;
-        reportTitle?: string;
-        titleTop?: number;
-        titleFontSize?: number;
-        fileName?: string;
-        pageNumbers?: boolean;
-        columnTitles?: {
-            [key: string]: string;
-        };
-        tableOptions?: jsPDF.AutoTableOptions;
-        output?: string;
-        autoPrint?: boolean;
-        printDateTimeHeader?: boolean;
-    }
-    namespace PdfExportHelper {
-        function exportToPdf(options: PdfExportOptions): void;
-        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
-    }
-}
-declare var jsPDF: any;
-declare namespace Miapp2.Common {
-    class ReportDialog extends Serenity.TemplatedDialog<ReportDialogOptions> {
-        private report;
-        private propertyGrid;
-        constructor(options: ReportDialogOptions);
-        protected getDialogButtons(): any;
-        protected createPropertyGrid(): void;
-        protected loadReport(reportKey: string): void;
-        protected updateInterface(): void;
-        executeReport(target: string, ext: string, download: boolean): void;
-        getToolbarButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-    }
-    interface ReportDialogOptions {
-        reportKey: string;
-    }
-}
-declare namespace Miapp2.Common {
-    interface ReportExecuteOptions {
-        reportKey: string;
-        download?: boolean;
-        extension?: 'pdf' | 'htm' | 'html' | 'xlsx' | 'docx';
-        getParams?: () => any;
-        params?: {
-            [key: string]: any;
-        };
-        target?: string;
-    }
-    interface ReportButtonOptions extends ReportExecuteOptions {
-        title?: string;
-        cssClass?: string;
-        icon?: string;
-    }
-    namespace ReportHelper {
-        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
-        function execute(options: ReportExecuteOptions): void;
-    }
-}
-declare var jsPDF: any;
-declare namespace Miapp2.Common {
-    class ReportPage extends Serenity.Widget<any> {
-        private reportKey;
-        private propertyItems;
-        private propertyGrid;
-        constructor(element: JQuery);
-        protected updateMatchFlags(text: string): void;
-        protected categoryClick(e: any): void;
-        protected reportLinkClick(e: any): void;
-    }
-}
-declare namespace Miapp2.Common {
-    class UserPreferenceStorage implements Serenity.SettingStorage {
-        getItem(key: string): string;
-        setItem(key: string, data: string): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CategoryDialog extends Serenity.EntityDialog<CategoryRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: CategoryForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CategoryGrid extends Serenity.EntityGrid<CategoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CustomerDialog extends Serenity.EntityDialog<CustomerRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: CustomerForm;
-        private ordersGrid;
-        private loadedState;
-        constructor();
-        getSaveState(): string;
-        loadResponse(data: any): void;
-        loadEntity(entity: CustomerRow): void;
-        onSaveSuccess(response: any): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CustomerEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, CustomerRow> {
-        constructor(hidden: JQuery);
-        protected getLookupKey(): string;
-        protected getItemText(item: any, lookup: any): string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CustomerGrid extends Serenity.EntityGrid<CustomerRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace Miapp2.Northwind {
-    class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: OrderForm;
-        constructor();
-        getToolbarButtons(): Serenity.ToolButton[];
-        protected updateInterface(): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CustomerOrderDialog extends OrderDialog {
-        constructor();
-        updateInterface(): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected shippingStateFilter: Serenity.EnumEditor;
-        constructor(container: JQuery);
-        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
-        protected createQuickFilters(): void;
-        protected getButtons(): Serenity.ToolButton[];
-        protected getColumns(): Slick.Column[];
-        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
-        set_shippingState(value: number): void;
-        protected addButtonClick(): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class CustomerOrdersGrid extends OrderGrid {
-        protected getDialogType(): typeof CustomerOrderDialog;
-        constructor(container: JQuery);
-        protected getColumns(): Slick.Column[];
-        protected initEntityDialog(itemType: any, dialog: any): void;
-        protected addButtonClick(): void;
-        protected getInitialTitle(): any;
-        protected getGridCanLoad(): boolean;
-        private _customerID;
-        customerID: string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class EmployeeListFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class DesignDialog extends Serenity.EntityDialog<DesignRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: DesignForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class DesignGrid extends Serenity.EntityGrid<DesignRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        getColumns(): Slick.Column[];
-        getItemCssClass(item: DesignRow, index: number): string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class DesignTypeDialog extends Serenity.EntityDialog<DesignTypeRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: DesignTypeForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class DesignTypeGrid extends Serenity.EntityGrid<DesignTypeRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof DesignTypeDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class EmployeeFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-        genderProperty: string;
-        initializeColumn(column: Slick.Column): void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class NoteDialog extends Serenity.TemplatedDialog<any> {
-        private textEditor;
-        constructor();
+declare var Morris: any;
+declare namespace Miapp2.BasicSamples {
+    class ChartInDialog extends Serenity.TemplatedDialog<any> {
+        private areaChart;
+        static initializePage(): void;
+        protected onDialogOpen(): void;
+        protected arrange(): void;
         protected getTemplate(): string;
         protected getDialogOptions(): JQueryUI.DialogOptions;
-        text: string;
-        okClick: () => void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class NotesEditor extends Serenity.TemplatedWidget<any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        private isDirty;
-        private items;
-        constructor(div: JQuery);
-        protected getTemplate(): string;
-        protected updateContent(): void;
-        protected addClick(): void;
-        protected editClick(e: any): void;
-        deleteClick(e: any): void;
-        value: NoteRow[];
-        getEditValue(prop: Serenity.PropertyItem, target: any): void;
-        setEditValue(source: any, prop: Serenity.PropertyItem): void;
-        get_isDirty(): boolean;
-        set_isDirty(value: any): void;
-        onChange: () => void;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class FreightFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class OrderDetailDialog extends Common.GridEditorDialog<OrderDetailRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: OrderDetailForm;
-        constructor();
-    }
-}
-declare namespace Miapp2.Northwind {
-    class OrderDetailsEditor extends Common.GridEditorBase<OrderDetailRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof OrderDetailDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-        validateEntity(row: any, id: any): boolean;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class PriorityDialog extends Serenity.EntityDialog<PriorityRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: PriorityForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class PriorityGrid extends Serenity.EntityGrid<PriorityRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof PriorityDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
     }
 }
 declare namespace Miapp2.Northwind {
@@ -3032,6 +2697,15 @@ declare namespace Miapp2.Northwind {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: ProductForm;
+    }
+}
+declare namespace Miapp2.BasicSamples {
+    class CloneableEntityDialog extends Northwind.ProductDialog {
+        protected updateInterface(): void;
+        /**
+         * Overriding this method is optional to customize cloned entity
+         */
+        protected getCloningEntity(): Northwind.ProductRow;
     }
 }
 declare namespace Miapp2.Northwind {
@@ -3064,214 +2738,22 @@ declare namespace Miapp2.Northwind {
         protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
     }
 }
-declare namespace Miapp2.Northwind {
-    class ProductionDialog extends Serenity.EntityDialog<ProductionRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: ProductionForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProductionGrid extends Serenity.EntityGrid<ProductionRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ProductionDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProductionStDialog extends Serenity.EntityDialog<ProductionStRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: ProductionStForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProductionStGrid extends Serenity.EntityGrid<ProductionStRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ProductionStDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProjectDetailsDialog extends Common.GridEditorDialog<ProjectDetailsRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: ProjectDetailsForm;
-        constructor();
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProjectDetailsEditor extends Common.GridEditorBase<ProjectDetailsRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ProjectDetailsDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProjectsDialog extends Serenity.EntityDialog<ProjectsRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: ProjectsForm;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ProjectsGrid extends Serenity.EntityGrid<ProjectsRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ProjectsDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: RegionForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Miapp2.Northwind {
-    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class PhoneEditor extends Serenity.StringEditor {
-        constructor(input: JQuery);
-        protected formatValue(): void;
-        protected getFormattedValue(): string;
-        multiple: boolean;
-        get_value(): string;
-        set_value(value: string): void;
-        static validate(phone: string, isMultiple: boolean): string;
-        static isValidPhone(phone: string): boolean;
-        static formatPhone(phone: any): any;
-        static formatMulti(phone: string, format: (s: string) => string): string;
-        static isValidMulti(phone: string, check: (s: string) => boolean): boolean;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ShipperDialog extends Serenity.EntityDialog<ShipperRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: ShipperForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ShipperFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace Miapp2.Northwind {
-    class ShipperGrid extends Serenity.EntityGrid<ShipperRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class SupplierDialog extends Serenity.EntityDialog<SupplierRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: SupplierForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Miapp2.Northwind {
-    class SupplierGrid extends Serenity.EntityGrid<SupplierRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Northwind {
-    class TerritoryDialog extends Serenity.EntityDialog<TerritoryRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: TerritoryForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Miapp2.Northwind {
-    class TerritoryGrid extends Serenity.EntityGrid<TerritoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Miapp2.Authorization {
-    let userDefinition: ScriptUserDefinition;
-    function hasPermission(permissionKey: string): boolean;
-}
-declare var Morris: any;
-declare namespace Miapp2.BasicSamples {
-    class ChartInDialog extends Serenity.TemplatedDialog<any> {
-        private areaChart;
-        static initializePage(): void;
-        protected onDialogOpen(): void;
-        protected arrange(): void;
-        protected getTemplate(): string;
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-    }
-}
-declare namespace Miapp2.BasicSamples {
-    class CloneableEntityDialog extends Northwind.ProductDialog {
-        protected updateInterface(): void;
-        /**
-         * Overriding this method is optional to customize cloned entity
-         */
-        protected getCloningEntity(): Northwind.ProductRow;
-    }
-}
 declare namespace Miapp2.BasicSamples {
     /**
      * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
      */
     class CloneableEntityGrid extends Northwind.ProductGrid {
         protected getDialogType(): typeof CloneableEntityDialog;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
         constructor(container: JQuery);
     }
 }
@@ -3290,6 +2772,19 @@ declare namespace Miapp2.BasicSamples {
 declare namespace Miapp2.BasicSamples.DialogBoxes {
     function initializePage(): void;
 }
+declare namespace Miapp2.Northwind {
+    class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: OrderForm;
+        constructor();
+        getToolbarButtons(): Serenity.ToolButton[];
+        protected updateInterface(): void;
+    }
+}
 declare namespace Miapp2.BasicSamples {
     /**
      * A version of order dialog converted to a panel by adding Serenity.Decorators.panel decorator.
@@ -3298,6 +2793,16 @@ declare namespace Miapp2.BasicSamples {
         constructor();
         protected updateInterface(): void;
         protected onSaveSuccess(response: any): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class CategoryDialog extends Serenity.EntityDialog<CategoryRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: CategoryForm;
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3309,6 +2814,16 @@ declare namespace Miapp2.BasicSamples {
          * @param response Response that is returned from server
          */
         protected onSaveSuccess(response: Serenity.SaveResponse): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class CategoryGrid extends Serenity.EntityGrid<CategoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3416,6 +2931,17 @@ declare namespace Miapp2.BasicSamples {
         constructor(container: JQuery);
     }
 }
+declare namespace Miapp2.Northwind {
+    class SupplierDialog extends Serenity.EntityDialog<SupplierRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SupplierForm;
+        protected getLanguages(): string[][];
+    }
+}
 declare namespace Miapp2.BasicSamples {
     class ReadOnlyDialog extends Northwind.SupplierDialog {
         /**
@@ -3446,6 +2972,16 @@ declare namespace Miapp2.BasicSamples {
          * and updates the dialog title. We could do it here too...
          */
         protected updateTitle(): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class SupplierGrid extends Serenity.EntityGrid<SupplierRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3483,11 +3019,39 @@ declare namespace Miapp2.BasicSamples {
         constructor(container: JQuery);
     }
 }
+declare namespace Miapp2.Northwind {
+    class CustomerDialog extends Serenity.EntityDialog<CustomerRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: CustomerForm;
+        private ordersGrid;
+        private loadedState;
+        constructor();
+        getSaveState(): string;
+        loadResponse(data: any): void;
+        loadEntity(entity: CustomerRow): void;
+        onSaveSuccess(response: any): void;
+    }
+}
 declare namespace Miapp2.BasicSamples {
     class SerialAutoNumberDialog extends Northwind.CustomerDialog {
         constructor();
         protected afterLoadEntity(): void;
         private getNextNumber();
+    }
+}
+declare namespace Miapp2.Northwind {
+    class CustomerGrid extends Serenity.EntityGrid<CustomerRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3497,6 +3061,17 @@ declare namespace Miapp2.BasicSamples {
     class SerialAutoNumberGrid extends Northwind.CustomerGrid {
         protected getDialogType(): typeof SerialAutoNumberDialog;
         constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Common {
+    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
+        protected getIdProperty(): string;
+        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
+        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
+        destroy(): void;
+        protected updateInterface(): void;
+        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
+        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3518,6 +3093,14 @@ declare namespace Miapp2.BasicSamples {
         protected getItemText(item: Northwind.ProductRow, lookup: Q.Lookup<Northwind.ProductRow>): string;
     }
 }
+declare namespace Miapp2.Northwind {
+    class OrderDetailDialog extends Common.GridEditorDialog<OrderDetailRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: OrderDetailForm;
+        constructor();
+    }
+}
 declare namespace Miapp2.BasicSamples {
     /**
      * Our subclass of order detail dialog with a CategoryID property
@@ -3531,6 +3114,39 @@ declare namespace Miapp2.BasicSamples {
          */
         protected beforeLoadEntity(entity: any): void;
         categoryID: number;
+    }
+}
+declare namespace Miapp2.Common {
+    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
+        protected getIdProperty(): string;
+        protected nextId: number;
+        constructor(container: JQuery);
+        protected id(entity: TEntity): any;
+        protected getNextId(): string;
+        protected setNewId(entity: TEntity): void;
+        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
+        protected deleteEntity(id: number): boolean;
+        protected validateEntity(row: TEntity, id: number): boolean;
+        protected setEntities(items: TEntity[]): void;
+        protected getNewEntity(): TEntity;
+        protected getButtons(): Serenity.ToolButton[];
+        protected editItem(entityOrId: any): void;
+        getEditValue(property: any, target: any): void;
+        setEditValue(source: any, property: any): void;
+        value: TEntity[];
+        protected getGridCanLoad(): boolean;
+        protected usePager(): boolean;
+        protected getInitialTitle(): any;
+        protected createQuickSearchInput(): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class OrderDetailsEditor extends Common.GridEditorBase<OrderDetailRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof OrderDetailDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+        validateEntity(row: any, id: any): boolean;
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3653,6 +3269,44 @@ declare namespace Miapp2.BasicSamples {
          */
         protected loadInitialEntity(): void;
         protected getDialogOptions(): JQueryUI.DialogOptions;
+    }
+}
+declare namespace Miapp2.Common {
+    class BulkServiceAction {
+        protected keys: string[];
+        protected queue: string[];
+        protected queueIndex: number;
+        protected progressDialog: BasicProgressDialog;
+        protected pendingRequests: number;
+        protected completedRequests: number;
+        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
+        private successCount;
+        private errorCount;
+        done: () => void;
+        protected createProgressDialog(): void;
+        protected getConfirmationFormat(): string;
+        protected getConfirmationMessage(targetCount: any): string;
+        protected confirm(targetCount: any, action: any): void;
+        protected getNothingToProcessMessage(): string;
+        protected nothingToProcess(): void;
+        protected getParallelRequests(): number;
+        protected getBatchSize(): number;
+        protected startParallelExecution(): void;
+        protected serviceCallCleanup(): void;
+        protected executeForBatch(batch: string[]): void;
+        protected executeNextBatch(): void;
+        protected getAllHadErrorsFormat(): string;
+        protected showAllHadErrors(): void;
+        protected getSomeHadErrorsFormat(): string;
+        protected showSomeHadErrors(): void;
+        protected getAllSuccessFormat(): string;
+        protected showAllSuccess(): void;
+        protected showResults(): void;
+        execute(keys: string[]): void;
+        get_successCount(): any;
+        set_successCount(value: number): void;
+        get_errorCount(): any;
+        set_errorCount(value: number): void;
     }
 }
 declare namespace Miapp2.BasicSamples {
@@ -3936,6 +3590,196 @@ declare namespace Miapp2.BasicSamples {
         constructor(container: JQuery);
     }
 }
+declare namespace Miapp2.LanguageList {
+    function getValue(): string[][];
+}
+declare namespace Miapp2.ScriptInitialization {
+}
+declare namespace Miapp2 {
+    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
+        constructor();
+        cancelled: boolean;
+        max: number;
+        value: number;
+        title: string;
+        cancelTitle: string;
+        getDialogOptions(): JQueryUI.DialogOptions;
+        initDialog(): void;
+        getTemplate(): string;
+    }
+}
+declare namespace Miapp2.DialogUtils {
+    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
+}
+declare namespace Miapp2.Common {
+    class EnumSelectFormatter implements Slick.Formatter {
+        constructor();
+        format(ctx: Slick.FormatterContext): string;
+        enumKey: string;
+        allowClear: boolean;
+        emptyItemText: string;
+    }
+}
+declare namespace Miapp2.Common {
+    interface ExcelExportOptions {
+        grid: Serenity.DataGrid<any, any>;
+        service: string;
+        onViewSubmit: () => boolean;
+        title?: string;
+        hint?: string;
+        separator?: boolean;
+    }
+    namespace ExcelExportHelper {
+        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
+    }
+}
+declare namespace Miapp2 {
+    /**
+     * This is an editor widget but it only displays a text, not edits it.
+     *
+     */
+    class StaticTextBlock extends Serenity.Widget<StaticTextBlockOptions> implements Serenity.ISetEditValue {
+        private value;
+        constructor(container: JQuery, options: StaticTextBlockOptions);
+        private updateElementContent();
+        /**
+         * By implementing ISetEditValue interface, we allow this editor to display its field value.
+         * But only do this when our text content is not explicitly set in options
+         */
+        setEditValue(source: any, property: Serenity.PropertyItem): void;
+    }
+    interface StaticTextBlockOptions {
+        text: string;
+        isHtml: boolean;
+        isLocalText: boolean;
+        hideLabel: boolean;
+    }
+}
+declare namespace Miapp2.Common {
+    class LanguageSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery, currentLanguage: string);
+    }
+}
+declare namespace Miapp2.Common {
+    class SidebarSearch extends Serenity.Widget<any> {
+        private menuUL;
+        constructor(input: JQuery, menuUL: JQuery);
+        protected updateMatchFlags(text: string): void;
+    }
+}
+declare namespace Miapp2.Common {
+    class ThemeSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery);
+        protected getCurrentTheme(): string;
+    }
+}
+declare var jsPDF: any;
+declare namespace Miapp2.Common {
+    interface PdfExportOptions {
+        grid: Serenity.DataGrid<any, any>;
+        onViewSubmit: () => boolean;
+        title?: string;
+        hint?: string;
+        separator?: boolean;
+        reportTitle?: string;
+        titleTop?: number;
+        titleFontSize?: number;
+        fileName?: string;
+        pageNumbers?: boolean;
+        columnTitles?: {
+            [key: string]: string;
+        };
+        tableOptions?: jsPDF.AutoTableOptions;
+        output?: string;
+        autoPrint?: boolean;
+        printDateTimeHeader?: boolean;
+    }
+    namespace PdfExportHelper {
+        function exportToPdf(options: PdfExportOptions): void;
+        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
+    }
+}
+declare var jsPDF: any;
+declare namespace Miapp2.Common {
+    class ReportDialog extends Serenity.TemplatedDialog<ReportDialogOptions> {
+        private report;
+        private propertyGrid;
+        constructor(options: ReportDialogOptions);
+        protected getDialogButtons(): any;
+        protected createPropertyGrid(): void;
+        protected loadReport(reportKey: string): void;
+        protected updateInterface(): void;
+        executeReport(target: string, ext: string, download: boolean): void;
+        getToolbarButtons(): {
+            title: string;
+            cssClass: string;
+            onClick: () => void;
+        }[];
+    }
+    interface ReportDialogOptions {
+        reportKey: string;
+    }
+}
+declare namespace Miapp2.Common {
+    interface ReportExecuteOptions {
+        reportKey: string;
+        download?: boolean;
+        extension?: 'pdf' | 'htm' | 'html' | 'xlsx' | 'docx';
+        getParams?: () => any;
+        params?: {
+            [key: string]: any;
+        };
+        target?: string;
+    }
+    interface ReportButtonOptions extends ReportExecuteOptions {
+        title?: string;
+        cssClass?: string;
+        icon?: string;
+    }
+    namespace ReportHelper {
+        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
+        function execute(options: ReportExecuteOptions): void;
+    }
+}
+declare var jsPDF: any;
+declare namespace Miapp2.Common {
+    class ReportPage extends Serenity.Widget<any> {
+        private reportKey;
+        private propertyItems;
+        private propertyGrid;
+        constructor(element: JQuery);
+        protected updateMatchFlags(text: string): void;
+        protected categoryClick(e: any): void;
+        protected reportLinkClick(e: any): void;
+    }
+}
+declare namespace Miapp2.Common {
+    class UserPreferenceStorage implements Serenity.SettingStorage {
+        getItem(key: string): string;
+        setItem(key: string, data: string): void;
+    }
+}
+declare namespace Miapp2.ImportFiles {
+    class PruebaDialog extends Serenity.EntityDialog<PruebaRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PruebaForm;
+    }
+}
+declare namespace Miapp2.ImportFiles {
+    class PruebaGrid extends Serenity.EntityGrid<PruebaRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PruebaDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getButtons(): Serenity.ToolButton[];
+    }
+}
 declare namespace Miapp2.Membership {
     class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
         protected getFormKey(): string;
@@ -3963,4 +3807,301 @@ declare namespace Miapp2.Membership {
         private form;
         constructor(container: JQuery);
     }
+}
+declare namespace Miapp2.Northwind {
+    class CustomerEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, CustomerRow> {
+        constructor(hidden: JQuery);
+        protected getLookupKey(): string;
+        protected getItemText(item: any, lookup: any): string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class CustomerOrderDialog extends OrderDialog {
+        constructor();
+        updateInterface(): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class CustomerOrdersGrid extends OrderGrid {
+        protected getDialogType(): typeof CustomerOrderDialog;
+        constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected initEntityDialog(itemType: any, dialog: any): void;
+        protected addButtonClick(): void;
+        protected getInitialTitle(): any;
+        protected getGridCanLoad(): boolean;
+        private _customerID;
+        customerID: string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class EmployeeListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class DesignDialog extends Serenity.EntityDialog<DesignRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: DesignForm;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class DesignGrid extends Serenity.EntityGrid<DesignRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getColumns(): Slick.Column[];
+        getItemCssClass(item: DesignRow, index: number): string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class DesignTypeDialog extends Serenity.EntityDialog<DesignTypeRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: DesignTypeForm;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class DesignTypeGrid extends Serenity.EntityGrid<DesignTypeRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof DesignTypeDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class EmployeeFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+        genderProperty: string;
+        initializeColumn(column: Slick.Column): void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class NoteDialog extends Serenity.TemplatedDialog<any> {
+        private textEditor;
+        constructor();
+        protected getTemplate(): string;
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        text: string;
+        okClick: () => void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class NotesEditor extends Serenity.TemplatedWidget<any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
+        private isDirty;
+        private items;
+        constructor(div: JQuery);
+        protected getTemplate(): string;
+        protected updateContent(): void;
+        protected addClick(): void;
+        protected editClick(e: any): void;
+        deleteClick(e: any): void;
+        value: NoteRow[];
+        getEditValue(prop: Serenity.PropertyItem, target: any): void;
+        setEditValue(source: any, prop: Serenity.PropertyItem): void;
+        get_isDirty(): boolean;
+        set_isDirty(value: any): void;
+        onChange: () => void;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class FreightFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class PriorityDialog extends Serenity.EntityDialog<PriorityRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PriorityForm;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class PriorityGrid extends Serenity.EntityGrid<PriorityRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PriorityDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProductionDialog extends Serenity.EntityDialog<ProductionRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: ProductionForm;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProductionGrid extends Serenity.EntityGrid<ProductionRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProductionDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProductionSummariesInGrid extends Northwind.ProductionGrid {
+        constructor(container: JQuery);
+        protected getButtons(): Serenity.ToolButton[];
+        protected createSlickGrid(): Slick.Grid;
+        protected getSlickOptions(): Slick.GridOptions;
+        protected usePager(): boolean;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProductionreportGrid extends Serenity.EntityGrid<Northwind.ProductionreportRow, any> {
+        protected getColumnsKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        private nextId;
+        constructor(container: JQuery);
+        7: any;
+        protected createSlickGrid(): Slick.Grid;
+        protected getSlickOptions(): Slick.GridOptions;
+        protected usePager(): boolean;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProjectDetailsDialog extends Common.GridEditorDialog<ProjectDetailsRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: ProjectDetailsForm;
+        constructor();
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProjectDetailsEditor extends Common.GridEditorBase<ProjectDetailsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectDetailsDialog;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        validateEntity(row: any, id: any): boolean;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProjectsDialog extends Serenity.EntityDialog<ProjectsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ProjectsForm;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ProjectsGrid extends Serenity.EntityGrid<ProjectsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProjectsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RegionForm;
+        protected getLanguages(): string[][];
+    }
+}
+declare namespace Miapp2.Northwind {
+    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class PhoneEditor extends Serenity.StringEditor {
+        constructor(input: JQuery);
+        protected formatValue(): void;
+        protected getFormattedValue(): string;
+        multiple: boolean;
+        get_value(): string;
+        set_value(value: string): void;
+        static validate(phone: string, isMultiple: boolean): string;
+        static isValidPhone(phone: string): boolean;
+        static formatPhone(phone: any): any;
+        static formatMulti(phone: string, format: (s: string) => string): string;
+        static isValidMulti(phone: string, check: (s: string) => boolean): boolean;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ShipperDialog extends Serenity.EntityDialog<ShipperRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ShipperForm;
+        protected getLanguages(): string[][];
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ShipperFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace Miapp2.Northwind {
+    class ShipperGrid extends Serenity.EntityGrid<ShipperRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.Northwind {
+    class TerritoryDialog extends Serenity.EntityDialog<TerritoryRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: TerritoryForm;
+        protected getLanguages(): string[][];
+    }
+}
+declare namespace Miapp2.Northwind {
+    class TerritoryGrid extends Serenity.EntityGrid<TerritoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Miapp2.ImportFiles {
 }

@@ -41,3 +41,4 @@ namespace Miapp2.Northwind.Columns
         public Decimal? Freight { get; set; }
     }
 }
+

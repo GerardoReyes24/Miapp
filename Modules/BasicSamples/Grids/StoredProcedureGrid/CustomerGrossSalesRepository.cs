@@ -4,7 +4,7 @@
     using Serenity.Services;
     using System.Collections.Generic;
     using System.Data;
-    using MyRow = Northwind.Entities.CustomerGrossSalesRow;
+    using MyRow = Northwind.Entities.ProductionreportRow;
 
     public class CustomerGrossSalesRepository
     {
@@ -13,7 +13,7 @@
         public ListResponse<MyRow> List(IDbConnection connection, 
             CustomerGrossSalesListRequest request)
         {
-            var data = connection.Query<MyRow>("CustomerGrossSales",
+            var data = connection.Query<MyRow>("CuttmToT",
                 param: new
                 {
                     startDate = request.StartDate,

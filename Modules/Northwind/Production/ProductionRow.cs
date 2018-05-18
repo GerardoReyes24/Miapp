@@ -99,6 +99,13 @@ namespace Miapp2.Northwind.Entities
             set { Fields.FormatM[this] = value; }
         }
 
+        [DisplayName("Format M2")]
+        public Int32? FormatM2
+        {
+            get { return Fields.FormatM2[this]; }
+            set { Fields.FormatM2[this] = value; }
+        }
+
         [DisplayName("Ordenes Totales")]
         public Int32? TotalOrder
         {
@@ -153,6 +160,7 @@ namespace Miapp2.Northwind.Entities
             public Int32Field Perforation35;
             public Int32Field RauterM;
             public Int32Field FormatM;
+            public Int32Field FormatM2;
             public Int32Field TotalOrder;
             public Int32Field ClosedOrder;
             public Int32Field OrderInTime;

@@ -3,7 +3,7 @@
     import fld = OrderRow.Fields;
 
     @Serenity.Decorators.registerClass()
-    @Serenity.Decorators.filterable()
+ //   @Serenity.Decorators.filterable()
     export class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
         protected getColumnsKey() { return "Northwind.Order"; }
         protected getDialogType() { return <any>OrderDialog; }
@@ -11,13 +11,13 @@
         protected getLocalTextPrefix() { return OrderRow.localTextPrefix; }
         protected getService() { return OrderService.baseUrl; }
 
-        protected shippingStateFilter: Serenity.EnumEditor;
+   //    protected shippingStateFilter: Serenity.EnumEditor;
 
         constructor(container: JQuery) {
             super(container);
         }
 
-        protected getQuickFilters() {
+    /*    protected getQuickFilters() {
             var filters = super.getQuickFilters();
 
             filters.push({
@@ -34,13 +34,14 @@
             });
 
             return filters;
-        }
+        } 
 
         protected createQuickFilters() {
             super.createQuickFilters();
 
             this.shippingStateFilter = this.findQuickFilter(Serenity.EnumEditor, fld.ShippingState);
-        }
+        } */
+        /*
 
         protected getButtons()
         {
@@ -59,8 +60,8 @@
             }));
 
             return buttons;
-        }
-
+        } */
+        /* 
         protected getColumns() {
             var columns = super.getColumns();
 
@@ -75,8 +76,8 @@
             });
 
             return columns;
-        }
-
+        } */
+        /*
         protected onClick(e: JQueryEventObject, row: number, cell: number) {
             super.onClick(e, row, cell);
 
@@ -103,16 +104,18 @@
                 }
             }
         }
+        /*
 
         public set_shippingState(value: number): void {
             this.shippingStateFilter.value = value == null ? '' : value.toString();
-        }
+        } */
+        /*
 
         protected addButtonClick() {
             var eq = this.view.params.EqualityFilter;
             this.editItem(<OrderRow>{
                 CustomerID: eq ? eq.CustomerID : null
             });
-        }
+        } */
     }
 }

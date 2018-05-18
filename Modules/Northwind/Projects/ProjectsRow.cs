@@ -11,16 +11,21 @@ namespace Miapp2.Northwind.Entities
     using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[Projects]")]
-    [DisplayName("Projects"), InstanceName("Projects")]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [DisplayName("Proyectos"), InstanceName("Projects")]
+    [ReadPermission(PermissionKeys.Projects.View)]
+    [ModifyPermission(PermissionKeys.Projects.Modify)]
+    [DeletePermission(PermissionKeys.Projects.Delete)]
+    [LeftJoin("ds", "DesignStatus", "ds.[ProjectID] = t0.[ProjectID]", RowType = typeof(DesignStatusRow), TitlePrefix = "")]
+    [UpdatableExtension("ds", typeof(DesignStatusRow), CascadeDelete = true)]
+  
+   
     public sealed class ProjectsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Project Id"), Column("ProjectID"), Identity]
-        public Int32? ProjectId
+        public Int32? ProjectID
         {
-            get { return Fields.ProjectId[this]; }
-            set { Fields.ProjectId[this] = value; }
+            get { return Fields.ProjectID[this]; }
+            set { Fields.ProjectID[this] = value; }
         }
 
         [DisplayName("Cliente"), Column("CustomerID"), Size(5), ForeignKey("[dbo].[Customers]", "CustomerID"), LeftJoin("jCustomer"), QuickSearch, TextualField("CustomerCompanyName")]
@@ -144,7 +149,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.CustomerId1[this] = value; }
         }
 
-        [DisplayName("Priority Priority Description"), Expression("jPriority.[PriorityDescription]")]
+        [DisplayName("Prioridad"), Expression("jPriority.[PriorityDescription]")]
         public String PriorityPriorityDescription
         {
             get { return Fields.PriorityPriorityDescription[this]; }
@@ -158,9 +163,45 @@ namespace Miapp2.Northwind.Entities
             set { Fields.DetailList[this] = value; }
         }
 
+        [Origin("ds")]
+        public Boolean? Blueprints
+        {
+            get { return Fields.Blueprints[this]; }
+            set { Fields.Blueprints[this] = value; }
+        }
+
+        [Origin("ds") ]
+        public Boolean? PorposalFirst
+        {
+            get { return Fields.PorposalFirst[this]; }
+            set { Fields.PorposalFirst[this] = value; }
+        }
+
+        [Origin("ds") ]
+        public Boolean? Measures
+        {
+            get { return Fields.Measures[this]; }
+            set { Fields.Measures[this] = value; }
+        }
+
+        [Origin("ds")]
+        public Boolean? Corrections
+        {
+            get { return Fields.Corrections[this]; }
+            set { Fields.Corrections[this] = value; }
+        }
+
+        [Origin("ds")]
+        public Boolean? PorposalFinal
+        {
+            get { return Fields.PorposalFinal[this]; }
+            set { Fields.PorposalFinal[this] = value; }
+        }
+
+
         IIdField IIdRow.IdField
         {
-            get { return Fields.ProjectId; }
+            get { return Fields.ProjectID; }
         }
 
         StringField INameRow.NameField
@@ -177,7 +218,7 @@ namespace Miapp2.Northwind.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int32Field ProjectId;
+            public Int32Field ProjectID;
             public StringField CustomerId;
             public StringField ProjectName;
             public StringField Description;
@@ -199,6 +240,12 @@ namespace Miapp2.Northwind.Entities
 
             public StringField PriorityPriorityDescription;
             public RowListField<ProjectDetailsRow> DetailList;
+            public BooleanField Blueprints;
+            public BooleanField PorposalFirst;
+            public BooleanField Measures;
+            public BooleanField Corrections;
+            public BooleanField PorposalFinal;
+
         }
     }
 }

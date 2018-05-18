@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace Miapp2.BasicSamples
 {
+    /*
     public class DynamicNavigationSample : INavigationItemSource
     {
         public List<NavigationItemAttribute> GetItems()
@@ -28,5 +29,5 @@ namespace Miapp2.BasicSamples
 
             return items;
         }
-    }
+    } */
 }

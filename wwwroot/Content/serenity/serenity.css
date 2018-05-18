@@ -3129,11 +3129,11 @@ a.s-LinkDropDown input {
 }
 .s-PropertyGrid .category-title i.fa {
   float: right;
-  font-size: 14px;
+  font-size: 18px;
 }
 .s-PropertyGrid .category-title a {
-  color: #6090c0;
-  font-weight: bold;
+    color: #347dbb;
+    font-weight: bold;
 }
 .s-PropertyGrid .category.first-category .category-title {
   margin-top: 0px;
@@ -3142,32 +3142,32 @@ a.s-LinkDropDown input {
   margin: 12px 10px 8px 6px;
   border-bottom: 1px solid #7380C4;
 }
-.s-PropertyGrid .category-title a {
-  color: #d99000;
-  font-size: 13px;
-  font-weight: 600;
-}
+    .s-PropertyGrid .category-title a {
+        color: #347dbb;
+        font-size: 18px;
+        font-weight: 600;
+    }
 .s-PropertyGrid .category-links {
-  background: #7380C4;
-  border-radius: 0;
-  border: 0;
-  margin-bottom: 6px;
+    background: #195c96;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 6px;
 }
 .property-tabs {
   padding-left: 8px;
 }
 .property-tabs > li > a {
-  line-height: 1;
-  border-radius: 0;
-  padding: 6px 10px;
-  color: #666;
-  font-weight: 600;
-}
+        line-height: 1;
+        border-radius: 0;
+        padding: 6px 10px;
+        color: #457bab;
+        font-weight: 600;
+    }
 .property-tabs > li.active > a,
 .property-tabs > li.active > a:hover,
 .property-tabs > li.active > a:focus {
-  color: slateblue;
-}
+        color: #e82f18;
+    }
 .property-panes .tab-pane {
   padding: 6px 0;
 }
@@ -3341,15 +3341,15 @@ a.quick-search-field {
   height: 26px;
 }
 .tool-button {
-  color: #000;
-  float: left;
-  display: block;
-  cursor: pointer;
-  border: 1px solid #aaa;
-  margin-right: 3px;
-  margin-bottom: 5px;
-  border-radius: 3px;
-  background: linear-gradient(#ffffff 0px, #eeeeee 100%) repeat-x #f7f7f7;
+    color: #f4f4f4;
+    float: left;
+    display: block;
+    cursor: pointer;
+    border: 1px solid #999;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    background: linear-gradient(#236298 0px, #2482b9 100%) repeat-x #f7f7f7;
 }
 .tool-button .button-outer {
   float: left;
@@ -3360,9 +3360,12 @@ a.quick-search-field {
   border-bottom: 1px solid #eee;
   border-radius: 3px;
 }
-.tool-button:hover {
-  border: 1px solid #aaa;
-}
+
+    .tool-button:hover {
+        border: 1px solid #236298;
+        color: #236298;
+    }
+
 .tool-button:hover .button-outer {
   background-color: #fcfcf0;
   border-left: 1px solid #fff;

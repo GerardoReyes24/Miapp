@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Miapp2.Northwind.BasicSamples;
+using Microsoft.AspNetCore.Mvc;
+using Serenity.Web;
 
 namespace Miapp2.BasicSamples.Pages
 {
     using Views = MVC.Views.BasicSamples.Dialogs;
 
+  
     public partial class BasicSamplesController : Controller
     {
         public ActionResult ChartInDialog()

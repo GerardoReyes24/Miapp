@@ -38,7 +38,7 @@ namespace Miapp2.Northwind
             return ReportColumnConverter.ObjectTypeToList(typeof(Item));
         }
 
-        [BasedOnRow(typeof(Northwind.Entities.CustomerGrossSalesRow), CheckNames = true)]
+        [BasedOnRow(typeof(Northwind.Entities.ProductionreportRow), CheckNames = true)]
         public class Item
         {
             public string CustomerId { get; set; }

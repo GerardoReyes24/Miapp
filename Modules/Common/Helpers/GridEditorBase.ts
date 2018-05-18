@@ -71,7 +71,7 @@
 
         protected getButtons(): Serenity.ToolButton[] {
             return [{
-                title: this.getAddButtonCaption(),
+                title: 'Nuevo',
                 cssClass: 'add-button',
                 onClick: () => {
                     this.createEntityDialog(this.getItemType(), dlg => {

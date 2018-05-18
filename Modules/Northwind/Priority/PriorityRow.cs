@@ -11,8 +11,9 @@ namespace Miapp2.Northwind.Entities
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[Priority]")]
     [DisplayName("Priority"), InstanceName("Priority")]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission(PermissionKeys.Projects.View)]
+    [ModifyPermission(PermissionKeys.Projects.Modify)]
+    [DeletePermission(PermissionKeys.Projects.Delete)]
     [LookupScript]
     public sealed class PriorityRow : Row, IIdRow, INameRow
     {

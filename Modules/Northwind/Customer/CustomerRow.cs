@@ -9,7 +9,7 @@ namespace Miapp2.Northwind.Entities
     using System.ComponentModel;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Customers")]
-    [DisplayName("Customers"), InstanceName("Customer")]
+    [DisplayName("Cartera de clientes"), InstanceName("Customer")]
     [ReadPermission(PermissionKeys.Customer.View)]
     [ModifyPermission(PermissionKeys.Customer.Modify)]
     [DeletePermission(PermissionKeys.Customer.Delete)]
@@ -25,42 +25,42 @@ namespace Miapp2.Northwind.Entities
             set { Fields.ID[this] = value; }
         }
 
-        [DisplayName("Customer Id"), Size(5), PrimaryKey, NotNull, QuickSearch, Updatable(false), LookupInclude]
+        [DisplayName("Identificador"), Size(5), PrimaryKey, NotNull, QuickSearch, Updatable(false), LookupInclude]
         public String CustomerID
         {
             get { return Fields.CustomerID[this]; }
             set { Fields.CustomerID[this] = value; }
         }
 
-        [DisplayName("Company Name"), Size(40), NotNull, QuickSearch, LookupInclude]
+        [DisplayName("Empresa"), Size(40), NotNull, QuickSearch, LookupInclude]
         public String CompanyName
         {
             get { return Fields.CompanyName[this]; }
             set { Fields.CompanyName[this] = value; }
         }
 
-        [DisplayName("Contact Name"), Size(30), QuickSearch]
+        [DisplayName("Nombre del contacto"), Size(30), QuickSearch]
         public String ContactName
         {
             get { return Fields.ContactName[this]; }
             set { Fields.ContactName[this] = value; }
         }
 
-        [DisplayName("Contact Title"), Size(30)]
+        [DisplayName("Puesto"), Size(30)]
         public String ContactTitle
         {
             get { return Fields.ContactTitle[this]; }
             set { Fields.ContactTitle[this] = value; }
         }
 
-        [DisplayName("Address"), Size(60)]
+        [DisplayName("Dirección"), Size(60)]
         public String Address
         {
             get { return Fields.Address[this]; }
             set { Fields.Address[this] = value; }
         }
 
-        [DisplayName("City"), Size(15), LookupEditor(typeof(Lookups.CustomerCityLookup), CascadeFrom = "Country", AutoComplete = true)]
+        [DisplayName("Ciudad"), Size(15), LookupEditor(typeof(Lookups.CustomerCityLookup), CascadeFrom = "Country", AutoComplete = true)]
         public String City
         {
             get { return Fields.City[this]; }
@@ -74,21 +74,21 @@ namespace Miapp2.Northwind.Entities
             set { Fields.Region[this] = value; }
         }
 
-        [DisplayName("Postal Code"), Size(10)]
+        [DisplayName("Codigo postal"), Size(10)]
         public String PostalCode
         {
             get { return Fields.PostalCode[this]; }
             set { Fields.PostalCode[this] = value; }
         }
 
-        [DisplayName("Country"), Size(15), LookupEditor(typeof(Lookups.CustomerCountryLookup), AutoComplete = true)]
+        [DisplayName("Pais"), Size(15), LookupEditor(typeof(Lookups.CustomerCountryLookup), AutoComplete = true)]
         public String Country
         {
             get { return Fields.Country[this]; }
             set { Fields.Country[this] = value; }
         }
 
-        [DisplayName("Phone"), Size(24)]
+        [DisplayName("Telefono"), Size(24)]
         public String Phone
         {
             get { return Fields.Phone[this]; }

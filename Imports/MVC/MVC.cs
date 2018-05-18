@@ -298,6 +298,15 @@ namespace MVC
             public const string ValidationError = "~/Views/Errors/ValidationError.cshtml";
         }
 
+        public static class ImportFiles
+        {
+            public static class Prueba
+            {
+                public const string PruebaIndex = "~/Modules/ImportFiles/Prueba/PruebaIndex.cshtml";
+            }
+
+        }
+
         public static class Membership
         {
             public static class Account
@@ -380,9 +389,9 @@ namespace MVC
                 public const string ProductionIndex = "~/Modules/Northwind/Production/ProductionIndex.cshtml";
             }
 
-            public static class ProductionSt
+            public static class Productionreport
             {
-                public const string ProductionStIndex = "~/Modules/Northwind/ProductionSt/ProductionStIndex.cshtml";
+                public const string Index = "~/Modules/Northwind/Productionreport/Index.cshtml";
             }
 
             public static class ProjectDetails

@@ -160,10 +160,10 @@ namespace Miapp2
 
             public static class Layout
             {
-                public static LocalText FooterCopyright = "Copyright (c) 2015.";
-                public static LocalText FooterInfo = "Serenity Platform";
-                public static LocalText FooterRights = "All rights reserved.";
-                public static LocalText GeneralSettings = "General Settings";
+                public static LocalText FooterCopyright = "Copyright (c) 2018.";
+                public static LocalText FooterInfo = "SOFTWARE ROCORANZ ";
+                public static LocalText FooterRights = "Derechos reservados";
+                public static LocalText GeneralSettings = "Configuración general";
                 public static LocalText Language = "Language";
                 public static LocalText Theme = "Theme";
                 public static LocalText ThemeBlack = "Black";
