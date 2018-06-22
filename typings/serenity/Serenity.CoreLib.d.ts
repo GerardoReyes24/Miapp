@@ -14,13 +14,7 @@ declare module RSVP {
 }
 declare module RSVP {
     class Promise<R> implements PromiseLike<R> {
-        /**
-         * If you call resolve in the body of the callback passed to the constructor,
-         * your promise is fulfilled with result object passed to resolve.
-         * If you call reject your promise is rejected with the object passed to resolve.
-         * For consistency and debugging (eg stack traces), obj should be an instanceof Error.
-         * Any errors thrown in the constructor callback will be implicitly passed to reject().
-         */
+
         constructor(callback: (resolve: (result?: R) => void, reject: (error: any) => void) => void, label?: string);
         /**
          * If you call resolve in the body of the callback passed to the constructor,

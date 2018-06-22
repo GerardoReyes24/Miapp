@@ -5,4 +5,3 @@
         ShipperLabels?: string[];
     }
 }
-

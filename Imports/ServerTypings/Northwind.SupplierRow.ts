@@ -3,15 +3,7 @@
         SupplierID?: number;
         CompanyName?: string;
         ContactName?: string;
-        ContactTitle?: string;
         Address?: string;
-        City?: string;
-        Region?: string;
-        PostalCode?: string;
-        Country?: string;
-        Phone?: string;
-        Fax?: string;
-        HomePage?: string;
     }
 
     export namespace SupplierRow {
@@ -28,15 +20,7 @@
             SupplierID = "SupplierID",
             CompanyName = "CompanyName",
             ContactName = "ContactName",
-            ContactTitle = "ContactTitle",
-            Address = "Address",
-            City = "City",
-            Region = "Region",
-            PostalCode = "PostalCode",
-            Country = "Country",
-            Phone = "Phone",
-            Fax = "Fax",
-            HomePage = "HomePage"
+            Address = "Address"
         }
     }
 }

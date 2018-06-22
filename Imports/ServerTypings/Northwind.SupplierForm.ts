@@ -2,15 +2,7 @@
     export interface SupplierForm {
         CompanyName: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
-        ContactTitle: Serenity.StringEditor;
         Address: Serenity.StringEditor;
-        Region: Serenity.StringEditor;
-        PostalCode: Serenity.StringEditor;
-        Country: Serenity.StringEditor;
-        City: Serenity.StringEditor;
-        Phone: Serenity.StringEditor;
-        Fax: Serenity.StringEditor;
-        HomePage: Serenity.StringEditor;
     }
 
     export class SupplierForm extends Serenity.PrefixedContext {
@@ -29,15 +21,7 @@
                 Q.initFormType(SupplierForm, [
                     'CompanyName', w0,
                     'ContactName', w0,
-                    'ContactTitle', w0,
-                    'Address', w0,
-                    'Region', w0,
-                    'PostalCode', w0,
-                    'Country', w0,
-                    'City', w0,
-                    'Phone', w0,
-                    'Fax', w0,
-                    'HomePage', w0
+                    'Address', w0
                 ]);
             }
         }

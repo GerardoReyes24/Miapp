@@ -28,6 +28,16 @@ namespace Miapp2.Northwind
             public const string View = "Northwind:Projects:View";
         }
 
+        [DisplayName("Materiales")]
+        public class Materiales
+        {
+            [ImplicitPermission(General), ImplicitPermission(View)]
+            public const string Delete = "Northwind:Product:Delete";
+            [Description("Create/Update"), ImplicitPermission(General), ImplicitPermission(View)]
+            public const string Modify = "Northwind:Product:Modify";
+            public const string View = "Northwind:Product:View";
+        }
+
         [Description("[General]")]
         public const string General = "Northwind:General";
     }

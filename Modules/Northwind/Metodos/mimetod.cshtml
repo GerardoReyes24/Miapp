@@ -1,0 +1,55 @@
+﻿@model List<Miapp2.Northwind.Entities.MetodosRow> 
+
+
+
+
+
+@{
+    ViewBag.Title = "Metodos";
+
+}
+
+<div class="row">
+<div class="col-md-12">
+    <div class="header">
+      <h2>Procesos</h2>  
+    </div>
+    <div class="col-md-6">
+        
+        <div class="box">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Clave</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody>
+                    @foreach (var m in Model)
+            {
+                    <tr>
+                        <td>@m.MetodId </td>
+                        <td>@m.MetodName </td>
+                        <td>@m.MetodPrice </td>
+                        <td>
+                            <a class="btn-danger">Visualizar</a>
+                            <a class="btn-facebook">Editar</a>
+                            <a class="btn-danger" href="~/Northwind/Met/Delete?id=@m.MetodId">Eliminar</a>
+
+                        </td>
+                    </tr>
+}
+                    </tbody>
+
+
+                </table>
+            </div>   
+        </div>
+     </div>
+ <div>

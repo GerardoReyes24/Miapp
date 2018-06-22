@@ -23,7 +23,7 @@ namespace Miapp2.Northwind.Endpoints
 
         [HttpPost, AuthorizeUpdate(typeof(MyRow))]
         public SaveResponse Update(IUnitOfWork uow, SaveRequest<MyRow> request)
-        {
+                        {
             return new MyRepository().Update(uow, request);
         }
 

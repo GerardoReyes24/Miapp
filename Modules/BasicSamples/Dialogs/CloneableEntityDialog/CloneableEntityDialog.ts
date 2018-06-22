@@ -33,7 +33,7 @@ namespace Miapp2.BasicSamples {
 
             // let's clear fields not logical to be cloned
             clone.UnitsInStock = 0;
-            clone.UnitsOnOrder = 0;
+        
             return clone;
         }
     }

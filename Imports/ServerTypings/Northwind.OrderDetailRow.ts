@@ -2,7 +2,7 @@
     export interface OrderDetailRow {
         DetailID?: number;
         OrderID?: number;
-        ProductID?: number;
+        ProductID?: string;
         UnitPrice?: number;
         Quantity?: number;
         Discount?: number;
@@ -16,7 +16,6 @@
         ProductName?: string;
         ProductDiscontinued?: boolean;
         ProductSupplierID?: number;
-        ProductQuantityPerUnit?: string;
         ProductUnitPrice?: number;
         LineTotal?: number;
     }
@@ -42,7 +41,6 @@
             ProductName = "ProductName",
             ProductDiscontinued = "ProductDiscontinued",
             ProductSupplierID = "ProductSupplierID",
-            ProductQuantityPerUnit = "ProductQuantityPerUnit",
             ProductUnitPrice = "ProductUnitPrice",
             LineTotal = "LineTotal"
         }

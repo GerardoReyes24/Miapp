@@ -17,8 +17,9 @@ namespace Miapp2.Northwind.Entities
     [DeletePermission(PermissionKeys.Projects.Delete)]
     [LeftJoin("ds", "DesignStatus", "ds.[ProjectID] = t0.[ProjectID]", RowType = typeof(DesignStatusRow), TitlePrefix = "")]
     [UpdatableExtension("ds", typeof(DesignStatusRow), CascadeDelete = true)]
-  
-   
+    [LookupScript]
+
+
     public sealed class ProjectsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Project Id"), Column("ProjectID"), Identity]
@@ -206,7 +207,7 @@ namespace Miapp2.Northwind.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.CustomerId; }
+            get { return Fields.ProjectName; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();

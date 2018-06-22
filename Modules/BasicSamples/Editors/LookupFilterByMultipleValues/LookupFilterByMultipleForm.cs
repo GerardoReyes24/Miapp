@@ -17,11 +17,10 @@ namespace Miapp2.BasicSamples.Forms
         [ProduceSeafoodCategoryEditor]
         public Int32 CategoryID { get; set; }
         [Category("Pricing")]
-        public String QuantityPerUnit { get; set; }
+     
         public Decimal UnitPrice { get; set; }
         [Category("Status")]
         public Int16 UnitsInStock { get; set; }
-        public Int16 UnitsOnOrder { get; set; }
-        public Int16 ReorderLevel { get; set; }
+     
     }
 }

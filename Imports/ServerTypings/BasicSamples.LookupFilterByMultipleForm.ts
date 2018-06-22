@@ -5,11 +5,8 @@
         Discontinued: Serenity.BooleanEditor;
         SupplierID: Serenity.LookupEditor;
         CategoryID: ProduceSeafoodCategoryEditor;
-        QuantityPerUnit: Serenity.StringEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
-        UnitsOnOrder: Serenity.IntegerEditor;
-        ReorderLevel: Serenity.IntegerEditor;
     }
 
     export class LookupFilterByMultipleForm extends Serenity.PrefixedContext {
@@ -37,11 +34,8 @@
                     'Discontinued', w2,
                     'SupplierID', w3,
                     'CategoryID', w4,
-                    'QuantityPerUnit', w0,
                     'UnitPrice', w5,
-                    'UnitsInStock', w6,
-                    'UnitsOnOrder', w6,
-                    'ReorderLevel', w6
+                    'UnitsInStock', w6
                 ]);
             }
         }

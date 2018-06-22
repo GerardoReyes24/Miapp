@@ -1,6 +1,7 @@
 ﻿
 namespace Miapp2.Northwind.Entities
 {
+    using Miapp2.Registros.Entities;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -14,12 +15,14 @@ namespace Miapp2.Northwind.Entities
     [DisplayName("Detalles del proyecto"), InstanceName("Project Details")]
     [LeftJoin("ps", "ProductionSt", "ps.[DetailID] = t0.[DetailID]", RowType = typeof(ProductionStRow), TitlePrefix = "")]
     [UpdatableExtension("ps", typeof(ProductionStRow), CascadeDelete = true)]
+
     [ReadPermission(PermissionKeys.Projects.View)]
     [ModifyPermission(PermissionKeys.Projects.Modify)]
     [DeletePermission(PermissionKeys.Projects.Delete)]
+    [LookupScript]
     public sealed class ProjectDetailsRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Detail Id"), Identity]
+        [DisplayName("Detail Id"), Identity, PrimaryKey]
         public Int32? DetailID
         {
             get { return Fields.DetailID[this]; }
@@ -34,9 +37,9 @@ namespace Miapp2.Northwind.Entities
         }
 
 
-        [DisplayName("Tipo de diseño"), PrimaryKey, ForeignKey(typeof(DesignTypeRow)), LeftJoin("des")]
-        [LookupEditor(typeof(DesignTypeRow), InplaceAdd = true)]
-        public Int32? DesignTypeId
+        [DisplayName("Tipo de diseño"), QuickSearch, LookupInclude]
+
+        public String DesignTypeId
         {
             get { return Fields.DesignTypeId[this]; }
             set { Fields.DesignTypeId[this] = value; }
@@ -63,8 +66,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.Deep[this] = value; }
         }
 
-
-
+/*
         [Origin("des"), MinSelectLevel(SelectLevel.List)]
         public String DesType
         {
@@ -73,7 +75,7 @@ namespace Miapp2.Northwind.Entities
         }
 
 
-
+*/
 
 
 
@@ -193,7 +195,7 @@ namespace Miapp2.Northwind.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.DesType; }
+            get { return Fields.DesignTypeId; }
         }
 
 
@@ -209,7 +211,7 @@ namespace Miapp2.Northwind.Entities
         {
             public Int32Field DetailID;
             public Int32Field ProjectID;
-            public Int32Field DesignTypeId;
+            public StringField DesignTypeId;
             public DecimalField Width;
             public DecimalField Deep;
             public DecimalField High;
@@ -217,7 +219,7 @@ namespace Miapp2.Northwind.Entities
 
             public StringField Observaciones;
 
-            public StringField DesType;
+          //  public StringField DesType;
 
 
             public StringField ProjectCustomerId;

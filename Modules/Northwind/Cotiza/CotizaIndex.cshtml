@@ -1,0 +1,137 @@
+﻿@{
+
+
+  //  List<Miapp2.Northwind.Entities.ProductRow> mat = ViewBag.materiales;
+    List<Miapp2.ImportFiles.Entities.PiezaRow> ent = ViewBag.suma;
+    decimal? total = 0;
+    decimal? ench = 0;
+
+}
+
+
+
+@{
+    ViewBag.Title = "Metodos";
+
+}
+
+<div id="yo" class="page">
+
+    <h1 class="page-header">Procesos de cotización</h1>
+
+
+
+
+    <div class="col-lg-12">
+
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#Corte" aria-controls="corte" role="tab" data-toggle="tab">Corte</a></li>
+            <li role="presentation"><a href="#Enchapado" aria-controls="enchapado" role="tab" data-toggle="tab">Enchapado</a></li>
+            <li role="presentation"><a href="#Perforaciones" aria-controls="perforaciones" role="tab" data-toggle="tab">Perforación</a></li>
+            <li role="presentation"><a href="#Elaboración" aria-controls="elaboracion" role="tab" data-toggle="tab">Elaboración</a></li>
+            <li role="presentation"><a href="#Materiales" aria-controls="materiales" role="tab" data-toggle="tab">Suministro de materiales</a></li>
+        </ul>
+
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="Corte">
+                @{ foreach (var r in ent)
+                    {
+                      
+                        total += r.MtsCorte;
+
+                    }
+
+                }
+
+
+                <div class="form-group">
+                    <label>Metros de corte totales</label>
+
+                    <input   type="number" name="name" value="@total" placeholder="@total" />
+                </div>
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="Enchapado">
+
+                @{ foreach (var r in ent)
+        {
+                
+                ench += r.MtsEnchapado;
+
+        }
+
+                }
+
+                <div class="form-group">
+                    <label>Metros de chapa</label>
+                    <input type="type" name="name" value="@ench" />
+                </div>
+
+            </div>
+
+
+
+            <div role="tabpanel" class="tab-pane" id="Perforaciones">
+
+                <div class="form-group">
+
+                    <label>Perforaciones</label>
+                    <input type="type" name="name" value="" />
+
+                </div>
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="Elaboración">
+
+                <div class="form-group">
+                    <label>H/h  Sierra</label>
+                    <input type="type" name="name" value="" />
+                </div>
+                <div class="form-group">
+                    <label>H/h  C. Express</label>
+                    <input type="type" name="name" value="" />
+                </div>
+                <div class="form-group">
+                    <label>H/h  Perfect</label>
+                    <input type="type" name="name" value="" />
+                </div>
+                <div class="form-group">
+                    <label>H/h  Armado</label>
+                    <input type="type" name="name" value="" />
+                </div>
+
+            </div>
+
+
+
+
+
+            <div role="tabpanel" class="tab-pane" id="Materiales">
+
+                <div class="form-group">
+
+                    <label>Materiales</label>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-right well well-sm">
+        <button data-ajax="true" class="btn btn-primary">Guardar</button>
+    </div>
+
+</div>
+
+
+
+

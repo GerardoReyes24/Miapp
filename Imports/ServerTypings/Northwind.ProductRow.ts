@@ -1,27 +1,16 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProductRow {
-        ProductID?: number;
+        ProductID?: string;
         ProductName?: string;
         ProductImage?: string;
         Discontinued?: boolean;
         SupplierID?: number;
         CategoryID?: number;
-        QuantityPerUnit?: string;
         UnitPrice?: number;
         UnitsInStock?: number;
-        UnitsOnOrder?: number;
-        ReorderLevel?: number;
         SupplierCompanyName?: string;
         SupplierContactName?: string;
-        SupplierContactTitle?: string;
         SupplierAddress?: string;
-        SupplierCity?: string;
-        SupplierRegion?: string;
-        SupplierPostalCode?: string;
-        SupplierCountry?: string;
-        SupplierPhone?: string;
-        SupplierFax?: string;
-        SupplierHomePage?: string;
         CategoryName?: string;
         CategoryDescription?: string;
         CategoryPicture?: number[];
@@ -44,22 +33,11 @@
             Discontinued = "Discontinued",
             SupplierID = "SupplierID",
             CategoryID = "CategoryID",
-            QuantityPerUnit = "QuantityPerUnit",
             UnitPrice = "UnitPrice",
             UnitsInStock = "UnitsInStock",
-            UnitsOnOrder = "UnitsOnOrder",
-            ReorderLevel = "ReorderLevel",
             SupplierCompanyName = "SupplierCompanyName",
             SupplierContactName = "SupplierContactName",
-            SupplierContactTitle = "SupplierContactTitle",
             SupplierAddress = "SupplierAddress",
-            SupplierCity = "SupplierCity",
-            SupplierRegion = "SupplierRegion",
-            SupplierPostalCode = "SupplierPostalCode",
-            SupplierCountry = "SupplierCountry",
-            SupplierPhone = "SupplierPhone",
-            SupplierFax = "SupplierFax",
-            SupplierHomePage = "SupplierHomePage",
             CategoryName = "CategoryName",
             CategoryDescription = "CategoryDescription",
             CategoryPicture = "CategoryPicture"

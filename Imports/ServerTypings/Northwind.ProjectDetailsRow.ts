@@ -2,12 +2,11 @@
     export interface ProjectDetailsRow {
         DetailID?: number;
         ProjectID?: number;
-        DesignTypeId?: number;
+        DesignTypeId?: string;
         Width?: number;
         Deep?: number;
         High?: number;
         Observaciones?: string;
-        DesType?: string;
         ProjectCustomerId?: string;
         ProjectProjectName?: string;
         ProjectDescription?: string;
@@ -25,8 +24,13 @@
 
     export namespace ProjectDetailsRow {
         export const idProperty = 'DetailID';
-        export const nameProperty = 'DesType';
+        export const nameProperty = 'DesignTypeId';
         export const localTextPrefix = 'Northwind.ProjectDetails';
+        export const lookupKey = 'Northwind.ProjectDetails';
+
+        export function getLookup(): Q.Lookup<ProjectDetailsRow> {
+            return Q.getLookup<ProjectDetailsRow>('Northwind.ProjectDetails');
+        }
 
         export declare const enum Fields {
             DetailID = "DetailID",
@@ -36,7 +40,6 @@
             Deep = "Deep",
             High = "High",
             Observaciones = "Observaciones",
-            DesType = "DesType",
             ProjectCustomerId = "ProjectCustomerId",
             ProjectProjectName = "ProjectProjectName",
             ProjectDescription = "ProjectDescription",

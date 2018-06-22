@@ -29,8 +29,13 @@
 
     export namespace ProjectsRow {
         export const idProperty = 'ProjectID';
-        export const nameProperty = 'CustomerId';
+        export const nameProperty = 'ProjectName';
         export const localTextPrefix = 'Northwind.Projects';
+        export const lookupKey = 'Northwind.Projects';
+
+        export function getLookup(): Q.Lookup<ProjectsRow> {
+            return Q.getLookup<ProjectsRow>('Northwind.Projects');
+        }
 
         export declare const enum Fields {
             ProjectID = "ProjectID",

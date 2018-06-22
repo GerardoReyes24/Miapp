@@ -26,6 +26,18 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.metodos",
+          "Identifier": "Metodos",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.misdatos",
+          "Identifier": "Misdatos",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.Priority",
           "Identifier": "Priority",
           "Module": "Northwind",
@@ -59,6 +71,18 @@
           "Tablename": "dbo.Prueba",
           "Identifier": "Prueba",
           "Module": "ImportFiles",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Pza",
+          "Identifier": "Pieza",
+          "Module": "ImportFiles",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Registros",
+          "Identifier": "Registros",
+          "Module": "Registros",
           "PermissionKey": "Administration:General"
         }
       ]

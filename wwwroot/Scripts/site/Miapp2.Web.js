@@ -523,11 +523,8 @@ var Miapp2;
                         'Discontinued', w2,
                         'SupplierID', w3,
                         'CategoryID', w4,
-                        'QuantityPerUnit', w0,
                         'UnitPrice', w5,
-                        'UnitsInStock', w6,
-                        'UnitsOnOrder', w6,
-                        'ReorderLevel', w6
+                        'UnitsInStock', w6
                     ]);
                 }
                 return _this;
@@ -698,62 +695,64 @@ var Miapp2;
 (function (Miapp2) {
     var ImportFiles;
     (function (ImportFiles) {
-        var PruebaForm = /** @class */ (function (_super) {
-            __extends(PruebaForm, _super);
-            function PruebaForm(prefix) {
+        var PiezaForm = /** @class */ (function (_super) {
+            __extends(PiezaForm, _super);
+            function PiezaForm(prefix) {
                 var _this = _super.call(this, prefix) || this;
-                if (!PruebaForm.init) {
-                    PruebaForm.init = true;
+                if (!PiezaForm.init) {
+                    PiezaForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = s.IntegerEditor;
-                    var w2 = s.DecimalEditor;
-                    Q.initFormType(PruebaForm, [
-                        'Type1', w0,
-                        'Type2', w1,
-                        'Type3', w2
+                    var w1 = s.DecimalEditor;
+                    Q.initFormType(PiezaForm, [
+                        'Pieza', w0,
+                        'GrosTab', w1,
+                        'Enchapado', w0,
+                        'MtsEnchapado', w1,
+                        'MtsCorte', w1
                     ]);
                 }
                 return _this;
             }
-            PruebaForm.formKey = 'ImportFiles.Prueba';
-            return PruebaForm;
+            PiezaForm.formKey = 'ImportFiles.Pieza';
+            return PiezaForm;
         }(Serenity.PrefixedContext));
-        ImportFiles.PruebaForm = PruebaForm;
+        ImportFiles.PiezaForm = PiezaForm;
     })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
     var ImportFiles;
     (function (ImportFiles) {
-        var PruebaRow;
-        (function (PruebaRow) {
-            PruebaRow.idProperty = 'Type1';
-            PruebaRow.nameProperty = 'Type1';
-            PruebaRow.localTextPrefix = 'ImportFiles.Prueba';
-        })(PruebaRow = ImportFiles.PruebaRow || (ImportFiles.PruebaRow = {}));
+        var PiezaRow;
+        (function (PiezaRow) {
+            PiezaRow.idProperty = 'PzaId';
+            PiezaRow.nameProperty = 'Pieza';
+            PiezaRow.localTextPrefix = 'ImportFiles.Pieza';
+        })(PiezaRow = ImportFiles.PiezaRow || (ImportFiles.PiezaRow = {}));
     })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
     var ImportFiles;
     (function (ImportFiles) {
-        var PruebaService;
-        (function (PruebaService) {
-            PruebaService.baseUrl = 'ImportFiles/Prueba';
+        var PiezaService;
+        (function (PiezaService) {
+            PiezaService.baseUrl = 'ImportFiles/Pieza';
             [
                 'Create',
                 'Update',
                 'Delete',
                 'Retrieve',
                 'List',
+                'resultt',
                 'ExcelImport'
             ].forEach(function (x) {
-                PruebaService[x] = function (r, s, o) {
-                    return Q.serviceRequest(PruebaService.baseUrl + '/' + x, r, s, o);
+                PiezaService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PiezaService.baseUrl + '/' + x, r, s, o);
                 };
             });
-        })(PruebaService = ImportFiles.PruebaService || (ImportFiles.PruebaService = {}));
+        })(PiezaService = ImportFiles.PiezaService || (ImportFiles.PiezaService = {}));
     })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
@@ -981,6 +980,18 @@ var Miapp2;
                 };
             });
         })(CategoryService = Northwind.CategoryService || (Northwind.CategoryService = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CotizaRow;
+        (function (CotizaRow) {
+            CotizaRow.idProperty = 'MetodId';
+            CotizaRow.nameProperty = 'MetodName';
+            CotizaRow.localTextPrefix = 'Northwind.Cotiza';
+        })(CotizaRow = Northwind.CotizaRow || (Northwind.CotizaRow = {}));
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
@@ -1306,6 +1317,51 @@ var Miapp2;
 (function (Miapp2) {
     var Northwind;
     (function (Northwind) {
+        var MetodosRow;
+        (function (MetodosRow) {
+            MetodosRow.idProperty = 'MetodId';
+            MetodosRow.nameProperty = 'MetodName';
+            MetodosRow.localTextPrefix = 'Northwind.Metodos';
+        })(MetodosRow = Northwind.MetodosRow || (Northwind.MetodosRow = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var MetodosService;
+        (function (MetodosService) {
+            MetodosService.baseUrl = 'Northwind/Metodos';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                MetodosService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MetodosService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MetodosService = Northwind.MetodosService || (Northwind.MetodosService = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var MisdatosRow;
+        (function (MisdatosRow) {
+            MisdatosRow.idProperty = 'Campo1';
+            MisdatosRow.nameProperty = 'Campo1';
+            MisdatosRow.localTextPrefix = 'Northwind.Misdatos';
+        })(MisdatosRow = Northwind.MisdatosRow || (Northwind.MisdatosRow = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
         var NoteRow;
         (function (NoteRow) {
             NoteRow.idProperty = 'NoteId';
@@ -1543,16 +1599,14 @@ var Miapp2;
                     var w4 = s.DecimalEditor;
                     var w5 = s.IntegerEditor;
                     Q.initFormType(ProductForm, [
+                        'ProductID', w0,
                         'ProductName', w0,
                         'ProductImage', w1,
                         'Discontinued', w2,
                         'SupplierID', w3,
                         'CategoryID', w3,
-                        'QuantityPerUnit', w0,
                         'UnitPrice', w4,
-                        'UnitsInStock', w5,
-                        'UnitsOnOrder', w5,
-                        'ReorderLevel', w5
+                        'UnitsInStock', w5
                     ]);
                 }
                 return _this;
@@ -1694,17 +1748,6 @@ var Miapp2;
 (function (Miapp2) {
     var Northwind;
     (function (Northwind) {
-        var ProductLogRow;
-        (function (ProductLogRow) {
-            ProductLogRow.idProperty = 'ProductLogID';
-            ProductLogRow.localTextPrefix = 'Northwind.ProductLog';
-        })(ProductLogRow = Northwind.ProductLogRow || (Northwind.ProductLogRow = {}));
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
         var ProductRow;
         (function (ProductRow) {
             ProductRow.idProperty = 'ProductID';
@@ -1750,7 +1793,7 @@ var Miapp2;
                 if (!ProjectDetailsForm.init) {
                     ProjectDetailsForm.init = true;
                     var s = Serenity;
-                    var w0 = s.LookupEditor;
+                    var w0 = s.StringEditor;
                     var w1 = s.DecimalEditor;
                     var w2 = s.TextAreaEditor;
                     var w3 = s.EnumEditor;
@@ -1784,8 +1827,13 @@ var Miapp2;
         var ProjectDetailsRow;
         (function (ProjectDetailsRow) {
             ProjectDetailsRow.idProperty = 'DetailID';
-            ProjectDetailsRow.nameProperty = 'DesType';
+            ProjectDetailsRow.nameProperty = 'DesignTypeId';
             ProjectDetailsRow.localTextPrefix = 'Northwind.ProjectDetails';
+            ProjectDetailsRow.lookupKey = 'Northwind.ProjectDetails';
+            function getLookup() {
+                return Q.getLookup('Northwind.ProjectDetails');
+            }
+            ProjectDetailsRow.getLookup = getLookup;
         })(ProjectDetailsRow = Northwind.ProjectDetailsRow || (Northwind.ProjectDetailsRow = {}));
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
@@ -1856,8 +1904,13 @@ var Miapp2;
         var ProjectsRow;
         (function (ProjectsRow) {
             ProjectsRow.idProperty = 'ProjectID';
-            ProjectsRow.nameProperty = 'CustomerId';
+            ProjectsRow.nameProperty = 'ProjectName';
             ProjectsRow.localTextPrefix = 'Northwind.Projects';
+            ProjectsRow.lookupKey = 'Northwind.Projects';
+            function getLookup() {
+                return Q.getLookup('Northwind.Projects');
+            }
+            ProjectsRow.getLookup = getLookup;
         })(ProjectsRow = Northwind.ProjectsRow || (Northwind.ProjectsRow = {}));
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
@@ -2053,15 +2106,7 @@ var Miapp2;
                     Q.initFormType(SupplierForm, [
                         'CompanyName', w0,
                         'ContactName', w0,
-                        'ContactTitle', w0,
-                        'Address', w0,
-                        'Region', w0,
-                        'PostalCode', w0,
-                        'Country', w0,
-                        'City', w0,
-                        'Phone', w0,
-                        'Fax', w0,
-                        'HomePage', w0
+                        'Address', w0
                     ]);
                 }
                 return _this;
@@ -2174,6 +2219,119 @@ var Miapp2;
             });
         })(TerritoryService = Northwind.TerritoryService || (Northwind.TerritoryService = {}));
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var RegistrosForm = /** @class */ (function (_super) {
+            __extends(RegistrosForm, _super);
+            function RegistrosForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!RegistrosForm.init) {
+                    RegistrosForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.DateEditor;
+                    var w1 = s.LookupEditor;
+                    var w2 = s.DecimalEditor;
+                    var w3 = s.EnumEditor;
+                    Q.initFormType(RegistrosForm, [
+                        'Fecha', w0,
+                        'ProductId', w1,
+                        'Cantidad', w2,
+                        'Movimiento', w3,
+                        'DetailID', w1,
+                        'ProjectID', w1
+                    ]);
+                }
+                return _this;
+            }
+            RegistrosForm.formKey = 'Registros.Registros';
+            return RegistrosForm;
+        }(Serenity.PrefixedContext));
+        Registros.RegistrosForm = RegistrosForm;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var RegistrosRow;
+        (function (RegistrosRow) {
+            RegistrosRow.idProperty = 'RegistroId';
+            RegistrosRow.nameProperty = 'ProductId';
+            RegistrosRow.localTextPrefix = 'Registros.Registros';
+            RegistrosRow.lookupKey = 'Registros.Registros';
+            function getLookup() {
+                return Q.getLookup('Registros.Registros');
+            }
+            RegistrosRow.getLookup = getLookup;
+        })(RegistrosRow = Registros.RegistrosRow || (Registros.RegistrosRow = {}));
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var RegistrosService;
+        (function (RegistrosService) {
+            RegistrosService.baseUrl = 'Registros/Registros';
+            [
+                'Create',
+                'Update',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                RegistrosService[x] = function (r, s, o) {
+                    return Q.serviceRequest(RegistrosService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(RegistrosService = Registros.RegistrosService || (Registros.RegistrosService = {}));
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var TipoMovimiento;
+        (function (TipoMovimiento) {
+            TipoMovimiento[TipoMovimiento["Entrada"] = 1] = "Entrada";
+            TipoMovimiento[TipoMovimiento["Salida"] = 2] = "Salida";
+        })(TipoMovimiento = Registros.TipoMovimiento || (Registros.TipoMovimiento = {}));
+        Serenity.Decorators.registerEnumType(TipoMovimiento, 'Miapp2.Registros.TipoMovimiento', 'Registros.TipoMOvimiento');
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var LanguageList;
+    (function (LanguageList) {
+        function getValue() {
+            var result = [];
+            for (var _i = 0, _a = Miapp2.Administration.LanguageRow.getLookup().items; _i < _a.length; _i++) {
+                var k = _a[_i];
+                if (k.LanguageId !== 'en') {
+                    result.push([k.Id.toString(), k.LanguageName]);
+                }
+            }
+            return result;
+        }
+        LanguageList.getValue = getValue;
+    })(LanguageList = Miapp2.LanguageList || (Miapp2.LanguageList = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../Common/Helpers/LanguageList.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var ScriptInitialization;
+    (function (ScriptInitialization) {
+        Q.Config.responsiveDialogs = true;
+        Q.Config.rootNamespaces.push('Miapp2');
+        Serenity.EntityDialog.defaultLanguageList = Miapp2.LanguageList.getValue;
+        if ($.fn['colorbox']) {
+            $.fn['colorbox'].settings.maxWidth = "95%";
+            $.fn['colorbox'].settings.maxHeight = "95%";
+        }
+        window.onerror = Q.ErrorHandling.runtimeErrorHandler;
+    })(ScriptInitialization = Miapp2.ScriptInitialization || (Miapp2.ScriptInitialization = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
@@ -2707,22 +2865,6 @@ var Miapp2;
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
-    var Authorization;
-    (function (Authorization) {
-        Object.defineProperty(Authorization, 'userDefinition', {
-            get: function () {
-                return Q.getRemoteData('UserData');
-            }
-        });
-        function hasPermission(permissionKey) {
-            var ud = Authorization.userDefinition;
-            return ud.Username === 'administrador' || !!ud.Permissions[permissionKey];
-        }
-        Authorization.hasPermission = hasPermission;
-    })(Authorization = Miapp2.Authorization || (Miapp2.Authorization = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
     var Administration;
     (function (Administration) {
         var PermissionCheckEditor = /** @class */ (function (_super) {
@@ -3195,57 +3337,1985 @@ var Miapp2;
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
-    var BasicSamples;
-    (function (BasicSamples) {
-        var ChartInDialog = /** @class */ (function (_super) {
-            __extends(ChartInDialog, _super);
-            function ChartInDialog() {
+    var BasicProgressDialog = /** @class */ (function (_super) {
+        __extends(BasicProgressDialog, _super);
+        function BasicProgressDialog() {
+            var _this = _super.call(this) || this;
+            _this.byId('ProgressBar').progressbar({
+                max: 100,
+                value: 0,
+                change: function (e, v) {
+                    _this.byId('ProgressLabel').text(_this.value + ' / ' + _this.max);
+                }
+            });
+            return _this;
+        }
+        Object.defineProperty(BasicProgressDialog.prototype, "max", {
+            get: function () {
+                return this.byId('ProgressBar').progressbar().progressbar('option', 'max');
+            },
+            set: function (value) {
+                this.byId('ProgressBar').progressbar().progressbar('option', 'max', value);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BasicProgressDialog.prototype, "value", {
+            get: function () {
+                return this.byId('ProgressBar').progressbar('value');
+            },
+            set: function (value) {
+                this.byId('ProgressBar').progressbar().progressbar('value', value);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(BasicProgressDialog.prototype, "title", {
+            get: function () {
+                return this.element.dialog().dialog('option', 'title');
+            },
+            set: function (value) {
+                this.element.dialog().dialog('option', 'title', value);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        BasicProgressDialog.prototype.getDialogOptions = function () {
+            var _this = this;
+            var opt = _super.prototype.getDialogOptions.call(this);
+            opt.title = Q.text('Site.BasicProgressDialog.PleaseWait');
+            opt.width = 600;
+            opt.buttons = [{
+                    text: Q.text('Dialogs.CancelButton'),
+                    click: function () {
+                        _this.cancelled = true;
+                        _this.element.closest('.ui-dialog')
+                            .find('.ui-dialog-buttonpane .ui-button')
+                            .attr('disabled', 'disabled')
+                            .css('opacity', '0.5');
+                        _this.element.dialog('option', 'title', Q.trimToNull(_this.cancelTitle) ||
+                            Q.text('Site.BasicProgressDialog.CancelTitle'));
+                    }
+                }];
+            return opt;
+        };
+        BasicProgressDialog.prototype.initDialog = function () {
+            _super.prototype.initDialog.call(this);
+            this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
+        };
+        BasicProgressDialog.prototype.getTemplate = function () {
+            return ("<div class='s-DialogContent s-BasicProgressDialogContent'>" +
+                "<div id='~_StatusText' class='status-text' ></div>" +
+                "<div id='~_ProgressBar' class='progress-bar'>" +
+                "<div id='~_ProgressLabel' class='progress-label' ></div>" +
+                "</div>" +
+                "</div>");
+        };
+        return BasicProgressDialog;
+    }(Serenity.TemplatedDialog));
+    Miapp2.BasicProgressDialog = BasicProgressDialog;
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var BulkServiceAction = /** @class */ (function () {
+            function BulkServiceAction() {
+            }
+            BulkServiceAction.prototype.createProgressDialog = function () {
+                this.progressDialog = new Miapp2.BasicProgressDialog();
+                this.progressDialog.dialogOpen();
+                this.progressDialog.max = this.keys.length;
+                this.progressDialog.value = 0;
+            };
+            BulkServiceAction.prototype.getConfirmationFormat = function () {
+                return Q.text('Site.BulkServiceAction.ConfirmationFormat');
+            };
+            BulkServiceAction.prototype.getConfirmationMessage = function (targetCount) {
+                return Q.format(this.getConfirmationFormat(), targetCount);
+            };
+            BulkServiceAction.prototype.confirm = function (targetCount, action) {
+                Q.confirm(this.getConfirmationMessage(targetCount), action);
+            };
+            BulkServiceAction.prototype.getNothingToProcessMessage = function () {
+                return Q.text('Site.BulkServiceAction.NothingToProcess');
+            };
+            BulkServiceAction.prototype.nothingToProcess = function () {
+                Q.notifyError(this.getNothingToProcessMessage());
+            };
+            BulkServiceAction.prototype.getParallelRequests = function () {
+                return 1;
+            };
+            BulkServiceAction.prototype.getBatchSize = function () {
+                return 1;
+            };
+            BulkServiceAction.prototype.startParallelExecution = function () {
+                this.createProgressDialog();
+                this.successCount = 0;
+                this.errorCount = 0;
+                this.pendingRequests = 0;
+                this.completedRequests = 0;
+                this.errorCount = 0;
+                this.errorByKey = {};
+                this.queue = this.keys.slice();
+                this.queueIndex = 0;
+                var parallelRequests = this.getParallelRequests();
+                while (parallelRequests-- > 0) {
+                    this.executeNextBatch();
+                }
+            };
+            BulkServiceAction.prototype.serviceCallCleanup = function () {
+                this.pendingRequests--;
+                this.completedRequests++;
+                var title = Q.text((this.progressDialog.cancelled ?
+                    'Site.BasicProgressDialog.CancelTitle' : 'Site.BasicProgressDialog.PleaseWait'));
+                title += ' (';
+                if (this.successCount > 0) {
+                    title += Q.format(Q.text('Site.BulkServiceAction.SuccessCount'), this.successCount);
+                }
+                if (this.errorCount > 0) {
+                    if (this.successCount > 0) {
+                        title += ', ';
+                    }
+                    title += Q.format(Q.text('Site.BulkServiceAction.ErrorCount'), this.errorCount);
+                }
+                this.progressDialog.title = title + ')';
+                this.progressDialog.value = this.successCount + this.errorCount;
+                if (!this.progressDialog.cancelled && this.progressDialog.value < this.keys.length) {
+                    this.executeNextBatch();
+                }
+                else if (this.pendingRequests === 0) {
+                    this.progressDialog.dialogClose();
+                    this.showResults();
+                    if (this.done) {
+                        this.done();
+                        this.done = null;
+                    }
+                }
+            };
+            BulkServiceAction.prototype.executeForBatch = function (batch) {
+            };
+            BulkServiceAction.prototype.executeNextBatch = function () {
+                var batchSize = this.getBatchSize();
+                var batch = [];
+                while (true) {
+                    if (batch.length >= batchSize) {
+                        break;
+                    }
+                    if (this.queueIndex >= this.queue.length) {
+                        break;
+                    }
+                    batch.push(this.queue[this.queueIndex++]);
+                }
+                if (batch.length > 0) {
+                    this.pendingRequests++;
+                    this.executeForBatch(batch);
+                }
+            };
+            BulkServiceAction.prototype.getAllHadErrorsFormat = function () {
+                return Q.text('Site.BulkServiceAction.AllHadErrorsFormat');
+            };
+            BulkServiceAction.prototype.showAllHadErrors = function () {
+                Q.notifyError(Q.format(this.getAllHadErrorsFormat(), this.errorCount));
+            };
+            BulkServiceAction.prototype.getSomeHadErrorsFormat = function () {
+                return Q.text('Site.BulkServiceAction.SomeHadErrorsFormat');
+            };
+            BulkServiceAction.prototype.showSomeHadErrors = function () {
+                Q.notifyWarning(Q.format(this.getSomeHadErrorsFormat(), this.successCount, this.errorCount));
+            };
+            BulkServiceAction.prototype.getAllSuccessFormat = function () {
+                return Q.text('Site.BulkServiceAction.AllSuccessFormat');
+            };
+            BulkServiceAction.prototype.showAllSuccess = function () {
+                Q.notifySuccess(Q.format(this.getAllSuccessFormat(), this.successCount));
+            };
+            BulkServiceAction.prototype.showResults = function () {
+                if (this.errorCount === 0 && this.successCount === 0) {
+                    this.nothingToProcess();
+                    return;
+                }
+                if (this.errorCount > 0 && this.successCount === 0) {
+                    this.showAllHadErrors();
+                    return;
+                }
+                if (this.errorCount > 0) {
+                    this.showSomeHadErrors();
+                    return;
+                }
+                this.showAllSuccess();
+            };
+            BulkServiceAction.prototype.execute = function (keys) {
+                var _this = this;
+                this.keys = keys;
+                if (this.keys.length === 0) {
+                    this.nothingToProcess();
+                    return;
+                }
+                this.confirm(this.keys.length, function () { return _this.startParallelExecution(); });
+            };
+            BulkServiceAction.prototype.get_successCount = function () {
+                return this.successCount;
+            };
+            BulkServiceAction.prototype.set_successCount = function (value) {
+                this.successCount = value;
+            };
+            BulkServiceAction.prototype.get_errorCount = function () {
+                return this.errorCount;
+            };
+            BulkServiceAction.prototype.set_errorCount = function (value) {
+                this.errorCount = value;
+            };
+            return BulkServiceAction;
+        }());
+        Common.BulkServiceAction = BulkServiceAction;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var DialogUtils;
+    (function (DialogUtils) {
+        function pendingChangesConfirmation(element, hasPendingChanges) {
+            element.on('dialogbeforeclose panelbeforeclose', function (e) {
+                if (!Serenity.WX.hasOriginalEvent(e) || !hasPendingChanges()) {
+                    return;
+                }
+                e.preventDefault();
+                Q.confirm('You have pending changes. Save them?', function () { return element.find('div.save-and-close-button').click(); }, {
+                    onNo: function () {
+                        if (element.hasClass('ui-dialog-content'))
+                            element.dialog('close');
+                        else if (element.hasClass('s-Panel'))
+                            Serenity.TemplatedDialog.closePanel(element);
+                    }
+                });
+            });
+        }
+        DialogUtils.pendingChangesConfirmation = pendingChangesConfirmation;
+    })(DialogUtils = Miapp2.DialogUtils || (Miapp2.DialogUtils = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var EnumSelectFormatter = /** @class */ (function () {
+            function EnumSelectFormatter() {
+                this.allowClear = true;
+            }
+            EnumSelectFormatter.prototype.format = function (ctx) {
+                var enumType = Serenity.EnumTypeRegistry.get(this.enumKey);
+                var sb = "<select>";
+                if (this.allowClear) {
+                    sb += '<option value="">';
+                    sb += Q.htmlEncode(this.emptyItemText || Q.text("Controls.SelectEditor.EmptyItemText"));
+                    sb += '</option>';
+                }
+                for (var _i = 0, _a = Object.keys(enumType).filter(function (v) { return !isNaN(parseInt(v, 10)); }); _i < _a.length; _i++) {
+                    var x = _a[_i];
+                    sb += '<option value="' + x + '"';
+                    if (x == ctx.value)
+                        sb += " selected";
+                    var name = enumType[x];
+                    sb += ">";
+                    sb += Q.htmlEncode(Q.tryGetText("Enums." + this.enumKey + "." + name) || name);
+                    sb += "</option>";
+                }
+                sb += "</select>";
+                return sb;
+            };
+            __decorate([
+                Serenity.Decorators.option()
+            ], EnumSelectFormatter.prototype, "enumKey", void 0);
+            __decorate([
+                Serenity.Decorators.option()
+            ], EnumSelectFormatter.prototype, "allowClear", void 0);
+            __decorate([
+                Serenity.Decorators.option()
+            ], EnumSelectFormatter.prototype, "emptyItemText", void 0);
+            EnumSelectFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], EnumSelectFormatter);
+            return EnumSelectFormatter;
+        }());
+        Common.EnumSelectFormatter = EnumSelectFormatter;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var ExcelExportHelper;
+        (function (ExcelExportHelper) {
+            function createToolButton(options) {
+                return {
+                    hint: Q.coalesce(options.hint, 'Excel'),
+                    title: Q.coalesce(options.title, ''),
+                    cssClass: 'export-xlsx-button',
+                    onClick: function () {
+                        if (!options.onViewSubmit()) {
+                            return;
+                        }
+                        var grid = options.grid;
+                        var request = Q.deepClone(grid.getView().params);
+                        request.Take = 0;
+                        request.Skip = 0;
+                        var sortBy = grid.getView().sortBy;
+                        if (sortBy) {
+                            request.Sort = sortBy;
+                        }
+                        request.IncludeColumns = [];
+                        var columns = grid.getGrid().getColumns();
+                        for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
+                            var column = columns_1[_i];
+                            request.IncludeColumns.push(column.id || column.field);
+                        }
+                        Q.postToService({ service: options.service, request: request, target: '_blank' });
+                    },
+                    separator: options.separator
+                };
+            }
+            ExcelExportHelper.createToolButton = createToolButton;
+        })(ExcelExportHelper = Common.ExcelExportHelper || (Common.ExcelExportHelper = {}));
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var GridEditorBase = /** @class */ (function (_super) {
+            __extends(GridEditorBase, _super);
+            function GridEditorBase(container) {
+                var _this = _super.call(this, container) || this;
+                _this.nextId = 1;
+                return _this;
+            }
+            GridEditorBase.prototype.getIdProperty = function () { return "__id"; };
+            GridEditorBase.prototype.id = function (entity) {
+                return entity[this.getIdProperty()];
+            };
+            GridEditorBase.prototype.getNextId = function () {
+                return "`" + this.nextId++;
+            };
+            GridEditorBase.prototype.setNewId = function (entity) {
+                entity[this.getIdProperty()] = this.getNextId();
+            };
+            GridEditorBase.prototype.save = function (opt, callback) {
+                var _this = this;
+                var request = opt.request;
+                var row = Q.deepClone(request.Entity);
+                var id = this.id(row);
+                if (id == null) {
+                    row[this.getIdProperty()] = this.getNextId();
+                }
+                if (!this.validateEntity(row, id)) {
+                    return;
+                }
+                var items = this.view.getItems().slice();
+                if (id == null) {
+                    items.push(row);
+                }
+                else {
+                    var index = Q.indexOf(items, function (x) { return _this.id(x) === id; });
+                    items[index] = Q.deepClone({}, items[index], row);
+                }
+                this.setEntities(items);
+                callback({});
+            };
+            GridEditorBase.prototype.deleteEntity = function (id) {
+                this.view.deleteItem(id);
+                return true;
+            };
+            GridEditorBase.prototype.validateEntity = function (row, id) {
+                return true;
+            };
+            GridEditorBase.prototype.setEntities = function (items) {
+                this.view.setItems(items, true);
+            };
+            GridEditorBase.prototype.getNewEntity = function () {
+                return {};
+            };
+            GridEditorBase.prototype.getButtons = function () {
+                var _this = this;
+                return [{
+                        title: 'Nuevo',
+                        cssClass: 'add-button',
+                        onClick: function () {
+                            _this.createEntityDialog(_this.getItemType(), function (dlg) {
+                                var dialog = dlg;
+                                dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
+                                dialog.loadEntityAndOpenDialog(_this.getNewEntity());
+                            });
+                        }
+                    }];
+            };
+            GridEditorBase.prototype.editItem = function (entityOrId) {
+                var _this = this;
+                var id = entityOrId;
+                var item = this.view.getItemById(id);
+                this.createEntityDialog(this.getItemType(), function (dlg) {
+                    var dialog = dlg;
+                    dialog.onDelete = function (opt, callback) {
+                        if (!_this.deleteEntity(id)) {
+                            return;
+                        }
+                        callback({});
+                    };
+                    dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
+                    dialog.loadEntityAndOpenDialog(item);
+                });
+                ;
+            };
+            GridEditorBase.prototype.getEditValue = function (property, target) {
+                target[property.name] = this.value;
+            };
+            GridEditorBase.prototype.setEditValue = function (source, property) {
+                this.value = source[property.name];
+            };
+            Object.defineProperty(GridEditorBase.prototype, "value", {
+                get: function () {
+                    var p = this.getIdProperty();
+                    return this.view.getItems().map(function (x) {
+                        var y = Q.deepClone(x);
+                        var id = y[p];
+                        if (id && id.toString().charAt(0) == '`')
+                            delete y[p];
+                        return y;
+                    });
+                },
+                set: function (value) {
+                    var _this = this;
+                    var p = this.getIdProperty();
+                    this.view.setItems((value || []).map(function (x) {
+                        var y = Q.deepClone(x);
+                        if (y[p] == null)
+                            y[p] = "`" + _this.getNextId();
+                        return y;
+                    }), true);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            GridEditorBase.prototype.getGridCanLoad = function () {
+                return false;
+            };
+            GridEditorBase.prototype.usePager = function () {
+                return false;
+            };
+            GridEditorBase.prototype.getInitialTitle = function () {
+                return null;
+            };
+            GridEditorBase.prototype.createQuickSearchInput = function () {
+            };
+            GridEditorBase = __decorate([
+                Serenity.Decorators.registerClass([Serenity.IGetEditValue, Serenity.ISetEditValue]),
+                Serenity.Decorators.editor(),
+                Serenity.Decorators.element("<div/>")
+            ], GridEditorBase);
+            return GridEditorBase;
+        }(Serenity.EntityGrid));
+        Common.GridEditorBase = GridEditorBase;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var GridEditorDialog = /** @class */ (function (_super) {
+            __extends(GridEditorDialog, _super);
+            function GridEditorDialog() {
                 return _super !== null && _super.apply(this, arguments) || this;
             }
-            ChartInDialog_1 = ChartInDialog;
-            ChartInDialog.initializePage = function () {
-                $(function () {
-                    $('#LaunchDialogButton').click(function (e) {
-                        (new ChartInDialog_1()).dialogOpen();
-                    });
-                });
+            GridEditorDialog.prototype.getIdProperty = function () { return "__id"; };
+            GridEditorDialog.prototype.destroy = function () {
+                this.onSave = null;
+                this.onDelete = null;
+                _super.prototype.destroy.call(this);
             };
-            ChartInDialog.prototype.onDialogOpen = function () {
+            GridEditorDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                // apply changes button doesn't work properly with in-memory grids yet
+                if (this.applyChangesButton) {
+                    this.applyChangesButton.hide();
+                }
+            };
+            GridEditorDialog.prototype.saveHandler = function (options, callback) {
+                this.onSave && this.onSave(options, callback);
+            };
+            GridEditorDialog.prototype.deleteHandler = function (options, callback) {
+                this.onDelete && this.onDelete(options, callback);
+            };
+            GridEditorDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], GridEditorDialog);
+            return GridEditorDialog;
+        }(Serenity.EntityDialog));
+        Common.GridEditorDialog = GridEditorDialog;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    /**
+     * This is an editor widget but it only displays a text, not edits it.
+     *
+     */
+    var StaticTextBlock = /** @class */ (function (_super) {
+        __extends(StaticTextBlock, _super);
+        function StaticTextBlock(container, options) {
+            var _this = _super.call(this, container, options) || this;
+            // hide the caption label for this editor if in a form. ugly hack
+            if (_this.options.hideLabel)
+                _this.element.closest('.field').find('.caption').hide();
+            _this.updateElementContent();
+            return _this;
+        }
+        StaticTextBlock.prototype.updateElementContent = function () {
+            var text = Q.coalesce(this.options.text, this.value);
+            // if isLocalText is set, text is actually a local text key
+            if (this.options.isLocalText)
+                text = Q.text(text);
+            // don't html encode if isHtml option is true
+            if (this.options.isHtml)
+                this.element.html(text);
+            else
+                this.element.text(text);
+        };
+        /**
+         * By implementing ISetEditValue interface, we allow this editor to display its field value.
+         * But only do this when our text content is not explicitly set in options
+         */
+        StaticTextBlock.prototype.setEditValue = function (source, property) {
+            if (this.options.text == null) {
+                this.value = Q.coalesce(this.options.text, source[property.name]);
+                this.updateElementContent();
+            }
+        };
+        StaticTextBlock = __decorate([
+            Serenity.Decorators.element("<div/>"),
+            Serenity.Decorators.registerEditor([Serenity.ISetEditValue])
+        ], StaticTextBlock);
+        return StaticTextBlock;
+    }(Serenity.Widget));
+    Miapp2.StaticTextBlock = StaticTextBlock;
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var LanguageSelection = /** @class */ (function (_super) {
+            __extends(LanguageSelection, _super);
+            function LanguageSelection(select, currentLanguage) {
+                var _this = _super.call(this, select) || this;
+                currentLanguage = Q.coalesce(currentLanguage, 'en');
+                _this.change(function (e) {
+                    var path = Q.Config.applicationPath;
+                    if (path && path != '/' && Q.endsWith(path, '/'))
+                        path = path.substr(0, path.length - 1);
+                    $.cookie('LanguagePreference', select.val(), {
+                        path: path,
+                        expires: 365
+                    });
+                    window.location.reload(true);
+                });
+                Q.getLookupAsync('Administration.Language').then(function (x) {
+                    if (!Q.any(x.items, function (z) { return z.LanguageId === currentLanguage; })) {
+                        var idx = currentLanguage.lastIndexOf('-');
+                        if (idx >= 0) {
+                            currentLanguage = currentLanguage.substr(0, idx);
+                            if (!Q.any(x.items, function (y) { return y.LanguageId === currentLanguage; })) {
+                                currentLanguage = 'en';
+                            }
+                        }
+                        else {
+                            currentLanguage = 'en';
+                        }
+                    }
+                    for (var _i = 0, _a = x.items; _i < _a.length; _i++) {
+                        var l = _a[_i];
+                        Q.addOption(select, l.LanguageId, l.LanguageName);
+                    }
+                    select.val(currentLanguage);
+                });
+                return _this;
+            }
+            return LanguageSelection;
+        }(Serenity.Widget));
+        Common.LanguageSelection = LanguageSelection;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var SidebarSearch = /** @class */ (function (_super) {
+            __extends(SidebarSearch, _super);
+            function SidebarSearch(input, menuUL) {
+                var _this = _super.call(this, input) || this;
+                new Serenity.QuickSearchInput(input, {
+                    onSearch: function (field, text, success) {
+                        _this.updateMatchFlags(text);
+                        success(true);
+                    }
+                });
+                _this.menuUL = menuUL;
+                return _this;
+            }
+            SidebarSearch.prototype.updateMatchFlags = function (text) {
+                var liList = this.menuUL.find('li').removeClass('non-match');
+                text = Q.trimToNull(text);
+                if (text == null) {
+                    liList.show();
+                    liList.removeClass('expanded');
+                    return;
+                }
+                var parts = text.replace(',', ' ').split(' ').filter(function (x) { return !Q.isTrimmedEmpty(x); });
+                for (var i = 0; i < parts.length; i++) {
+                    parts[i] = Q.trimToNull(Select2.util.stripDiacritics(parts[i]).toUpperCase());
+                }
+                var items = liList;
+                items.each(function (idx, e) {
+                    var x = $(e);
+                    var title = Select2.util.stripDiacritics(Q.coalesce(x.text(), '').toUpperCase());
+                    for (var _i = 0, parts_1 = parts; _i < parts_1.length; _i++) {
+                        var p = parts_1[_i];
+                        if (p != null && !(title.indexOf(p) !== -1)) {
+                            x.addClass('non-match');
+                            break;
+                        }
+                    }
+                });
+                var matchingItems = items.not('.non-match');
+                var visibles = matchingItems.parents('li').add(matchingItems);
+                var nonVisibles = liList.not(visibles);
+                nonVisibles.hide().addClass('non-match');
+                visibles.show();
+                liList.addClass('expanded');
+            };
+            return SidebarSearch;
+        }(Serenity.Widget));
+        Common.SidebarSearch = SidebarSearch;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var ThemeSelection = /** @class */ (function (_super) {
+            __extends(ThemeSelection, _super);
+            function ThemeSelection(select) {
+                var _this = _super.call(this, select) || this;
+                _this.change(function (e) {
+                    var path = Q.Config.applicationPath;
+                    if (path && path != '/' && Q.endsWith(path, '/'))
+                        path = path.substr(0, path.length - 1);
+                    $.cookie('ThemePreference', select.val(), {
+                        path: path,
+                        expires: 365
+                    });
+                    var theme = select.val() || '';
+                    var darkSidebar = theme.indexOf('light') < 0;
+                    $('body').removeClass('skin-' + _this.getCurrentTheme());
+                    $('body').addClass('skin-' + theme)
+                        .toggleClass('dark-sidebar', darkSidebar)
+                        .toggleClass('light-sidebar', !darkSidebar);
+                });
+                Q.addOption(select, 'blue', Q.text('Site.Layout.ThemeBlue'));
+                Q.addOption(select, 'blue-light', Q.text('Site.Layout.ThemeBlueLight'));
+                Q.addOption(select, 'purple', Q.text('Site.Layout.ThemePurple'));
+                Q.addOption(select, 'purple-light', Q.text('Site.Layout.ThemePurpleLight'));
+                Q.addOption(select, 'red', Q.text('Site.Layout.ThemeRed'));
+                Q.addOption(select, 'red-light', Q.text('Site.Layout.ThemeRedLight'));
+                Q.addOption(select, 'green', Q.text('Site.Layout.ThemeGreen'));
+                Q.addOption(select, 'green-light', Q.text('Site.Layout.ThemeGreenLight'));
+                Q.addOption(select, 'yellow', Q.text('Site.Layout.ThemeYellow'));
+                Q.addOption(select, 'yellow-light', Q.text('Site.Layout.ThemeYellowLight'));
+                Q.addOption(select, 'black', Q.text('Site.Layout.ThemeBlack'));
+                Q.addOption(select, 'black-light', Q.text('Site.Layout.ThemeBlackLight'));
+                select.val(_this.getCurrentTheme());
+                return _this;
+            }
+            ThemeSelection.prototype.getCurrentTheme = function () {
+                var skinClass = Q.first(($('body').attr('class') || '').split(' '), function (x) { return Q.startsWith(x, 'skin-'); });
+                if (skinClass) {
+                    return skinClass.substr(5);
+                }
+                return 'blue';
+            };
+            return ThemeSelection;
+        }(Serenity.Widget));
+        Common.ThemeSelection = ThemeSelection;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var PdfExportHelper;
+        (function (PdfExportHelper) {
+            function toAutoTableColumns(srcColumns, columnStyles, columnTitles) {
+                return srcColumns.map(function (src) {
+                    var col = {
+                        dataKey: src.id || src.field,
+                        title: src.name || ''
+                    };
+                    if (columnTitles && columnTitles[col.dataKey] != null)
+                        col.title = columnTitles[col.dataKey];
+                    var style = {};
+                    if ((src.cssClass || '').indexOf("align-right") >= 0)
+                        style.halign = 'right';
+                    else if ((src.cssClass || '').indexOf("align-center") >= 0)
+                        style.halign = 'center';
+                    columnStyles[col.dataKey] = style;
+                    return col;
+                });
+            }
+            function toAutoTableData(entities, keys, srcColumns) {
+                var el = document.createElement('span');
+                var row = 0;
+                return entities.map(function (item) {
+                    var dst = {};
+                    for (var cell = 0; cell < srcColumns.length; cell++) {
+                        var src = srcColumns[cell];
+                        var fld = src.field || '';
+                        var key = keys[cell];
+                        var txt = void 0;
+                        var html = void 0;
+                        if (src.formatter) {
+                            html = src.formatter(row, cell, item[fld], src, item);
+                        }
+                        else if (src.format) {
+                            html = src.format({ row: row, cell: cell, item: item, value: item[fld] });
+                        }
+                        else {
+                            dst[key] = item[fld];
+                            continue;
+                        }
+                        if (!html || (html.indexOf('<') < 0 && html.indexOf('&') < 0))
+                            dst[key] = html;
+                        else {
+                            el.innerHTML = html;
+                            if (el.children.length == 1 &&
+                                $(el.children[0]).is(":input")) {
+                                dst[key] = $(el.children[0]).val();
+                            }
+                            else if (el.children.length == 1 &&
+                                $(el.children).is('.check-box')) {
+                                dst[key] = $(el.children).hasClass("checked") ? "X" : "";
+                            }
+                            else
+                                dst[key] = el.textContent || '';
+                        }
+                    }
+                    row++;
+                    return dst;
+                });
+            }
+            function exportToPdf(options) {
+                var g = options.grid;
+                if (!options.onViewSubmit())
+                    return;
+                includeAutoTable();
+                var request = Q.deepClone(g.view.params);
+                request.Take = 0;
+                request.Skip = 0;
+                var sortBy = g.view.sortBy;
+                if (sortBy != null)
+                    request.Sort = sortBy;
+                var gridColumns = g.slickGrid.getColumns();
+                gridColumns = gridColumns.filter(function (x) { return x.id !== "__select__"; });
+                request.IncludeColumns = [];
+                for (var _i = 0, gridColumns_1 = gridColumns; _i < gridColumns_1.length; _i++) {
+                    var column = gridColumns_1[_i];
+                    request.IncludeColumns.push(column.id || column.field);
+                }
+                Q.serviceCall({
+                    url: g.view.url,
+                    request: request,
+                    onSuccess: function (response) {
+                        var doc = new jsPDF('l', 'pt');
+                        var srcColumns = gridColumns;
+                        var columnStyles = {};
+                        var columns = toAutoTableColumns(srcColumns, columnStyles, options.columnTitles);
+                        var keys = columns.map(function (x) { return x.dataKey; });
+                        var entities = response.Entities || [];
+                        var data = toAutoTableData(entities, keys, srcColumns);
+                        doc.setFontSize(options.titleFontSize || 10);
+                        doc.setFontStyle('bold');
+                        var reportTitle = options.reportTitle || g.getTitle() || "Report";
+                        doc.autoTableText(reportTitle, doc.internal.pageSize.width / 2, options.titleTop || 25, { halign: 'center' });
+                        var totalPagesExp = "{{T}}";
+                        var pageNumbers = options.pageNumbers == null || options.pageNumbers;
+                        var autoOptions = $.extend({
+                            margin: { top: 25, left: 25, right: 25, bottom: pageNumbers ? 25 : 30 },
+                            startY: 60,
+                            styles: {
+                                fontSize: 8,
+                                overflow: 'linebreak',
+                                cellPadding: 2,
+                                valign: 'middle'
+                            },
+                            columnStyles: columnStyles
+                        }, options.tableOptions);
+                        if (pageNumbers) {
+                            var footer = function (data) {
+                                var str = data.pageCount;
+                                // Total page number plugin only available in jspdf v1.0+
+                                if (typeof doc.putTotalPages === 'function') {
+                                    str = str + " / " + totalPagesExp;
+                                }
+                                doc.autoTableText(str, doc.internal.pageSize.width / 2, doc.internal.pageSize.height - autoOptions.margin.bottom, {
+                                    halign: 'center'
+                                });
+                            };
+                            autoOptions.afterPageContent = footer;
+                        }
+                        // Print header of page
+                        if (options.printDateTimeHeader == null || options.printDateTimeHeader) {
+                            var beforePage = function (data) {
+                                doc.setFontStyle('normal');
+                                doc.setFontSize(8);
+                                // Date and time of the report
+                                doc.autoTableText(Q.formatDate(new Date(), "dd-MM-yyyy HH:mm"), doc.internal.pageSize.width - autoOptions.margin.right, 13, {
+                                    halign: 'right'
+                                });
+                            };
+                            autoOptions.beforePageContent = beforePage;
+                        }
+                        doc.autoTable(columns, data, autoOptions);
+                        if (typeof doc.putTotalPages === 'function') {
+                            doc.putTotalPages(totalPagesExp);
+                        }
+                        if (!options.output || options.output == "file") {
+                            var fileName = options.fileName || options.reportTitle || "{0}_{1}.pdf";
+                            fileName = Q.format(fileName, g.getTitle() || "report", Q.formatDate(new Date(), "yyyyMMdd_HHmm"));
+                            doc.save(fileName);
+                            return;
+                        }
+                        if (options.autoPrint)
+                            doc.autoPrint();
+                        var output = options.output;
+                        if (output == 'newwindow' || '_blank')
+                            output = 'dataurlnewwindow';
+                        else if (output == 'window')
+                            output = 'datauri';
+                        doc.output(output);
+                    }
+                });
+            }
+            PdfExportHelper.exportToPdf = exportToPdf;
+            function createToolButton(options) {
+                return {
+                    title: options.title || '',
+                    hint: options.hint || 'PDF',
+                    cssClass: 'export-pdf-button',
+                    onClick: function () { return exportToPdf(options); },
+                    separator: options.separator
+                };
+            }
+            PdfExportHelper.createToolButton = createToolButton;
+            function includeJsPDF() {
+                if (typeof jsPDF !== "undefined")
+                    return;
+                var script = $("jsPDFScript");
+                if (script.length > 0)
+                    return;
+                $("<script/>")
+                    .attr("type", "text/javascript")
+                    .attr("id", "jsPDFScript")
+                    .attr("src", Q.resolveUrl("~/Scripts/jspdf.min.js"))
+                    .appendTo(document.head);
+            }
+            function includeAutoTable() {
+                includeJsPDF();
+                if (typeof jsPDF === "undefined" ||
+                    typeof jsPDF.API == "undefined" ||
+                    typeof jsPDF.API.autoTable !== "undefined")
+                    return;
+                var script = $("jsPDFAutoTableScript");
+                if (script.length > 0)
+                    return;
+                $("<script/>")
+                    .attr("type", "text/javascript")
+                    .attr("id", "jsPDFAutoTableScript")
+                    .attr("src", Q.resolveUrl("~/Scripts/jspdf.plugin.autotable.min.js"))
+                    .appendTo(document.head);
+            }
+        })(PdfExportHelper = Common.PdfExportHelper || (Common.PdfExportHelper = {}));
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var ReportDialog = /** @class */ (function (_super) {
+            __extends(ReportDialog, _super);
+            function ReportDialog(options) {
+                var _this = _super.call(this, options) || this;
+                _this.updateInterface();
+                _this.loadReport(_this.options.reportKey);
+                return _this;
+            }
+            ReportDialog.prototype.getDialogButtons = function () {
+                return null;
+            };
+            ReportDialog.prototype.createPropertyGrid = function () {
+                this.propertyGrid && this.byId('PropertyGrid').html('').attr('class', '');
+                this.propertyGrid = new Serenity.PropertyGrid(this.byId('PropertyGrid'), {
+                    idPrefix: this.idPrefix,
+                    useCategories: true,
+                    items: this.report.Properties
+                }).init(null);
+            };
+            ReportDialog.prototype.loadReport = function (reportKey) {
                 var _this = this;
-                _super.prototype.onDialogOpen.call(this);
-                BasicSamples.BasicSamplesService.OrdersByShipper({}, function (response) {
-                    _this.areaChart = new Morris.Area({
-                        element: _this.idPrefix + 'Chart',
-                        resize: true, parseTime: false,
-                        data: response.Values,
-                        xkey: 'Month',
-                        ykeys: response.ShipperKeys, labels: response.ShipperLabels, hideHover: 'auto'
-                    });
+                Q.serviceCall({
+                    url: Q.resolveUrl('~/Report/Retrieve'),
+                    request: {
+                        ReportKey: reportKey
+                    },
+                    onSuccess: function (response) {
+                        _this.report = response;
+                        _this.element.dialog().dialog('option', 'title', _this.report.Title);
+                        _this.createPropertyGrid();
+                        _this.propertyGrid.load(_this.report.InitialSettings || {});
+                        _this.updateInterface();
+                        _this.dialogOpen();
+                    }
                 });
             };
-            ChartInDialog.prototype.arrange = function () {
-                _super.prototype.arrange.call(this);
-                this.areaChart && this.areaChart.redraw();
+            ReportDialog.prototype.updateInterface = function () {
+                this.toolbar.findButton('print-preview-button')
+                    .toggle(this.report && !this.report.IsDataOnlyReport);
+                this.toolbar.findButton('export-pdf-button')
+                    .toggle(this.report && !this.report.IsDataOnlyReport);
+                this.toolbar.findButton('export-xlsx-button')
+                    .toggle(this.report && this.report.IsDataOnlyReport);
             };
-            ChartInDialog.prototype.getTemplate = function () {
-                // you could also put this in a ChartInDialog.Template.html file. it's here for simplicity.
-                return "<div id='~_Chart'></div>";
+            ReportDialog.prototype.executeReport = function (target, ext, download) {
+                if (!this.validateForm()) {
+                    return;
+                }
+                var opt = {};
+                this.propertyGrid.save(opt);
+                Common.ReportHelper.execute({
+                    download: download,
+                    reportKey: this.report.ReportKey,
+                    extension: ext,
+                    target: target,
+                    params: opt
+                });
             };
-            ChartInDialog.prototype.getDialogOptions = function () {
+            ReportDialog.prototype.getToolbarButtons = function () {
+                var _this = this;
+                return [
+                    {
+                        title: 'Preview',
+                        cssClass: 'print-preview-button',
+                        onClick: function () { return _this.executeReport('_blank', null, false); }
+                    },
+                    {
+                        title: 'PDF',
+                        cssClass: 'export-pdf-button',
+                        onClick: function () { return _this.executeReport('_blank', 'pdf', true); }
+                    },
+                    {
+                        title: 'Excel',
+                        cssClass: 'export-xlsx-button',
+                        onClick: function () { return _this.executeReport('_blank', 'xlsx', true); }
+                    }
+                ];
+            };
+            return ReportDialog;
+        }(Serenity.TemplatedDialog));
+        Common.ReportDialog = ReportDialog;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var ReportHelper;
+        (function (ReportHelper) {
+            function createToolButton(options) {
+                return {
+                    title: Q.coalesce(options.title, 'Report'),
+                    cssClass: Q.coalesce(options.cssClass, 'print-button'),
+                    icon: options.icon,
+                    onClick: function () {
+                        ReportHelper.execute(options);
+                    }
+                };
+            }
+            ReportHelper.createToolButton = createToolButton;
+            function execute(options) {
+                var opt = options.getParams ? options.getParams() : options.params;
+                Q.postToUrl({
+                    url: '~/Report/' + (options.download ? 'Download' : 'Render'),
+                    params: {
+                        key: options.reportKey,
+                        ext: Q.coalesce(options.extension, 'pdf'),
+                        opt: opt ? $.toJSON(opt) : ''
+                    },
+                    target: Q.coalesce(options.target, '_blank')
+                });
+            }
+            ReportHelper.execute = execute;
+        })(ReportHelper = Common.ReportHelper || (Common.ReportHelper = {}));
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var ReportPage = /** @class */ (function (_super) {
+            __extends(ReportPage, _super);
+            function ReportPage(element) {
+                var _this = _super.call(this, element) || this;
+                $('.report-link', element).click(function (e) { return _this.reportLinkClick(e); });
+                $('div.line', element).click(function (e) { return _this.categoryClick(e); });
+                new Serenity.QuickSearchInput($('.s-QuickSearchBar input', element), {
+                    onSearch: function (field, text, done) {
+                        _this.updateMatchFlags(text);
+                        done(true);
+                    }
+                });
+                return _this;
+            }
+            ReportPage.prototype.updateMatchFlags = function (text) {
+                var liList = $('.report-list', this.element).find('li').removeClass('non-match');
+                text = Q.trimToNull(text);
+                if (!text) {
+                    liList.children('ul').hide();
+                    liList.show().removeClass('expanded');
+                    return;
+                }
+                text = Select2.util.stripDiacritics(text).toUpperCase();
+                var reportItems = liList.filter('.report-item');
+                reportItems.each(function (ix, e) {
+                    var x = $(e);
+                    var title = Select2.util.stripDiacritics(Q.coalesce(x.text(), '').toUpperCase());
+                    if (title.indexOf(text) < 0) {
+                        x.addClass('non-match');
+                    }
+                });
+                var matchingItems = reportItems.not('.non-match');
+                var visibles = matchingItems.parents('li').add(matchingItems);
+                var nonVisibles = liList.not(visibles);
+                nonVisibles.hide().addClass('non-match');
+                visibles.show();
+                if (visibles.length <= 100) {
+                    liList.children('ul').show();
+                    liList.addClass('expanded');
+                }
+            };
+            ReportPage.prototype.categoryClick = function (e) {
+                var li = $(e.target).closest('li');
+                if (li.hasClass('expanded')) {
+                    li.find('ul').hide('fast');
+                    li.removeClass('expanded');
+                    li.find('li').removeClass('expanded');
+                }
+                else {
+                    li.addClass('expanded');
+                    li.children('ul').show('fast');
+                    if (li.children('ul').children('li').length === 1 && !li.children('ul').children('li').hasClass('expanded')) {
+                        li.children('ul').children('li').children('.line').click();
+                    }
+                }
+            };
+            ReportPage.prototype.reportLinkClick = function (e) {
+                e.preventDefault();
+                new Common.ReportDialog({
+                    reportKey: $(e.target).data('key')
+                }).dialogOpen();
+            };
+            return ReportPage;
+        }(Serenity.Widget));
+        Common.ReportPage = ReportPage;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Common;
+    (function (Common) {
+        var UserPreferenceStorage = /** @class */ (function () {
+            function UserPreferenceStorage() {
+            }
+            UserPreferenceStorage.prototype.getItem = function (key) {
+                var value;
+                Common.UserPreferenceService.Retrieve({
+                    PreferenceType: "UserPreferenceStorage",
+                    Name: key
+                }, function (response) { return value = response.Value; }, {
+                    async: false
+                });
+                return value;
+            };
+            UserPreferenceStorage.prototype.setItem = function (key, data) {
+                Common.UserPreferenceService.Update({
+                    PreferenceType: "UserPreferenceStorage",
+                    Name: key,
+                    Value: data
+                });
+            };
+            return UserPreferenceStorage;
+        }());
+        Common.UserPreferenceStorage = UserPreferenceStorage;
+    })(Common = Miapp2.Common || (Miapp2.Common = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var ImportFiles;
+    (function (ImportFiles) {
+        var PiezaDialog = /** @class */ (function (_super) {
+            __extends(PiezaDialog, _super);
+            function PiezaDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new ImportFiles.PiezaForm(_this.idPrefix);
+                return _this;
+            }
+            PiezaDialog.prototype.getFormKey = function () { return ImportFiles.PiezaForm.formKey; };
+            PiezaDialog.prototype.getIdProperty = function () { return ImportFiles.PiezaRow.idProperty; };
+            PiezaDialog.prototype.getLocalTextPrefix = function () { return ImportFiles.PiezaRow.localTextPrefix; };
+            PiezaDialog.prototype.getNameProperty = function () { return ImportFiles.PiezaRow.nameProperty; };
+            PiezaDialog.prototype.getService = function () { return ImportFiles.PiezaService.baseUrl; };
+            PiezaDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PiezaDialog);
+            return PiezaDialog;
+        }(Serenity.EntityDialog));
+        ImportFiles.PiezaDialog = PiezaDialog;
+    })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var ImportFiles;
+    (function (ImportFiles) {
+        var PiezaGrid = /** @class */ (function (_super) {
+            __extends(PiezaGrid, _super);
+            function PiezaGrid(container) {
+                var _this = _super.call(this, container) || this;
+                _this.toolbar.findButton(".column-picker-button").remove();
+                _this.toolbar.findButton(".refresh-button").remove();
+                _this.toolbar.findButton(".add-button").remove();
+                return _this;
+            }
+            PiezaGrid.prototype.getColumnsKey = function () { return 'ImportFiles.Pieza'; };
+            PiezaGrid.prototype.getDialogType = function () { return ImportFiles.PiezaDialog; };
+            PiezaGrid.prototype.getIdProperty = function () { return ImportFiles.PiezaRow.idProperty; };
+            PiezaGrid.prototype.getLocalTextPrefix = function () { return ImportFiles.PiezaRow.localTextPrefix; };
+            PiezaGrid.prototype.getService = function () { return ImportFiles.PiezaService.baseUrl; };
+            PiezaGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push({
+                    title: 'Import From Excel',
+                    cssClass: 'export-xlsx-button',
+                    onClick: function () {
+                        var dialog = new Miapp2.BasicSamples.ProductExcelImportDialog();
+                        dialog.element.on('dialogclose', function () {
+                            _this.refresh();
+                            dialog = null;
+                        });
+                        dialog.dialogOpen();
+                    }
+                });
+                buttons.push({
+                    title: 'Borrar',
+                    cssClass: 'delete-button',
+                    onClick: function () {
+                        ImportFiles.PiezaService.resultt({}, function (response) {
+                            Q.alert("true");
+                        });
+                    }
+                });
+                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: ImportFiles.PiezaService.baseUrl + '/ListExcel',
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                return buttons;
+            };
+            PiezaGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PiezaGrid);
+            return PiezaGrid;
+        }(Serenity.EntityGrid));
+        ImportFiles.PiezaGrid = PiezaGrid;
+    })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CategoryDialog = /** @class */ (function (_super) {
+            __extends(CategoryDialog, _super);
+            function CategoryDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.CategoryForm(_this.idPrefix);
+                return _this;
+            }
+            CategoryDialog.prototype.getFormKey = function () { return Northwind.CategoryForm.formKey; };
+            CategoryDialog.prototype.getIdProperty = function () { return Northwind.CategoryRow.idProperty; };
+            CategoryDialog.prototype.getLocalTextPrefix = function () { return Northwind.CategoryRow.localTextPrefix; };
+            CategoryDialog.prototype.getNameProperty = function () { return Northwind.CategoryRow.nameProperty; };
+            CategoryDialog.prototype.getService = function () { return Northwind.CategoryService.baseUrl; };
+            CategoryDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], CategoryDialog);
+            return CategoryDialog;
+        }(Serenity.EntityDialog));
+        Northwind.CategoryDialog = CategoryDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CategoryGrid = /** @class */ (function (_super) {
+            __extends(CategoryGrid, _super);
+            function CategoryGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            CategoryGrid.prototype.getColumnsKey = function () { return "Northwind.Category"; };
+            CategoryGrid.prototype.getDialogType = function () { return Northwind.CategoryDialog; };
+            CategoryGrid.prototype.getIdProperty = function () { return Northwind.CategoryRow.idProperty; };
+            CategoryGrid.prototype.getLocalTextPrefix = function () { return Northwind.CategoryRow.localTextPrefix; };
+            CategoryGrid.prototype.getService = function () { return Northwind.CategoryService.baseUrl; };
+            CategoryGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], CategoryGrid);
+            return CategoryGrid;
+        }(Serenity.EntityGrid));
+        Northwind.CategoryGrid = CategoryGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CustomerDialog = /** @class */ (function (_super) {
+            __extends(CustomerDialog, _super);
+            function CustomerDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Northwind.CustomerForm(_this.idPrefix);
+                _this.ordersGrid = new Northwind.CustomerOrdersGrid(_this.byId('OrdersGrid'));
+                // force order dialog to open in Dialog mode instead of Panel mode
+                // which is set as default on OrderDialog with @panelAttribute
+                _this.ordersGrid.openDialogsAsPanel = false;
+                _this.byId('NoteList').closest('.field').hide().end().appendTo(_this.byId('TabNotes'));
+                Miapp2.DialogUtils.pendingChangesConfirmation(_this.element, function () { return _this.getSaveState() != _this.loadedState; });
+                return _this;
+            }
+            CustomerDialog.prototype.getFormKey = function () { return Northwind.CustomerForm.formKey; };
+            CustomerDialog.prototype.getIdProperty = function () { return Northwind.CustomerRow.idProperty; };
+            CustomerDialog.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
+            CustomerDialog.prototype.getNameProperty = function () { return Northwind.CustomerRow.nameProperty; };
+            CustomerDialog.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
+            CustomerDialog.prototype.getSaveState = function () {
+                try {
+                    return $.toJSON(this.getSaveEntity());
+                }
+                catch (e) {
+                    return null;
+                }
+            };
+            CustomerDialog.prototype.loadResponse = function (data) {
+                _super.prototype.loadResponse.call(this, data);
+                this.loadedState = this.getSaveState();
+            };
+            CustomerDialog.prototype.loadEntity = function (entity) {
+                _super.prototype.loadEntity.call(this, entity);
+                Serenity.TabsExtensions.setDisabled(this.tabs, 'Orders', this.isNewOrDeleted());
+                this.ordersGrid.customerID = entity.CustomerID;
+            };
+            CustomerDialog.prototype.onSaveSuccess = function (response) {
+                _super.prototype.onSaveSuccess.call(this, response);
+                Q.reloadLookup('Northwind.Customer');
+            };
+            CustomerDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.panel()
+            ], CustomerDialog);
+            return CustomerDialog;
+        }(Serenity.EntityDialog));
+        Northwind.CustomerDialog = CustomerDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CustomerEditor = /** @class */ (function (_super) {
+            __extends(CustomerEditor, _super);
+            function CustomerEditor(hidden) {
+                return _super.call(this, hidden) || this;
+            }
+            CustomerEditor.prototype.getLookupKey = function () {
+                return 'Northwind.Customer';
+            };
+            CustomerEditor.prototype.getItemText = function (item, lookup) {
+                return _super.prototype.getItemText.call(this, item, lookup) + ' [' + item.CustomerID + ']';
+            };
+            CustomerEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], CustomerEditor);
+            return CustomerEditor;
+        }(Serenity.LookupEditorBase));
+        Northwind.CustomerEditor = CustomerEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CustomerGrid = /** @class */ (function (_super) {
+            __extends(CustomerGrid, _super);
+            function CustomerGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            CustomerGrid.prototype.getColumnsKey = function () { return "Northwind.Customer"; };
+            CustomerGrid.prototype.getDialogType = function () { return Northwind.CustomerDialog; };
+            CustomerGrid.prototype.getIdProperty = function () { return Northwind.CustomerRow.idProperty; };
+            CustomerGrid.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
+            CustomerGrid.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
+            CustomerGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    service: 'Northwind/Customer/ListExcel',
+                    separator: true
+                }));
+                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); }
+                }));
+                return buttons;
+            };
+            CustomerGrid = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.filterable()
+            ], CustomerGrid);
+            return CustomerGrid;
+        }(Serenity.EntityGrid));
+        Northwind.CustomerGrid = CustomerGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var OrderDialog = /** @class */ (function (_super) {
+            __extends(OrderDialog, _super);
+            function OrderDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Northwind.OrderForm(_this.idPrefix);
+                return _this;
+            }
+            OrderDialog.prototype.getFormKey = function () { return Northwind.OrderForm.formKey; };
+            OrderDialog.prototype.getIdProperty = function () { return Northwind.OrderRow.idProperty; };
+            OrderDialog.prototype.getLocalTextPrefix = function () { return Northwind.OrderRow.localTextPrefix; };
+            OrderDialog.prototype.getNameProperty = function () { return Northwind.OrderRow.nameProperty; };
+            OrderDialog.prototype.getService = function () { return Northwind.OrderService.baseUrl; };
+            OrderDialog.prototype.getToolbarButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getToolbarButtons.call(this);
+                buttons.push(Miapp2.Common.ReportHelper.createToolButton({
+                    title: 'Invoice',
+                    cssClass: 'export-pdf-button',
+                    reportKey: 'Northwind.OrderDetail',
+                    getParams: function () { return ({
+                        OrderID: _this.get_entityId()
+                    }); }
+                }));
+                return buttons;
+            };
+            OrderDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                this.toolbar.findButton('export-pdf-button').toggle(this.isEditMode());
+            };
+            OrderDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.panel()
+            ], OrderDialog);
+            return OrderDialog;
+        }(Serenity.EntityDialog));
+        Northwind.OrderDialog = OrderDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../Order/OrderDialog.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CustomerOrderDialog = /** @class */ (function (_super) {
+            __extends(CustomerOrderDialog, _super);
+            function CustomerOrderDialog() {
+                return _super.call(this) || this;
+            }
+            CustomerOrderDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                Serenity.EditorUtils.setReadOnly(this.form.CustomerID, true);
+            };
+            CustomerOrderDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], CustomerOrderDialog);
+            return CustomerOrderDialog;
+        }(Northwind.OrderDialog));
+        Northwind.CustomerOrderDialog = CustomerOrderDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var OrderGrid = /** @class */ (function (_super) {
+            __extends(OrderGrid, _super);
+            //    protected shippingStateFilter: Serenity.EnumEditor;
+            function OrderGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            OrderGrid.prototype.getColumnsKey = function () { return "Northwind.Order"; };
+            OrderGrid.prototype.getDialogType = function () { return Northwind.OrderDialog; };
+            OrderGrid.prototype.getIdProperty = function () { return Northwind.OrderRow.idProperty; };
+            OrderGrid.prototype.getLocalTextPrefix = function () { return Northwind.OrderRow.localTextPrefix; };
+            OrderGrid.prototype.getService = function () { return Northwind.OrderService.baseUrl; };
+            OrderGrid = __decorate([
+                Serenity.Decorators.registerClass()
+                //   @Serenity.Decorators.filterable()
+            ], OrderGrid);
+            return OrderGrid;
+        }(Serenity.EntityGrid));
+        Northwind.OrderGrid = OrderGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../Order/OrderGrid.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var CustomerOrdersGrid = /** @class */ (function (_super) {
+            __extends(CustomerOrdersGrid, _super);
+            function CustomerOrdersGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            CustomerOrdersGrid.prototype.getDialogType = function () { return Northwind.CustomerOrderDialog; };
+            CustomerOrdersGrid.prototype.getColumns = function () {
+                return _super.prototype.getColumns.call(this).filter(function (x) { return x.field !== "CustomerCompanyName" /* CustomerCompanyName */; });
+            };
+            CustomerOrdersGrid.prototype.initEntityDialog = function (itemType, dialog) {
+                _super.prototype.initEntityDialog.call(this, itemType, dialog);
+                Serenity.SubDialogHelper.cascade(dialog, this.element.closest('.ui-dialog'));
+            };
+            CustomerOrdersGrid.prototype.addButtonClick = function () {
+                this.editItem({ CustomerID: this.customerID });
+            };
+            CustomerOrdersGrid.prototype.getInitialTitle = function () {
+                return null;
+            };
+            CustomerOrdersGrid.prototype.getGridCanLoad = function () {
+                return _super.prototype.getGridCanLoad.call(this) && !!this.customerID;
+            };
+            Object.defineProperty(CustomerOrdersGrid.prototype, "customerID", {
+                get: function () {
+                    return this._customerID;
+                },
+                set: function (value) {
+                    if (this._customerID !== value) {
+                        this._customerID = value;
+                        this.setEquality('CustomerID', value);
+                        this.refresh();
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            CustomerOrdersGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], CustomerOrdersGrid);
+            return CustomerOrdersGrid;
+        }(Northwind.OrderGrid));
+        Northwind.CustomerOrdersGrid = CustomerOrdersGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var EmployeeListFormatter = /** @class */ (function () {
+            function EmployeeListFormatter() {
+            }
+            EmployeeListFormatter.prototype.format = function (ctx) {
+                var idList = ctx.value;
+                if (!idList || !idList.length)
+                    return "";
+                var byId = Northwind.EmployeeRow.getLookup().itemById;
+                var z;
+                return idList.map(function (x) { return ((z = byId[x]) ? z.FullName : x); }).join(", ");
+            };
+            EmployeeListFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], EmployeeListFormatter);
+            return EmployeeListFormatter;
+        }());
+        Northwind.EmployeeListFormatter = EmployeeListFormatter;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var DesignDialog = /** @class */ (function (_super) {
+            __extends(DesignDialog, _super);
+            function DesignDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.DesignForm(_this.idPrefix);
+                return _this;
+            }
+            DesignDialog.prototype.getFormKey = function () { return Northwind.DesignForm.formKey; };
+            DesignDialog.prototype.getIdProperty = function () { return Northwind.DesignRow.idProperty; };
+            DesignDialog.prototype.getLocalTextPrefix = function () { return Northwind.DesignRow.localTextPrefix; };
+            DesignDialog.prototype.getService = function () { return Northwind.DesignService.baseUrl; };
+            DesignDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], DesignDialog);
+            return DesignDialog;
+        }(Serenity.EntityDialog));
+        Northwind.DesignDialog = DesignDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var DesignGrid = /** @class */ (function (_super) {
+            __extends(DesignGrid, _super);
+            function DesignGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            DesignGrid.prototype.getColumnsKey = function () { return 'Northwind.Design'; };
+            DesignGrid.prototype.getDialogType = function () { return Northwind.DesignDialog; };
+            DesignGrid.prototype.getIdProperty = function () { return Northwind.DesignRow.idProperty; };
+            DesignGrid.prototype.getLocalTextPrefix = function () { return Northwind.DesignRow.localTextPrefix; };
+            DesignGrid.prototype.getService = function () { return Northwind.DesignService.baseUrl; };
+            DesignGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                Q.first(columns, function (x) { return x.field == "DesignTime" /* DesignTime */; }).cssClass += " col-unit-price";
+                return columns;
+            };
+            DesignGrid.prototype.getItemCssClass = function (item, index) {
+                var klass = "";
+                if (item.Aproved == true)
+                    klass += "Aproved";
+                else
+                    klass += "out-of-stock";
+                return Q.trimToNull(klass);
+            };
+            DesignGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], DesignGrid);
+            return DesignGrid;
+        }(Serenity.EntityGrid));
+        Northwind.DesignGrid = DesignGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var DesignTypeDialog = /** @class */ (function (_super) {
+            __extends(DesignTypeDialog, _super);
+            function DesignTypeDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.DesignTypeForm(_this.idPrefix);
+                return _this;
+            }
+            DesignTypeDialog.prototype.getFormKey = function () { return Northwind.DesignTypeForm.formKey; };
+            DesignTypeDialog.prototype.getIdProperty = function () { return Northwind.DesignTypeRow.idProperty; };
+            DesignTypeDialog.prototype.getLocalTextPrefix = function () { return Northwind.DesignTypeRow.localTextPrefix; };
+            DesignTypeDialog.prototype.getNameProperty = function () { return Northwind.DesignTypeRow.nameProperty; };
+            DesignTypeDialog.prototype.getService = function () { return Northwind.DesignTypeService.baseUrl; };
+            DesignTypeDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], DesignTypeDialog);
+            return DesignTypeDialog;
+        }(Serenity.EntityDialog));
+        Northwind.DesignTypeDialog = DesignTypeDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var DesignTypeGrid = /** @class */ (function (_super) {
+            __extends(DesignTypeGrid, _super);
+            function DesignTypeGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            DesignTypeGrid.prototype.getColumnsKey = function () { return 'Northwind.DesignType'; };
+            DesignTypeGrid.prototype.getDialogType = function () { return Northwind.DesignTypeDialog; };
+            DesignTypeGrid.prototype.getIdProperty = function () { return Northwind.DesignTypeRow.idProperty; };
+            DesignTypeGrid.prototype.getLocalTextPrefix = function () { return Northwind.DesignTypeRow.localTextPrefix; };
+            DesignTypeGrid.prototype.getService = function () { return Northwind.DesignTypeService.baseUrl; };
+            DesignTypeGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], DesignTypeGrid);
+            return DesignTypeGrid;
+        }(Serenity.EntityGrid));
+        Northwind.DesignTypeGrid = DesignTypeGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var EmployeeFormatter = /** @class */ (function () {
+            function EmployeeFormatter() {
+            }
+            EmployeeFormatter.prototype.format = function (ctx) {
+                var text = Q.htmlEncode(ctx.value);
+                if (!this.genderProperty) {
+                    return text;
+                }
+                var gender = ctx.item[this.genderProperty];
+                return "<span class='" + ((gender === Northwind.Gender.Female) ?
+                    'employee-symbol female' : 'employee-symbol male') +
+                    "'>" + text + '</span>';
+            };
+            EmployeeFormatter.prototype.initializeColumn = function (column) {
+                column.referencedFields = column.referencedFields || [];
+                if (this.genderProperty)
+                    column.referencedFields.push(this.genderProperty);
+            };
+            __decorate([
+                Serenity.Decorators.option()
+            ], EmployeeFormatter.prototype, "genderProperty", void 0);
+            EmployeeFormatter = __decorate([
+                Serenity.Decorators.registerFormatter([Serenity.ISlickFormatter, Serenity.IInitializeColumn])
+            ], EmployeeFormatter);
+            return EmployeeFormatter;
+        }());
+        Northwind.EmployeeFormatter = EmployeeFormatter;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var NoteDialog = /** @class */ (function (_super) {
+            __extends(NoteDialog, _super);
+            function NoteDialog() {
+                var _this = _super.call(this) || this;
+                _this.textEditor = new Serenity.HtmlNoteContentEditor(_this.byId('Text'));
+                return _this;
+            }
+            NoteDialog.prototype.getTemplate = function () {
+                return ("<form id='~_Form' class='s-Form'>" +
+                    "<textarea id='~_Text' class='required'></textarea>" +
+                    "</form>");
+            };
+            NoteDialog.prototype.getDialogOptions = function () {
+                var _this = this;
                 var opt = _super.prototype.getDialogOptions.call(this);
-                opt.title = 'Orders by Shipper';
+                opt.buttons = [{
+                        text: Q.text('Dialogs.OkButton'),
+                        click: function () {
+                            if (!_this.validateForm()) {
+                                return;
+                            }
+                            _this.okClick && _this.okClick();
+                        }
+                    }, {
+                        text: Q.text('Dialogs.CancelButton'),
+                        click: function () { return _this.dialogClose(); }
+                    }
+                ];
                 return opt;
             };
-            ChartInDialog = ChartInDialog_1 = __decorate([
-                Serenity.Decorators.registerClass(),
-                Serenity.Decorators.resizable(),
-                Serenity.Decorators.maximizable()
-            ], ChartInDialog);
-            return ChartInDialog;
-            var ChartInDialog_1;
+            Object.defineProperty(NoteDialog.prototype, "text", {
+                get: function () {
+                    return this.textEditor.value;
+                },
+                set: function (value) {
+                    this.textEditor.value = value;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            NoteDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], NoteDialog);
+            return NoteDialog;
         }(Serenity.TemplatedDialog));
-        BasicSamples.ChartInDialog = ChartInDialog;
-    })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
+        Northwind.NoteDialog = NoteDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var NotesEditor = /** @class */ (function (_super) {
+            __extends(NotesEditor, _super);
+            function NotesEditor(div) {
+                var _this = _super.call(this, div) || this;
+                new Serenity.Toolbar(_this.byId('Toolbar'), {
+                    buttons: [{
+                            title: 'Add Note',
+                            cssClass: 'add-button',
+                            onClick: function (e) {
+                                e.preventDefault();
+                                _this.addClick();
+                            }
+                        }]
+                });
+                return _this;
+            }
+            NotesEditor.prototype.getTemplate = function () {
+                return "<div><div id='~_Toolbar'></div><ul id='~_NoteList'></ul></div>";
+            };
+            NotesEditor.prototype.updateContent = function () {
+                var _this = this;
+                var noteList = this.byId('NoteList');
+                noteList.children().remove();
+                if (this.items) {
+                    var index = 0;
+                    for (var t1 = 0; t1 < this.items.length; t1++) {
+                        var item = this.items[t1];
+                        var li = $('<li/>');
+                        $('<div/>').addClass('note-text').html(Q.coalesce(item.Text, '')).appendTo(li);
+                        $('<a/>').attr('href', '#').addClass('note-date')
+                            .text(item.InsertUserDisplayName + ' - ' +
+                            Q.formatDate(item.InsertDate, 'g'))
+                            .data('index', index).appendTo(li).click(function (e) { return _this.editClick(e); });
+                        $('<a/>').attr('href', '#').addClass('note-delete')
+                            .attr('title', 'delete note').data('index', index)
+                            .appendTo(li).click(function (e) { return _this.deleteClick(e); });
+                        li.appendTo(noteList);
+                        index++;
+                    }
+                }
+            };
+            NotesEditor.prototype.addClick = function () {
+                var _this = this;
+                var dlg = new Northwind.NoteDialog();
+                dlg.dialogTitle = 'Add Note';
+                dlg.okClick = function () {
+                    var text = Q.trimToNull(dlg.text);
+                    if (text == null) {
+                        return;
+                    }
+                    _this.items = _this.items || [];
+                    Q.insert(_this.items, 0, {
+                        Text: text,
+                        InsertUserDisplayName: Miapp2.Authorization.userDefinition.DisplayName,
+                        InsertDate: Q.formatISODateTimeUTC(new Date())
+                    });
+                    _this.updateContent();
+                    dlg.dialogClose();
+                    _this.set_isDirty(true);
+                    _this.onChange && _this.onChange();
+                };
+                dlg.dialogOpen();
+            };
+            NotesEditor.prototype.editClick = function (e) {
+                var _this = this;
+                e.preventDefault();
+                var index = $(e.target).data('index');
+                var old = this.items[index];
+                var dlg = new Northwind.NoteDialog();
+                dlg.dialogTitle = 'Edit Note';
+                dlg.text = old.Text;
+                dlg.okClick = function () {
+                    var text = Q.trimToNull(dlg.text);
+                    if (!text) {
+                        return;
+                    }
+                    _this.items[index].Text = text;
+                    _this.updateContent();
+                    dlg.dialogClose();
+                    _this.set_isDirty(true);
+                    _this.onChange && _this.onChange();
+                };
+                dlg.dialogOpen();
+            };
+            NotesEditor.prototype.deleteClick = function (e) {
+                var _this = this;
+                e.preventDefault();
+                var index = $(e.target).data('index');
+                Q.confirm('Delete this note?', function () {
+                    _this.items.splice(index, 1);
+                    _this.updateContent();
+                    _this.set_isDirty(true);
+                    _this.onChange && _this.onChange();
+                });
+            };
+            Object.defineProperty(NotesEditor.prototype, "value", {
+                get: function () {
+                    return this.items;
+                },
+                set: function (value) {
+                    this.items = value || [];
+                    this.set_isDirty(false);
+                    this.updateContent();
+                },
+                enumerable: true,
+                configurable: true
+            });
+            NotesEditor.prototype.getEditValue = function (prop, target) {
+                target[prop.name] = this.value;
+            };
+            NotesEditor.prototype.setEditValue = function (source, prop) {
+                this.value = source[prop.name] || [];
+            };
+            NotesEditor.prototype.get_isDirty = function () {
+                return this.isDirty;
+            };
+            NotesEditor.prototype.set_isDirty = function (value) {
+                this.isDirty = value;
+            };
+            NotesEditor = __decorate([
+                Serenity.Decorators.registerEditor([Serenity.IGetEditValue, Serenity.ISetEditValue]),
+                Serenity.Decorators.element("<div/>")
+            ], NotesEditor);
+            return NotesEditor;
+        }(Serenity.TemplatedWidget));
+        Northwind.NotesEditor = NotesEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var FreightFormatter = /** @class */ (function () {
+            function FreightFormatter() {
+            }
+            FreightFormatter.prototype.format = function (ctx) {
+                return "<span class='freight-symbol'>" + Q.htmlEncode(ctx.value) + '</span>';
+            };
+            FreightFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], FreightFormatter);
+            return FreightFormatter;
+        }());
+        Northwind.FreightFormatter = FreightFormatter;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var OrderDetailDialog = /** @class */ (function (_super) {
+            __extends(OrderDetailDialog, _super);
+            function OrderDetailDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Northwind.OrderDetailForm(_this.idPrefix);
+                _this.form.ProductID.changeSelect2(function (e) {
+                    var productID = Q.toId(_this.form.ProductID.value);
+                    if (productID != null) {
+                        _this.form.UnitPrice.value = Northwind.ProductRow.getLookup().itemById[productID].UnitPrice;
+                    }
+                });
+                _this.form.Discount.addValidationRule(_this.uniqueName, function (e) {
+                    var price = _this.form.UnitPrice.value;
+                    var quantity = _this.form.Quantity.value;
+                    var discount = _this.form.Discount.value;
+                    if (price != null && quantity != null && discount != null &&
+                        discount > 0 && discount >= price * quantity) {
+                        return "Discount can't be higher than total price!";
+                    }
+                });
+                return _this;
+            }
+            OrderDetailDialog.prototype.getFormKey = function () { return Northwind.OrderDetailForm.formKey; };
+            OrderDetailDialog.prototype.getLocalTextPrefix = function () { return Northwind.OrderDetailRow.localTextPrefix; };
+            OrderDetailDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], OrderDetailDialog);
+            return OrderDetailDialog;
+        }(Miapp2.Common.GridEditorDialog));
+        Northwind.OrderDetailDialog = OrderDetailDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var OrderDetailsEditor = /** @class */ (function (_super) {
+            __extends(OrderDetailsEditor, _super);
+            function OrderDetailsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            OrderDetailsEditor.prototype.getColumnsKey = function () { return "Northwind.OrderDetail"; };
+            OrderDetailsEditor.prototype.getDialogType = function () { return Northwind.OrderDetailDialog; };
+            OrderDetailsEditor.prototype.getLocalTextPrefix = function () { return Northwind.OrderDetailRow.localTextPrefix; };
+            OrderDetailsEditor.prototype.validateEntity = function (row, id) {
+                row.ProductID = Q.toId(row.ProductID);
+                var sameProduct = Q.tryFirst(this.view.getItems(), function (x) { return x.ProductID === row.ProductID; });
+                if (sameProduct && this.id(sameProduct) !== id) {
+                    Q.alert('This product is already in order details!');
+                    return false;
+                }
+                row.ProductName = Northwind.ProductRow.getLookup().itemById[row.ProductID].ProductName;
+                row.LineTotal = (row.Quantity || 0) * (row.UnitPrice || 0) - (row.Discount || 0);
+                return true;
+            };
+            OrderDetailsEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], OrderDetailsEditor);
+            return OrderDetailsEditor;
+        }(Miapp2.Common.GridEditorBase));
+        Northwind.OrderDetailsEditor = OrderDetailsEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var PriorityDialog = /** @class */ (function (_super) {
+            __extends(PriorityDialog, _super);
+            function PriorityDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.PriorityForm(_this.idPrefix);
+                return _this;
+            }
+            PriorityDialog.prototype.getFormKey = function () { return Northwind.PriorityForm.formKey; };
+            PriorityDialog.prototype.getIdProperty = function () { return Northwind.PriorityRow.idProperty; };
+            PriorityDialog.prototype.getLocalTextPrefix = function () { return Northwind.PriorityRow.localTextPrefix; };
+            PriorityDialog.prototype.getNameProperty = function () { return Northwind.PriorityRow.nameProperty; };
+            PriorityDialog.prototype.getService = function () { return Northwind.PriorityService.baseUrl; };
+            PriorityDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PriorityDialog);
+            return PriorityDialog;
+        }(Serenity.EntityDialog));
+        Northwind.PriorityDialog = PriorityDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var PriorityGrid = /** @class */ (function (_super) {
+            __extends(PriorityGrid, _super);
+            function PriorityGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PriorityGrid.prototype.getColumnsKey = function () { return 'Northwind.Priority'; };
+            PriorityGrid.prototype.getDialogType = function () { return Northwind.PriorityDialog; };
+            PriorityGrid.prototype.getIdProperty = function () { return Northwind.PriorityRow.idProperty; };
+            PriorityGrid.prototype.getLocalTextPrefix = function () { return Northwind.PriorityRow.localTextPrefix; };
+            PriorityGrid.prototype.getService = function () { return Northwind.PriorityService.baseUrl; };
+            PriorityGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PriorityGrid);
+            return PriorityGrid;
+        }(Serenity.EntityGrid));
+        Northwind.PriorityGrid = PriorityGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
@@ -3271,50 +5341,6 @@ var Miapp2;
         }(Serenity.EntityDialog));
         Northwind.ProductDialog = ProductDialog;
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../../../Northwind/Product/ProductDialog.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var BasicSamples;
-    (function (BasicSamples) {
-        var CloneableEntityDialog = /** @class */ (function (_super) {
-            __extends(CloneableEntityDialog, _super);
-            function CloneableEntityDialog() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            CloneableEntityDialog.prototype.updateInterface = function () {
-                // by default cloneButton is hidden in base UpdateInterface method
-                _super.prototype.updateInterface.call(this);
-                // here we show it if it is edit mode (not new)
-                this.cloneButton.toggle(this.isEditMode());
-            };
-            /**
-             * Overriding this method is optional to customize cloned entity
-             */
-            CloneableEntityDialog.prototype.getCloningEntity = function () {
-                var clone = _super.prototype.getCloningEntity.call(this);
-                // add (Clone) suffix if it's not already added
-                var suffix = ' (Clone)';
-                if (!Q.endsWith(clone.ProductName || '', suffix)) {
-                    clone.ProductName = (clone.ProductName || '') + suffix;
-                }
-                // it's better to clear image for this sample
-                // otherwise we would have to create a temporary copy of it
-                // and upload
-                clone.ProductImage = null;
-                // let's clear fields not logical to be cloned
-                clone.UnitsInStock = 0;
-                clone.UnitsOnOrder = 0;
-                return clone;
-            };
-            CloneableEntityDialog = __decorate([
-                Serenity.Decorators.registerClass(),
-                Serenity.Decorators.maximizable()
-            ], CloneableEntityDialog);
-            return CloneableEntityDialog;
-        }(Miapp2.Northwind.ProductDialog));
-        BasicSamples.CloneableEntityDialog = CloneableEntityDialog;
-    })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
@@ -3449,7 +5475,6 @@ var Miapp2;
                 var columns = _super.prototype.getColumns.call(this);
                 var num = function (ctx) { return _this.numericInputFormatter(ctx); };
                 var str = function (ctx) { return _this.stringInputFormatter(ctx); };
-                Q.first(columns, function (x) { return x.field === 'QuantityPerUnit'; }).format = str;
                 var category = Q.first(columns, function (x) { return x.field === "CategoryName" /* CategoryName */; });
                 category.referencedFields = ["CategoryID" /* CategoryID */];
                 category.format = function (ctx) { return _this.selectFormatter(ctx, "CategoryID" /* CategoryID */, Northwind.CategoryRow.getLookup()); };
@@ -3458,8 +5483,6 @@ var Miapp2;
                 supplier.format = function (ctx) { return _this.selectFormatter(ctx, "SupplierID" /* SupplierID */, Northwind.SupplierRow.getLookup()); };
                 Q.first(columns, function (x) { return x.field === "UnitPrice" /* UnitPrice */; }).format = num;
                 Q.first(columns, function (x) { return x.field === "UnitsInStock" /* UnitsInStock */; }).format = num;
-                Q.first(columns, function (x) { return x.field === "UnitsOnOrder" /* UnitsOnOrder */; }).format = num;
-                Q.first(columns, function (x) { return x.field === "ReorderLevel" /* ReorderLevel */; }).format = num;
                 return columns;
             };
             ProductGrid.prototype.inputsChange = function (e) {
@@ -3557,6 +5580,782 @@ var Miapp2;
         Northwind.ProductGrid = ProductGrid;
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProductionDialog = /** @class */ (function (_super) {
+            __extends(ProductionDialog, _super);
+            function ProductionDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.ProductionForm(_this.idPrefix);
+                return _this;
+            }
+            ProductionDialog.prototype.getFormKey = function () { return Northwind.ProductionForm.formKey; };
+            ProductionDialog.prototype.getIdProperty = function () { return Northwind.ProductionRow.idProperty; };
+            ProductionDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProductionRow.localTextPrefix; };
+            ProductionDialog.prototype.getService = function () { return Northwind.ProductionService.baseUrl; };
+            ProductionDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProductionDialog);
+            return ProductionDialog;
+        }(Serenity.EntityDialog));
+        Northwind.ProductionDialog = ProductionDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProductionGrid = /** @class */ (function (_super) {
+            __extends(ProductionGrid, _super);
+            function ProductionGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ProductionGrid.prototype.getColumnsKey = function () { return 'Northwind.Production'; };
+            ProductionGrid.prototype.getDialogType = function () { return Northwind.ProductionDialog; };
+            ProductionGrid.prototype.getIdProperty = function () { return Northwind.ProductionRow.idProperty; };
+            ProductionGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProductionRow.localTextPrefix; };
+            ProductionGrid.prototype.getService = function () { return Northwind.ProductionService.baseUrl; };
+            ProductionGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProductionGrid);
+            return ProductionGrid;
+        }(Serenity.EntityGrid));
+        Northwind.ProductionGrid = ProductionGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="ProductionGrid.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProductionSummariesInGrid = /** @class */ (function (_super) {
+            __extends(ProductionSummariesInGrid, _super);
+            function ProductionSummariesInGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ProductionSummariesInGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: Northwind.ProductService.baseUrl + '/ListExcel',
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    reportTitle: 'Product List',
+                    columnTitles: {
+                        'Discontinued': 'Dis.',
+                    },
+                    tableOptions: {
+                        columnStyles: {
+                            ProductID: {
+                                columnWidth: 25,
+                                halign: 'right'
+                            },
+                            Discountinued: {
+                                columnWidth: 25
+                            }
+                        }
+                    }
+                }));
+                return buttons;
+            };
+            ProductionSummariesInGrid.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                // need to register this plugin for grouping or you'll have errors
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        new Slick.Aggregators.Sum('CutterM'),
+                        new Slick.Aggregators.Sum('Perforation5'),
+                        new Slick.Aggregators.Sum('Perforation8'),
+                        new Slick.Aggregators.Sum('Perforation10'),
+                        new Slick.Aggregators.Sum('Perforation12'),
+                        new Slick.Aggregators.Sum('Perforation15'),
+                        new Slick.Aggregators.Sum('Perforation20'),
+                        new Slick.Aggregators.Sum('Perforation35'),
+                        new Slick.Aggregators.Sum('RauterM'),
+                        new Slick.Aggregators.Sum('FormatM'),
+                        new Slick.Aggregators.Sum('FormatM2'),
+                        new Slick.Aggregators.Sum('TotalOrder'),
+                        new Slick.Aggregators.Sum('ClosedOrder'),
+                        new Slick.Aggregators.Sum('OrderInTime'),
+                        new Slick.Aggregators.Sum('Claims'),
+                    ]
+                });
+                return grid;
+            };
+            ProductionSummariesInGrid.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true;
+                return opt;
+            };
+            ProductionSummariesInGrid.prototype.usePager = function () {
+                return false;
+            };
+            ProductionSummariesInGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProductionSummariesInGrid);
+            return ProductionSummariesInGrid;
+        }(Northwind.ProductionGrid));
+        Northwind.ProductionSummariesInGrid = ProductionSummariesInGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProductionreportGrid = /** @class */ (function (_super) {
+            __extends(ProductionreportGrid, _super);
+            function ProductionreportGrid(container) {
+                var _this = _super.call(this, container) || this;
+                /*    protected getService() { return ProductionreportService.baseUrl; }
+                */
+                _this.nextId = 1;
+                return _this;
+            }
+            ProductionreportGrid.prototype.getColumnsKey = function () { return "Northwind.Productionreport"; };
+            ProductionreportGrid.prototype.getIdProperty = function () { return "__id"; };
+            /*   protected getNameProperty() { return Northwind.ProductionreportRow.nameProperty; } */
+            ProductionreportGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProductionreportRow.localTextPrefix; };
+            ProductionreportGrid.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        new Slick.Aggregators.Sum('CutterM')
+                    ]
+                });
+                return grid;
+            };
+            ProductionreportGrid.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true;
+                return opt;
+            };
+            ProductionreportGrid.prototype.usePager = function () {
+                return false;
+            };
+            ProductionreportGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProductionreportGrid);
+            return ProductionreportGrid;
+        }(Serenity.EntityGrid));
+        Northwind.ProductionreportGrid = ProductionreportGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProjectDetailsDialog = /** @class */ (function (_super) {
+            __extends(ProjectDetailsDialog, _super);
+            function ProjectDetailsDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Northwind.ProjectDetailsForm(_this.idPrefix);
+                return _this;
+            }
+            ProjectDetailsDialog.prototype.getFormKey = function () { return Northwind.ProjectDetailsForm.formKey; };
+            ProjectDetailsDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProjectDetailsRow.localTextPrefix; };
+            ProjectDetailsDialog.prototype.getService = function () { return Northwind.ProjectDetailsService.baseUrl; };
+            ProjectDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProjectDetailsDialog);
+            return ProjectDetailsDialog;
+        }(Miapp2.Common.GridEditorDialog));
+        Northwind.ProjectDetailsDialog = ProjectDetailsDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProjectDetailsEditor = /** @class */ (function (_super) {
+            __extends(ProjectDetailsEditor, _super);
+            function ProjectDetailsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            ProjectDetailsEditor.prototype.getColumnsKey = function () { return 'Northwind.ProjectDetails'; };
+            ProjectDetailsEditor.prototype.getDialogType = function () { return Northwind.ProjectDetailsDialog; };
+            ProjectDetailsEditor.prototype.getLocalTextPrefix = function () { return Northwind.ProjectDetailsRow.localTextPrefix; };
+            ProjectDetailsEditor.prototype.getService = function () { return Northwind.ProjectDetailsService.baseUrl; };
+            ProjectDetailsEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProjectDetailsEditor);
+            return ProjectDetailsEditor;
+        }(Miapp2.Common.GridEditorBase));
+        Northwind.ProjectDetailsEditor = ProjectDetailsEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProjectsDialog = /** @class */ (function (_super) {
+            __extends(ProjectsDialog, _super);
+            function ProjectsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.ProjectsForm(_this.idPrefix);
+                return _this;
+            }
+            ProjectsDialog.prototype.getFormKey = function () { return Northwind.ProjectsForm.formKey; };
+            ProjectsDialog.prototype.getIdProperty = function () { return Northwind.ProjectsRow.idProperty; };
+            ProjectsDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProjectsRow.localTextPrefix; };
+            ProjectsDialog.prototype.getNameProperty = function () { return Northwind.ProjectsRow.nameProperty; };
+            ProjectsDialog.prototype.getService = function () { return Northwind.ProjectsService.baseUrl; };
+            ProjectsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProjectsDialog);
+            return ProjectsDialog;
+        }(Serenity.EntityDialog));
+        Northwind.ProjectsDialog = ProjectsDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProjectsGrid = /** @class */ (function (_super) {
+            __extends(ProjectsGrid, _super);
+            function ProjectsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ProjectsGrid.prototype.getColumnsKey = function () { return 'Northwind.Projects'; };
+            ProjectsGrid.prototype.getDialogType = function () { return Northwind.ProjectsDialog; };
+            ProjectsGrid.prototype.getIdProperty = function () { return Northwind.ProjectsRow.idProperty; };
+            ProjectsGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProjectsRow.localTextPrefix; };
+            ProjectsGrid.prototype.getService = function () { return Northwind.ProjectsService.baseUrl; };
+            ProjectsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProjectsGrid);
+            return ProjectsGrid;
+        }(Serenity.EntityGrid));
+        Northwind.ProjectsGrid = ProjectsGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var RegionDialog = /** @class */ (function (_super) {
+            __extends(RegionDialog, _super);
+            function RegionDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.RegionForm(_this.idPrefix);
+                return _this;
+            }
+            RegionDialog.prototype.getFormKey = function () { return Northwind.RegionForm.formKey; };
+            RegionDialog.prototype.getIdProperty = function () { return Northwind.RegionRow.idProperty; };
+            RegionDialog.prototype.getLocalTextPrefix = function () { return Northwind.RegionRow.localTextPrefix; };
+            RegionDialog.prototype.getNameProperty = function () { return Northwind.RegionRow.nameProperty; };
+            RegionDialog.prototype.getService = function () { return Northwind.RegionService.baseUrl; };
+            RegionDialog.prototype.getLanguages = function () {
+                return Miapp2.LanguageList.getValue();
+            };
+            RegionDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], RegionDialog);
+            return RegionDialog;
+        }(Serenity.EntityDialog));
+        Northwind.RegionDialog = RegionDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var RegionGrid = /** @class */ (function (_super) {
+            __extends(RegionGrid, _super);
+            function RegionGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            RegionGrid.prototype.getColumnsKey = function () { return "Northwind.Region"; };
+            RegionGrid.prototype.getDialogType = function () { return Northwind.RegionDialog; };
+            RegionGrid.prototype.getIdProperty = function () { return Northwind.RegionRow.idProperty; };
+            RegionGrid.prototype.getLocalTextPrefix = function () { return Northwind.RegionRow.localTextPrefix; };
+            RegionGrid.prototype.getService = function () { return Northwind.RegionService.baseUrl; };
+            RegionGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], RegionGrid);
+            return RegionGrid;
+        }(Serenity.EntityGrid));
+        Northwind.RegionGrid = RegionGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var PhoneEditor = /** @class */ (function (_super) {
+            __extends(PhoneEditor, _super);
+            function PhoneEditor(input) {
+                var _this = _super.call(this, input) || this;
+                _this.addValidationRule(_this.uniqueName, function (e) {
+                    var value = Q.trimToNull(_this.get_value());
+                    if (value == null) {
+                        return null;
+                    }
+                    return PhoneEditor_1.validate(value, _this.multiple);
+                });
+                input.bind('change', function (e) {
+                    if (!Serenity.WX.hasOriginalEvent(e)) {
+                        return;
+                    }
+                    _this.formatValue();
+                });
+                input.bind('blur', function (e) {
+                    if (_this.element.hasClass('valid')) {
+                        _this.formatValue();
+                    }
+                });
+                return _this;
+            }
+            PhoneEditor_1 = PhoneEditor;
+            PhoneEditor.prototype.formatValue = function () {
+                this.element.val(this.getFormattedValue());
+            };
+            PhoneEditor.prototype.getFormattedValue = function () {
+                var value = this.element.val();
+                if (this.multiple) {
+                    return PhoneEditor_1.formatMulti(value, PhoneEditor_1.formatPhone);
+                }
+                return PhoneEditor_1.formatPhone(value);
+            };
+            PhoneEditor.prototype.get_value = function () {
+                return this.getFormattedValue();
+            };
+            PhoneEditor.prototype.set_value = function (value) {
+                this.element.val(value);
+            };
+            PhoneEditor.validate = function (phone, isMultiple) {
+                var valid = (isMultiple ? PhoneEditor_1.isValidMulti(phone, PhoneEditor_1.isValidPhone) : PhoneEditor_1.isValidPhone(phone));
+                if (valid) {
+                    return null;
+                }
+                return Q.text((isMultiple ? 'Validation.NorthwindPhoneMultiple' : 'Validation.NorthwindPhone'));
+            };
+            PhoneEditor.isValidPhone = function (phone) {
+                if (Q.isEmptyOrNull(phone)) {
+                    return false;
+                }
+                phone = Q.replaceAll(Q.replaceAll(phone, ' ', ''), '-', '');
+                if (phone.length < 10) {
+                    return false;
+                }
+                if (Q.startsWith(phone, '0')) {
+                    phone = phone.substring(1);
+                }
+                if (Q.startsWith(phone, '(') && phone.charAt(4) === ')') {
+                    phone = phone.substr(1, 3) + phone.substring(5);
+                }
+                if (phone.length !== 10) {
+                    return false;
+                }
+                if (Q.startsWith(phone, '0')) {
+                    return false;
+                }
+                for (var i = 0; i < phone.length; i++) {
+                    var c = phone.charAt(i);
+                    if (c < '0' || c > '9') {
+                        return false;
+                    }
+                }
+                return true;
+            };
+            PhoneEditor.formatPhone = function (phone) {
+                if (!PhoneEditor_1.isValidPhone(phone)) {
+                    return phone;
+                }
+                phone = Q.replaceAll(Q.replaceAll(Q.replaceAll(Q.replaceAll(phone, ' ', ''), '-', ''), '(', ''), ')', '');
+                if (Q.startsWith(phone, '0')) {
+                    phone = phone.substring(1);
+                }
+                phone = '(' + phone.substr(0, 3) + ') ' + phone.substr(3, 3) + '-' + phone.substr(6, 2) + phone.substr(8, 2);
+                return phone;
+            };
+            PhoneEditor.formatMulti = function (phone, format) {
+                var phones = Q.replaceAll(phone, String.fromCharCode(59), String.fromCharCode(44)).split(String.fromCharCode(44));
+                var result = '';
+                for (var _i = 0, phones_1 = phones; _i < phones_1.length; _i++) {
+                    var x = phones_1[_i];
+                    var s = Q.trimToNull(x);
+                    if (s == null) {
+                        continue;
+                    }
+                    if (result.length > 0) {
+                        result += ', ';
+                    }
+                    result += format(s);
+                }
+                return result;
+            };
+            PhoneEditor.isValidMulti = function (phone, check) {
+                if (Q.isEmptyOrNull(phone)) {
+                    return false;
+                }
+                var phones = Q.replaceAll(phone, String.fromCharCode(59), String.fromCharCode(44)).split(String.fromCharCode(44));
+                var anyValid = false;
+                for (var $t1 = 0; $t1 < phones.length; $t1++) {
+                    var x = phones[$t1];
+                    var s = Q.trimToNull(x);
+                    if (s == null) {
+                        continue;
+                    }
+                    if (!check(s)) {
+                        return false;
+                    }
+                    anyValid = true;
+                }
+                if (!anyValid) {
+                    return false;
+                }
+                return true;
+            };
+            __decorate([
+                Serenity.Decorators.option()
+            ], PhoneEditor.prototype, "multiple", void 0);
+            PhoneEditor = PhoneEditor_1 = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], PhoneEditor);
+            return PhoneEditor;
+            var PhoneEditor_1;
+        }(Serenity.StringEditor));
+        Northwind.PhoneEditor = PhoneEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ShipperDialog = /** @class */ (function (_super) {
+            __extends(ShipperDialog, _super);
+            function ShipperDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.ShipperForm(_this.idPrefix);
+                return _this;
+            }
+            ShipperDialog.prototype.getFormKey = function () { return Northwind.ShipperForm.formKey; };
+            ShipperDialog.prototype.getIdProperty = function () { return Northwind.ShipperRow.idProperty; };
+            ShipperDialog.prototype.getLocalTextPrefix = function () { return Northwind.ShipperRow.localTextPrefix; };
+            ShipperDialog.prototype.getNameProperty = function () { return Northwind.ShipperRow.nameProperty; };
+            ShipperDialog.prototype.getService = function () { return Northwind.ShipperService.baseUrl; };
+            ShipperDialog.prototype.getLanguages = function () {
+                return Miapp2.LanguageList.getValue();
+            };
+            ShipperDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ShipperDialog);
+            return ShipperDialog;
+        }(Serenity.EntityDialog));
+        Northwind.ShipperDialog = ShipperDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ShipperFormatter = /** @class */ (function () {
+            function ShipperFormatter() {
+            }
+            ShipperFormatter.prototype.format = function (ctx) {
+                return "<span class='shipper-symbol shipper-" +
+                    Q.replaceAll((ctx.value || '').toString(), ' ', '') +
+                    "'>" + Q.htmlEncode(ctx.value) + '</span>';
+            };
+            ShipperFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], ShipperFormatter);
+            return ShipperFormatter;
+        }());
+        Northwind.ShipperFormatter = ShipperFormatter;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ShipperGrid = /** @class */ (function (_super) {
+            __extends(ShipperGrid, _super);
+            function ShipperGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ShipperGrid.prototype.getColumnsKey = function () { return "Northwind.Shipper"; };
+            ShipperGrid.prototype.getDialogType = function () { return Northwind.ShipperDialog; };
+            ShipperGrid.prototype.getIdProperty = function () { return Northwind.ShipperRow.idProperty; };
+            ShipperGrid.prototype.getLocalTextPrefix = function () { return Northwind.ShipperRow.localTextPrefix; };
+            ShipperGrid.prototype.getService = function () { return Northwind.ShipperService.baseUrl; };
+            ShipperGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ShipperGrid);
+            return ShipperGrid;
+        }(Serenity.EntityGrid));
+        Northwind.ShipperGrid = ShipperGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var SupplierDialog = /** @class */ (function (_super) {
+            __extends(SupplierDialog, _super);
+            function SupplierDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.SupplierForm(_this.idPrefix);
+                return _this;
+            }
+            SupplierDialog.prototype.getFormKey = function () { return Northwind.SupplierForm.formKey; };
+            SupplierDialog.prototype.getIdProperty = function () { return Northwind.SupplierRow.idProperty; };
+            SupplierDialog.prototype.getLocalTextPrefix = function () { return Northwind.SupplierRow.localTextPrefix; };
+            SupplierDialog.prototype.getNameProperty = function () { return Northwind.SupplierRow.nameProperty; };
+            SupplierDialog.prototype.getService = function () { return Northwind.SupplierService.baseUrl; };
+            SupplierDialog.prototype.getLanguages = function () {
+                return Miapp2.LanguageList.getValue();
+            };
+            SupplierDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], SupplierDialog);
+            return SupplierDialog;
+        }(Serenity.EntityDialog));
+        Northwind.SupplierDialog = SupplierDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var SupplierGrid = /** @class */ (function (_super) {
+            __extends(SupplierGrid, _super);
+            function SupplierGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            SupplierGrid.prototype.getColumnsKey = function () { return "Northwind.Supplier"; };
+            SupplierGrid.prototype.getDialogType = function () { return Northwind.SupplierDialog; };
+            SupplierGrid.prototype.getIdProperty = function () { return Northwind.SupplierRow.idProperty; };
+            SupplierGrid.prototype.getLocalTextPrefix = function () { return Northwind.SupplierRow.localTextPrefix; };
+            SupplierGrid.prototype.getService = function () { return Northwind.SupplierService.baseUrl; };
+            SupplierGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], SupplierGrid);
+            return SupplierGrid;
+        }(Serenity.EntityGrid));
+        Northwind.SupplierGrid = SupplierGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TerritoryDialog = /** @class */ (function (_super) {
+            __extends(TerritoryDialog, _super);
+            function TerritoryDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.TerritoryForm(_this.idPrefix);
+                return _this;
+            }
+            TerritoryDialog.prototype.getFormKey = function () { return Northwind.TerritoryForm.formKey; };
+            TerritoryDialog.prototype.getIdProperty = function () { return Northwind.TerritoryRow.idProperty; };
+            TerritoryDialog.prototype.getLocalTextPrefix = function () { return Northwind.TerritoryRow.localTextPrefix; };
+            TerritoryDialog.prototype.getNameProperty = function () { return Northwind.TerritoryRow.nameProperty; };
+            TerritoryDialog.prototype.getService = function () { return Northwind.TerritoryService.baseUrl; };
+            TerritoryDialog.prototype.getLanguages = function () {
+                return Miapp2.LanguageList.getValue();
+            };
+            TerritoryDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TerritoryDialog);
+            return TerritoryDialog;
+        }(Serenity.EntityDialog));
+        Northwind.TerritoryDialog = TerritoryDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TerritoryGrid = /** @class */ (function (_super) {
+            __extends(TerritoryGrid, _super);
+            function TerritoryGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            TerritoryGrid.prototype.getColumnsKey = function () { return "Northwind.Territory"; };
+            TerritoryGrid.prototype.getDialogType = function () { return Northwind.TerritoryDialog; };
+            TerritoryGrid.prototype.getIdProperty = function () { return Northwind.TerritoryRow.idProperty; };
+            TerritoryGrid.prototype.getLocalTextPrefix = function () { return Northwind.TerritoryRow.localTextPrefix; };
+            TerritoryGrid.prototype.getService = function () { return Northwind.TerritoryService.baseUrl; };
+            TerritoryGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TerritoryGrid);
+            return TerritoryGrid;
+        }(Serenity.EntityGrid));
+        Northwind.TerritoryGrid = TerritoryGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var RegistrosDialog = /** @class */ (function (_super) {
+            __extends(RegistrosDialog, _super);
+            function RegistrosDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Registros.RegistrosForm(_this.idPrefix);
+                _this.toolbar.findButton(".delete-button").remove();
+                return _this;
+            }
+            RegistrosDialog.prototype.getFormKey = function () { return Registros.RegistrosForm.formKey; };
+            RegistrosDialog.prototype.getIdProperty = function () { return Registros.RegistrosRow.idProperty; };
+            RegistrosDialog.prototype.getLocalTextPrefix = function () { return Registros.RegistrosRow.localTextPrefix; };
+            RegistrosDialog.prototype.getNameProperty = function () { return Registros.RegistrosRow.nameProperty; };
+            RegistrosDialog.prototype.getService = function () { return Registros.RegistrosService.baseUrl; };
+            RegistrosDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], RegistrosDialog);
+            return RegistrosDialog;
+        }(Serenity.EntityDialog));
+        Registros.RegistrosDialog = RegistrosDialog;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var RegistrosGrid = /** @class */ (function (_super) {
+            __extends(RegistrosGrid, _super);
+            function RegistrosGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            RegistrosGrid.prototype.getColumnsKey = function () { return 'Registros.Registros'; };
+            RegistrosGrid.prototype.getDialogType = function () { return Registros.RegistrosDialog; };
+            RegistrosGrid.prototype.getIdProperty = function () { return Registros.RegistrosRow.idProperty; };
+            RegistrosGrid.prototype.getLocalTextPrefix = function () { return Registros.RegistrosRow.localTextPrefix; };
+            RegistrosGrid.prototype.getService = function () { return Registros.RegistrosService.baseUrl; };
+            RegistrosGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], RegistrosGrid);
+            return RegistrosGrid;
+        }(Serenity.EntityGrid));
+        Registros.RegistrosGrid = RegistrosGrid;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Authorization;
+    (function (Authorization) {
+        Object.defineProperty(Authorization, 'userDefinition', {
+            get: function () {
+                return Q.getRemoteData('UserData');
+            }
+        });
+        function hasPermission(permissionKey) {
+            var ud = Authorization.userDefinition;
+            return ud.Username === 'administrador' || !!ud.Permissions[permissionKey];
+        }
+        Authorization.hasPermission = hasPermission;
+    })(Authorization = Miapp2.Authorization || (Miapp2.Authorization = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var BasicSamples;
+    (function (BasicSamples) {
+        var ChartInDialog = /** @class */ (function (_super) {
+            __extends(ChartInDialog, _super);
+            function ChartInDialog() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            ChartInDialog_1 = ChartInDialog;
+            ChartInDialog.initializePage = function () {
+                $(function () {
+                    $('#LaunchDialogButton').click(function (e) {
+                        (new ChartInDialog_1()).dialogOpen();
+                    });
+                });
+            };
+            ChartInDialog.prototype.onDialogOpen = function () {
+                var _this = this;
+                _super.prototype.onDialogOpen.call(this);
+                BasicSamples.BasicSamplesService.OrdersByShipper({}, function (response) {
+                    _this.areaChart = new Morris.Area({
+                        element: _this.idPrefix + 'Chart',
+                        resize: true, parseTime: false,
+                        data: response.Values,
+                        xkey: 'Month',
+                        ykeys: response.ShipperKeys, labels: response.ShipperLabels, hideHover: 'auto'
+                    });
+                });
+            };
+            ChartInDialog.prototype.arrange = function () {
+                _super.prototype.arrange.call(this);
+                this.areaChart && this.areaChart.redraw();
+            };
+            ChartInDialog.prototype.getTemplate = function () {
+                // you could also put this in a ChartInDialog.Template.html file. it's here for simplicity.
+                return "<div id='~_Chart'></div>";
+            };
+            ChartInDialog.prototype.getDialogOptions = function () {
+                var opt = _super.prototype.getDialogOptions.call(this);
+                opt.title = 'Orders by Shipper';
+                return opt;
+            };
+            ChartInDialog = ChartInDialog_1 = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.resizable(),
+                Serenity.Decorators.maximizable()
+            ], ChartInDialog);
+            return ChartInDialog;
+            var ChartInDialog_1;
+        }(Serenity.TemplatedDialog));
+        BasicSamples.ChartInDialog = ChartInDialog;
+    })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="../../../Northwind/Product/ProductDialog.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var BasicSamples;
+    (function (BasicSamples) {
+        var CloneableEntityDialog = /** @class */ (function (_super) {
+            __extends(CloneableEntityDialog, _super);
+            function CloneableEntityDialog() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            CloneableEntityDialog.prototype.updateInterface = function () {
+                // by default cloneButton is hidden in base UpdateInterface method
+                _super.prototype.updateInterface.call(this);
+                // here we show it if it is edit mode (not new)
+                this.cloneButton.toggle(this.isEditMode());
+            };
+            /**
+             * Overriding this method is optional to customize cloned entity
+             */
+            CloneableEntityDialog.prototype.getCloningEntity = function () {
+                var clone = _super.prototype.getCloningEntity.call(this);
+                // add (Clone) suffix if it's not already added
+                var suffix = ' (Clone)';
+                if (!Q.endsWith(clone.ProductName || '', suffix)) {
+                    clone.ProductName = (clone.ProductName || '') + suffix;
+                }
+                // it's better to clear image for this sample
+                // otherwise we would have to create a temporary copy of it
+                // and upload
+                clone.ProductImage = null;
+                // let's clear fields not logical to be cloned
+                clone.UnitsInStock = 0;
+                return clone;
+            };
+            CloneableEntityDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.maximizable()
+            ], CloneableEntityDialog);
+            return CloneableEntityDialog;
+        }(Miapp2.Northwind.ProductDialog));
+        BasicSamples.CloneableEntityDialog = CloneableEntityDialog;
+    })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
+})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Product/ProductGrid.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -3578,30 +6377,6 @@ var Miapp2;
         }(Miapp2.Northwind.ProductGrid));
         BasicSamples.CloneableEntityGrid = CloneableEntityGrid;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var OrderGrid = /** @class */ (function (_super) {
-            __extends(OrderGrid, _super);
-            //    protected shippingStateFilter: Serenity.EnumEditor;
-            function OrderGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            OrderGrid.prototype.getColumnsKey = function () { return "Northwind.Order"; };
-            OrderGrid.prototype.getDialogType = function () { return Northwind.OrderDialog; };
-            OrderGrid.prototype.getIdProperty = function () { return Northwind.OrderRow.idProperty; };
-            OrderGrid.prototype.getLocalTextPrefix = function () { return Northwind.OrderRow.localTextPrefix; };
-            OrderGrid.prototype.getService = function () { return Northwind.OrderService.baseUrl; };
-            OrderGrid = __decorate([
-                Serenity.Decorators.registerClass()
-                //   @Serenity.Decorators.filterable()
-            ], OrderGrid);
-            return OrderGrid;
-        }(Serenity.EntityGrid));
-        Northwind.OrderGrid = OrderGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Order/OrderGrid.ts" />
 var Miapp2;
@@ -3756,48 +6531,6 @@ var Miapp2;
         })(DialogBoxes = BasicSamples.DialogBoxes || (BasicSamples.DialogBoxes = {}));
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var OrderDialog = /** @class */ (function (_super) {
-            __extends(OrderDialog, _super);
-            function OrderDialog() {
-                var _this = _super.call(this) || this;
-                _this.form = new Northwind.OrderForm(_this.idPrefix);
-                return _this;
-            }
-            OrderDialog.prototype.getFormKey = function () { return Northwind.OrderForm.formKey; };
-            OrderDialog.prototype.getIdProperty = function () { return Northwind.OrderRow.idProperty; };
-            OrderDialog.prototype.getLocalTextPrefix = function () { return Northwind.OrderRow.localTextPrefix; };
-            OrderDialog.prototype.getNameProperty = function () { return Northwind.OrderRow.nameProperty; };
-            OrderDialog.prototype.getService = function () { return Northwind.OrderService.baseUrl; };
-            OrderDialog.prototype.getToolbarButtons = function () {
-                var _this = this;
-                var buttons = _super.prototype.getToolbarButtons.call(this);
-                buttons.push(Miapp2.Common.ReportHelper.createToolButton({
-                    title: 'Invoice',
-                    cssClass: 'export-pdf-button',
-                    reportKey: 'Northwind.OrderDetail',
-                    getParams: function () { return ({
-                        OrderID: _this.get_entityId()
-                    }); }
-                }));
-                return buttons;
-            };
-            OrderDialog.prototype.updateInterface = function () {
-                _super.prototype.updateInterface.call(this);
-                this.toolbar.findButton('export-pdf-button').toggle(this.isEditMode());
-            };
-            OrderDialog = __decorate([
-                Serenity.Decorators.registerClass(),
-                Serenity.Decorators.panel()
-            ], OrderDialog);
-            return OrderDialog;
-        }(Serenity.EntityDialog));
-        Northwind.OrderDialog = OrderDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Order/OrderDialog.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -3826,30 +6559,6 @@ var Miapp2;
         }(Miapp2.Northwind.OrderDialog));
         BasicSamples.EntityDialogAsPanel = EntityDialogAsPanel;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CategoryDialog = /** @class */ (function (_super) {
-            __extends(CategoryDialog, _super);
-            function CategoryDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.CategoryForm(_this.idPrefix);
-                return _this;
-            }
-            CategoryDialog.prototype.getFormKey = function () { return Northwind.CategoryForm.formKey; };
-            CategoryDialog.prototype.getIdProperty = function () { return Northwind.CategoryRow.idProperty; };
-            CategoryDialog.prototype.getLocalTextPrefix = function () { return Northwind.CategoryRow.localTextPrefix; };
-            CategoryDialog.prototype.getNameProperty = function () { return Northwind.CategoryRow.nameProperty; };
-            CategoryDialog.prototype.getService = function () { return Northwind.CategoryService.baseUrl; };
-            CategoryDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], CategoryDialog);
-            return CategoryDialog;
-        }(Serenity.EntityDialog));
-        Northwind.CategoryDialog = CategoryDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Category/CategoryDialog.ts" />
 var Miapp2;
@@ -3888,28 +6597,6 @@ var Miapp2;
         }(Miapp2.Northwind.CategoryDialog));
         BasicSamples.GetInsertedRecordIdDialog = GetInsertedRecordIdDialog;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CategoryGrid = /** @class */ (function (_super) {
-            __extends(CategoryGrid, _super);
-            function CategoryGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            CategoryGrid.prototype.getColumnsKey = function () { return "Northwind.Category"; };
-            CategoryGrid.prototype.getDialogType = function () { return Northwind.CategoryDialog; };
-            CategoryGrid.prototype.getIdProperty = function () { return Northwind.CategoryRow.idProperty; };
-            CategoryGrid.prototype.getLocalTextPrefix = function () { return Northwind.CategoryRow.localTextPrefix; };
-            CategoryGrid.prototype.getService = function () { return Northwind.CategoryService.baseUrl; };
-            CategoryGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], CategoryGrid);
-            return CategoryGrid;
-        }(Serenity.EntityGrid));
-        Northwind.CategoryGrid = CategoryGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Category/CategoryGrid.ts" />
 var Miapp2;
@@ -4330,33 +7017,6 @@ var Miapp2;
         BasicSamples.PopulateLinkedDataGrid = PopulateLinkedDataGrid;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var SupplierDialog = /** @class */ (function (_super) {
-            __extends(SupplierDialog, _super);
-            function SupplierDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.SupplierForm(_this.idPrefix);
-                return _this;
-            }
-            SupplierDialog.prototype.getFormKey = function () { return Northwind.SupplierForm.formKey; };
-            SupplierDialog.prototype.getIdProperty = function () { return Northwind.SupplierRow.idProperty; };
-            SupplierDialog.prototype.getLocalTextPrefix = function () { return Northwind.SupplierRow.localTextPrefix; };
-            SupplierDialog.prototype.getNameProperty = function () { return Northwind.SupplierRow.nameProperty; };
-            SupplierDialog.prototype.getService = function () { return Northwind.SupplierService.baseUrl; };
-            SupplierDialog.prototype.getLanguages = function () {
-                return Miapp2.LanguageList.getValue();
-            };
-            SupplierDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], SupplierDialog);
-            return SupplierDialog;
-        }(Serenity.EntityDialog));
-        Northwind.SupplierDialog = SupplierDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Supplier/SupplierDialog.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -4367,13 +7027,6 @@ var Miapp2;
             function ReadOnlyDialog() {
                 return _super !== null && _super.apply(this, arguments) || this;
             }
-            /**
-             * This is the method that gets list of tool
-             * buttons to be created in a dialog.
-             *
-             * Here we'll remove save and close button, and
-             * apply changes buttons.
-             */
             ReadOnlyDialog.prototype.getToolbarButtons = function () {
                 var buttons = _super.prototype.getToolbarButtons.call(this);
                 buttons.splice(Q.indexOf(buttons, function (x) { return x.cssClass == "save-and-close-button"; }), 1);
@@ -4383,54 +7036,17 @@ var Miapp2;
                 // buttons.splice(Q.indexOf(buttons, x => x.cssClass == "delete-button"), 1);
                 return buttons;
             };
-            /**
-             * This method is a good place to update states of
-             * interface elements. It is called after dialog
-             * is initialized and an entity is loaded into dialog.
-             * This is also called in new item mode.
-             */
             ReadOnlyDialog.prototype.updateInterface = function () {
                 _super.prototype.updateInterface.call(this);
-                // finding all editor elements and setting their readonly attribute
-                // note that this helper method only works with basic inputs, 
-                // some editors require widget based set readonly overload (setReadOnly)
                 Serenity.EditorUtils.setReadonly(this.element.find('.editor'), true);
-                // remove required asterisk (*)
                 this.element.find('sup').hide();
-                // here is a way to locate a button by its css class
-                // note that this method is not available in 
-                // getToolbarButtons() because buttons are not 
-                // created there yet!
-                // 
-                // this.toolbar.findButton('delete-button').hide();
-                // entity dialog also has reference variables to
-                // its default buttons, lets use them to hide delete button
                 this.deleteButton.hide();
-                // we could also hide save buttons just like delete button,
-                // but they are null now as we removed them in getToolbarButtons()
-                // if we didn't we could write like this:
-                // 
-                // this.applyChangesButton.hide();
-                // this.saveAndCloseButton.hide();
-                // instead of hiding, we could disable a button
-                // 
-                // this.deleteButton.toggleClass('disabled', true);
             };
-            /**
-             * This method is called when dialog title needs to be updated.
-             * Base class returns something like 'Edit xyz' for edit mode,
-             * and 'New xyz' for new record mode.
-             *
-             * But our dialog is readonly, so we should change it to 'View xyz'
-             */
             ReadOnlyDialog.prototype.getEntityTitle = function () {
                 if (!this.isEditMode()) {
-                    // we shouldn't hit here, but anyway for demo...
                     return "How did you manage to open this dialog in new record mode?";
                 }
                 else {
-                    // entitySingular is type of record this dialog edits. something like 'Supplier'.
-                    // you could hardcode it, but this is for demonstration
                     var entityType = _super.prototype.getEntitySingular.call(this);
                     // get name field value of record this dialog edits
                     var name_1 = this.getEntityNameFieldValue() || "";
@@ -4438,16 +7054,8 @@ var Miapp2;
                     return 'View ' + entityType + " (" + name_1 + ")";
                 }
             };
-            /**
-             * This method is actually the one that calls getEntityTitle()
-             * and updates the dialog title. We could do it here too...
-             */
             ReadOnlyDialog.prototype.updateTitle = function () {
                 _super.prototype.updateTitle.call(this);
-                // remove super.updateTitle() call above and uncomment 
-                // below line if you'd like to use this version
-                // 
-                // this.dialogTitle = 'View Supplier (' + this.getEntityNameFieldValue() + ')';
             };
             ReadOnlyDialog = __decorate([
                 Serenity.Decorators.registerClass()
@@ -4456,28 +7064,6 @@ var Miapp2;
         }(Miapp2.Northwind.SupplierDialog));
         BasicSamples.ReadOnlyDialog = ReadOnlyDialog;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var SupplierGrid = /** @class */ (function (_super) {
-            __extends(SupplierGrid, _super);
-            function SupplierGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            SupplierGrid.prototype.getColumnsKey = function () { return "Northwind.Supplier"; };
-            SupplierGrid.prototype.getDialogType = function () { return Northwind.SupplierDialog; };
-            SupplierGrid.prototype.getIdProperty = function () { return Northwind.SupplierRow.idProperty; };
-            SupplierGrid.prototype.getLocalTextPrefix = function () { return Northwind.SupplierRow.localTextPrefix; };
-            SupplierGrid.prototype.getService = function () { return Northwind.SupplierService.baseUrl; };
-            SupplierGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], SupplierGrid);
-            return SupplierGrid;
-        }(Serenity.EntityGrid));
-        Northwind.SupplierGrid = SupplierGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Supplier/SupplierGrid.ts" />
 var Miapp2;
@@ -4558,58 +7144,6 @@ var Miapp2;
         BasicSamples.ResponsiveGrid = ResponsiveGrid;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CustomerDialog = /** @class */ (function (_super) {
-            __extends(CustomerDialog, _super);
-            function CustomerDialog() {
-                var _this = _super.call(this) || this;
-                _this.form = new Northwind.CustomerForm(_this.idPrefix);
-                _this.ordersGrid = new Northwind.CustomerOrdersGrid(_this.byId('OrdersGrid'));
-                // force order dialog to open in Dialog mode instead of Panel mode
-                // which is set as default on OrderDialog with @panelAttribute
-                _this.ordersGrid.openDialogsAsPanel = false;
-                _this.byId('NoteList').closest('.field').hide().end().appendTo(_this.byId('TabNotes'));
-                Miapp2.DialogUtils.pendingChangesConfirmation(_this.element, function () { return _this.getSaveState() != _this.loadedState; });
-                return _this;
-            }
-            CustomerDialog.prototype.getFormKey = function () { return Northwind.CustomerForm.formKey; };
-            CustomerDialog.prototype.getIdProperty = function () { return Northwind.CustomerRow.idProperty; };
-            CustomerDialog.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
-            CustomerDialog.prototype.getNameProperty = function () { return Northwind.CustomerRow.nameProperty; };
-            CustomerDialog.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
-            CustomerDialog.prototype.getSaveState = function () {
-                try {
-                    return $.toJSON(this.getSaveEntity());
-                }
-                catch (e) {
-                    return null;
-                }
-            };
-            CustomerDialog.prototype.loadResponse = function (data) {
-                _super.prototype.loadResponse.call(this, data);
-                this.loadedState = this.getSaveState();
-            };
-            CustomerDialog.prototype.loadEntity = function (entity) {
-                _super.prototype.loadEntity.call(this, entity);
-                Serenity.TabsExtensions.setDisabled(this.tabs, 'Orders', this.isNewOrDeleted());
-                this.ordersGrid.customerID = entity.CustomerID;
-            };
-            CustomerDialog.prototype.onSaveSuccess = function (response) {
-                _super.prototype.onSaveSuccess.call(this, response);
-                Q.reloadLookup('Northwind.Customer');
-            };
-            CustomerDialog = __decorate([
-                Serenity.Decorators.registerClass(),
-                Serenity.Decorators.panel()
-            ], CustomerDialog);
-            return CustomerDialog;
-        }(Serenity.EntityDialog));
-        Northwind.CustomerDialog = CustomerDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Customer/CustomerDialog.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -4658,44 +7192,6 @@ var Miapp2;
         BasicSamples.SerialAutoNumberDialog = SerialAutoNumberDialog;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CustomerGrid = /** @class */ (function (_super) {
-            __extends(CustomerGrid, _super);
-            function CustomerGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            CustomerGrid.prototype.getColumnsKey = function () { return "Northwind.Customer"; };
-            CustomerGrid.prototype.getDialogType = function () { return Northwind.CustomerDialog; };
-            CustomerGrid.prototype.getIdProperty = function () { return Northwind.CustomerRow.idProperty; };
-            CustomerGrid.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
-            CustomerGrid.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
-            CustomerGrid.prototype.getButtons = function () {
-                var _this = this;
-                var buttons = _super.prototype.getButtons.call(this);
-                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
-                    grid: this,
-                    onViewSubmit: function () { return _this.onViewSubmit(); },
-                    service: 'Northwind/Customer/ListExcel',
-                    separator: true
-                }));
-                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
-                    grid: this,
-                    onViewSubmit: function () { return _this.onViewSubmit(); }
-                }));
-                return buttons;
-            };
-            CustomerGrid = __decorate([
-                Serenity.Decorators.registerClass(),
-                Serenity.Decorators.filterable()
-            ], CustomerGrid);
-            return CustomerGrid;
-        }(Serenity.EntityGrid));
-        Northwind.CustomerGrid = CustomerGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/Customer/CustomerGrid.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -4717,42 +7213,6 @@ var Miapp2;
         }(Miapp2.Northwind.CustomerGrid));
         BasicSamples.SerialAutoNumberGrid = SerialAutoNumberGrid;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var GridEditorDialog = /** @class */ (function (_super) {
-            __extends(GridEditorDialog, _super);
-            function GridEditorDialog() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            GridEditorDialog.prototype.getIdProperty = function () { return "__id"; };
-            GridEditorDialog.prototype.destroy = function () {
-                this.onSave = null;
-                this.onDelete = null;
-                _super.prototype.destroy.call(this);
-            };
-            GridEditorDialog.prototype.updateInterface = function () {
-                _super.prototype.updateInterface.call(this);
-                // apply changes button doesn't work properly with in-memory grids yet
-                if (this.applyChangesButton) {
-                    this.applyChangesButton.hide();
-                }
-            };
-            GridEditorDialog.prototype.saveHandler = function (options, callback) {
-                this.onSave && this.onSave(options, callback);
-            };
-            GridEditorDialog.prototype.deleteHandler = function (options, callback) {
-                this.onDelete && this.onDelete(options, callback);
-            };
-            GridEditorDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], GridEditorDialog);
-            return GridEditorDialog;
-        }(Serenity.EntityDialog));
-        Common.GridEditorDialog = GridEditorDialog;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Common/Helpers/GridEditorDialog.ts" />
 var Miapp2;
@@ -4827,43 +7287,6 @@ var Miapp2;
         BasicSamples.ChangingLookupTextEditor = ChangingLookupTextEditor;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
 })(Miapp2 || (Miapp2 = {}));
-/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var OrderDetailDialog = /** @class */ (function (_super) {
-            __extends(OrderDetailDialog, _super);
-            function OrderDetailDialog() {
-                var _this = _super.call(this) || this;
-                _this.form = new Northwind.OrderDetailForm(_this.idPrefix);
-                _this.form.ProductID.changeSelect2(function (e) {
-                    var productID = Q.toId(_this.form.ProductID.value);
-                    if (productID != null) {
-                        _this.form.UnitPrice.value = Northwind.ProductRow.getLookup().itemById[productID].UnitPrice;
-                    }
-                });
-                _this.form.Discount.addValidationRule(_this.uniqueName, function (e) {
-                    var price = _this.form.UnitPrice.value;
-                    var quantity = _this.form.Quantity.value;
-                    var discount = _this.form.Discount.value;
-                    if (price != null && quantity != null && discount != null &&
-                        discount > 0 && discount >= price * quantity) {
-                        return "Discount can't be higher than total price!";
-                    }
-                });
-                return _this;
-            }
-            OrderDetailDialog.prototype.getFormKey = function () { return Northwind.OrderDetailForm.formKey; };
-            OrderDetailDialog.prototype.getLocalTextPrefix = function () { return Northwind.OrderDetailRow.localTextPrefix; };
-            OrderDetailDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], OrderDetailDialog);
-            return OrderDetailDialog;
-        }(Miapp2.Common.GridEditorDialog));
-        Northwind.OrderDetailDialog = OrderDetailDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/OrderDetail/OrderDetailDialog.ts" />
 var Miapp2;
 (function (Miapp2) {
@@ -4905,176 +7328,6 @@ var Miapp2;
         }(Miapp2.Northwind.OrderDetailDialog));
         BasicSamples.FilteredLookupOrderDetailDialog = FilteredLookupOrderDetailDialog;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var GridEditorBase = /** @class */ (function (_super) {
-            __extends(GridEditorBase, _super);
-            function GridEditorBase(container) {
-                var _this = _super.call(this, container) || this;
-                _this.nextId = 1;
-                return _this;
-            }
-            GridEditorBase.prototype.getIdProperty = function () { return "__id"; };
-            GridEditorBase.prototype.id = function (entity) {
-                return entity[this.getIdProperty()];
-            };
-            GridEditorBase.prototype.getNextId = function () {
-                return "`" + this.nextId++;
-            };
-            GridEditorBase.prototype.setNewId = function (entity) {
-                entity[this.getIdProperty()] = this.getNextId();
-            };
-            GridEditorBase.prototype.save = function (opt, callback) {
-                var _this = this;
-                var request = opt.request;
-                var row = Q.deepClone(request.Entity);
-                var id = this.id(row);
-                if (id == null) {
-                    row[this.getIdProperty()] = this.getNextId();
-                }
-                if (!this.validateEntity(row, id)) {
-                    return;
-                }
-                var items = this.view.getItems().slice();
-                if (id == null) {
-                    items.push(row);
-                }
-                else {
-                    var index = Q.indexOf(items, function (x) { return _this.id(x) === id; });
-                    items[index] = Q.deepClone({}, items[index], row);
-                }
-                this.setEntities(items);
-                callback({});
-            };
-            GridEditorBase.prototype.deleteEntity = function (id) {
-                this.view.deleteItem(id);
-                return true;
-            };
-            GridEditorBase.prototype.validateEntity = function (row, id) {
-                return true;
-            };
-            GridEditorBase.prototype.setEntities = function (items) {
-                this.view.setItems(items, true);
-            };
-            GridEditorBase.prototype.getNewEntity = function () {
-                return {};
-            };
-            GridEditorBase.prototype.getButtons = function () {
-                var _this = this;
-                return [{
-                        title: 'Nuevo',
-                        cssClass: 'add-button',
-                        onClick: function () {
-                            _this.createEntityDialog(_this.getItemType(), function (dlg) {
-                                var dialog = dlg;
-                                dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
-                                dialog.loadEntityAndOpenDialog(_this.getNewEntity());
-                            });
-                        }
-                    }];
-            };
-            GridEditorBase.prototype.editItem = function (entityOrId) {
-                var _this = this;
-                var id = entityOrId;
-                var item = this.view.getItemById(id);
-                this.createEntityDialog(this.getItemType(), function (dlg) {
-                    var dialog = dlg;
-                    dialog.onDelete = function (opt, callback) {
-                        if (!_this.deleteEntity(id)) {
-                            return;
-                        }
-                        callback({});
-                    };
-                    dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
-                    dialog.loadEntityAndOpenDialog(item);
-                });
-                ;
-            };
-            GridEditorBase.prototype.getEditValue = function (property, target) {
-                target[property.name] = this.value;
-            };
-            GridEditorBase.prototype.setEditValue = function (source, property) {
-                this.value = source[property.name];
-            };
-            Object.defineProperty(GridEditorBase.prototype, "value", {
-                get: function () {
-                    var p = this.getIdProperty();
-                    return this.view.getItems().map(function (x) {
-                        var y = Q.deepClone(x);
-                        var id = y[p];
-                        if (id && id.toString().charAt(0) == '`')
-                            delete y[p];
-                        return y;
-                    });
-                },
-                set: function (value) {
-                    var _this = this;
-                    var p = this.getIdProperty();
-                    this.view.setItems((value || []).map(function (x) {
-                        var y = Q.deepClone(x);
-                        if (y[p] == null)
-                            y[p] = "`" + _this.getNextId();
-                        return y;
-                    }), true);
-                },
-                enumerable: true,
-                configurable: true
-            });
-            GridEditorBase.prototype.getGridCanLoad = function () {
-                return false;
-            };
-            GridEditorBase.prototype.usePager = function () {
-                return false;
-            };
-            GridEditorBase.prototype.getInitialTitle = function () {
-                return null;
-            };
-            GridEditorBase.prototype.createQuickSearchInput = function () {
-            };
-            GridEditorBase = __decorate([
-                Serenity.Decorators.registerClass([Serenity.IGetEditValue, Serenity.ISetEditValue]),
-                Serenity.Decorators.editor(),
-                Serenity.Decorators.element("<div/>")
-            ], GridEditorBase);
-            return GridEditorBase;
-        }(Serenity.EntityGrid));
-        Common.GridEditorBase = GridEditorBase;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var OrderDetailsEditor = /** @class */ (function (_super) {
-            __extends(OrderDetailsEditor, _super);
-            function OrderDetailsEditor(container) {
-                return _super.call(this, container) || this;
-            }
-            OrderDetailsEditor.prototype.getColumnsKey = function () { return "Northwind.OrderDetail"; };
-            OrderDetailsEditor.prototype.getDialogType = function () { return Northwind.OrderDetailDialog; };
-            OrderDetailsEditor.prototype.getLocalTextPrefix = function () { return Northwind.OrderDetailRow.localTextPrefix; };
-            OrderDetailsEditor.prototype.validateEntity = function (row, id) {
-                row.ProductID = Q.toId(row.ProductID);
-                var sameProduct = Q.tryFirst(this.view.getItems(), function (x) { return x.ProductID === row.ProductID; });
-                if (sameProduct && this.id(sameProduct) !== id) {
-                    Q.alert('This product is already in order details!');
-                    return false;
-                }
-                row.ProductName = Northwind.ProductRow.getLookup().itemById[row.ProductID].ProductName;
-                row.LineTotal = (row.Quantity || 0) * (row.UnitPrice || 0) - (row.Discount || 0);
-                return true;
-            };
-            OrderDetailsEditor = __decorate([
-                Serenity.Decorators.registerClass()
-            ], OrderDetailsEditor);
-            return OrderDetailsEditor;
-        }(Miapp2.Common.GridEditorBase));
-        Northwind.OrderDetailsEditor = OrderDetailsEditor;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Northwind/OrderDetail/OrderDetailsEditor.ts" />
 var Miapp2;
@@ -5364,162 +7617,6 @@ var Miapp2;
         }(Serenity.PropertyDialog));
         BasicSamples.StaticTextBlockDialog = StaticTextBlockDialog;
     })(BasicSamples = Miapp2.BasicSamples || (Miapp2.BasicSamples = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var BulkServiceAction = /** @class */ (function () {
-            function BulkServiceAction() {
-            }
-            BulkServiceAction.prototype.createProgressDialog = function () {
-                this.progressDialog = new Miapp2.BasicProgressDialog();
-                this.progressDialog.dialogOpen();
-                this.progressDialog.max = this.keys.length;
-                this.progressDialog.value = 0;
-            };
-            BulkServiceAction.prototype.getConfirmationFormat = function () {
-                return Q.text('Site.BulkServiceAction.ConfirmationFormat');
-            };
-            BulkServiceAction.prototype.getConfirmationMessage = function (targetCount) {
-                return Q.format(this.getConfirmationFormat(), targetCount);
-            };
-            BulkServiceAction.prototype.confirm = function (targetCount, action) {
-                Q.confirm(this.getConfirmationMessage(targetCount), action);
-            };
-            BulkServiceAction.prototype.getNothingToProcessMessage = function () {
-                return Q.text('Site.BulkServiceAction.NothingToProcess');
-            };
-            BulkServiceAction.prototype.nothingToProcess = function () {
-                Q.notifyError(this.getNothingToProcessMessage());
-            };
-            BulkServiceAction.prototype.getParallelRequests = function () {
-                return 1;
-            };
-            BulkServiceAction.prototype.getBatchSize = function () {
-                return 1;
-            };
-            BulkServiceAction.prototype.startParallelExecution = function () {
-                this.createProgressDialog();
-                this.successCount = 0;
-                this.errorCount = 0;
-                this.pendingRequests = 0;
-                this.completedRequests = 0;
-                this.errorCount = 0;
-                this.errorByKey = {};
-                this.queue = this.keys.slice();
-                this.queueIndex = 0;
-                var parallelRequests = this.getParallelRequests();
-                while (parallelRequests-- > 0) {
-                    this.executeNextBatch();
-                }
-            };
-            BulkServiceAction.prototype.serviceCallCleanup = function () {
-                this.pendingRequests--;
-                this.completedRequests++;
-                var title = Q.text((this.progressDialog.cancelled ?
-                    'Site.BasicProgressDialog.CancelTitle' : 'Site.BasicProgressDialog.PleaseWait'));
-                title += ' (';
-                if (this.successCount > 0) {
-                    title += Q.format(Q.text('Site.BulkServiceAction.SuccessCount'), this.successCount);
-                }
-                if (this.errorCount > 0) {
-                    if (this.successCount > 0) {
-                        title += ', ';
-                    }
-                    title += Q.format(Q.text('Site.BulkServiceAction.ErrorCount'), this.errorCount);
-                }
-                this.progressDialog.title = title + ')';
-                this.progressDialog.value = this.successCount + this.errorCount;
-                if (!this.progressDialog.cancelled && this.progressDialog.value < this.keys.length) {
-                    this.executeNextBatch();
-                }
-                else if (this.pendingRequests === 0) {
-                    this.progressDialog.dialogClose();
-                    this.showResults();
-                    if (this.done) {
-                        this.done();
-                        this.done = null;
-                    }
-                }
-            };
-            BulkServiceAction.prototype.executeForBatch = function (batch) {
-            };
-            BulkServiceAction.prototype.executeNextBatch = function () {
-                var batchSize = this.getBatchSize();
-                var batch = [];
-                while (true) {
-                    if (batch.length >= batchSize) {
-                        break;
-                    }
-                    if (this.queueIndex >= this.queue.length) {
-                        break;
-                    }
-                    batch.push(this.queue[this.queueIndex++]);
-                }
-                if (batch.length > 0) {
-                    this.pendingRequests++;
-                    this.executeForBatch(batch);
-                }
-            };
-            BulkServiceAction.prototype.getAllHadErrorsFormat = function () {
-                return Q.text('Site.BulkServiceAction.AllHadErrorsFormat');
-            };
-            BulkServiceAction.prototype.showAllHadErrors = function () {
-                Q.notifyError(Q.format(this.getAllHadErrorsFormat(), this.errorCount));
-            };
-            BulkServiceAction.prototype.getSomeHadErrorsFormat = function () {
-                return Q.text('Site.BulkServiceAction.SomeHadErrorsFormat');
-            };
-            BulkServiceAction.prototype.showSomeHadErrors = function () {
-                Q.notifyWarning(Q.format(this.getSomeHadErrorsFormat(), this.successCount, this.errorCount));
-            };
-            BulkServiceAction.prototype.getAllSuccessFormat = function () {
-                return Q.text('Site.BulkServiceAction.AllSuccessFormat');
-            };
-            BulkServiceAction.prototype.showAllSuccess = function () {
-                Q.notifySuccess(Q.format(this.getAllSuccessFormat(), this.successCount));
-            };
-            BulkServiceAction.prototype.showResults = function () {
-                if (this.errorCount === 0 && this.successCount === 0) {
-                    this.nothingToProcess();
-                    return;
-                }
-                if (this.errorCount > 0 && this.successCount === 0) {
-                    this.showAllHadErrors();
-                    return;
-                }
-                if (this.errorCount > 0) {
-                    this.showSomeHadErrors();
-                    return;
-                }
-                this.showAllSuccess();
-            };
-            BulkServiceAction.prototype.execute = function (keys) {
-                var _this = this;
-                this.keys = keys;
-                if (this.keys.length === 0) {
-                    this.nothingToProcess();
-                    return;
-                }
-                this.confirm(this.keys.length, function () { return _this.startParallelExecution(); });
-            };
-            BulkServiceAction.prototype.get_successCount = function () {
-                return this.successCount;
-            };
-            BulkServiceAction.prototype.set_successCount = function (value) {
-                this.successCount = value;
-            };
-            BulkServiceAction.prototype.get_errorCount = function () {
-                return this.errorCount;
-            };
-            BulkServiceAction.prototype.set_errorCount = function (value) {
-                this.errorCount = value;
-            };
-            return BulkServiceAction;
-        }());
-        Common.BulkServiceAction = BulkServiceAction;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
 })(Miapp2 || (Miapp2 = {}));
 /// <reference path="../../../Common/Helpers/BulkServiceAction.ts" />
 var Miapp2;
@@ -6396,7 +8493,7 @@ var Miapp2;
                                 Q.notifyError("Please select a file!");
                                 return;
                             }
-                            Miapp2.ImportFiles.PruebaService.ExcelImport({
+                            Miapp2.ImportFiles.PiezaService.ExcelImport({
                                 FileName: _this.form.FileName.value.Filename
                             }, function (response) {
                                 Q.notifyInfo('Inserted: ' + (response.Inserted || 0) +
@@ -6833,898 +8930,6 @@ var Miapp2;
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
-    var LanguageList;
-    (function (LanguageList) {
-        function getValue() {
-            var result = [];
-            for (var _i = 0, _a = Miapp2.Administration.LanguageRow.getLookup().items; _i < _a.length; _i++) {
-                var k = _a[_i];
-                if (k.LanguageId !== 'en') {
-                    result.push([k.Id.toString(), k.LanguageName]);
-                }
-            }
-            return result;
-        }
-        LanguageList.getValue = getValue;
-    })(LanguageList = Miapp2.LanguageList || (Miapp2.LanguageList = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../Common/Helpers/LanguageList.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var ScriptInitialization;
-    (function (ScriptInitialization) {
-        Q.Config.responsiveDialogs = true;
-        Q.Config.rootNamespaces.push('Miapp2');
-        Serenity.EntityDialog.defaultLanguageList = Miapp2.LanguageList.getValue;
-        if ($.fn['colorbox']) {
-            $.fn['colorbox'].settings.maxWidth = "95%";
-            $.fn['colorbox'].settings.maxHeight = "95%";
-        }
-        window.onerror = Q.ErrorHandling.runtimeErrorHandler;
-    })(ScriptInitialization = Miapp2.ScriptInitialization || (Miapp2.ScriptInitialization = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var BasicProgressDialog = /** @class */ (function (_super) {
-        __extends(BasicProgressDialog, _super);
-        function BasicProgressDialog() {
-            var _this = _super.call(this) || this;
-            _this.byId('ProgressBar').progressbar({
-                max: 100,
-                value: 0,
-                change: function (e, v) {
-                    _this.byId('ProgressLabel').text(_this.value + ' / ' + _this.max);
-                }
-            });
-            return _this;
-        }
-        Object.defineProperty(BasicProgressDialog.prototype, "max", {
-            get: function () {
-                return this.byId('ProgressBar').progressbar().progressbar('option', 'max');
-            },
-            set: function (value) {
-                this.byId('ProgressBar').progressbar().progressbar('option', 'max', value);
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(BasicProgressDialog.prototype, "value", {
-            get: function () {
-                return this.byId('ProgressBar').progressbar('value');
-            },
-            set: function (value) {
-                this.byId('ProgressBar').progressbar().progressbar('value', value);
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(BasicProgressDialog.prototype, "title", {
-            get: function () {
-                return this.element.dialog().dialog('option', 'title');
-            },
-            set: function (value) {
-                this.element.dialog().dialog('option', 'title', value);
-            },
-            enumerable: true,
-            configurable: true
-        });
-        BasicProgressDialog.prototype.getDialogOptions = function () {
-            var _this = this;
-            var opt = _super.prototype.getDialogOptions.call(this);
-            opt.title = Q.text('Site.BasicProgressDialog.PleaseWait');
-            opt.width = 600;
-            opt.buttons = [{
-                    text: Q.text('Dialogs.CancelButton'),
-                    click: function () {
-                        _this.cancelled = true;
-                        _this.element.closest('.ui-dialog')
-                            .find('.ui-dialog-buttonpane .ui-button')
-                            .attr('disabled', 'disabled')
-                            .css('opacity', '0.5');
-                        _this.element.dialog('option', 'title', Q.trimToNull(_this.cancelTitle) ||
-                            Q.text('Site.BasicProgressDialog.CancelTitle'));
-                    }
-                }];
-            return opt;
-        };
-        BasicProgressDialog.prototype.initDialog = function () {
-            _super.prototype.initDialog.call(this);
-            this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide();
-        };
-        BasicProgressDialog.prototype.getTemplate = function () {
-            return ("<div class='s-DialogContent s-BasicProgressDialogContent'>" +
-                "<div id='~_StatusText' class='status-text' ></div>" +
-                "<div id='~_ProgressBar' class='progress-bar'>" +
-                "<div id='~_ProgressLabel' class='progress-label' ></div>" +
-                "</div>" +
-                "</div>");
-        };
-        return BasicProgressDialog;
-    }(Serenity.TemplatedDialog));
-    Miapp2.BasicProgressDialog = BasicProgressDialog;
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var DialogUtils;
-    (function (DialogUtils) {
-        function pendingChangesConfirmation(element, hasPendingChanges) {
-            element.on('dialogbeforeclose panelbeforeclose', function (e) {
-                if (!Serenity.WX.hasOriginalEvent(e) || !hasPendingChanges()) {
-                    return;
-                }
-                e.preventDefault();
-                Q.confirm('You have pending changes. Save them?', function () { return element.find('div.save-and-close-button').click(); }, {
-                    onNo: function () {
-                        if (element.hasClass('ui-dialog-content'))
-                            element.dialog('close');
-                        else if (element.hasClass('s-Panel'))
-                            Serenity.TemplatedDialog.closePanel(element);
-                    }
-                });
-            });
-        }
-        DialogUtils.pendingChangesConfirmation = pendingChangesConfirmation;
-    })(DialogUtils = Miapp2.DialogUtils || (Miapp2.DialogUtils = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var EnumSelectFormatter = /** @class */ (function () {
-            function EnumSelectFormatter() {
-                this.allowClear = true;
-            }
-            EnumSelectFormatter.prototype.format = function (ctx) {
-                var enumType = Serenity.EnumTypeRegistry.get(this.enumKey);
-                var sb = "<select>";
-                if (this.allowClear) {
-                    sb += '<option value="">';
-                    sb += Q.htmlEncode(this.emptyItemText || Q.text("Controls.SelectEditor.EmptyItemText"));
-                    sb += '</option>';
-                }
-                for (var _i = 0, _a = Object.keys(enumType).filter(function (v) { return !isNaN(parseInt(v, 10)); }); _i < _a.length; _i++) {
-                    var x = _a[_i];
-                    sb += '<option value="' + x + '"';
-                    if (x == ctx.value)
-                        sb += " selected";
-                    var name = enumType[x];
-                    sb += ">";
-                    sb += Q.htmlEncode(Q.tryGetText("Enums." + this.enumKey + "." + name) || name);
-                    sb += "</option>";
-                }
-                sb += "</select>";
-                return sb;
-            };
-            __decorate([
-                Serenity.Decorators.option()
-            ], EnumSelectFormatter.prototype, "enumKey", void 0);
-            __decorate([
-                Serenity.Decorators.option()
-            ], EnumSelectFormatter.prototype, "allowClear", void 0);
-            __decorate([
-                Serenity.Decorators.option()
-            ], EnumSelectFormatter.prototype, "emptyItemText", void 0);
-            EnumSelectFormatter = __decorate([
-                Serenity.Decorators.registerFormatter()
-            ], EnumSelectFormatter);
-            return EnumSelectFormatter;
-        }());
-        Common.EnumSelectFormatter = EnumSelectFormatter;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var ExcelExportHelper;
-        (function (ExcelExportHelper) {
-            function createToolButton(options) {
-                return {
-                    hint: Q.coalesce(options.hint, 'Excel'),
-                    title: Q.coalesce(options.title, ''),
-                    cssClass: 'export-xlsx-button',
-                    onClick: function () {
-                        if (!options.onViewSubmit()) {
-                            return;
-                        }
-                        var grid = options.grid;
-                        var request = Q.deepClone(grid.getView().params);
-                        request.Take = 0;
-                        request.Skip = 0;
-                        var sortBy = grid.getView().sortBy;
-                        if (sortBy) {
-                            request.Sort = sortBy;
-                        }
-                        request.IncludeColumns = [];
-                        var columns = grid.getGrid().getColumns();
-                        for (var _i = 0, columns_1 = columns; _i < columns_1.length; _i++) {
-                            var column = columns_1[_i];
-                            request.IncludeColumns.push(column.id || column.field);
-                        }
-                        Q.postToService({ service: options.service, request: request, target: '_blank' });
-                    },
-                    separator: options.separator
-                };
-            }
-            ExcelExportHelper.createToolButton = createToolButton;
-        })(ExcelExportHelper = Common.ExcelExportHelper || (Common.ExcelExportHelper = {}));
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    /**
-     * This is an editor widget but it only displays a text, not edits it.
-     *
-     */
-    var StaticTextBlock = /** @class */ (function (_super) {
-        __extends(StaticTextBlock, _super);
-        function StaticTextBlock(container, options) {
-            var _this = _super.call(this, container, options) || this;
-            // hide the caption label for this editor if in a form. ugly hack
-            if (_this.options.hideLabel)
-                _this.element.closest('.field').find('.caption').hide();
-            _this.updateElementContent();
-            return _this;
-        }
-        StaticTextBlock.prototype.updateElementContent = function () {
-            var text = Q.coalesce(this.options.text, this.value);
-            // if isLocalText is set, text is actually a local text key
-            if (this.options.isLocalText)
-                text = Q.text(text);
-            // don't html encode if isHtml option is true
-            if (this.options.isHtml)
-                this.element.html(text);
-            else
-                this.element.text(text);
-        };
-        /**
-         * By implementing ISetEditValue interface, we allow this editor to display its field value.
-         * But only do this when our text content is not explicitly set in options
-         */
-        StaticTextBlock.prototype.setEditValue = function (source, property) {
-            if (this.options.text == null) {
-                this.value = Q.coalesce(this.options.text, source[property.name]);
-                this.updateElementContent();
-            }
-        };
-        StaticTextBlock = __decorate([
-            Serenity.Decorators.element("<div/>"),
-            Serenity.Decorators.registerEditor([Serenity.ISetEditValue])
-        ], StaticTextBlock);
-        return StaticTextBlock;
-    }(Serenity.Widget));
-    Miapp2.StaticTextBlock = StaticTextBlock;
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var LanguageSelection = /** @class */ (function (_super) {
-            __extends(LanguageSelection, _super);
-            function LanguageSelection(select, currentLanguage) {
-                var _this = _super.call(this, select) || this;
-                currentLanguage = Q.coalesce(currentLanguage, 'en');
-                _this.change(function (e) {
-                    var path = Q.Config.applicationPath;
-                    if (path && path != '/' && Q.endsWith(path, '/'))
-                        path = path.substr(0, path.length - 1);
-                    $.cookie('LanguagePreference', select.val(), {
-                        path: path,
-                        expires: 365
-                    });
-                    window.location.reload(true);
-                });
-                Q.getLookupAsync('Administration.Language').then(function (x) {
-                    if (!Q.any(x.items, function (z) { return z.LanguageId === currentLanguage; })) {
-                        var idx = currentLanguage.lastIndexOf('-');
-                        if (idx >= 0) {
-                            currentLanguage = currentLanguage.substr(0, idx);
-                            if (!Q.any(x.items, function (y) { return y.LanguageId === currentLanguage; })) {
-                                currentLanguage = 'en';
-                            }
-                        }
-                        else {
-                            currentLanguage = 'en';
-                        }
-                    }
-                    for (var _i = 0, _a = x.items; _i < _a.length; _i++) {
-                        var l = _a[_i];
-                        Q.addOption(select, l.LanguageId, l.LanguageName);
-                    }
-                    select.val(currentLanguage);
-                });
-                return _this;
-            }
-            return LanguageSelection;
-        }(Serenity.Widget));
-        Common.LanguageSelection = LanguageSelection;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var SidebarSearch = /** @class */ (function (_super) {
-            __extends(SidebarSearch, _super);
-            function SidebarSearch(input, menuUL) {
-                var _this = _super.call(this, input) || this;
-                new Serenity.QuickSearchInput(input, {
-                    onSearch: function (field, text, success) {
-                        _this.updateMatchFlags(text);
-                        success(true);
-                    }
-                });
-                _this.menuUL = menuUL;
-                return _this;
-            }
-            SidebarSearch.prototype.updateMatchFlags = function (text) {
-                var liList = this.menuUL.find('li').removeClass('non-match');
-                text = Q.trimToNull(text);
-                if (text == null) {
-                    liList.show();
-                    liList.removeClass('expanded');
-                    return;
-                }
-                var parts = text.replace(',', ' ').split(' ').filter(function (x) { return !Q.isTrimmedEmpty(x); });
-                for (var i = 0; i < parts.length; i++) {
-                    parts[i] = Q.trimToNull(Select2.util.stripDiacritics(parts[i]).toUpperCase());
-                }
-                var items = liList;
-                items.each(function (idx, e) {
-                    var x = $(e);
-                    var title = Select2.util.stripDiacritics(Q.coalesce(x.text(), '').toUpperCase());
-                    for (var _i = 0, parts_1 = parts; _i < parts_1.length; _i++) {
-                        var p = parts_1[_i];
-                        if (p != null && !(title.indexOf(p) !== -1)) {
-                            x.addClass('non-match');
-                            break;
-                        }
-                    }
-                });
-                var matchingItems = items.not('.non-match');
-                var visibles = matchingItems.parents('li').add(matchingItems);
-                var nonVisibles = liList.not(visibles);
-                nonVisibles.hide().addClass('non-match');
-                visibles.show();
-                liList.addClass('expanded');
-            };
-            return SidebarSearch;
-        }(Serenity.Widget));
-        Common.SidebarSearch = SidebarSearch;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var ThemeSelection = /** @class */ (function (_super) {
-            __extends(ThemeSelection, _super);
-            function ThemeSelection(select) {
-                var _this = _super.call(this, select) || this;
-                _this.change(function (e) {
-                    var path = Q.Config.applicationPath;
-                    if (path && path != '/' && Q.endsWith(path, '/'))
-                        path = path.substr(0, path.length - 1);
-                    $.cookie('ThemePreference', select.val(), {
-                        path: path,
-                        expires: 365
-                    });
-                    var theme = select.val() || '';
-                    var darkSidebar = theme.indexOf('light') < 0;
-                    $('body').removeClass('skin-' + _this.getCurrentTheme());
-                    $('body').addClass('skin-' + theme)
-                        .toggleClass('dark-sidebar', darkSidebar)
-                        .toggleClass('light-sidebar', !darkSidebar);
-                });
-                Q.addOption(select, 'blue', Q.text('Site.Layout.ThemeBlue'));
-                Q.addOption(select, 'blue-light', Q.text('Site.Layout.ThemeBlueLight'));
-                Q.addOption(select, 'purple', Q.text('Site.Layout.ThemePurple'));
-                Q.addOption(select, 'purple-light', Q.text('Site.Layout.ThemePurpleLight'));
-                Q.addOption(select, 'red', Q.text('Site.Layout.ThemeRed'));
-                Q.addOption(select, 'red-light', Q.text('Site.Layout.ThemeRedLight'));
-                Q.addOption(select, 'green', Q.text('Site.Layout.ThemeGreen'));
-                Q.addOption(select, 'green-light', Q.text('Site.Layout.ThemeGreenLight'));
-                Q.addOption(select, 'yellow', Q.text('Site.Layout.ThemeYellow'));
-                Q.addOption(select, 'yellow-light', Q.text('Site.Layout.ThemeYellowLight'));
-                Q.addOption(select, 'black', Q.text('Site.Layout.ThemeBlack'));
-                Q.addOption(select, 'black-light', Q.text('Site.Layout.ThemeBlackLight'));
-                select.val(_this.getCurrentTheme());
-                return _this;
-            }
-            ThemeSelection.prototype.getCurrentTheme = function () {
-                var skinClass = Q.first(($('body').attr('class') || '').split(' '), function (x) { return Q.startsWith(x, 'skin-'); });
-                if (skinClass) {
-                    return skinClass.substr(5);
-                }
-                return 'blue';
-            };
-            return ThemeSelection;
-        }(Serenity.Widget));
-        Common.ThemeSelection = ThemeSelection;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var PdfExportHelper;
-        (function (PdfExportHelper) {
-            function toAutoTableColumns(srcColumns, columnStyles, columnTitles) {
-                return srcColumns.map(function (src) {
-                    var col = {
-                        dataKey: src.id || src.field,
-                        title: src.name || ''
-                    };
-                    if (columnTitles && columnTitles[col.dataKey] != null)
-                        col.title = columnTitles[col.dataKey];
-                    var style = {};
-                    if ((src.cssClass || '').indexOf("align-right") >= 0)
-                        style.halign = 'right';
-                    else if ((src.cssClass || '').indexOf("align-center") >= 0)
-                        style.halign = 'center';
-                    columnStyles[col.dataKey] = style;
-                    return col;
-                });
-            }
-            function toAutoTableData(entities, keys, srcColumns) {
-                var el = document.createElement('span');
-                var row = 0;
-                return entities.map(function (item) {
-                    var dst = {};
-                    for (var cell = 0; cell < srcColumns.length; cell++) {
-                        var src = srcColumns[cell];
-                        var fld = src.field || '';
-                        var key = keys[cell];
-                        var txt = void 0;
-                        var html = void 0;
-                        if (src.formatter) {
-                            html = src.formatter(row, cell, item[fld], src, item);
-                        }
-                        else if (src.format) {
-                            html = src.format({ row: row, cell: cell, item: item, value: item[fld] });
-                        }
-                        else {
-                            dst[key] = item[fld];
-                            continue;
-                        }
-                        if (!html || (html.indexOf('<') < 0 && html.indexOf('&') < 0))
-                            dst[key] = html;
-                        else {
-                            el.innerHTML = html;
-                            if (el.children.length == 1 &&
-                                $(el.children[0]).is(":input")) {
-                                dst[key] = $(el.children[0]).val();
-                            }
-                            else if (el.children.length == 1 &&
-                                $(el.children).is('.check-box')) {
-                                dst[key] = $(el.children).hasClass("checked") ? "X" : "";
-                            }
-                            else
-                                dst[key] = el.textContent || '';
-                        }
-                    }
-                    row++;
-                    return dst;
-                });
-            }
-            function exportToPdf(options) {
-                var g = options.grid;
-                if (!options.onViewSubmit())
-                    return;
-                includeAutoTable();
-                var request = Q.deepClone(g.view.params);
-                request.Take = 0;
-                request.Skip = 0;
-                var sortBy = g.view.sortBy;
-                if (sortBy != null)
-                    request.Sort = sortBy;
-                var gridColumns = g.slickGrid.getColumns();
-                gridColumns = gridColumns.filter(function (x) { return x.id !== "__select__"; });
-                request.IncludeColumns = [];
-                for (var _i = 0, gridColumns_1 = gridColumns; _i < gridColumns_1.length; _i++) {
-                    var column = gridColumns_1[_i];
-                    request.IncludeColumns.push(column.id || column.field);
-                }
-                Q.serviceCall({
-                    url: g.view.url,
-                    request: request,
-                    onSuccess: function (response) {
-                        var doc = new jsPDF('l', 'pt');
-                        var srcColumns = gridColumns;
-                        var columnStyles = {};
-                        var columns = toAutoTableColumns(srcColumns, columnStyles, options.columnTitles);
-                        var keys = columns.map(function (x) { return x.dataKey; });
-                        var entities = response.Entities || [];
-                        var data = toAutoTableData(entities, keys, srcColumns);
-                        doc.setFontSize(options.titleFontSize || 10);
-                        doc.setFontStyle('bold');
-                        var reportTitle = options.reportTitle || g.getTitle() || "Report";
-                        doc.autoTableText(reportTitle, doc.internal.pageSize.width / 2, options.titleTop || 25, { halign: 'center' });
-                        var totalPagesExp = "{{T}}";
-                        var pageNumbers = options.pageNumbers == null || options.pageNumbers;
-                        var autoOptions = $.extend({
-                            margin: { top: 25, left: 25, right: 25, bottom: pageNumbers ? 25 : 30 },
-                            startY: 60,
-                            styles: {
-                                fontSize: 8,
-                                overflow: 'linebreak',
-                                cellPadding: 2,
-                                valign: 'middle'
-                            },
-                            columnStyles: columnStyles
-                        }, options.tableOptions);
-                        if (pageNumbers) {
-                            var footer = function (data) {
-                                var str = data.pageCount;
-                                // Total page number plugin only available in jspdf v1.0+
-                                if (typeof doc.putTotalPages === 'function') {
-                                    str = str + " / " + totalPagesExp;
-                                }
-                                doc.autoTableText(str, doc.internal.pageSize.width / 2, doc.internal.pageSize.height - autoOptions.margin.bottom, {
-                                    halign: 'center'
-                                });
-                            };
-                            autoOptions.afterPageContent = footer;
-                        }
-                        // Print header of page
-                        if (options.printDateTimeHeader == null || options.printDateTimeHeader) {
-                            var beforePage = function (data) {
-                                doc.setFontStyle('normal');
-                                doc.setFontSize(8);
-                                // Date and time of the report
-                                doc.autoTableText(Q.formatDate(new Date(), "dd-MM-yyyy HH:mm"), doc.internal.pageSize.width - autoOptions.margin.right, 13, {
-                                    halign: 'right'
-                                });
-                            };
-                            autoOptions.beforePageContent = beforePage;
-                        }
-                        doc.autoTable(columns, data, autoOptions);
-                        if (typeof doc.putTotalPages === 'function') {
-                            doc.putTotalPages(totalPagesExp);
-                        }
-                        if (!options.output || options.output == "file") {
-                            var fileName = options.fileName || options.reportTitle || "{0}_{1}.pdf";
-                            fileName = Q.format(fileName, g.getTitle() || "report", Q.formatDate(new Date(), "yyyyMMdd_HHmm"));
-                            doc.save(fileName);
-                            return;
-                        }
-                        if (options.autoPrint)
-                            doc.autoPrint();
-                        var output = options.output;
-                        if (output == 'newwindow' || '_blank')
-                            output = 'dataurlnewwindow';
-                        else if (output == 'window')
-                            output = 'datauri';
-                        doc.output(output);
-                    }
-                });
-            }
-            PdfExportHelper.exportToPdf = exportToPdf;
-            function createToolButton(options) {
-                return {
-                    title: options.title || '',
-                    hint: options.hint || 'PDF',
-                    cssClass: 'export-pdf-button',
-                    onClick: function () { return exportToPdf(options); },
-                    separator: options.separator
-                };
-            }
-            PdfExportHelper.createToolButton = createToolButton;
-            function includeJsPDF() {
-                if (typeof jsPDF !== "undefined")
-                    return;
-                var script = $("jsPDFScript");
-                if (script.length > 0)
-                    return;
-                $("<script/>")
-                    .attr("type", "text/javascript")
-                    .attr("id", "jsPDFScript")
-                    .attr("src", Q.resolveUrl("~/Scripts/jspdf.min.js"))
-                    .appendTo(document.head);
-            }
-            function includeAutoTable() {
-                includeJsPDF();
-                if (typeof jsPDF === "undefined" ||
-                    typeof jsPDF.API == "undefined" ||
-                    typeof jsPDF.API.autoTable !== "undefined")
-                    return;
-                var script = $("jsPDFAutoTableScript");
-                if (script.length > 0)
-                    return;
-                $("<script/>")
-                    .attr("type", "text/javascript")
-                    .attr("id", "jsPDFAutoTableScript")
-                    .attr("src", Q.resolveUrl("~/Scripts/jspdf.plugin.autotable.min.js"))
-                    .appendTo(document.head);
-            }
-        })(PdfExportHelper = Common.PdfExportHelper || (Common.PdfExportHelper = {}));
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var ReportDialog = /** @class */ (function (_super) {
-            __extends(ReportDialog, _super);
-            function ReportDialog(options) {
-                var _this = _super.call(this, options) || this;
-                _this.updateInterface();
-                _this.loadReport(_this.options.reportKey);
-                return _this;
-            }
-            ReportDialog.prototype.getDialogButtons = function () {
-                return null;
-            };
-            ReportDialog.prototype.createPropertyGrid = function () {
-                this.propertyGrid && this.byId('PropertyGrid').html('').attr('class', '');
-                this.propertyGrid = new Serenity.PropertyGrid(this.byId('PropertyGrid'), {
-                    idPrefix: this.idPrefix,
-                    useCategories: true,
-                    items: this.report.Properties
-                }).init(null);
-            };
-            ReportDialog.prototype.loadReport = function (reportKey) {
-                var _this = this;
-                Q.serviceCall({
-                    url: Q.resolveUrl('~/Report/Retrieve'),
-                    request: {
-                        ReportKey: reportKey
-                    },
-                    onSuccess: function (response) {
-                        _this.report = response;
-                        _this.element.dialog().dialog('option', 'title', _this.report.Title);
-                        _this.createPropertyGrid();
-                        _this.propertyGrid.load(_this.report.InitialSettings || {});
-                        _this.updateInterface();
-                        _this.dialogOpen();
-                    }
-                });
-            };
-            ReportDialog.prototype.updateInterface = function () {
-                this.toolbar.findButton('print-preview-button')
-                    .toggle(this.report && !this.report.IsDataOnlyReport);
-                this.toolbar.findButton('export-pdf-button')
-                    .toggle(this.report && !this.report.IsDataOnlyReport);
-                this.toolbar.findButton('export-xlsx-button')
-                    .toggle(this.report && this.report.IsDataOnlyReport);
-            };
-            ReportDialog.prototype.executeReport = function (target, ext, download) {
-                if (!this.validateForm()) {
-                    return;
-                }
-                var opt = {};
-                this.propertyGrid.save(opt);
-                Common.ReportHelper.execute({
-                    download: download,
-                    reportKey: this.report.ReportKey,
-                    extension: ext,
-                    target: target,
-                    params: opt
-                });
-            };
-            ReportDialog.prototype.getToolbarButtons = function () {
-                var _this = this;
-                return [
-                    {
-                        title: 'Preview',
-                        cssClass: 'print-preview-button',
-                        onClick: function () { return _this.executeReport('_blank', null, false); }
-                    },
-                    {
-                        title: 'PDF',
-                        cssClass: 'export-pdf-button',
-                        onClick: function () { return _this.executeReport('_blank', 'pdf', true); }
-                    },
-                    {
-                        title: 'Excel',
-                        cssClass: 'export-xlsx-button',
-                        onClick: function () { return _this.executeReport('_blank', 'xlsx', true); }
-                    }
-                ];
-            };
-            return ReportDialog;
-        }(Serenity.TemplatedDialog));
-        Common.ReportDialog = ReportDialog;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var ReportHelper;
-        (function (ReportHelper) {
-            function createToolButton(options) {
-                return {
-                    title: Q.coalesce(options.title, 'Report'),
-                    cssClass: Q.coalesce(options.cssClass, 'print-button'),
-                    icon: options.icon,
-                    onClick: function () {
-                        ReportHelper.execute(options);
-                    }
-                };
-            }
-            ReportHelper.createToolButton = createToolButton;
-            function execute(options) {
-                var opt = options.getParams ? options.getParams() : options.params;
-                Q.postToUrl({
-                    url: '~/Report/' + (options.download ? 'Download' : 'Render'),
-                    params: {
-                        key: options.reportKey,
-                        ext: Q.coalesce(options.extension, 'pdf'),
-                        opt: opt ? $.toJSON(opt) : ''
-                    },
-                    target: Q.coalesce(options.target, '_blank')
-                });
-            }
-            ReportHelper.execute = execute;
-        })(ReportHelper = Common.ReportHelper || (Common.ReportHelper = {}));
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var ReportPage = /** @class */ (function (_super) {
-            __extends(ReportPage, _super);
-            function ReportPage(element) {
-                var _this = _super.call(this, element) || this;
-                $('.report-link', element).click(function (e) { return _this.reportLinkClick(e); });
-                $('div.line', element).click(function (e) { return _this.categoryClick(e); });
-                new Serenity.QuickSearchInput($('.s-QuickSearchBar input', element), {
-                    onSearch: function (field, text, done) {
-                        _this.updateMatchFlags(text);
-                        done(true);
-                    }
-                });
-                return _this;
-            }
-            ReportPage.prototype.updateMatchFlags = function (text) {
-                var liList = $('.report-list', this.element).find('li').removeClass('non-match');
-                text = Q.trimToNull(text);
-                if (!text) {
-                    liList.children('ul').hide();
-                    liList.show().removeClass('expanded');
-                    return;
-                }
-                text = Select2.util.stripDiacritics(text).toUpperCase();
-                var reportItems = liList.filter('.report-item');
-                reportItems.each(function (ix, e) {
-                    var x = $(e);
-                    var title = Select2.util.stripDiacritics(Q.coalesce(x.text(), '').toUpperCase());
-                    if (title.indexOf(text) < 0) {
-                        x.addClass('non-match');
-                    }
-                });
-                var matchingItems = reportItems.not('.non-match');
-                var visibles = matchingItems.parents('li').add(matchingItems);
-                var nonVisibles = liList.not(visibles);
-                nonVisibles.hide().addClass('non-match');
-                visibles.show();
-                if (visibles.length <= 100) {
-                    liList.children('ul').show();
-                    liList.addClass('expanded');
-                }
-            };
-            ReportPage.prototype.categoryClick = function (e) {
-                var li = $(e.target).closest('li');
-                if (li.hasClass('expanded')) {
-                    li.find('ul').hide('fast');
-                    li.removeClass('expanded');
-                    li.find('li').removeClass('expanded');
-                }
-                else {
-                    li.addClass('expanded');
-                    li.children('ul').show('fast');
-                    if (li.children('ul').children('li').length === 1 && !li.children('ul').children('li').hasClass('expanded')) {
-                        li.children('ul').children('li').children('.line').click();
-                    }
-                }
-            };
-            ReportPage.prototype.reportLinkClick = function (e) {
-                e.preventDefault();
-                new Common.ReportDialog({
-                    reportKey: $(e.target).data('key')
-                }).dialogOpen();
-            };
-            return ReportPage;
-        }(Serenity.Widget));
-        Common.ReportPage = ReportPage;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Common;
-    (function (Common) {
-        var UserPreferenceStorage = /** @class */ (function () {
-            function UserPreferenceStorage() {
-            }
-            UserPreferenceStorage.prototype.getItem = function (key) {
-                var value;
-                Common.UserPreferenceService.Retrieve({
-                    PreferenceType: "UserPreferenceStorage",
-                    Name: key
-                }, function (response) { return value = response.Value; }, {
-                    async: false
-                });
-                return value;
-            };
-            UserPreferenceStorage.prototype.setItem = function (key, data) {
-                Common.UserPreferenceService.Update({
-                    PreferenceType: "UserPreferenceStorage",
-                    Name: key,
-                    Value: data
-                });
-            };
-            return UserPreferenceStorage;
-        }());
-        Common.UserPreferenceStorage = UserPreferenceStorage;
-    })(Common = Miapp2.Common || (Miapp2.Common = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var ImportFiles;
-    (function (ImportFiles) {
-        var PruebaDialog = /** @class */ (function (_super) {
-            __extends(PruebaDialog, _super);
-            function PruebaDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new ImportFiles.PruebaForm(_this.idPrefix);
-                return _this;
-            }
-            PruebaDialog.prototype.getFormKey = function () { return ImportFiles.PruebaForm.formKey; };
-            PruebaDialog.prototype.getIdProperty = function () { return ImportFiles.PruebaRow.idProperty; };
-            PruebaDialog.prototype.getLocalTextPrefix = function () { return ImportFiles.PruebaRow.localTextPrefix; };
-            PruebaDialog.prototype.getNameProperty = function () { return ImportFiles.PruebaRow.nameProperty; };
-            PruebaDialog.prototype.getService = function () { return ImportFiles.PruebaService.baseUrl; };
-            PruebaDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], PruebaDialog);
-            return PruebaDialog;
-        }(Serenity.EntityDialog));
-        ImportFiles.PruebaDialog = PruebaDialog;
-    })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var ImportFiles;
-    (function (ImportFiles) {
-        var PruebaGrid = /** @class */ (function (_super) {
-            __extends(PruebaGrid, _super);
-            function PruebaGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            PruebaGrid.prototype.getColumnsKey = function () { return 'ImportFiles.Prueba'; };
-            PruebaGrid.prototype.getDialogType = function () { return ImportFiles.PruebaDialog; };
-            PruebaGrid.prototype.getIdProperty = function () { return ImportFiles.PruebaRow.idProperty; };
-            PruebaGrid.prototype.getLocalTextPrefix = function () { return ImportFiles.PruebaRow.localTextPrefix; };
-            PruebaGrid.prototype.getService = function () { return ImportFiles.PruebaService.baseUrl; };
-            PruebaGrid.prototype.getButtons = function () {
-                var _this = this;
-                var buttons = _super.prototype.getButtons.call(this);
-                buttons.push({
-                    title: 'Import From Excel',
-                    cssClass: 'export-xlsx-button',
-                    onClick: function () {
-                        var dialog = new Miapp2.BasicSamples.ProductExcelImportDialog();
-                        dialog.element.on('dialogclose', function () {
-                            _this.refresh();
-                            dialog = null;
-                        });
-                        dialog.dialogOpen();
-                    }
-                });
-                return buttons;
-            };
-            PruebaGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], PruebaGrid);
-            return PruebaGrid;
-        }(Serenity.EntityGrid));
-        ImportFiles.PruebaGrid = PruebaGrid;
-    })(ImportFiles = Miapp2.ImportFiles || (Miapp2.ImportFiles = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
     var Membership;
     (function (Membership) {
         var ChangePasswordPanel = /** @class */ (function (_super) {
@@ -7900,1086 +9105,5 @@ var Miapp2;
         }(Serenity.PropertyPanel));
         Membership.SignUpPanel = SignUpPanel;
     })(Membership = Miapp2.Membership || (Miapp2.Membership = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CustomerEditor = /** @class */ (function (_super) {
-            __extends(CustomerEditor, _super);
-            function CustomerEditor(hidden) {
-                return _super.call(this, hidden) || this;
-            }
-            CustomerEditor.prototype.getLookupKey = function () {
-                return 'Northwind.Customer';
-            };
-            CustomerEditor.prototype.getItemText = function (item, lookup) {
-                return _super.prototype.getItemText.call(this, item, lookup) + ' [' + item.CustomerID + ']';
-            };
-            CustomerEditor = __decorate([
-                Serenity.Decorators.registerEditor()
-            ], CustomerEditor);
-            return CustomerEditor;
-        }(Serenity.LookupEditorBase));
-        Northwind.CustomerEditor = CustomerEditor;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../Order/OrderDialog.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CustomerOrderDialog = /** @class */ (function (_super) {
-            __extends(CustomerOrderDialog, _super);
-            function CustomerOrderDialog() {
-                return _super.call(this) || this;
-            }
-            CustomerOrderDialog.prototype.updateInterface = function () {
-                _super.prototype.updateInterface.call(this);
-                Serenity.EditorUtils.setReadOnly(this.form.CustomerID, true);
-            };
-            CustomerOrderDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], CustomerOrderDialog);
-            return CustomerOrderDialog;
-        }(Northwind.OrderDialog));
-        Northwind.CustomerOrderDialog = CustomerOrderDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../Order/OrderGrid.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var CustomerOrdersGrid = /** @class */ (function (_super) {
-            __extends(CustomerOrdersGrid, _super);
-            function CustomerOrdersGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            CustomerOrdersGrid.prototype.getDialogType = function () { return Northwind.CustomerOrderDialog; };
-            CustomerOrdersGrid.prototype.getColumns = function () {
-                return _super.prototype.getColumns.call(this).filter(function (x) { return x.field !== "CustomerCompanyName" /* CustomerCompanyName */; });
-            };
-            CustomerOrdersGrid.prototype.initEntityDialog = function (itemType, dialog) {
-                _super.prototype.initEntityDialog.call(this, itemType, dialog);
-                Serenity.SubDialogHelper.cascade(dialog, this.element.closest('.ui-dialog'));
-            };
-            CustomerOrdersGrid.prototype.addButtonClick = function () {
-                this.editItem({ CustomerID: this.customerID });
-            };
-            CustomerOrdersGrid.prototype.getInitialTitle = function () {
-                return null;
-            };
-            CustomerOrdersGrid.prototype.getGridCanLoad = function () {
-                return _super.prototype.getGridCanLoad.call(this) && !!this.customerID;
-            };
-            Object.defineProperty(CustomerOrdersGrid.prototype, "customerID", {
-                get: function () {
-                    return this._customerID;
-                },
-                set: function (value) {
-                    if (this._customerID !== value) {
-                        this._customerID = value;
-                        this.setEquality('CustomerID', value);
-                        this.refresh();
-                    }
-                },
-                enumerable: true,
-                configurable: true
-            });
-            CustomerOrdersGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], CustomerOrdersGrid);
-            return CustomerOrdersGrid;
-        }(Northwind.OrderGrid));
-        Northwind.CustomerOrdersGrid = CustomerOrdersGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var EmployeeListFormatter = /** @class */ (function () {
-            function EmployeeListFormatter() {
-            }
-            EmployeeListFormatter.prototype.format = function (ctx) {
-                var idList = ctx.value;
-                if (!idList || !idList.length)
-                    return "";
-                var byId = Northwind.EmployeeRow.getLookup().itemById;
-                var z;
-                return idList.map(function (x) { return ((z = byId[x]) ? z.FullName : x); }).join(", ");
-            };
-            EmployeeListFormatter = __decorate([
-                Serenity.Decorators.registerFormatter()
-            ], EmployeeListFormatter);
-            return EmployeeListFormatter;
-        }());
-        Northwind.EmployeeListFormatter = EmployeeListFormatter;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var DesignDialog = /** @class */ (function (_super) {
-            __extends(DesignDialog, _super);
-            function DesignDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.DesignForm(_this.idPrefix);
-                return _this;
-            }
-            DesignDialog.prototype.getFormKey = function () { return Northwind.DesignForm.formKey; };
-            DesignDialog.prototype.getIdProperty = function () { return Northwind.DesignRow.idProperty; };
-            DesignDialog.prototype.getLocalTextPrefix = function () { return Northwind.DesignRow.localTextPrefix; };
-            DesignDialog.prototype.getService = function () { return Northwind.DesignService.baseUrl; };
-            DesignDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], DesignDialog);
-            return DesignDialog;
-        }(Serenity.EntityDialog));
-        Northwind.DesignDialog = DesignDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var DesignGrid = /** @class */ (function (_super) {
-            __extends(DesignGrid, _super);
-            function DesignGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            DesignGrid.prototype.getColumnsKey = function () { return 'Northwind.Design'; };
-            DesignGrid.prototype.getDialogType = function () { return Northwind.DesignDialog; };
-            DesignGrid.prototype.getIdProperty = function () { return Northwind.DesignRow.idProperty; };
-            DesignGrid.prototype.getLocalTextPrefix = function () { return Northwind.DesignRow.localTextPrefix; };
-            DesignGrid.prototype.getService = function () { return Northwind.DesignService.baseUrl; };
-            DesignGrid.prototype.getColumns = function () {
-                var columns = _super.prototype.getColumns.call(this);
-                Q.first(columns, function (x) { return x.field == "DesignTime" /* DesignTime */; }).cssClass += " col-unit-price";
-                return columns;
-            };
-            DesignGrid.prototype.getItemCssClass = function (item, index) {
-                var klass = "";
-                if (item.Aproved == true)
-                    klass += "Aproved";
-                else
-                    klass += "out-of-stock";
-                return Q.trimToNull(klass);
-            };
-            DesignGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], DesignGrid);
-            return DesignGrid;
-        }(Serenity.EntityGrid));
-        Northwind.DesignGrid = DesignGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var DesignTypeDialog = /** @class */ (function (_super) {
-            __extends(DesignTypeDialog, _super);
-            function DesignTypeDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.DesignTypeForm(_this.idPrefix);
-                return _this;
-            }
-            DesignTypeDialog.prototype.getFormKey = function () { return Northwind.DesignTypeForm.formKey; };
-            DesignTypeDialog.prototype.getIdProperty = function () { return Northwind.DesignTypeRow.idProperty; };
-            DesignTypeDialog.prototype.getLocalTextPrefix = function () { return Northwind.DesignTypeRow.localTextPrefix; };
-            DesignTypeDialog.prototype.getNameProperty = function () { return Northwind.DesignTypeRow.nameProperty; };
-            DesignTypeDialog.prototype.getService = function () { return Northwind.DesignTypeService.baseUrl; };
-            DesignTypeDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], DesignTypeDialog);
-            return DesignTypeDialog;
-        }(Serenity.EntityDialog));
-        Northwind.DesignTypeDialog = DesignTypeDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var DesignTypeGrid = /** @class */ (function (_super) {
-            __extends(DesignTypeGrid, _super);
-            function DesignTypeGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            DesignTypeGrid.prototype.getColumnsKey = function () { return 'Northwind.DesignType'; };
-            DesignTypeGrid.prototype.getDialogType = function () { return Northwind.DesignTypeDialog; };
-            DesignTypeGrid.prototype.getIdProperty = function () { return Northwind.DesignTypeRow.idProperty; };
-            DesignTypeGrid.prototype.getLocalTextPrefix = function () { return Northwind.DesignTypeRow.localTextPrefix; };
-            DesignTypeGrid.prototype.getService = function () { return Northwind.DesignTypeService.baseUrl; };
-            DesignTypeGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], DesignTypeGrid);
-            return DesignTypeGrid;
-        }(Serenity.EntityGrid));
-        Northwind.DesignTypeGrid = DesignTypeGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var EmployeeFormatter = /** @class */ (function () {
-            function EmployeeFormatter() {
-            }
-            EmployeeFormatter.prototype.format = function (ctx) {
-                var text = Q.htmlEncode(ctx.value);
-                if (!this.genderProperty) {
-                    return text;
-                }
-                var gender = ctx.item[this.genderProperty];
-                return "<span class='" + ((gender === Northwind.Gender.Female) ?
-                    'employee-symbol female' : 'employee-symbol male') +
-                    "'>" + text + '</span>';
-            };
-            EmployeeFormatter.prototype.initializeColumn = function (column) {
-                column.referencedFields = column.referencedFields || [];
-                if (this.genderProperty)
-                    column.referencedFields.push(this.genderProperty);
-            };
-            __decorate([
-                Serenity.Decorators.option()
-            ], EmployeeFormatter.prototype, "genderProperty", void 0);
-            EmployeeFormatter = __decorate([
-                Serenity.Decorators.registerFormatter([Serenity.ISlickFormatter, Serenity.IInitializeColumn])
-            ], EmployeeFormatter);
-            return EmployeeFormatter;
-        }());
-        Northwind.EmployeeFormatter = EmployeeFormatter;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var NoteDialog = /** @class */ (function (_super) {
-            __extends(NoteDialog, _super);
-            function NoteDialog() {
-                var _this = _super.call(this) || this;
-                _this.textEditor = new Serenity.HtmlNoteContentEditor(_this.byId('Text'));
-                return _this;
-            }
-            NoteDialog.prototype.getTemplate = function () {
-                return ("<form id='~_Form' class='s-Form'>" +
-                    "<textarea id='~_Text' class='required'></textarea>" +
-                    "</form>");
-            };
-            NoteDialog.prototype.getDialogOptions = function () {
-                var _this = this;
-                var opt = _super.prototype.getDialogOptions.call(this);
-                opt.buttons = [{
-                        text: Q.text('Dialogs.OkButton'),
-                        click: function () {
-                            if (!_this.validateForm()) {
-                                return;
-                            }
-                            _this.okClick && _this.okClick();
-                        }
-                    }, {
-                        text: Q.text('Dialogs.CancelButton'),
-                        click: function () { return _this.dialogClose(); }
-                    }
-                ];
-                return opt;
-            };
-            Object.defineProperty(NoteDialog.prototype, "text", {
-                get: function () {
-                    return this.textEditor.value;
-                },
-                set: function (value) {
-                    this.textEditor.value = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            NoteDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], NoteDialog);
-            return NoteDialog;
-        }(Serenity.TemplatedDialog));
-        Northwind.NoteDialog = NoteDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var NotesEditor = /** @class */ (function (_super) {
-            __extends(NotesEditor, _super);
-            function NotesEditor(div) {
-                var _this = _super.call(this, div) || this;
-                new Serenity.Toolbar(_this.byId('Toolbar'), {
-                    buttons: [{
-                            title: 'Add Note',
-                            cssClass: 'add-button',
-                            onClick: function (e) {
-                                e.preventDefault();
-                                _this.addClick();
-                            }
-                        }]
-                });
-                return _this;
-            }
-            NotesEditor.prototype.getTemplate = function () {
-                return "<div><div id='~_Toolbar'></div><ul id='~_NoteList'></ul></div>";
-            };
-            NotesEditor.prototype.updateContent = function () {
-                var _this = this;
-                var noteList = this.byId('NoteList');
-                noteList.children().remove();
-                if (this.items) {
-                    var index = 0;
-                    for (var t1 = 0; t1 < this.items.length; t1++) {
-                        var item = this.items[t1];
-                        var li = $('<li/>');
-                        $('<div/>').addClass('note-text').html(Q.coalesce(item.Text, '')).appendTo(li);
-                        $('<a/>').attr('href', '#').addClass('note-date')
-                            .text(item.InsertUserDisplayName + ' - ' +
-                            Q.formatDate(item.InsertDate, 'g'))
-                            .data('index', index).appendTo(li).click(function (e) { return _this.editClick(e); });
-                        $('<a/>').attr('href', '#').addClass('note-delete')
-                            .attr('title', 'delete note').data('index', index)
-                            .appendTo(li).click(function (e) { return _this.deleteClick(e); });
-                        li.appendTo(noteList);
-                        index++;
-                    }
-                }
-            };
-            NotesEditor.prototype.addClick = function () {
-                var _this = this;
-                var dlg = new Northwind.NoteDialog();
-                dlg.dialogTitle = 'Add Note';
-                dlg.okClick = function () {
-                    var text = Q.trimToNull(dlg.text);
-                    if (text == null) {
-                        return;
-                    }
-                    _this.items = _this.items || [];
-                    Q.insert(_this.items, 0, {
-                        Text: text,
-                        InsertUserDisplayName: Miapp2.Authorization.userDefinition.DisplayName,
-                        InsertDate: Q.formatISODateTimeUTC(new Date())
-                    });
-                    _this.updateContent();
-                    dlg.dialogClose();
-                    _this.set_isDirty(true);
-                    _this.onChange && _this.onChange();
-                };
-                dlg.dialogOpen();
-            };
-            NotesEditor.prototype.editClick = function (e) {
-                var _this = this;
-                e.preventDefault();
-                var index = $(e.target).data('index');
-                var old = this.items[index];
-                var dlg = new Northwind.NoteDialog();
-                dlg.dialogTitle = 'Edit Note';
-                dlg.text = old.Text;
-                dlg.okClick = function () {
-                    var text = Q.trimToNull(dlg.text);
-                    if (!text) {
-                        return;
-                    }
-                    _this.items[index].Text = text;
-                    _this.updateContent();
-                    dlg.dialogClose();
-                    _this.set_isDirty(true);
-                    _this.onChange && _this.onChange();
-                };
-                dlg.dialogOpen();
-            };
-            NotesEditor.prototype.deleteClick = function (e) {
-                var _this = this;
-                e.preventDefault();
-                var index = $(e.target).data('index');
-                Q.confirm('Delete this note?', function () {
-                    _this.items.splice(index, 1);
-                    _this.updateContent();
-                    _this.set_isDirty(true);
-                    _this.onChange && _this.onChange();
-                });
-            };
-            Object.defineProperty(NotesEditor.prototype, "value", {
-                get: function () {
-                    return this.items;
-                },
-                set: function (value) {
-                    this.items = value || [];
-                    this.set_isDirty(false);
-                    this.updateContent();
-                },
-                enumerable: true,
-                configurable: true
-            });
-            NotesEditor.prototype.getEditValue = function (prop, target) {
-                target[prop.name] = this.value;
-            };
-            NotesEditor.prototype.setEditValue = function (source, prop) {
-                this.value = source[prop.name] || [];
-            };
-            NotesEditor.prototype.get_isDirty = function () {
-                return this.isDirty;
-            };
-            NotesEditor.prototype.set_isDirty = function (value) {
-                this.isDirty = value;
-            };
-            NotesEditor = __decorate([
-                Serenity.Decorators.registerEditor([Serenity.IGetEditValue, Serenity.ISetEditValue]),
-                Serenity.Decorators.element("<div/>")
-            ], NotesEditor);
-            return NotesEditor;
-        }(Serenity.TemplatedWidget));
-        Northwind.NotesEditor = NotesEditor;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var FreightFormatter = /** @class */ (function () {
-            function FreightFormatter() {
-            }
-            FreightFormatter.prototype.format = function (ctx) {
-                return "<span class='freight-symbol'>" + Q.htmlEncode(ctx.value) + '</span>';
-            };
-            FreightFormatter = __decorate([
-                Serenity.Decorators.registerFormatter()
-            ], FreightFormatter);
-            return FreightFormatter;
-        }());
-        Northwind.FreightFormatter = FreightFormatter;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var PriorityDialog = /** @class */ (function (_super) {
-            __extends(PriorityDialog, _super);
-            function PriorityDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.PriorityForm(_this.idPrefix);
-                return _this;
-            }
-            PriorityDialog.prototype.getFormKey = function () { return Northwind.PriorityForm.formKey; };
-            PriorityDialog.prototype.getIdProperty = function () { return Northwind.PriorityRow.idProperty; };
-            PriorityDialog.prototype.getLocalTextPrefix = function () { return Northwind.PriorityRow.localTextPrefix; };
-            PriorityDialog.prototype.getNameProperty = function () { return Northwind.PriorityRow.nameProperty; };
-            PriorityDialog.prototype.getService = function () { return Northwind.PriorityService.baseUrl; };
-            PriorityDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], PriorityDialog);
-            return PriorityDialog;
-        }(Serenity.EntityDialog));
-        Northwind.PriorityDialog = PriorityDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var PriorityGrid = /** @class */ (function (_super) {
-            __extends(PriorityGrid, _super);
-            function PriorityGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            PriorityGrid.prototype.getColumnsKey = function () { return 'Northwind.Priority'; };
-            PriorityGrid.prototype.getDialogType = function () { return Northwind.PriorityDialog; };
-            PriorityGrid.prototype.getIdProperty = function () { return Northwind.PriorityRow.idProperty; };
-            PriorityGrid.prototype.getLocalTextPrefix = function () { return Northwind.PriorityRow.localTextPrefix; };
-            PriorityGrid.prototype.getService = function () { return Northwind.PriorityService.baseUrl; };
-            PriorityGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], PriorityGrid);
-            return PriorityGrid;
-        }(Serenity.EntityGrid));
-        Northwind.PriorityGrid = PriorityGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProductionDialog = /** @class */ (function (_super) {
-            __extends(ProductionDialog, _super);
-            function ProductionDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.ProductionForm(_this.idPrefix);
-                return _this;
-            }
-            ProductionDialog.prototype.getFormKey = function () { return Northwind.ProductionForm.formKey; };
-            ProductionDialog.prototype.getIdProperty = function () { return Northwind.ProductionRow.idProperty; };
-            ProductionDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProductionRow.localTextPrefix; };
-            ProductionDialog.prototype.getService = function () { return Northwind.ProductionService.baseUrl; };
-            ProductionDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProductionDialog);
-            return ProductionDialog;
-        }(Serenity.EntityDialog));
-        Northwind.ProductionDialog = ProductionDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProductionGrid = /** @class */ (function (_super) {
-            __extends(ProductionGrid, _super);
-            function ProductionGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            ProductionGrid.prototype.getColumnsKey = function () { return 'Northwind.Production'; };
-            ProductionGrid.prototype.getDialogType = function () { return Northwind.ProductionDialog; };
-            ProductionGrid.prototype.getIdProperty = function () { return Northwind.ProductionRow.idProperty; };
-            ProductionGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProductionRow.localTextPrefix; };
-            ProductionGrid.prototype.getService = function () { return Northwind.ProductionService.baseUrl; };
-            ProductionGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProductionGrid);
-            return ProductionGrid;
-        }(Serenity.EntityGrid));
-        Northwind.ProductionGrid = ProductionGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="ProductionGrid.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProductionSummariesInGrid = /** @class */ (function (_super) {
-            __extends(ProductionSummariesInGrid, _super);
-            function ProductionSummariesInGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            ProductionSummariesInGrid.prototype.getButtons = function () {
-                var _this = this;
-                var buttons = _super.prototype.getButtons.call(this);
-                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
-                    grid: this,
-                    service: Northwind.ProductService.baseUrl + '/ListExcel',
-                    onViewSubmit: function () { return _this.onViewSubmit(); },
-                    separator: true
-                }));
-                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
-                    grid: this,
-                    onViewSubmit: function () { return _this.onViewSubmit(); },
-                    reportTitle: 'Product List',
-                    columnTitles: {
-                        'Discontinued': 'Dis.',
-                    },
-                    tableOptions: {
-                        columnStyles: {
-                            ProductID: {
-                                columnWidth: 25,
-                                halign: 'right'
-                            },
-                            Discountinued: {
-                                columnWidth: 25
-                            }
-                        }
-                    }
-                }));
-                return buttons;
-            };
-            ProductionSummariesInGrid.prototype.createSlickGrid = function () {
-                var grid = _super.prototype.createSlickGrid.call(this);
-                // need to register this plugin for grouping or you'll have errors
-                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
-                this.view.setSummaryOptions({
-                    aggregators: [
-                        new Slick.Aggregators.Sum('CutterM'),
-                        new Slick.Aggregators.Sum('Perforation5'),
-                        new Slick.Aggregators.Sum('Perforation8'),
-                        new Slick.Aggregators.Sum('Perforation10'),
-                        new Slick.Aggregators.Sum('Perforation12'),
-                        new Slick.Aggregators.Sum('Perforation15'),
-                        new Slick.Aggregators.Sum('Perforation20'),
-                        new Slick.Aggregators.Sum('Perforation35'),
-                        new Slick.Aggregators.Sum('RauterM'),
-                        new Slick.Aggregators.Sum('FormatM'),
-                        new Slick.Aggregators.Sum('FormatM2'),
-                        new Slick.Aggregators.Sum('TotalOrder'),
-                        new Slick.Aggregators.Sum('ClosedOrder'),
-                        new Slick.Aggregators.Sum('OrderInTime'),
-                        new Slick.Aggregators.Sum('Claims'),
-                    ]
-                });
-                return grid;
-            };
-            ProductionSummariesInGrid.prototype.getSlickOptions = function () {
-                var opt = _super.prototype.getSlickOptions.call(this);
-                opt.showFooterRow = true;
-                return opt;
-            };
-            ProductionSummariesInGrid.prototype.usePager = function () {
-                return false;
-            };
-            ProductionSummariesInGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProductionSummariesInGrid);
-            return ProductionSummariesInGrid;
-        }(Northwind.ProductionGrid));
-        Northwind.ProductionSummariesInGrid = ProductionSummariesInGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProductionreportGrid = /** @class */ (function (_super) {
-            __extends(ProductionreportGrid, _super);
-            function ProductionreportGrid(container) {
-                var _this = _super.call(this, container) || this;
-                /*    protected getService() { return ProductionreportService.baseUrl; }
-                */
-                _this.nextId = 1;
-                return _this;
-            }
-            ProductionreportGrid.prototype.getColumnsKey = function () { return "Northwind.Productionreport"; };
-            ProductionreportGrid.prototype.getIdProperty = function () { return "__id"; };
-            /*   protected getNameProperty() { return Northwind.ProductionreportRow.nameProperty; } */
-            ProductionreportGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProductionreportRow.localTextPrefix; };
-            ProductionreportGrid.prototype.createSlickGrid = function () {
-                var grid = _super.prototype.createSlickGrid.call(this);
-                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
-                this.view.setSummaryOptions({
-                    aggregators: [
-                        new Slick.Aggregators.Sum('CutterM')
-                    ]
-                });
-                return grid;
-            };
-            ProductionreportGrid.prototype.getSlickOptions = function () {
-                var opt = _super.prototype.getSlickOptions.call(this);
-                opt.showFooterRow = true;
-                return opt;
-            };
-            ProductionreportGrid.prototype.usePager = function () {
-                return false;
-            };
-            ProductionreportGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProductionreportGrid);
-            return ProductionreportGrid;
-        }(Serenity.EntityGrid));
-        Northwind.ProductionreportGrid = ProductionreportGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProjectDetailsDialog = /** @class */ (function (_super) {
-            __extends(ProjectDetailsDialog, _super);
-            function ProjectDetailsDialog() {
-                var _this = _super.call(this) || this;
-                _this.form = new Northwind.ProjectDetailsForm(_this.idPrefix);
-                return _this;
-            }
-            ProjectDetailsDialog.prototype.getFormKey = function () { return Northwind.ProjectDetailsForm.formKey; };
-            ProjectDetailsDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProjectDetailsRow.localTextPrefix; };
-            ProjectDetailsDialog.prototype.getService = function () { return Northwind.ProjectDetailsService.baseUrl; };
-            ProjectDetailsDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProjectDetailsDialog);
-            return ProjectDetailsDialog;
-        }(Miapp2.Common.GridEditorDialog));
-        Northwind.ProjectDetailsDialog = ProjectDetailsDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProjectDetailsEditor = /** @class */ (function (_super) {
-            __extends(ProjectDetailsEditor, _super);
-            function ProjectDetailsEditor(container) {
-                return _super.call(this, container) || this;
-            }
-            ProjectDetailsEditor.prototype.getColumnsKey = function () { return 'Northwind.ProjectDetails'; };
-            ProjectDetailsEditor.prototype.getDialogType = function () { return Northwind.ProjectDetailsDialog; };
-            ProjectDetailsEditor.prototype.getLocalTextPrefix = function () { return Northwind.ProjectDetailsRow.localTextPrefix; };
-            ProjectDetailsEditor.prototype.getService = function () { return Northwind.ProjectDetailsService.baseUrl; };
-            ProjectDetailsEditor.prototype.validateEntity = function (row, id) {
-                row.DesignTypeId = Q.toId(row.DesignTypeId);
-                /*
-               var sameDesignType = Q.tryFirst(this.view.getItems(), x => x.DesignTypeId === row.DesignTypeID);
-               if (sameDesignType && this.id(sameDesignType) !== id) {
-                   Q.alert('Tipo de diseño existente!');
-                   return false;
-               }
-                */
-                row.DesType = Northwind.DesignTypeRow.getLookup().itemById[row.DesignTypeId].DesType;
-                return true;
-            };
-            ProjectDetailsEditor = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProjectDetailsEditor);
-            return ProjectDetailsEditor;
-        }(Miapp2.Common.GridEditorBase));
-        Northwind.ProjectDetailsEditor = ProjectDetailsEditor;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProjectsDialog = /** @class */ (function (_super) {
-            __extends(ProjectsDialog, _super);
-            function ProjectsDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.ProjectsForm(_this.idPrefix);
-                return _this;
-            }
-            ProjectsDialog.prototype.getFormKey = function () { return Northwind.ProjectsForm.formKey; };
-            ProjectsDialog.prototype.getIdProperty = function () { return Northwind.ProjectsRow.idProperty; };
-            ProjectsDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProjectsRow.localTextPrefix; };
-            ProjectsDialog.prototype.getNameProperty = function () { return Northwind.ProjectsRow.nameProperty; };
-            ProjectsDialog.prototype.getService = function () { return Northwind.ProjectsService.baseUrl; };
-            ProjectsDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProjectsDialog);
-            return ProjectsDialog;
-        }(Serenity.EntityDialog));
-        Northwind.ProjectsDialog = ProjectsDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ProjectsGrid = /** @class */ (function (_super) {
-            __extends(ProjectsGrid, _super);
-            function ProjectsGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            ProjectsGrid.prototype.getColumnsKey = function () { return 'Northwind.Projects'; };
-            ProjectsGrid.prototype.getDialogType = function () { return Northwind.ProjectsDialog; };
-            ProjectsGrid.prototype.getIdProperty = function () { return Northwind.ProjectsRow.idProperty; };
-            ProjectsGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProjectsRow.localTextPrefix; };
-            ProjectsGrid.prototype.getService = function () { return Northwind.ProjectsService.baseUrl; };
-            ProjectsGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ProjectsGrid);
-            return ProjectsGrid;
-        }(Serenity.EntityGrid));
-        Northwind.ProjectsGrid = ProjectsGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var RegionDialog = /** @class */ (function (_super) {
-            __extends(RegionDialog, _super);
-            function RegionDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.RegionForm(_this.idPrefix);
-                return _this;
-            }
-            RegionDialog.prototype.getFormKey = function () { return Northwind.RegionForm.formKey; };
-            RegionDialog.prototype.getIdProperty = function () { return Northwind.RegionRow.idProperty; };
-            RegionDialog.prototype.getLocalTextPrefix = function () { return Northwind.RegionRow.localTextPrefix; };
-            RegionDialog.prototype.getNameProperty = function () { return Northwind.RegionRow.nameProperty; };
-            RegionDialog.prototype.getService = function () { return Northwind.RegionService.baseUrl; };
-            RegionDialog.prototype.getLanguages = function () {
-                return Miapp2.LanguageList.getValue();
-            };
-            RegionDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], RegionDialog);
-            return RegionDialog;
-        }(Serenity.EntityDialog));
-        Northwind.RegionDialog = RegionDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var RegionGrid = /** @class */ (function (_super) {
-            __extends(RegionGrid, _super);
-            function RegionGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            RegionGrid.prototype.getColumnsKey = function () { return "Northwind.Region"; };
-            RegionGrid.prototype.getDialogType = function () { return Northwind.RegionDialog; };
-            RegionGrid.prototype.getIdProperty = function () { return Northwind.RegionRow.idProperty; };
-            RegionGrid.prototype.getLocalTextPrefix = function () { return Northwind.RegionRow.localTextPrefix; };
-            RegionGrid.prototype.getService = function () { return Northwind.RegionService.baseUrl; };
-            RegionGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], RegionGrid);
-            return RegionGrid;
-        }(Serenity.EntityGrid));
-        Northwind.RegionGrid = RegionGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var PhoneEditor = /** @class */ (function (_super) {
-            __extends(PhoneEditor, _super);
-            function PhoneEditor(input) {
-                var _this = _super.call(this, input) || this;
-                _this.addValidationRule(_this.uniqueName, function (e) {
-                    var value = Q.trimToNull(_this.get_value());
-                    if (value == null) {
-                        return null;
-                    }
-                    return PhoneEditor_1.validate(value, _this.multiple);
-                });
-                input.bind('change', function (e) {
-                    if (!Serenity.WX.hasOriginalEvent(e)) {
-                        return;
-                    }
-                    _this.formatValue();
-                });
-                input.bind('blur', function (e) {
-                    if (_this.element.hasClass('valid')) {
-                        _this.formatValue();
-                    }
-                });
-                return _this;
-            }
-            PhoneEditor_1 = PhoneEditor;
-            PhoneEditor.prototype.formatValue = function () {
-                this.element.val(this.getFormattedValue());
-            };
-            PhoneEditor.prototype.getFormattedValue = function () {
-                var value = this.element.val();
-                if (this.multiple) {
-                    return PhoneEditor_1.formatMulti(value, PhoneEditor_1.formatPhone);
-                }
-                return PhoneEditor_1.formatPhone(value);
-            };
-            PhoneEditor.prototype.get_value = function () {
-                return this.getFormattedValue();
-            };
-            PhoneEditor.prototype.set_value = function (value) {
-                this.element.val(value);
-            };
-            PhoneEditor.validate = function (phone, isMultiple) {
-                var valid = (isMultiple ? PhoneEditor_1.isValidMulti(phone, PhoneEditor_1.isValidPhone) : PhoneEditor_1.isValidPhone(phone));
-                if (valid) {
-                    return null;
-                }
-                return Q.text((isMultiple ? 'Validation.NorthwindPhoneMultiple' : 'Validation.NorthwindPhone'));
-            };
-            PhoneEditor.isValidPhone = function (phone) {
-                if (Q.isEmptyOrNull(phone)) {
-                    return false;
-                }
-                phone = Q.replaceAll(Q.replaceAll(phone, ' ', ''), '-', '');
-                if (phone.length < 10) {
-                    return false;
-                }
-                if (Q.startsWith(phone, '0')) {
-                    phone = phone.substring(1);
-                }
-                if (Q.startsWith(phone, '(') && phone.charAt(4) === ')') {
-                    phone = phone.substr(1, 3) + phone.substring(5);
-                }
-                if (phone.length !== 10) {
-                    return false;
-                }
-                if (Q.startsWith(phone, '0')) {
-                    return false;
-                }
-                for (var i = 0; i < phone.length; i++) {
-                    var c = phone.charAt(i);
-                    if (c < '0' || c > '9') {
-                        return false;
-                    }
-                }
-                return true;
-            };
-            PhoneEditor.formatPhone = function (phone) {
-                if (!PhoneEditor_1.isValidPhone(phone)) {
-                    return phone;
-                }
-                phone = Q.replaceAll(Q.replaceAll(Q.replaceAll(Q.replaceAll(phone, ' ', ''), '-', ''), '(', ''), ')', '');
-                if (Q.startsWith(phone, '0')) {
-                    phone = phone.substring(1);
-                }
-                phone = '(' + phone.substr(0, 3) + ') ' + phone.substr(3, 3) + '-' + phone.substr(6, 2) + phone.substr(8, 2);
-                return phone;
-            };
-            PhoneEditor.formatMulti = function (phone, format) {
-                var phones = Q.replaceAll(phone, String.fromCharCode(59), String.fromCharCode(44)).split(String.fromCharCode(44));
-                var result = '';
-                for (var _i = 0, phones_1 = phones; _i < phones_1.length; _i++) {
-                    var x = phones_1[_i];
-                    var s = Q.trimToNull(x);
-                    if (s == null) {
-                        continue;
-                    }
-                    if (result.length > 0) {
-                        result += ', ';
-                    }
-                    result += format(s);
-                }
-                return result;
-            };
-            PhoneEditor.isValidMulti = function (phone, check) {
-                if (Q.isEmptyOrNull(phone)) {
-                    return false;
-                }
-                var phones = Q.replaceAll(phone, String.fromCharCode(59), String.fromCharCode(44)).split(String.fromCharCode(44));
-                var anyValid = false;
-                for (var $t1 = 0; $t1 < phones.length; $t1++) {
-                    var x = phones[$t1];
-                    var s = Q.trimToNull(x);
-                    if (s == null) {
-                        continue;
-                    }
-                    if (!check(s)) {
-                        return false;
-                    }
-                    anyValid = true;
-                }
-                if (!anyValid) {
-                    return false;
-                }
-                return true;
-            };
-            __decorate([
-                Serenity.Decorators.option()
-            ], PhoneEditor.prototype, "multiple", void 0);
-            PhoneEditor = PhoneEditor_1 = __decorate([
-                Serenity.Decorators.registerEditor()
-            ], PhoneEditor);
-            return PhoneEditor;
-            var PhoneEditor_1;
-        }(Serenity.StringEditor));
-        Northwind.PhoneEditor = PhoneEditor;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ShipperDialog = /** @class */ (function (_super) {
-            __extends(ShipperDialog, _super);
-            function ShipperDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.ShipperForm(_this.idPrefix);
-                return _this;
-            }
-            ShipperDialog.prototype.getFormKey = function () { return Northwind.ShipperForm.formKey; };
-            ShipperDialog.prototype.getIdProperty = function () { return Northwind.ShipperRow.idProperty; };
-            ShipperDialog.prototype.getLocalTextPrefix = function () { return Northwind.ShipperRow.localTextPrefix; };
-            ShipperDialog.prototype.getNameProperty = function () { return Northwind.ShipperRow.nameProperty; };
-            ShipperDialog.prototype.getService = function () { return Northwind.ShipperService.baseUrl; };
-            ShipperDialog.prototype.getLanguages = function () {
-                return Miapp2.LanguageList.getValue();
-            };
-            ShipperDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ShipperDialog);
-            return ShipperDialog;
-        }(Serenity.EntityDialog));
-        Northwind.ShipperDialog = ShipperDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ShipperFormatter = /** @class */ (function () {
-            function ShipperFormatter() {
-            }
-            ShipperFormatter.prototype.format = function (ctx) {
-                return "<span class='shipper-symbol shipper-" +
-                    Q.replaceAll((ctx.value || '').toString(), ' ', '') +
-                    "'>" + Q.htmlEncode(ctx.value) + '</span>';
-            };
-            ShipperFormatter = __decorate([
-                Serenity.Decorators.registerFormatter()
-            ], ShipperFormatter);
-            return ShipperFormatter;
-        }());
-        Northwind.ShipperFormatter = ShipperFormatter;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var ShipperGrid = /** @class */ (function (_super) {
-            __extends(ShipperGrid, _super);
-            function ShipperGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            ShipperGrid.prototype.getColumnsKey = function () { return "Northwind.Shipper"; };
-            ShipperGrid.prototype.getDialogType = function () { return Northwind.ShipperDialog; };
-            ShipperGrid.prototype.getIdProperty = function () { return Northwind.ShipperRow.idProperty; };
-            ShipperGrid.prototype.getLocalTextPrefix = function () { return Northwind.ShipperRow.localTextPrefix; };
-            ShipperGrid.prototype.getService = function () { return Northwind.ShipperService.baseUrl; };
-            ShipperGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], ShipperGrid);
-            return ShipperGrid;
-        }(Serenity.EntityGrid));
-        Northwind.ShipperGrid = ShipperGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var TerritoryDialog = /** @class */ (function (_super) {
-            __extends(TerritoryDialog, _super);
-            function TerritoryDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.form = new Northwind.TerritoryForm(_this.idPrefix);
-                return _this;
-            }
-            TerritoryDialog.prototype.getFormKey = function () { return Northwind.TerritoryForm.formKey; };
-            TerritoryDialog.prototype.getIdProperty = function () { return Northwind.TerritoryRow.idProperty; };
-            TerritoryDialog.prototype.getLocalTextPrefix = function () { return Northwind.TerritoryRow.localTextPrefix; };
-            TerritoryDialog.prototype.getNameProperty = function () { return Northwind.TerritoryRow.nameProperty; };
-            TerritoryDialog.prototype.getService = function () { return Northwind.TerritoryService.baseUrl; };
-            TerritoryDialog.prototype.getLanguages = function () {
-                return Miapp2.LanguageList.getValue();
-            };
-            TerritoryDialog = __decorate([
-                Serenity.Decorators.registerClass()
-            ], TerritoryDialog);
-            return TerritoryDialog;
-        }(Serenity.EntityDialog));
-        Northwind.TerritoryDialog = TerritoryDialog;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
-})(Miapp2 || (Miapp2 = {}));
-var Miapp2;
-(function (Miapp2) {
-    var Northwind;
-    (function (Northwind) {
-        var TerritoryGrid = /** @class */ (function (_super) {
-            __extends(TerritoryGrid, _super);
-            function TerritoryGrid(container) {
-                return _super.call(this, container) || this;
-            }
-            TerritoryGrid.prototype.getColumnsKey = function () { return "Northwind.Territory"; };
-            TerritoryGrid.prototype.getDialogType = function () { return Northwind.TerritoryDialog; };
-            TerritoryGrid.prototype.getIdProperty = function () { return Northwind.TerritoryRow.idProperty; };
-            TerritoryGrid.prototype.getLocalTextPrefix = function () { return Northwind.TerritoryRow.localTextPrefix; };
-            TerritoryGrid.prototype.getService = function () { return Northwind.TerritoryService.baseUrl; };
-            TerritoryGrid = __decorate([
-                Serenity.Decorators.registerClass()
-            ], TerritoryGrid);
-            return TerritoryGrid;
-        }(Serenity.EntityGrid));
-        Northwind.TerritoryGrid = TerritoryGrid;
-    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 //# sourceMappingURL=Miapp2.Web.js.map

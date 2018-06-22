@@ -29,7 +29,7 @@ namespace Miapp2.Northwind.Entities
 
         [DisplayName("Product"), PrimaryKey, ForeignKey(typeof(ProductRow)), LeftJoin("p")]
         [LookupEditor(typeof(ProductRow))]
-        public Int32? ProductID
+        public String ProductID
         {
             get { return Fields.ProductID[this]; }
             set { Fields.ProductID[this] = value; }
@@ -134,12 +134,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.ProductSupplierID[this] = value; }
         }
 
-        [Origin("p")]
-        public String ProductQuantityPerUnit
-        {
-            get { return Fields.ProductQuantityPerUnit[this]; }
-            set { Fields.ProductQuantityPerUnit[this] = value; }
-        }
+   
 
         [Origin("p")]
         public Decimal? ProductUnitPrice
@@ -164,7 +159,7 @@ namespace Miapp2.Northwind.Entities
         {
             public Int32Field DetailID;
             public Int32Field OrderID;
-            public Int32Field ProductID;
+            public StringField ProductID;
             public DecimalField UnitPrice;
             public Int16Field Quantity;
             public SingleField Discount;
@@ -181,7 +176,7 @@ namespace Miapp2.Northwind.Entities
             public StringField ProductName;
             public BooleanField ProductDiscontinued;
             public Int32Field ProductSupplierID;
-            public StringField ProductQuantityPerUnit;
+          
             public DecimalField ProductUnitPrice;
 
             public DecimalField LineTotal;

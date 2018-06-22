@@ -7172,6 +7172,7 @@ var Serenity;
             }
             return _this;
         }
+
         Object.defineProperty(TextAreaEditor.prototype, "value", {
             get: function () {
                 return this.element.val();
@@ -7334,6 +7335,8 @@ var Serenity;
             };
             this.executeQueryByKey(options);
         };
+
+      
         Select2AjaxEditor.prototype.executeQueryByKey = function (options) {
             Q.serviceCall(options);
         };
@@ -8378,6 +8381,7 @@ var Serenity;
                 }
             }
         };
+        
         FilterPanel.prototype.filterStoreChanged = function () {
             _super.prototype.filterStoreChanged.call(this);
             this.updateRowsFromStore();
@@ -8760,7 +8764,7 @@ var Serenity;
 })(Serenity || (Serenity = {}));
 var Serenity;
 (function (Serenity) {
-    var QuickSearchInput = /** @class */ (function (_super) {
+    var QuickSearchInput = /** @class */(function (_super) {
         __extends(QuickSearchInput, _super);
         function QuickSearchInput(input, opt) {
             var _this = _super.call(this, input, opt) || this;
@@ -8770,7 +8774,7 @@ var Serenity;
             var self = _this;
             _this.element.bind('keyup.' + _this.uniqueName, function () {
                 self.checkIfValueChanged();
-            });
+            }); 
             _this.element.bind('change.' + _this.uniqueName, function () {
                 self.checkIfValueChanged();
             });
@@ -8876,7 +8880,7 @@ var Serenity;
 })(Serenity || (Serenity = {}));
 var Serenity;
 (function (Serenity) {
-    var IInitializeColumn = /** @class */ (function () {
+    var IInitializeColumn = /** @class */  (function () {
         function IInitializeColumn() {
         }
         IInitializeColumn = __decorate([
@@ -8889,7 +8893,7 @@ var Serenity;
     function Formatter(name, intf) {
         return Serenity.Decorators.registerFormatter('Serenity.' + name + 'Formatter', intf);
     }
-    var BooleanFormatter = /** @class */ (function () {
+    var BooleanFormatter = /** @class */  (function () {
         function BooleanFormatter() {
         }
         BooleanFormatter.prototype.format = function (ctx) {
@@ -8929,7 +8933,7 @@ var Serenity;
         return BooleanFormatter;
     }());
     Serenity.BooleanFormatter = BooleanFormatter;
-    var CheckboxFormatter = /** @class */ (function () {
+    var CheckboxFormatter = /** @class */  (function () {
         function CheckboxFormatter() {
         }
         CheckboxFormatter.prototype.format = function (ctx) {
@@ -8941,7 +8945,7 @@ var Serenity;
         return CheckboxFormatter;
     }());
     Serenity.CheckboxFormatter = CheckboxFormatter;
-    var DateFormatter = /** @class */ (function () {
+    var DateFormatter = /** @class */  (function () {
         function DateFormatter() {
             this.displayFormat = Q.Culture.dateFormat;
         }
@@ -8991,7 +8995,7 @@ var Serenity;
         return DateTimeFormatter;
     }(DateFormatter));
     Serenity.DateTimeFormatter = DateTimeFormatter;
-    var EnumFormatter = /** @class */ (function () {
+    var EnumFormatter = /** @class */  (function () {
         function EnumFormatter() {
         }
         EnumFormatter_1 = EnumFormatter;
@@ -9082,7 +9086,7 @@ var Serenity;
         var FileDownloadFormatter_1;
     }());
     Serenity.FileDownloadFormatter = FileDownloadFormatter;
-    var MinuteFormatter = /** @class */ (function () {
+    var MinuteFormatter = /** @class */  (function () {
         function MinuteFormatter() {
         }
         MinuteFormatter_1 = MinuteFormatter;
@@ -9143,7 +9147,7 @@ var Serenity;
         var NumberFormatter_1;
     }());
     Serenity.NumberFormatter = NumberFormatter;
-    var UrlFormatter = /** @class */ (function () {
+    var UrlFormatter = /** @class */  (function () {
         function UrlFormatter() {
         }
         UrlFormatter.prototype.format = function (ctx) {
@@ -12652,6 +12656,7 @@ var Serenity;
                 throw new ss.InvalidOperationException(Q.format("{0} doesn't implement IEditDialog!", ss.getTypeFullName(ss.getInstanceType(dlg))));
             });
         };
+
         EntityGrid.prototype.editItemOfType = function (itemType, entityOrId) {
             var _this = this;
             if (itemType === this.getItemType()) {

@@ -10,16 +10,16 @@ using Northwind = Miapp2.Northwind.Pages;
 [assembly: NavigationLink(7700, "Controles/Priority", typeof(MyPages.PriorityController), icon: null)]
 */
 [assembly: NavigationLink(7800, "Controles/Proyectos", typeof(MyPages.ProjectsController), icon: null)]
-/*[assembly: NavigationLink(7900, "Northwind/Suppliers", typeof(Northwind.SupplierController), icon: "fa-truck")]
-[assembly: NavigationLink(8500, "Northwind/Shippers", typeof(Northwind.ShipperController), icon: "fa-ship")]
-[assembly: NavigationLink(8600, "Northwind/Categories", typeof(Northwind.CategoryController), icon: "fa-folder-o")]
-[assembly: NavigationLink(8700, "Northwind/Regions", typeof(Northwind.RegionController), icon: "fa-map-o")]
-[assembly: NavigationLink(8800, "Northwind/Territories", typeof(Northwind.TerritoryController), icon: "fa-puzzle-piece")]
-*/
-[assembly: NavigationLink(8900, "Controles/Reports", typeof(Northwind.ReportsController), icon: "fa-files-o")]
+[assembly: NavigationLink(7900, "Controles/Provedores", typeof(Northwind.SupplierController), icon: "fa-truck")]
+
+[assembly: NavigationLink(8600, "Controles/Categorias", typeof(Northwind.CategoryController), icon: "fa-folder-o")]
+
+
+
 [assembly: NavigationLink(9000, "Controles/Producción", typeof(MyPages.ProductionController), icon: "fa-archive")]
 [assembly: NavigationLink(9100, "Controles/Diseño", typeof(Northwind.DesignController ), icon: "far fa-clone")]
 /*
 
 [assembly: NavigationLink(9100, "Controles/Reporte Producción", typeof(MyPages.ProductionreportController), icon: null)]
+[assembly: NavigationLink(int.MaxValue, "Northwind/Misdatos", typeof(MyPages.MisdatosController), icon: null)]
  */

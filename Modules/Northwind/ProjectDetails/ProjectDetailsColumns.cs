@@ -17,7 +17,7 @@ namespace Miapp2.Northwind.Columns
         [EditLink, Width(160)]
 
 
-        public String DesType { get; set; }
+        public String DesignTypeId { get; set; }
 
         [Width(70)]
         public Decimal Width { get; set;

@@ -1,6 +1,6 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProjectDetailsForm {
-        DesignTypeId: Serenity.LookupEditor;
+        DesignTypeId: Serenity.StringEditor;
         Width: Serenity.DecimalEditor;
         High: Serenity.DecimalEditor;
         Deep: Serenity.DecimalEditor;
@@ -25,7 +25,7 @@
                 ProjectDetailsForm.init = true;
 
                 var s = Serenity;
-                var w0 = s.LookupEditor;
+                var w0 = s.StringEditor;
                 var w1 = s.DecimalEditor;
                 var w2 = s.TextAreaEditor;
                 var w3 = s.EnumEditor;

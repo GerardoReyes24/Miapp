@@ -1,7 +1,7 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProductLangRow {
         Id?: number;
-        ProductId?: number;
+        ProductId?: string;
         LanguageId?: number;
         ProductName?: string;
     }

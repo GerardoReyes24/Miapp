@@ -154,7 +154,7 @@
             var num = ctx => this.numericInputFormatter(ctx);
             var str = ctx => this.stringInputFormatter(ctx);
 
-            Q.first(columns, x => x.field === 'QuantityPerUnit').format = str;
+      
 
             var category = Q.first(columns, x => x.field === fld.CategoryName);
             category.referencedFields = [fld.CategoryID];
@@ -166,9 +166,7 @@
 
             Q.first(columns, x => x.field === fld.UnitPrice).format = num;
             Q.first(columns, x => x.field === fld.UnitsInStock).format = num;
-            Q.first(columns, x => x.field === fld.UnitsOnOrder).format = num;
-            Q.first(columns, x => x.field === fld.ReorderLevel).format = num;
-
+ 
             return columns;
         }
 

@@ -21,7 +21,7 @@ namespace Miapp2.Northwind.Entities
         }
 
         [DisplayName("Product Id"), Column("ProductID"), NotNull]
-        public Int32? ProductId
+        public String ProductId
         {
             get { return Fields.ProductId[this]; }
             set { Fields.ProductId[this] = value; }
@@ -66,7 +66,7 @@ namespace Miapp2.Northwind.Entities
         public class RowFields : RowFieldsBase
         {
             public Int32Field Id;
-            public Int32Field ProductId;
+            public StringField ProductId;
             public Int32Field LanguageId;
             public StringField ProductName;
         }

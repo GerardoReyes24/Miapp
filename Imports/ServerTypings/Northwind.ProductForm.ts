@@ -1,15 +1,13 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProductForm {
+        ProductID: Serenity.StringEditor;
         ProductName: Serenity.StringEditor;
         ProductImage: Serenity.ImageUploadEditor;
         Discontinued: Serenity.BooleanEditor;
         SupplierID: Serenity.LookupEditor;
         CategoryID: Serenity.LookupEditor;
-        QuantityPerUnit: Serenity.StringEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
-        UnitsOnOrder: Serenity.IntegerEditor;
-        ReorderLevel: Serenity.IntegerEditor;
     }
 
     export class ProductForm extends Serenity.PrefixedContext {
@@ -31,16 +29,14 @@
                 var w5 = s.IntegerEditor;
 
                 Q.initFormType(ProductForm, [
+                    'ProductID', w0,
                     'ProductName', w0,
                     'ProductImage', w1,
                     'Discontinued', w2,
                     'SupplierID', w3,
                     'CategoryID', w3,
-                    'QuantityPerUnit', w0,
                     'UnitPrice', w4,
-                    'UnitsInStock', w5,
-                    'UnitsOnOrder', w5,
-                    'ReorderLevel', w5
+                    'UnitsInStock', w5
                 ]);
             }
         }

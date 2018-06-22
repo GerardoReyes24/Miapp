@@ -18,7 +18,7 @@ namespace Miapp2.Northwind.Forms
         [Tab("Diseños")]
         [Category("Detalles del diseño")]
     
-        public Int32 DesignTypeId { get; set; }
+        public String DesignTypeId { get; set; }
         public Decimal Width { get; set; }
         public Decimal High { get; set; }
 

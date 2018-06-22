@@ -16,15 +16,9 @@ namespace Miapp2.Northwind.Forms
         [Width(150)]
         public String ContactName { get; set; }
         [Width(150)]
-        public String ContactTitle { get; set; }
-        [Width(120)]
-        public String Phone { get; set; }
-        [Width(80)]
-        public String Region { get; set; }
-        [Width(130)]
-        [LookupEditor(typeof(Lookups.SupplierCountryLookup)), QuickFilter]
-        public String Country { get; set; }
-        [Width(130)]
-        public String City { get; set; }
+        public String Address { get; set; }
+
+
+
     }
 }

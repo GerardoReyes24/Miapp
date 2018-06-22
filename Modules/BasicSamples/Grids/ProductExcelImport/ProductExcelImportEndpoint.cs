@@ -103,11 +103,10 @@ namespace Miapp2.BasicSamples.Endpoints
                     else
                         product.CategoryID = null;
 
-                    product.QuantityPerUnit = Convert.ToString(worksheet.Cells[row, 4].Value ?? "");
+              
                     product.UnitPrice = Convert.ToDecimal(worksheet.Cells[row, 5].Value ?? 0);
                     product.UnitsInStock = Convert.ToInt16(worksheet.Cells[row, 6].Value ?? 0);
-                    product.UnitsOnOrder = Convert.ToInt16(worksheet.Cells[row, 7].Value ?? 0);
-                    product.ReorderLevel = Convert.ToInt16(worksheet.Cells[row, 8].Value ?? 0);
+              
 
                     if (product.ProductID == null)
                     {
@@ -123,7 +122,7 @@ namespace Miapp2.BasicSamples.Endpoints
                         new ProductRepository().Update(uow, new SaveRequest<MyRow>
                         {
                             Entity = product,
-                            EntityId = product.ProductID.Value
+                            EntityId = product.ProductID
                         });
 
                         response.Updated = response.Updated + 1;

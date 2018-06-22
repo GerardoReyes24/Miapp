@@ -42,19 +42,20 @@ namespace Miapp2.Northwind.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow, SaveRequest<MyRow>, SaveResponse>
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+            //<MyRow, SaveRequest<MyRow>, SaveResponse>
         {
-            protected override void AfterSave()
+           /* protected override void AfterSave()
             {
                 base.AfterSave();
 
                 if (Request.Localizations != null)
                     foreach (var pair in Request.Localizations)
                     {
-                        pair.Value.ProductID = Row.ProductID.Value;
-                        new LocalizationRowHandler<MyRow>().Update<Entities.ProductLangRow>(this.UnitOfWork, pair.Value, Convert.ToInt32(pair.Key));
+                        pair.Value.ProductID = Row.ProductID;
+                        new LocalizationRowHandler<MyRow>().Update<Entities.ProductLangRow>(this.UnitOfWork, pair.Value, Convert.ToString(pair.Key));
                     }
-            }
+            } */
         }
 
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }

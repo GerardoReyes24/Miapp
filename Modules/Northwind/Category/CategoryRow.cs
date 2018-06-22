@@ -16,21 +16,21 @@ namespace Miapp2.Northwind.Entities
     [LocalizationRow(typeof(CategoryLangRow))]
     public sealed class CategoryRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Category Id"), Identity]
+        [DisplayName("Id categoria"), Identity]
         public Int32? CategoryID
         {
             get { return Fields.CategoryID[this]; }
             set { Fields.CategoryID[this] = value; }
         }
 
-        [DisplayName("Category Name"), Size(15), NotNull, QuickSearch]
+        [DisplayName("Categoria"), Size(15), NotNull, QuickSearch]
         public String CategoryName
         {
             get { return Fields.CategoryName[this]; }
             set { Fields.CategoryName[this] = value; }
         }
 
-        [DisplayName("Description"), QuickSearch]
+        [DisplayName("Descripción"), QuickSearch]
         public String Description
         {
             get { return Fields.Description[this]; }
