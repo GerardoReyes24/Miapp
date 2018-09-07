@@ -12618,7 +12618,7 @@ var Serenity;
             var _this = this;
             var buttons = [];
             buttons.push({
-                title: this.getAddButtonCaption(),
+                title: 'Agregar',
                 cssClass: 'add-button',
                 hotkey: 'alt+n',
                 onClick: function () {

@@ -1796,11 +1796,10 @@ declare namespace Miapp2.Northwind {
 declare namespace Miapp2.Northwind {
     interface ProductForm {
         ProductID: Serenity.StringEditor;
+        Product2ID: Serenity.StringEditor;
         ProductName: Serenity.StringEditor;
         ProductImage: Serenity.ImageUploadEditor;
-        Discontinued: Serenity.BooleanEditor;
         SupplierID: Serenity.LookupEditor;
-        CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
     }
@@ -1982,6 +1981,7 @@ declare namespace Miapp2.Northwind {
 declare namespace Miapp2.Northwind {
     interface ProductRow {
         ProductID?: string;
+        Product2ID?: string;
         ProductName?: string;
         ProductImage?: string;
         Discontinued?: boolean;
@@ -2004,6 +2004,7 @@ declare namespace Miapp2.Northwind {
         function getLookup(): Q.Lookup<ProductRow>;
         const enum Fields {
             ProductID = "ProductID",
+            Product2ID = "Product2ID",
             ProductName = "ProductName",
             ProductImage = "ProductImage",
             Discontinued = "Discontinued",
@@ -2477,6 +2478,7 @@ declare namespace Miapp2.Registros {
         ProductId: Serenity.LookupEditor;
         Cantidad: Serenity.DecimalEditor;
         Movimiento: Serenity.EnumEditor;
+        NoOrder: Serenity.StringEditor;
         DetailID: Serenity.LookupEditor;
         ProjectID: Serenity.LookupEditor;
     }
@@ -2491,6 +2493,7 @@ declare namespace Miapp2.Registros {
         RegistroId?: number;
         Fecha?: string;
         ProductId?: string;
+        NoOrder?: string;
         Cantidad?: number;
         Movimiento?: TipoMovimiento;
         DetailID?: number;
@@ -2515,6 +2518,7 @@ declare namespace Miapp2.Registros {
             RegistroId = "RegistroId",
             Fecha = "Fecha",
             ProductId = "ProductId",
+            NoOrder = "NoOrder",
             Cantidad = "Cantidad",
             Movimiento = "Movimiento",
             DetailID = "DetailID",

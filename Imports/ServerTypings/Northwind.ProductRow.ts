@@ -1,6 +1,7 @@
 ﻿namespace Miapp2.Northwind {
     export interface ProductRow {
         ProductID?: string;
+        Product2ID?: string;
         ProductName?: string;
         ProductImage?: string;
         Discontinued?: boolean;
@@ -28,6 +29,7 @@
 
         export declare const enum Fields {
             ProductID = "ProductID",
+            Product2ID = "Product2ID",
             ProductName = "ProductName",
             ProductImage = "ProductImage",
             Discontinued = "Discontinued",

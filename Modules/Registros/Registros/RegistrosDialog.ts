@@ -3,7 +3,7 @@ namespace Miapp2.Registros {
 
     @Serenity.Decorators.registerClass()
     export class RegistrosDialog extends Serenity.EntityDialog<RegistrosRow, any> {
-        protected getFormKey() { return RegistrosForm.formKey; }
+        protected getFormKey() { return 'Registros.Registros'; }
         protected getIdProperty() { return RegistrosRow.idProperty; }
         protected getLocalTextPrefix() { return RegistrosRow.localTextPrefix; }
         protected getNameProperty() { return RegistrosRow.nameProperty; }

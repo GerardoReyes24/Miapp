@@ -12,7 +12,7 @@ namespace Miapp2.Registros.Entities
     using System.IO;
 
     [ConnectionKey("Northwind"), Module("Registros"), TableName("[dbo].[Registros]")]
-    [DisplayName("Registros"), InstanceName("Registros")]
+    [DisplayName("Registros de Entradas y Salidas"), InstanceName("Registros")]
     [ReadPermission(RegistrosPermissionKey.Registros.View)]
     [ModifyPermission(RegistrosPermissionKey.Registros.Modify)]
     [DeletePermission(RegistrosPermissionKey.Registros.Delete)]
@@ -39,6 +39,14 @@ namespace Miapp2.Registros.Entities
         {
             get { return Fields.ProductId[this]; }
             set { Fields.ProductId[this] = value; }
+        }
+
+
+        [DisplayName("No de Orden")]
+        public String NoOrder
+        {
+            get { return Fields.NoOrder[this]; }
+            set { Fields.NoOrder[this] = value; }
         }
 
         [DisplayName("Cantidad"), Size(18), Scale(2), NotNull]
@@ -158,6 +166,7 @@ namespace Miapp2.Registros.Entities
             public Int32Field RegistroId;
             public DateTimeField Fecha;
             public StringField ProductId;
+            public StringField NoOrder;
             public DecimalField Cantidad;
             public Int32Field Movimiento;
             public Int32Field DetailID;

@@ -15,9 +15,12 @@ namespace Miapp2.Registros.Forms
     public class RegistrosForm
     {
         public DateTime Fecha { get; set; }
+        [DisplayName("Material")]
         public String ProductId { get; set; }
         public Decimal Cantidad { get; set; }
         public TipoMovimiento Movimiento { get; set; }
+        [DisplayName("No de Orden")]
+        public String NoOrder { get; set; }
 
         [DisplayName("Muble")]
         public Int32 DetailID { get; set; }

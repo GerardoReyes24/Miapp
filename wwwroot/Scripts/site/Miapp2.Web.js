@@ -1594,19 +1594,17 @@ var Miapp2;
                     var s = Serenity;
                     var w0 = s.StringEditor;
                     var w1 = s.ImageUploadEditor;
-                    var w2 = s.BooleanEditor;
-                    var w3 = s.LookupEditor;
-                    var w4 = s.DecimalEditor;
-                    var w5 = s.IntegerEditor;
+                    var w2 = s.LookupEditor;
+                    var w3 = s.DecimalEditor;
+                    var w4 = s.IntegerEditor;
                     Q.initFormType(ProductForm, [
                         'ProductID', w0,
+                        'Product2ID', w0,
                         'ProductName', w0,
                         'ProductImage', w1,
-                        'Discontinued', w2,
-                        'SupplierID', w3,
-                        'CategoryID', w3,
-                        'UnitPrice', w4,
-                        'UnitsInStock', w5
+                        'SupplierID', w2,
+                        'UnitPrice', w3,
+                        'UnitsInStock', w4
                     ]);
                 }
                 return _this;
@@ -2235,11 +2233,13 @@ var Miapp2;
                     var w1 = s.LookupEditor;
                     var w2 = s.DecimalEditor;
                     var w3 = s.EnumEditor;
+                    var w4 = s.StringEditor;
                     Q.initFormType(RegistrosForm, [
                         'Fecha', w0,
                         'ProductId', w1,
                         'Cantidad', w2,
                         'Movimiento', w3,
+                        'NoOrder', w4,
                         'DetailID', w1,
                         'ProjectID', w1
                     ]);
@@ -5475,9 +5475,6 @@ var Miapp2;
                 var columns = _super.prototype.getColumns.call(this);
                 var num = function (ctx) { return _this.numericInputFormatter(ctx); };
                 var str = function (ctx) { return _this.stringInputFormatter(ctx); };
-                var category = Q.first(columns, function (x) { return x.field === "CategoryName" /* CategoryName */; });
-                category.referencedFields = ["CategoryID" /* CategoryID */];
-                category.format = function (ctx) { return _this.selectFormatter(ctx, "CategoryID" /* CategoryID */, Northwind.CategoryRow.getLookup()); };
                 var supplier = Q.first(columns, function (x) { return x.field === "SupplierCompanyName" /* SupplierCompanyName */; });
                 supplier.referencedFields = ["SupplierID" /* SupplierID */];
                 supplier.format = function (ctx) { return _this.selectFormatter(ctx, "SupplierID" /* SupplierID */, Northwind.SupplierRow.getLookup()); };
@@ -6208,7 +6205,7 @@ var Miapp2;
                 _this.toolbar.findButton(".delete-button").remove();
                 return _this;
             }
-            RegistrosDialog.prototype.getFormKey = function () { return Registros.RegistrosForm.formKey; };
+            RegistrosDialog.prototype.getFormKey = function () { return 'Registros.Registros'; };
             RegistrosDialog.prototype.getIdProperty = function () { return Registros.RegistrosRow.idProperty; };
             RegistrosDialog.prototype.getLocalTextPrefix = function () { return Registros.RegistrosRow.localTextPrefix; };
             RegistrosDialog.prototype.getNameProperty = function () { return Registros.RegistrosRow.nameProperty; };

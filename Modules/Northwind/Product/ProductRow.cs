@@ -9,7 +9,7 @@ namespace Miapp2.Northwind.Entities
     using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Products")]
-    [DisplayName("Products"), InstanceName("Product")]
+    [DisplayName("Materiales"), InstanceName("Product")]
     [ReadPermission(PermissionKeys.Materiales.View)]
     [ModifyPermission(PermissionKeys.Materiales.Modify)]
     [DeletePermission(PermissionKeys.Materiales.Delete)]
@@ -18,14 +18,23 @@ namespace Miapp2.Northwind.Entities
     [LocalizationRow(typeof(ProductLangRow))]
     public sealed class ProductRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Product Id"),PrimaryKey,NotNull]
+        [DisplayName("Codigo Interno"),PrimaryKey,NotNull, LookupInclude, QuickSearch]
         public String ProductID
         {
             get { return Fields.ProductID[this]; }
             set { Fields.ProductID[this] = value; }
+
         }
 
-        [DisplayName("Descripción"), Size(40), NotNull, QuickSearch, LookupInclude]
+
+        [DisplayName("Codigo externo"), QuickSearch]
+        public String Product2ID
+        {
+            get { return Fields.Product2ID[this]; }
+            set { Fields.Product2ID[this] = value; }
+        }
+
+        [DisplayName("Descripción"), Size(40), NotNull, QuickSearch]
         public String ProductName
         {
             get { return Fields.ProductName[this]; }
@@ -158,6 +167,7 @@ namespace Miapp2.Northwind.Entities
         public class RowFields : RowFieldsBase
         {
             public StringField ProductID;
+            public StringField Product2ID;
             public StringField ProductName;
             public StringField ProductImage;
             public BooleanField Discontinued;

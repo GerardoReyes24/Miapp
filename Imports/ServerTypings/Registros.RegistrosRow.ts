@@ -3,6 +3,7 @@
         RegistroId?: number;
         Fecha?: string;
         ProductId?: string;
+        NoOrder?: string;
         Cantidad?: number;
         Movimiento?: TipoMovimiento;
         DetailID?: number;
@@ -32,6 +33,7 @@
             RegistroId = "RegistroId",
             Fecha = "Fecha",
             ProductId = "ProductId",
+            NoOrder = "NoOrder",
             Cantidad = "Cantidad",
             Movimiento = "Movimiento",
             DetailID = "DetailID",

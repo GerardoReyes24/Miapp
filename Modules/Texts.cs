@@ -125,7 +125,7 @@ namespace Miapp2
                 public static LocalText AllSuccessFormat = "Finished processing on {0} record(s) with success.";
                 public static LocalText ConfirmationFormat = "Perform this operation on {0} selected record(s)?";
                 public static LocalText ErrorCount = "{0} error(s)";
-                public static LocalText NothingToProcess = "Please select some records to process!";
+                public static LocalText NothingToProcess = "Por favor relecciona algunos registros a procesar!";
                 public static LocalText SomeHadErrorsFormat = "Finished processing on {0} record(s) with success. {1} record(s) had errors!";
                 public static LocalText SuccessCount = "{0} done";
             }

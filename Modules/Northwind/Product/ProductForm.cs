@@ -11,11 +11,12 @@ namespace Miapp2.Northwind.Forms
     {
         [Category("General")]
         public String ProductID { get; set; }
+        public String Product2ID { get; set; }
         public String ProductName { get; set; }
         public String ProductImage { get; set; }
-        public Boolean Discontinued { get; set; }
+      //  public Boolean Discontinued { get; set; }
         public Int32 SupplierID { get; set; }
-        public Int32 CategoryID { get; set; }
+      //  public Int32 CategoryID { get; set; }
         public Decimal UnitPrice { get; set; }
 
         public Int16 UnitsInStock { get; set; }

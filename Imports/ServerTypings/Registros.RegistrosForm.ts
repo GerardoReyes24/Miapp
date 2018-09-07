@@ -4,6 +4,7 @@
         ProductId: Serenity.LookupEditor;
         Cantidad: Serenity.DecimalEditor;
         Movimiento: Serenity.EnumEditor;
+        NoOrder: Serenity.StringEditor;
         DetailID: Serenity.LookupEditor;
         ProjectID: Serenity.LookupEditor;
     }
@@ -23,12 +24,14 @@
                 var w1 = s.LookupEditor;
                 var w2 = s.DecimalEditor;
                 var w3 = s.EnumEditor;
+                var w4 = s.StringEditor;
 
                 Q.initFormType(RegistrosForm, [
                     'Fecha', w0,
                     'ProductId', w1,
                     'Cantidad', w2,
                     'Movimiento', w3,
+                    'NoOrder', w4,
                     'DetailID', w1,
                     'ProjectID', w1
                 ]);
