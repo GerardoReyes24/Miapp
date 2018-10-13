@@ -5,6 +5,7 @@
         ProductName: Serenity.StringEditor;
         ProductImage: Serenity.ImageUploadEditor;
         SupplierID: Serenity.LookupEditor;
+        CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
     }
@@ -32,6 +33,7 @@
                     'ProductName', w0,
                     'ProductImage', w1,
                     'SupplierID', w2,
+                    'CategoryID', w2,
                     'UnitPrice', w3,
                     'UnitsInStock', w4
                 ]);

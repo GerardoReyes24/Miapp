@@ -19,7 +19,7 @@ namespace Miapp2.Northwind.Entities
     [ReadPermission(PermissionKeys.Projects.View)]
     [ModifyPermission(PermissionKeys.Projects.Modify)]
     [DeletePermission(PermissionKeys.Projects.Delete)]
-    [LookupScript]
+    [LookupScript("Somes.Lookup", Permission = "?")]
     public sealed class ProjectDetailsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Detail Id"), Identity, PrimaryKey]
@@ -38,6 +38,7 @@ namespace Miapp2.Northwind.Entities
 
 
         [DisplayName("Tipo de diseño"), QuickSearch, LookupInclude]
+        [ReadPermission(" SomeSpecialPermission ")]
 
         public String DesignTypeId
         {

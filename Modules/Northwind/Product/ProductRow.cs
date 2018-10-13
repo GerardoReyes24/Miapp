@@ -13,12 +13,13 @@ namespace Miapp2.Northwind.Entities
     [ReadPermission(PermissionKeys.Materiales.View)]
     [ModifyPermission(PermissionKeys.Materiales.Modify)]
     [DeletePermission(PermissionKeys.Materiales.Delete)]
-    [LookupScript]
+    [LookupScript("Some.Lookup", Permission = "?")]
     
     [LocalizationRow(typeof(ProductLangRow))]
     public sealed class ProductRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Codigo Interno"),PrimaryKey,NotNull, LookupInclude, QuickSearch]
+        [DisplayName("Código Interno"),PrimaryKey,NotNull, LookupInclude, QuickSearch]
+        [ReadPermission(" SomeSpecialPermission "), ModifyPermission(" SomeSpecialPermission ")]
         public String ProductID
         {
             get { return Fields.ProductID[this]; }
@@ -27,7 +28,7 @@ namespace Miapp2.Northwind.Entities
         }
 
 
-        [DisplayName("Codigo externo"), QuickSearch]
+        [DisplayName("Código externo"), QuickSearch, ReadPermission(" SomeSpecialPermission ")]
         public String Product2ID
         {
             get { return Fields.Product2ID[this]; }
@@ -35,6 +36,7 @@ namespace Miapp2.Northwind.Entities
         }
 
         [DisplayName("Descripción"), Size(40), NotNull, QuickSearch]
+        [ReadPermission(" SomeSpecialPermission ")]
         public String ProductName
         {
             get { return Fields.ProductName[this]; }
@@ -56,7 +58,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.Discontinued[this] = value; }
         }
 
-        [DisplayName("Provedor"), ForeignKey(typeof(SupplierRow)), LeftJoin("sup")]
+        [DisplayName("Proveedor"), ForeignKey(typeof(SupplierRow)), LeftJoin("sup")]
         [LookupEditor(typeof(SupplierRow), InplaceAdd = true)]
         public Int32? SupplierID
         {
@@ -74,14 +76,15 @@ namespace Miapp2.Northwind.Entities
 
      
 
-        [DisplayName("Precio"), Scale(4), LookupInclude]
+        [DisplayName("Precio unitario"), Scale(9)]
         public Decimal? UnitPrice
         {
             get { return Fields.UnitPrice[this]; }
             set { Fields.UnitPrice[this] = value; }
         }
 
-        [DisplayName("Cantidad en existencia"), NotNull, DefaultValue(0), LookupInclude]
+        [DisplayName("Cantidad en existencia"), NotNull, DefaultValue(0)]
+        [ModifyPermission(" SomeSpecialPermission ")]
         public Int16? UnitsInStock
         {
             get { return Fields.UnitsInStock[this]; }
@@ -91,7 +94,7 @@ namespace Miapp2.Northwind.Entities
         
 
 
-        [Origin("sup"), DisplayName("Provedor"), LookupInclude]
+        [Origin("sup"), DisplayName("Proveedor"), LookupInclude]
         public String SupplierCompanyName
         {
             get { return Fields.SupplierCompanyName[this]; }
@@ -126,7 +129,7 @@ namespace Miapp2.Northwind.Entities
 
     
 
-        [Origin("cat"), DisplayName("Category")]
+        [Origin("cat"), DisplayName("Categoría")]
         public String CategoryName
         {
             get { return Fields.CategoryName[this]; }

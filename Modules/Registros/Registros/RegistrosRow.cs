@@ -12,11 +12,9 @@ namespace Miapp2.Registros.Entities
     using System.IO;
 
     [ConnectionKey("Northwind"), Module("Registros"), TableName("[dbo].[Registros]")]
-    [DisplayName("Registros de Entradas y Salidas"), InstanceName("Registros")]
-    [ReadPermission(RegistrosPermissionKey.Registros.View)]
-    [ModifyPermission(RegistrosPermissionKey.Registros.Modify)]
-    [DeletePermission(RegistrosPermissionKey.Registros.Delete)]
-    [LookupScript]
+    [DisplayName("Registros"), InstanceName("Registros")]
+    [ReadPermission("Administration:General")]
+    [ModifyPermission("Administration:General")]
     public sealed class RegistrosRow : Row, IIdRow, INameRow
     {
         [DisplayName("Registro Id"), Column("RegistroID"), Identity]
@@ -33,20 +31,12 @@ namespace Miapp2.Registros.Entities
             set { Fields.Fecha[this] = value; }
         }
 
-        [DisplayName("Product"), Column("ProductID"), Size(15), NotNull, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), QuickSearch, TextualField("ProductProductName")]
+        [DisplayName("Material"), Column("ProductID"), Size(15), NotNull, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), QuickSearch, TextualField("ProductProductName")]
         [LookupEditor(typeof(ProductRow), InplaceAdd = true)]
         public String ProductId
         {
             get { return Fields.ProductId[this]; }
             set { Fields.ProductId[this] = value; }
-        }
-
-
-        [DisplayName("No de Orden")]
-        public String NoOrder
-        {
-            get { return Fields.NoOrder[this]; }
-            set { Fields.NoOrder[this] = value; }
         }
 
         [DisplayName("Cantidad"), Size(18), Scale(2), NotNull]
@@ -56,29 +46,45 @@ namespace Miapp2.Registros.Entities
             set { Fields.Cantidad[this] = value; }
         }
 
-        [DisplayName("Movimiento")]     
+        [DisplayName("Movimiento")]
         public TipoMovimiento? Movimiento
         {
             get { return (TipoMovimiento)Fields.Movimiento[this]; }
             set { Fields.Movimiento[this] = (Int32?)value; }
         }
 
-        [DisplayName("Detail Id"), Column("DetailID"), Size(15), NotNull, ForeignKey("[dbo].[Project Details]", "DetailID"), LeftJoin("o"), QuickSearch, TextualField("Tipo de diseño")]
-        [LookupEditor(typeof(ProjectDetailsRow), InplaceAdd = true)]
-        public Int32? DetailID
+        [DisplayName("No Orden"), Size(40), NotNull]
+        public String NoOrden
         {
-            get { return Fields.DetailID[this]; }
-            set { Fields.DetailID[this] = value; }
+            get { return Fields.NoOrden[this]; }
+            set { Fields.NoOrden[this] = value; }
         }
 
-        [DisplayName("Tipo de diseño"), Expression("o.[DesignTypeID]"), QuickSearch]
-
-        public String DesignTypeId
+        [DisplayName("Proyecto"), Column("ProyectorID"), NotNull, ForeignKey("[dbo].[ProyectoR]", "ProyectorID"), LeftJoin("jProyector"), TextualField("ProyectorProyectorName")]
+        [LookupEditor(typeof(ProyectoRRow), InplaceAdd = true)]
+        public Int32? ProyectorId
         {
-            get { return Fields.DesignTypeId[this]; }
-            set { Fields.DesignTypeId[this] = value; }
+            get { return Fields.ProyectorId[this]; }
+            set { Fields.ProyectorId[this] = value; }
         }
-        [DisplayName("Product Product Name"), Expression("jProduct.[ProductName]")]
+
+        [DisplayName("Tipo de Mueble"), Column("TipoMuebleID"), NotNull, ForeignKey("[dbo].[TipoMueble]", "TipoMuebleID"), LeftJoin("jTipoMueble"), TextualField("TipoMuebleMuebleName")]
+        [LookupEditor(typeof(TipoMuebleRow), InplaceAdd = true)]
+        public Int32? TipoMuebleId
+        {
+            get { return Fields.TipoMuebleId[this]; }
+            set { Fields.TipoMuebleId[this] = value; }
+        }
+
+        [DisplayName("No Casa"), Column("NoCasaID"), NotNull, ForeignKey("[dbo].[NoCasa]", "NoCasaID"), LeftJoin("jNoCasa"), TextualField("NoCasaNumeroCasa")]
+        [LookupEditor(typeof(NoCasaRow), InplaceAdd = true)]
+        public Int32? NoCasaId
+        {
+            get { return Fields.NoCasaId[this]; }
+            set { Fields.NoCasaId[this] = value; }
+        }
+
+        [DisplayName("Material"), Expression("jProduct.[ProductName]")]
         public String ProductProductName
         {
             get { return Fields.ProductProductName[this]; }
@@ -127,21 +133,46 @@ namespace Miapp2.Registros.Entities
             set { Fields.ProductProductImage[this] = value; }
         }
 
-        [DisplayName("Project Id"), Column("ProjectID"), Size(15), NotNull, ForeignKey("[dbo].[Projects]", "ProjectID"), LeftJoin("pr"), QuickSearch, TextualField("Proyecto")]
-        [LookupEditor(typeof(ProjectsRow), InplaceAdd = true)]
-        public Int32? ProjectID
+        [DisplayName("Product Product2 Id"), Expression("jProduct.[Product2ID]")]
+        public String ProductProduct2Id
         {
-            get { return Fields.ProjectID[this]; }
-            set { Fields.ProjectID[this] = value; }
+            get { return Fields.ProductProduct2Id[this]; }
+            set { Fields.ProductProduct2Id[this] = value; }
         }
 
-   
-
-        [DisplayName("Proyecto"), Size(35), Expression("pr.[ProjectName]"), QuickSearch]
-        public String ProjectName
+        [DisplayName("Proyecto"), Expression("jProyector.[ProyectorName]")]
+        public String ProyectorProyectorName
         {
-            get { return Fields.ProjectName[this]; }
-            set { Fields.ProjectName[this] = value; }
+            get { return Fields.ProyectorProyectorName[this]; }
+            set { Fields.ProyectorProyectorName[this] = value; }
+        }
+
+        [DisplayName("Proyector Description"), Expression("jProyector.[Description]")]
+        public String ProyectorDescription
+        {
+            get { return Fields.ProyectorDescription[this]; }
+            set { Fields.ProyectorDescription[this] = value; }
+        }
+
+        [DisplayName("Tipo de Mueble "), Expression("jTipoMueble.[MuebleName]")]
+        public String TipoMuebleMuebleName
+        {
+            get { return Fields.TipoMuebleMuebleName[this]; }
+            set { Fields.TipoMuebleMuebleName[this] = value; }
+        }
+
+        [DisplayName("Tipo Mueble Mueble Description"), Expression("jTipoMueble.[MuebleDescription]")]
+        public String TipoMuebleMuebleDescription
+        {
+            get { return Fields.TipoMuebleMuebleDescription[this]; }
+            set { Fields.TipoMuebleMuebleDescription[this] = value; }
+        }
+
+        [DisplayName("No Casa "), Expression("jNoCasa.[NumeroCasa]")]
+        public String NoCasaNumeroCasa
+        {
+            get { return Fields.NoCasaNumeroCasa[this]; }
+            set { Fields.NoCasaNumeroCasa[this] = value; }
         }
 
         IIdField IIdRow.IdField
@@ -166,11 +197,13 @@ namespace Miapp2.Registros.Entities
             public Int32Field RegistroId;
             public DateTimeField Fecha;
             public StringField ProductId;
-            public StringField NoOrder;
             public DecimalField Cantidad;
             public Int32Field Movimiento;
-            public Int32Field DetailID;
-            public StringField DesignTypeId;
+            public StringField NoOrden;
+            public Int32Field ProyectorId;
+            public Int32Field TipoMuebleId;
+            public Int32Field NoCasaId;
+
             public StringField ProductProductName;
             public Int32Field ProductSupplierId;
             public Int32Field ProductCategoryId;
@@ -178,11 +211,15 @@ namespace Miapp2.Registros.Entities
             public Int16Field ProductUnitsInStock;
             public BooleanField ProductDiscontinued;
             public StringField ProductProductImage;
+            public StringField ProductProduct2Id;
 
+            public StringField ProyectorProyectorName;
+            public StringField ProyectorDescription;
 
-            public Int32Field ProjectID;
-      
-            public StringField ProjectName;
-        }
+            public StringField TipoMuebleMuebleName;
+            public StringField TipoMuebleMuebleDescription;
+
+            public StringField NoCasaNumeroCasa;
+		}
     }
 }

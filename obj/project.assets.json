@@ -15319,27 +15319,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\Manuel\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Miapp2\\Miapp2\\Miapp2.Web\\Miapp2.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Manuel\\Source\\Repos\\Miapp\\Miapp2.Web.csproj",
       "projectName": "Miapp2.Web",
-      "projectPath": "C:\\Users\\Usuario\\source\\repos\\Miapp2\\Miapp2\\Miapp2.Web\\Miapp2.Web.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\source\\repos\\Miapp2\\Miapp2\\Miapp2.Web\\obj\\",
+      "projectPath": "C:\\Users\\Manuel\\Source\\Repos\\Miapp\\Miapp2.Web.csproj",
+      "packagesPath": "C:\\Users\\Manuel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Manuel\\Source\\Repos\\Miapp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

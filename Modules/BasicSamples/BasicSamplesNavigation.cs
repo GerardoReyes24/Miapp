@@ -2,4 +2,4 @@
 
 
 
-[assembly: NavigationMenu(7900, "Temas", icon: "fa-magic")]
+//[assembly: NavigationMenu(7900, "Temas", icon: "fa-magic")]

@@ -17,12 +17,13 @@ namespace Miapp2.Northwind.Entities
     [DeletePermission(PermissionKeys.Projects.Delete)]
     [LeftJoin("ds", "DesignStatus", "ds.[ProjectID] = t0.[ProjectID]", RowType = typeof(DesignStatusRow), TitlePrefix = "")]
     [UpdatableExtension("ds", typeof(DesignStatusRow), CascadeDelete = true)]
-    [LookupScript]
+    [LookupScript("Somee.Lookup", Permission = "?")]
 
 
     public sealed class ProjectsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Project Id"), Column("ProjectID"), Identity]
+        [ReadPermission(" SomeSpecialPermission ")]
         public Int32? ProjectID
         {
             get { return Fields.ProjectID[this]; }
@@ -31,6 +32,7 @@ namespace Miapp2.Northwind.Entities
 
         [DisplayName("Cliente"), Column("CustomerID"), Size(5), ForeignKey("[dbo].[Customers]", "CustomerID"), LeftJoin("jCustomer"), QuickSearch, TextualField("CustomerCompanyName")]
         [LookupEditor(typeof(CustomerRow), InplaceAdd = true)]
+        [ReadPermission(" SomeSpecialPermission ")]
         public String CustomerId
         {
             get { return Fields.CustomerId[this]; }
@@ -38,6 +40,7 @@ namespace Miapp2.Northwind.Entities
         }
 
         [DisplayName("Proyecto"), Size(35)]
+        [ReadPermission(" SomeSpecialPermission ")]
         public String ProjectName
         {
             get { return Fields.ProjectName[this]; }

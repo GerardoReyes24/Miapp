@@ -5,3 +5,4 @@ using MyPages = Miapp2.Registros.Pages;
 
 [assembly: NavigationMenu(9000, "Registros", icon: "fa-archive")]
 [assembly: NavigationLink(9100, "Registros/Registros", typeof(MyPages.RegistrosController), icon: "fa-archive")]
+[assembly: NavigationLink(int.MaxValue, "Registros/Muestreos", typeof(MyPages.MuestreosController), icon: null)]

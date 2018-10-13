@@ -11,3 +11,16 @@ c:\users\usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\M
 C:\Users\Usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.Properties.Resources.resources
 C:\Users\Usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.csproj.GenerateResource.cache
 C:\Users\Usuario\source\repos\Miapp2\Miapp2\Miapp2.Web\obj\Debug\netcoreapp2.0\Miapp2.Web.csprojAssemblyReference.cache
+C:\Users\Manuel\Source\Repos\Miapp\bin\Debug\netcoreapp2.0\Miapp2.Web.deps.json
+C:\Users\Manuel\Source\Repos\Miapp\bin\Debug\netcoreapp2.0\Miapp2.Web.runtimeconfig.json
+C:\Users\Manuel\Source\Repos\Miapp\bin\Debug\netcoreapp2.0\Miapp2.Web.runtimeconfig.dev.json
+C:\Users\Manuel\Source\Repos\Miapp\bin\Debug\netcoreapp2.0\Miapp2.Web.dll
+C:\Users\Manuel\Source\Repos\Miapp\bin\Debug\netcoreapp2.0\Miapp2.Web.pdb
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.Properties.Resources.resources
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.csproj.GenerateResource.cache
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.csproj.CoreCompileInputs.cache
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyInfoInputs.cache
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyInfo.cs
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.dll
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.pdb
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.csprojAssemblyReference.cache

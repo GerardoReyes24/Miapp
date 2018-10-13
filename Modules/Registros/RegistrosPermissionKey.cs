@@ -22,6 +22,16 @@ namespace Miapp2.Registros
             public const string View = "Registros:Registros:View";
         }
 
+        [DisplayName("Muestreos")]
+        public class Muestreos
+        {
+            [ImplicitPermission(General), ImplicitPermission(View)]
+            public const string Delete = "Registros:Muestreos:Delete";
+            [Description("Create/Update"), ImplicitPermission(View)]
+            public const string Modify = "Registros:Muestreos:Modify";
+            public const string View = "Registros:Muestreos:View";
+        }
+
         [Description("[General]")]
         public const string General = "Registros:General";
     }

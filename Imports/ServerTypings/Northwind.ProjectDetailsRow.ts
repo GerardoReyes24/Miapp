@@ -26,10 +26,10 @@
         export const idProperty = 'DetailID';
         export const nameProperty = 'DesignTypeId';
         export const localTextPrefix = 'Northwind.ProjectDetails';
-        export const lookupKey = 'Northwind.ProjectDetails';
+        export const lookupKey = 'Somes.Lookup';
 
         export function getLookup(): Q.Lookup<ProjectDetailsRow> {
-            return Q.getLookup<ProjectDetailsRow>('Northwind.ProjectDetails');
+            return Q.getLookup<ProjectDetailsRow>('Somes.Lookup');
         }
 
         export declare const enum Fields {

@@ -4,9 +4,10 @@
         ProductId: Serenity.LookupEditor;
         Cantidad: Serenity.DecimalEditor;
         Movimiento: Serenity.EnumEditor;
-        NoOrder: Serenity.StringEditor;
-        DetailID: Serenity.LookupEditor;
-        ProjectID: Serenity.LookupEditor;
+        NoOrden: Serenity.StringEditor;
+        ProyectorId: Serenity.LookupEditor;
+        NoCasaId: Serenity.LookupEditor;
+        TipoMuebleId: Serenity.LookupEditor;
     }
 
     export class RegistrosForm extends Serenity.PrefixedContext {
@@ -31,9 +32,10 @@
                     'ProductId', w1,
                     'Cantidad', w2,
                     'Movimiento', w3,
-                    'NoOrder', w4,
-                    'DetailID', w1,
-                    'ProjectID', w1
+                    'NoOrden', w4,
+                    'ProyectorId', w1,
+                    'NoCasaId', w1,
+                    'TipoMuebleId', w1
                 ]);
             }
         }

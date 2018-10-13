@@ -31,10 +31,10 @@
         export const idProperty = 'ProjectID';
         export const nameProperty = 'ProjectName';
         export const localTextPrefix = 'Northwind.Projects';
-        export const lookupKey = 'Northwind.Projects';
+        export const lookupKey = 'Somee.Lookup';
 
         export function getLookup(): Q.Lookup<ProjectsRow> {
-            return Q.getLookup<ProjectsRow>('Northwind.Projects');
+            return Q.getLookup<ProjectsRow>('Somee.Lookup');
         }
 
         export declare const enum Fields {

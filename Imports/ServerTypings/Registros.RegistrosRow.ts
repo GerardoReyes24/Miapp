@@ -3,11 +3,12 @@
         RegistroId?: number;
         Fecha?: string;
         ProductId?: string;
-        NoOrder?: string;
         Cantidad?: number;
         Movimiento?: TipoMovimiento;
-        DetailID?: number;
-        DesignTypeId?: string;
+        NoOrden?: string;
+        ProyectorId?: number;
+        TipoMuebleId?: number;
+        NoCasaId?: number;
         ProductProductName?: string;
         ProductSupplierId?: number;
         ProductCategoryId?: number;
@@ -15,29 +16,29 @@
         ProductUnitsInStock?: number;
         ProductDiscontinued?: boolean;
         ProductProductImage?: string;
-        ProjectID?: number;
-        ProjectName?: string;
+        ProductProduct2Id?: string;
+        ProyectorProyectorName?: string;
+        ProyectorDescription?: string;
+        TipoMuebleMuebleName?: string;
+        TipoMuebleMuebleDescription?: string;
+        NoCasaNumeroCasa?: string;
     }
 
     export namespace RegistrosRow {
         export const idProperty = 'RegistroId';
         export const nameProperty = 'ProductId';
         export const localTextPrefix = 'Registros.Registros';
-        export const lookupKey = 'Registros.Registros';
-
-        export function getLookup(): Q.Lookup<RegistrosRow> {
-            return Q.getLookup<RegistrosRow>('Registros.Registros');
-        }
 
         export declare const enum Fields {
             RegistroId = "RegistroId",
             Fecha = "Fecha",
             ProductId = "ProductId",
-            NoOrder = "NoOrder",
             Cantidad = "Cantidad",
             Movimiento = "Movimiento",
-            DetailID = "DetailID",
-            DesignTypeId = "DesignTypeId",
+            NoOrden = "NoOrden",
+            ProyectorId = "ProyectorId",
+            TipoMuebleId = "TipoMuebleId",
+            NoCasaId = "NoCasaId",
             ProductProductName = "ProductProductName",
             ProductSupplierId = "ProductSupplierId",
             ProductCategoryId = "ProductCategoryId",
@@ -45,8 +46,12 @@
             ProductUnitsInStock = "ProductUnitsInStock",
             ProductDiscontinued = "ProductDiscontinued",
             ProductProductImage = "ProductProductImage",
-            ProjectID = "ProjectID",
-            ProjectName = "ProjectName"
+            ProductProduct2Id = "ProductProduct2Id",
+            ProyectorProyectorName = "ProyectorProyectorName",
+            ProyectorDescription = "ProyectorDescription",
+            TipoMuebleMuebleName = "TipoMuebleMuebleName",
+            TipoMuebleMuebleDescription = "TipoMuebleMuebleDescription",
+            NoCasaNumeroCasa = "NoCasaNumeroCasa"
         }
     }
 }

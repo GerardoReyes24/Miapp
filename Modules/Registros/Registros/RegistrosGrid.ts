@@ -11,8 +11,6 @@ namespace Miapp2.Registros {
 
         constructor(container: JQuery) {
             super(container);
-
-           
         }
     }
 }

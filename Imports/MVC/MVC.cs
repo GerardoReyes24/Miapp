@@ -327,6 +327,11 @@ namespace MVC
                 public const string mimetod = "~/Modules/Northwind/Metodos/mimetod.cshtml";
             }
 
+            public static class NoCasa
+            {
+                public const string NoCasaIndex = "~/Modules/Northwind/NoCasa/NoCasaIndex.cshtml";
+            }
+
             public static class Order
             {
                 public const string OrderDetailReport = "~/Modules/Northwind/Order/OrderDetailReport.cshtml";
@@ -368,6 +373,11 @@ namespace MVC
                 public const string ProjectsIndex = "~/Modules/Northwind/Projects/ProjectsIndex.cshtml";
             }
 
+            public static class ProyectoR
+            {
+                public const string ProyectoRIndex = "~/Modules/Northwind/ProyectoR/ProyectoRIndex.cshtml";
+            }
+
             public static class Region
             {
                 public const string RegionIndex = "~/Modules/Northwind/Region/RegionIndex.cshtml";
@@ -388,10 +398,20 @@ namespace MVC
                 public const string TerritoryIndex = "~/Modules/Northwind/Territory/TerritoryIndex.cshtml";
             }
 
+            public static class TipoMueble
+            {
+                public const string TipoMuebleIndex = "~/Modules/Northwind/TipoMueble/TipoMuebleIndex.cshtml";
+            }
+
         }
 
         public static class Registros
         {
+            public static class Muestreos
+            {
+                public const string MuestreosIndex = "~/Modules/Registros/Muestreos/MuestreosIndex.cshtml";
+            }
+
             public static class Registros_
             {
                 public const string RegistrosIndex = "~/Modules/Registros/Registros/RegistrosIndex.cshtml";

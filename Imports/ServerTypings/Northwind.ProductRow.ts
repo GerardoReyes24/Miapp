@@ -21,10 +21,10 @@
         export const idProperty = 'ProductID';
         export const nameProperty = 'ProductName';
         export const localTextPrefix = 'Northwind.Product';
-        export const lookupKey = 'Northwind.Product';
+        export const lookupKey = 'Some.Lookup';
 
         export function getLookup(): Q.Lookup<ProductRow> {
-            return Q.getLookup<ProductRow>('Northwind.Product');
+            return Q.getLookup<ProductRow>('Some.Lookup');
         }
 
         export declare const enum Fields {

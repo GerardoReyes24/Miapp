@@ -2,9 +2,8 @@
 using Serenity.Navigation;
 
 
-[assembly: NavigationMenu(7950, "Temas/Grids")]
+/*[assembly: NavigationMenu(7950, "Temas/Grids")]
 [assembly: NavigationLink(7950, "Temas/Grids/Cancellable Bulk Action", typeof(BasicSamplesController), action: "CancellableBulkAction")]
-[assembly: NavigationLink(7950, "Temas/Grids/Conditional Formatting", typeof(BasicSamplesController), action: "ConditionalFormatting")]
 [assembly: NavigationLink(7950, "Temas/Grids/Custom Links In Grid", typeof(BasicSamplesController), action: "CustomLinksInGrid")]
 [assembly: NavigationLink(7950, "Temas/Grids/Drag & Drop in Tree Grid", typeof(BasicSamplesController), action: "DragDropInTreeGrid")]
 [assembly: NavigationLink(7950, "Temas/Grids/Enabling Row Selection", typeof(BasicSamplesController), action: "EnablingRowSelection")]
@@ -20,3 +19,4 @@ using Serenity.Navigation;
 [assembly: NavigationLink(7950, "Temas/Grids/Tree Grid", typeof(BasicSamplesController), action: "TreeGrid")]
 [assembly: NavigationLink(7950, "Temas/Grids/View Without ID", typeof(BasicSamplesController), action: "ViewWithoutID")]
 [assembly: NavigationLink(7950, "Temas/Grids/Wrapped Headers", typeof(BasicSamplesController), action: "WrappedHeaders")]
+*/

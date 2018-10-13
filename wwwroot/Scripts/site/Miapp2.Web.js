@@ -1362,6 +1362,68 @@ var Miapp2;
 (function (Miapp2) {
     var Northwind;
     (function (Northwind) {
+        var NoCasaForm = /** @class */ (function (_super) {
+            __extends(NoCasaForm, _super);
+            function NoCasaForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!NoCasaForm.init) {
+                    NoCasaForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(NoCasaForm, [
+                        'NumeroCasa', w0
+                    ]);
+                }
+                return _this;
+            }
+            NoCasaForm.formKey = 'Northwind.NoCasa';
+            return NoCasaForm;
+        }(Serenity.PrefixedContext));
+        Northwind.NoCasaForm = NoCasaForm;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var NoCasaRow;
+        (function (NoCasaRow) {
+            NoCasaRow.idProperty = 'NoCasaId';
+            NoCasaRow.nameProperty = 'NumeroCasa';
+            NoCasaRow.localTextPrefix = 'Northwind.NoCasa';
+            NoCasaRow.lookupKey = 'Northwind.NoCasa';
+            function getLookup() {
+                return Q.getLookup('Northwind.NoCasa');
+            }
+            NoCasaRow.getLookup = getLookup;
+        })(NoCasaRow = Northwind.NoCasaRow || (Northwind.NoCasaRow = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var NoCasaService;
+        (function (NoCasaService) {
+            NoCasaService.baseUrl = 'Northwind/NoCasa';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                NoCasaService[x] = function (r, s, o) {
+                    return Q.serviceRequest(NoCasaService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(NoCasaService = Northwind.NoCasaService || (Northwind.NoCasaService = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
         var NoteRow;
         (function (NoteRow) {
             NoteRow.idProperty = 'NoteId';
@@ -1603,6 +1665,7 @@ var Miapp2;
                         'ProductName', w0,
                         'ProductImage', w1,
                         'SupplierID', w2,
+                        'CategoryID', w2,
                         'UnitPrice', w3,
                         'UnitsInStock', w4
                     ]);
@@ -1751,9 +1814,9 @@ var Miapp2;
             ProductRow.idProperty = 'ProductID';
             ProductRow.nameProperty = 'ProductName';
             ProductRow.localTextPrefix = 'Northwind.Product';
-            ProductRow.lookupKey = 'Northwind.Product';
+            ProductRow.lookupKey = 'Some.Lookup';
             function getLookup() {
-                return Q.getLookup('Northwind.Product');
+                return Q.getLookup('Some.Lookup');
             }
             ProductRow.getLookup = getLookup;
         })(ProductRow = Northwind.ProductRow || (Northwind.ProductRow = {}));
@@ -1771,7 +1834,8 @@ var Miapp2;
                 'Update',
                 'Delete',
                 'Retrieve',
-                'List'
+                'List',
+                'ExcelImport'
             ].forEach(function (x) {
                 ProductService[x] = function (r, s, o) {
                     return Q.serviceRequest(ProductService.baseUrl + '/' + x, r, s, o);
@@ -1827,9 +1891,9 @@ var Miapp2;
             ProjectDetailsRow.idProperty = 'DetailID';
             ProjectDetailsRow.nameProperty = 'DesignTypeId';
             ProjectDetailsRow.localTextPrefix = 'Northwind.ProjectDetails';
-            ProjectDetailsRow.lookupKey = 'Northwind.ProjectDetails';
+            ProjectDetailsRow.lookupKey = 'Somes.Lookup';
             function getLookup() {
-                return Q.getLookup('Northwind.ProjectDetails');
+                return Q.getLookup('Somes.Lookup');
             }
             ProjectDetailsRow.getLookup = getLookup;
         })(ProjectDetailsRow = Northwind.ProjectDetailsRow || (Northwind.ProjectDetailsRow = {}));
@@ -1904,9 +1968,9 @@ var Miapp2;
             ProjectsRow.idProperty = 'ProjectID';
             ProjectsRow.nameProperty = 'ProjectName';
             ProjectsRow.localTextPrefix = 'Northwind.Projects';
-            ProjectsRow.lookupKey = 'Northwind.Projects';
+            ProjectsRow.lookupKey = 'Somee.Lookup';
             function getLookup() {
-                return Q.getLookup('Northwind.Projects');
+                return Q.getLookup('Somee.Lookup');
             }
             ProjectsRow.getLookup = getLookup;
         })(ProjectsRow = Northwind.ProjectsRow || (Northwind.ProjectsRow = {}));
@@ -1931,6 +1995,69 @@ var Miapp2;
                 };
             });
         })(ProjectsService = Northwind.ProjectsService || (Northwind.ProjectsService = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProyectoRForm = /** @class */ (function (_super) {
+            __extends(ProyectoRForm, _super);
+            function ProyectoRForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!ProyectoRForm.init) {
+                    ProyectoRForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(ProyectoRForm, [
+                        'ProyectorName', w0,
+                        'Description', w0
+                    ]);
+                }
+                return _this;
+            }
+            ProyectoRForm.formKey = 'Northwind.ProyectoR';
+            return ProyectoRForm;
+        }(Serenity.PrefixedContext));
+        Northwind.ProyectoRForm = ProyectoRForm;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProyectoRRow;
+        (function (ProyectoRRow) {
+            ProyectoRRow.idProperty = 'ProyectorId';
+            ProyectoRRow.nameProperty = 'ProyectorName';
+            ProyectoRRow.localTextPrefix = 'Northwind.ProyectoR';
+            ProyectoRRow.lookupKey = 'Northwind.ProyectoR';
+            function getLookup() {
+                return Q.getLookup('Northwind.ProyectoR');
+            }
+            ProyectoRRow.getLookup = getLookup;
+        })(ProyectoRRow = Northwind.ProyectoRRow || (Northwind.ProyectoRRow = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProyectoRService;
+        (function (ProyectoRService) {
+            ProyectoRService.baseUrl = 'Northwind/ProyectoR';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                ProyectoRService[x] = function (r, s, o) {
+                    return Q.serviceRequest(ProyectoRService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(ProyectoRService = Northwind.ProyectoRService || (Northwind.ProyectoRService = {}));
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
@@ -2220,6 +2347,135 @@ var Miapp2;
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TipoMuebleForm = /** @class */ (function (_super) {
+            __extends(TipoMuebleForm, _super);
+            function TipoMuebleForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!TipoMuebleForm.init) {
+                    TipoMuebleForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(TipoMuebleForm, [
+                        'MuebleName', w0,
+                        'MuebleDescription', w0
+                    ]);
+                }
+                return _this;
+            }
+            TipoMuebleForm.formKey = 'Northwind.TipoMueble';
+            return TipoMuebleForm;
+        }(Serenity.PrefixedContext));
+        Northwind.TipoMuebleForm = TipoMuebleForm;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TipoMuebleRow;
+        (function (TipoMuebleRow) {
+            TipoMuebleRow.idProperty = 'TipoMuebleId';
+            TipoMuebleRow.nameProperty = 'MuebleName';
+            TipoMuebleRow.localTextPrefix = 'Northwind.TipoMueble';
+            TipoMuebleRow.lookupKey = 'Northwind.TipoMueble';
+            function getLookup() {
+                return Q.getLookup('Northwind.TipoMueble');
+            }
+            TipoMuebleRow.getLookup = getLookup;
+        })(TipoMuebleRow = Northwind.TipoMuebleRow || (Northwind.TipoMuebleRow = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TipoMuebleService;
+        (function (TipoMuebleService) {
+            TipoMuebleService.baseUrl = 'Northwind/TipoMueble';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                TipoMuebleService[x] = function (r, s, o) {
+                    return Q.serviceRequest(TipoMuebleService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(TipoMuebleService = Northwind.TipoMuebleService || (Northwind.TipoMuebleService = {}));
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var MuestreosForm = /** @class */ (function (_super) {
+            __extends(MuestreosForm, _super);
+            function MuestreosForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MuestreosForm.init) {
+                    MuestreosForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.DateEditor;
+                    var w1 = s.LookupEditor;
+                    var w2 = s.DecimalEditor;
+                    Q.initFormType(MuestreosForm, [
+                        'Fecha', w0,
+                        'ProductId', w1,
+                        'CantidadAMuestrear', w2
+                    ]);
+                }
+                return _this;
+            }
+            MuestreosForm.formKey = 'Registros.Muestreos';
+            return MuestreosForm;
+        }(Serenity.PrefixedContext));
+        Registros.MuestreosForm = MuestreosForm;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var MuestreosRow;
+        (function (MuestreosRow) {
+            MuestreosRow.idProperty = 'MuestreosId';
+            MuestreosRow.nameProperty = 'ProductId';
+            MuestreosRow.localTextPrefix = 'Registros.Muestreos';
+            MuestreosRow.lookupKey = 'Registros.Muestreos';
+            function getLookup() {
+                return Q.getLookup('Registros.Muestreos');
+            }
+            MuestreosRow.getLookup = getLookup;
+        })(MuestreosRow = Registros.MuestreosRow || (Registros.MuestreosRow = {}));
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var MuestreosService;
+        (function (MuestreosService) {
+            MuestreosService.baseUrl = 'Registros/Muestreos';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                MuestreosService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MuestreosService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MuestreosService = Registros.MuestreosService || (Registros.MuestreosService = {}));
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
     var Registros;
     (function (Registros) {
         var RegistrosForm = /** @class */ (function (_super) {
@@ -2239,9 +2495,10 @@ var Miapp2;
                         'ProductId', w1,
                         'Cantidad', w2,
                         'Movimiento', w3,
-                        'NoOrder', w4,
-                        'DetailID', w1,
-                        'ProjectID', w1
+                        'NoOrden', w4,
+                        'ProyectorId', w1,
+                        'NoCasaId', w1,
+                        'TipoMuebleId', w1
                     ]);
                 }
                 return _this;
@@ -2261,11 +2518,6 @@ var Miapp2;
             RegistrosRow.idProperty = 'RegistroId';
             RegistrosRow.nameProperty = 'ProductId';
             RegistrosRow.localTextPrefix = 'Registros.Registros';
-            RegistrosRow.lookupKey = 'Registros.Registros';
-            function getLookup() {
-                return Q.getLookup('Registros.Registros');
-            }
-            RegistrosRow.getLookup = getLookup;
         })(RegistrosRow = Registros.RegistrosRow || (Registros.RegistrosRow = {}));
     })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
 })(Miapp2 || (Miapp2 = {}));
@@ -2279,6 +2531,7 @@ var Miapp2;
             [
                 'Create',
                 'Update',
+                'Delete',
                 'Retrieve',
                 'List'
             ].forEach(function (x) {
@@ -5004,6 +5257,52 @@ var Miapp2;
 (function (Miapp2) {
     var Northwind;
     (function (Northwind) {
+        var NoCasaDialog = /** @class */ (function (_super) {
+            __extends(NoCasaDialog, _super);
+            function NoCasaDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.NoCasaForm(_this.idPrefix);
+                return _this;
+            }
+            NoCasaDialog.prototype.getFormKey = function () { return Northwind.NoCasaForm.formKey; };
+            NoCasaDialog.prototype.getIdProperty = function () { return Northwind.NoCasaRow.idProperty; };
+            NoCasaDialog.prototype.getLocalTextPrefix = function () { return Northwind.NoCasaRow.localTextPrefix; };
+            NoCasaDialog.prototype.getNameProperty = function () { return Northwind.NoCasaRow.nameProperty; };
+            NoCasaDialog.prototype.getService = function () { return Northwind.NoCasaService.baseUrl; };
+            NoCasaDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], NoCasaDialog);
+            return NoCasaDialog;
+        }(Serenity.EntityDialog));
+        Northwind.NoCasaDialog = NoCasaDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var NoCasaGrid = /** @class */ (function (_super) {
+            __extends(NoCasaGrid, _super);
+            function NoCasaGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            NoCasaGrid.prototype.getColumnsKey = function () { return 'Northwind.NoCasa'; };
+            NoCasaGrid.prototype.getDialogType = function () { return Northwind.NoCasaDialog; };
+            NoCasaGrid.prototype.getIdProperty = function () { return Northwind.NoCasaRow.idProperty; };
+            NoCasaGrid.prototype.getLocalTextPrefix = function () { return Northwind.NoCasaRow.localTextPrefix; };
+            NoCasaGrid.prototype.getService = function () { return Northwind.NoCasaService.baseUrl; };
+            NoCasaGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], NoCasaGrid);
+            return NoCasaGrid;
+        }(Serenity.EntityGrid));
+        Northwind.NoCasaGrid = NoCasaGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
         var NoteDialog = /** @class */ (function (_super) {
             __extends(NoteDialog, _super);
             function NoteDialog() {
@@ -5351,8 +5650,8 @@ var Miapp2;
             function ProductGrid(container) {
                 var _this = _super.call(this, container) || this;
                 _this.pendingChanges = {};
-                _this.slickContainer.on('change', '.edit:input', function (e) { return _this.inputsChange(e); });
                 return _this;
+                //         this.slickContainer.on('change', '.edit:input', (e) => this.inputsChange(e));
             }
             ProductGrid.prototype.getColumnsKey = function () { return "Northwind.Product"; };
             ProductGrid.prototype.getDialogType = function () { return Northwind.ProductDialog; };
@@ -5388,175 +5687,203 @@ var Miapp2;
                     }
                 }));
                 buttons.push({
-                    title: 'Save Changes',
-                    cssClass: 'apply-changes-button disabled',
-                    onClick: function (e) { return _this.saveClick(); },
-                    separator: true
+                    title: 'Import From Excel',
+                    cssClass: 'export-xlsx-button',
+                    onClick: function () {
+                        // open import dialog, let it handle rest
+                        var dialog = new Miapp2.BasicSamples.ProductExcelImportDialog();
+                        dialog.element.on('dialogclose', function () {
+                            _this.refresh();
+                            dialog = null;
+                        });
+                        dialog.dialogOpen();
+                    }
                 });
+                /*      buttons.push({
+                          title: 'Save Changes',
+                          cssClass: 'apply-changes-button disabled',
+                          onClick: e => this.saveClick(),
+                          separator: true
+                      }); */
                 return buttons;
             };
             ProductGrid.prototype.onViewProcessData = function (response) {
                 this.pendingChanges = {};
-                this.setSaveButtonState();
+                //   this.setSaveButtonState();
                 return _super.prototype.onViewProcessData.call(this, response);
             };
-            // PLEASE NOTE! Inline editing in grids is not something Serenity supports nor recommends.
-            // SlickGrid has some set of limitations, UI is very hard to use on some devices like mobile, 
-            // custom widgets and validations are not possible, and as a bonus the code can become a mess.
-            // 
-            // This was just a sample how-to after much requests, and is not supported. 
-            // This is all we can offer, please don't ask us to Guide you...
-            /**
-             * It would be nice if we could use autonumeric, Serenity editors etc. here, to control input validation,
-             * but it's not supported by SlickGrid as we are only allowed to return a string, and should attach
-             * no event handlers to rendered cell contents
-             */
-            ProductGrid.prototype.numericInputFormatter = function (ctx) {
-                var klass = 'edit numeric';
-                var item = ctx.item;
-                var pending = this.pendingChanges[item.ProductID];
-                if (pending && pending[ctx.column.field] !== undefined) {
-                    klass += ' dirty';
-                }
-                var value = this.getEffectiveValue(item, ctx.column.field);
-                return "<input type='text' class='" + klass +
-                    "' data-field='" + ctx.column.field +
-                    "' value='" + Q.formatNumber(value, '0.##') + "'/>";
-            };
-            ProductGrid.prototype.stringInputFormatter = function (ctx) {
-                var klass = 'edit string';
-                var item = ctx.item;
-                var pending = this.pendingChanges[item.ProductID];
-                var column = ctx.column;
-                if (pending && pending[column.field] !== undefined) {
-                    klass += ' dirty';
-                }
-                var value = this.getEffectiveValue(item, column.field);
-                return "<input type='text' class='" + klass +
-                    "' data-field='" + column.field +
-                    "' value='" + Q.attrEncode(value) +
-                    "' maxlength='" + column.sourceItem.maxLength + "'/>";
-            };
+            /*   private numericInputFormatter(ctx) {
+                   var klass = 'edit numeric';
+                   var item = ctx.item as ProductRow;
+                   var pending = this.pendingChanges[item.ProductID];
+       
+                   if (pending && pending[ctx.column.field] !== undefined) {
+                       klass += ' dirty';
+                   }
+       
+                   var value = this.getEffectiveValue(item, ctx.column.field) as number;
+       
+                   return "<input type='text' class='" + klass +
+                       "' data-field='" + ctx.column.field +
+                       "' value='" + Q.formatNumber(value, '0.##') + "'/>";
+               }
+       
+               private stringInputFormatter(ctx) {
+                   var klass = 'edit string';
+                   var item = ctx.item as ProductRow;
+                   var pending = this.pendingChanges[item.ProductID];
+                   var column = ctx.column as Slick.Column;
+       
+                   if (pending && pending[column.field] !== undefined) {
+                       klass += ' dirty';
+                   }
+       
+                   var value = this.getEffectiveValue(item, column.field) as string;
+       
+                   return "<input type='text' class='" + klass +
+                       "' data-field='" + column.field +
+                       "' value='" + Q.attrEncode(value) +
+                       "' maxlength='" + column.sourceItem.maxLength + "'/>";
+               } */
             /**
              * Sorry but you cannot use LookupEditor, e.g. Select2 here, only possible is a SELECT element
              */
-            ProductGrid.prototype.selectFormatter = function (ctx, idField, lookup) {
-                var klass = 'edit';
-                var item = ctx.item;
-                var pending = this.pendingChanges[item.ProductID];
-                var column = ctx.column;
-                if (pending && pending[idField] !== undefined) {
-                    klass += ' dirty';
+            /*    private selectFormatter(ctx: Slick.FormatterContext, idField: string, lookup: Q.Lookup<any>) {
+                     var klass = 'edit';
+                     var item = ctx.item as ProductRow;
+                     var pending = this.pendingChanges[item.ProductID];
+                     var column = ctx.column as Slick.Column;
+         
+                     if (pending && pending[idField] !== undefined) {
+                         klass += ' dirty';
+                     }
+         
+                     var value = this.getEffectiveValue(item, idField);
+                     var markup = "<select class='" + klass +
+                         "' data-field='" + idField +
+                         "' style='width: 100%; max-width: 100%'>";
+                     for (var c of lookup.items) {
+                         let id = c[lookup.idField];
+                         markup += "<option value='" + Q.attrEncode(id) + "'"
+                         if (id == value) {
+                             markup += " selected";
+                         }
+                         markup += ">" + Q.htmlEncode(c[lookup.textField]) + "</option>";
+                     }
+                     return markup + "</select>";
+                 }
+         
+                 private getEffectiveValue(item, field): any {
+                     var pending = this.pendingChanges[item.ProductID];
+                     if (pending && pending[field] !== undefined) {
+                         return pending[field];
+                     }
+         
+                     return item[field];
+                 } */
+            /*     protected getColumns() {
+                     var columns = super.getColumns();
+                     var num = ctx => this.numericInputFormatter(ctx);
+                     var str = ctx => this.stringInputFormatter(ctx);
+         
+               
+         
+         
+                     var supplier = Q.first(columns, x => x.field === fld.SupplierCompanyName);
+                     supplier.referencedFields = [fld.SupplierID];
+                     supplier.format = ctx => this.selectFormatter(ctx, fld.SupplierID, SupplierRow.getLookup());
+         
+                 //    Q.first(columns, x => x.field === fld.UnitPrice).format = num;
+               //      Q.first(columns, x => x.field === fld.UnitsInStock).format = num;
+          
+                     return columns;
+                 } */
+            /*  //     private inputsChange(e: JQueryEventObject) {
+                     var cell = this.slickGrid.getCellFromEvent(e);
+                     var item = this.itemAt(cell.row);
+                     var input = $(e.target);
+                     var field = input.data('field');
+                     var text = Q.coalesce(Q.trimToNull(input.val()), '0');
+                     var pending = this.pendingChanges[item.ProductID];
+         
+                     var effective = this.getEffectiveValue(item, field);
+                     var oldText: string;
+                     if (input.hasClass("numeric"))
+                         oldText = Q.formatNumber(effective, '0.##');
+                     else
+                         oldText = effective as string;
+         
+                     var value;
+                     if (field === 'UnitPrice') {
+                         value = Q.parseDecimal(text);
+                         if (value == null || isNaN(value)) {
+                             Q.notifyError(Q.text('Validation.Decimal'), '', null);
+                             input.val(oldText);
+                             input.focus();
+                             return;
+                         }
+                     }
+                     else if (input.hasClass("numeric")) {
+                         var i = Q.parseInteger(text);
+                         if (isNaN(i) || i > 32767 || i < 0) {
+                             Q.notifyError(Q.text('Validation.Integer'), '', null);
+                             input.val(oldText);
+                             input.focus();
+                             return;
+                         }
+                         value = i;
+                     }
+                     else
+                         value = text;
+         
+                     if (!pending) {
+                         this.pendingChanges[item.ProductID] = pending = {};
+                     }
+         
+                     pending[field] = value;
+                     item[field] = value;
+                     this.view.refresh();
+         
+                     if (input.hasClass("numeric"))
+                         value = Q.formatNumber(value, '0.##');
+         
+                     input.val(value).addClass('dirty');
+         
+                     this.setSaveButtonState();
+               //  }  */
+            /*    private setSaveButtonState() {
+                    this.toolbar.findButton('apply-changes-button').toggleClass('disabled',
+                        Object.keys(this.pendingChanges).length === 0);
                 }
-                var value = this.getEffectiveValue(item, idField);
-                var markup = "<select class='" + klass +
-                    "' data-field='" + idField +
-                    "' style='width: 100%; max-width: 100%'>";
-                for (var _i = 0, _a = lookup.items; _i < _a.length; _i++) {
-                    var c = _a[_i];
-                    var id = c[lookup.idField];
-                    markup += "<option value='" + Q.attrEncode(id) + "'";
-                    if (id == value) {
-                        markup += " selected";
-                    }
-                    markup += ">" + Q.htmlEncode(c[lookup.textField]) + "</option>";
-                }
-                return markup + "</select>";
-            };
-            ProductGrid.prototype.getEffectiveValue = function (item, field) {
-                var pending = this.pendingChanges[item.ProductID];
-                if (pending && pending[field] !== undefined) {
-                    return pending[field];
-                }
-                return item[field];
-            };
-            ProductGrid.prototype.getColumns = function () {
-                var _this = this;
-                var columns = _super.prototype.getColumns.call(this);
-                var num = function (ctx) { return _this.numericInputFormatter(ctx); };
-                var str = function (ctx) { return _this.stringInputFormatter(ctx); };
-                var supplier = Q.first(columns, function (x) { return x.field === "SupplierCompanyName" /* SupplierCompanyName */; });
-                supplier.referencedFields = ["SupplierID" /* SupplierID */];
-                supplier.format = function (ctx) { return _this.selectFormatter(ctx, "SupplierID" /* SupplierID */, Northwind.SupplierRow.getLookup()); };
-                Q.first(columns, function (x) { return x.field === "UnitPrice" /* UnitPrice */; }).format = num;
-                Q.first(columns, function (x) { return x.field === "UnitsInStock" /* UnitsInStock */; }).format = num;
-                return columns;
-            };
-            ProductGrid.prototype.inputsChange = function (e) {
-                var cell = this.slickGrid.getCellFromEvent(e);
-                var item = this.itemAt(cell.row);
-                var input = $(e.target);
-                var field = input.data('field');
-                var text = Q.coalesce(Q.trimToNull(input.val()), '0');
-                var pending = this.pendingChanges[item.ProductID];
-                var effective = this.getEffectiveValue(item, field);
-                var oldText;
-                if (input.hasClass("numeric"))
-                    oldText = Q.formatNumber(effective, '0.##');
-                else
-                    oldText = effective;
-                var value;
-                if (field === 'UnitPrice') {
-                    value = Q.parseDecimal(text);
-                    if (value == null || isNaN(value)) {
-                        Q.notifyError(Q.text('Validation.Decimal'), '', null);
-                        input.val(oldText);
-                        input.focus();
+        
+                private saveClick() {
+                    if (Object.keys(this.pendingChanges).length === 0) {
                         return;
                     }
-                }
-                else if (input.hasClass("numeric")) {
-                    var i = Q.parseInteger(text);
-                    if (isNaN(i) || i > 32767 || i < 0) {
-                        Q.notifyError(Q.text('Validation.Integer'), '', null);
-                        input.val(oldText);
-                        input.focus();
-                        return;
-                    }
-                    value = i;
-                }
-                else
-                    value = text;
-                if (!pending) {
-                    this.pendingChanges[item.ProductID] = pending = {};
-                }
-                pending[field] = value;
-                item[field] = value;
-                this.view.refresh();
-                if (input.hasClass("numeric"))
-                    value = Q.formatNumber(value, '0.##');
-                input.val(value).addClass('dirty');
-                this.setSaveButtonState();
-            };
-            ProductGrid.prototype.setSaveButtonState = function () {
-                this.toolbar.findButton('apply-changes-button').toggleClass('disabled', Object.keys(this.pendingChanges).length === 0);
-            };
-            ProductGrid.prototype.saveClick = function () {
-                if (Object.keys(this.pendingChanges).length === 0) {
-                    return;
-                }
-                // this calls save service for all modified rows, one by one
-                // you could write a batch update service
-                var keys = Object.keys(this.pendingChanges);
-                var current = -1;
-                var self = this;
-                (function saveNext() {
-                    if (++current >= keys.length) {
-                        self.refresh();
-                        return;
-                    }
-                    var key = keys[current];
-                    var entity = Q.deepClone(self.pendingChanges[key]);
-                    entity.ProductID = key;
-                    Q.serviceRequest('Northwind/Product/Update', {
-                        EntityId: key,
-                        Entity: entity
-                    }, function (response) {
-                        delete self.pendingChanges[key];
-                        saveNext();
-                    });
-                })();
-            };
+        
+              
+                    var keys = Object.keys(this.pendingChanges);
+                    var current = -1;
+                    var self = this;
+        
+                    (function saveNext() {
+                        if (++current >= keys.length) {
+                            self.refresh();
+                            return;
+                        }
+        
+                        var key = keys[current];
+                        var entity = Q.deepClone(self.pendingChanges[key]);
+                        entity.ProductID = key;
+                        Q.serviceRequest('Northwind/Product/Update', {
+                            EntityId: key,
+                            Entity: entity
+                        }, (response) => {
+                            delete self.pendingChanges[key];
+                            saveNext();
+                        });
+                    })();
+                } */
             ProductGrid.prototype.getQuickFilters = function () {
                 var flt = _super.prototype.getQuickFilters.call(this);
                 var q = Q.parseQueryString();
@@ -5834,6 +6161,52 @@ var Miapp2;
             return ProjectsGrid;
         }(Serenity.EntityGrid));
         Northwind.ProjectsGrid = ProjectsGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProyectoRDialog = /** @class */ (function (_super) {
+            __extends(ProyectoRDialog, _super);
+            function ProyectoRDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.ProyectoRForm(_this.idPrefix);
+                return _this;
+            }
+            ProyectoRDialog.prototype.getFormKey = function () { return Northwind.ProyectoRForm.formKey; };
+            ProyectoRDialog.prototype.getIdProperty = function () { return Northwind.ProyectoRRow.idProperty; };
+            ProyectoRDialog.prototype.getLocalTextPrefix = function () { return Northwind.ProyectoRRow.localTextPrefix; };
+            ProyectoRDialog.prototype.getNameProperty = function () { return Northwind.ProyectoRRow.nameProperty; };
+            ProyectoRDialog.prototype.getService = function () { return Northwind.ProyectoRService.baseUrl; };
+            ProyectoRDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProyectoRDialog);
+            return ProyectoRDialog;
+        }(Serenity.EntityDialog));
+        Northwind.ProyectoRDialog = ProyectoRDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var ProyectoRGrid = /** @class */ (function (_super) {
+            __extends(ProyectoRGrid, _super);
+            function ProyectoRGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ProyectoRGrid.prototype.getColumnsKey = function () { return 'Northwind.ProyectoR'; };
+            ProyectoRGrid.prototype.getDialogType = function () { return Northwind.ProyectoRDialog; };
+            ProyectoRGrid.prototype.getIdProperty = function () { return Northwind.ProyectoRRow.idProperty; };
+            ProyectoRGrid.prototype.getLocalTextPrefix = function () { return Northwind.ProyectoRRow.localTextPrefix; };
+            ProyectoRGrid.prototype.getService = function () { return Northwind.ProyectoRService.baseUrl; };
+            ProyectoRGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ProyectoRGrid);
+            return ProyectoRGrid;
+        }(Serenity.EntityGrid));
+        Northwind.ProyectoRGrid = ProyectoRGrid;
     })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
@@ -6195,17 +6568,205 @@ var Miapp2;
 })(Miapp2 || (Miapp2 = {}));
 var Miapp2;
 (function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TipoMuebleDialog = /** @class */ (function (_super) {
+            __extends(TipoMuebleDialog, _super);
+            function TipoMuebleDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.TipoMuebleForm(_this.idPrefix);
+                return _this;
+            }
+            TipoMuebleDialog.prototype.getFormKey = function () { return Northwind.TipoMuebleForm.formKey; };
+            TipoMuebleDialog.prototype.getIdProperty = function () { return Northwind.TipoMuebleRow.idProperty; };
+            TipoMuebleDialog.prototype.getLocalTextPrefix = function () { return Northwind.TipoMuebleRow.localTextPrefix; };
+            TipoMuebleDialog.prototype.getNameProperty = function () { return Northwind.TipoMuebleRow.nameProperty; };
+            TipoMuebleDialog.prototype.getService = function () { return Northwind.TipoMuebleService.baseUrl; };
+            TipoMuebleDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TipoMuebleDialog);
+            return TipoMuebleDialog;
+        }(Serenity.EntityDialog));
+        Northwind.TipoMuebleDialog = TipoMuebleDialog;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
+        var TipoMuebleGrid = /** @class */ (function (_super) {
+            __extends(TipoMuebleGrid, _super);
+            function TipoMuebleGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            TipoMuebleGrid.prototype.getColumnsKey = function () { return 'Northwind.TipoMueble'; };
+            TipoMuebleGrid.prototype.getDialogType = function () { return Northwind.TipoMuebleDialog; };
+            TipoMuebleGrid.prototype.getIdProperty = function () { return Northwind.TipoMuebleRow.idProperty; };
+            TipoMuebleGrid.prototype.getLocalTextPrefix = function () { return Northwind.TipoMuebleRow.localTextPrefix; };
+            TipoMuebleGrid.prototype.getService = function () { return Northwind.TipoMuebleService.baseUrl; };
+            TipoMuebleGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TipoMuebleGrid);
+            return TipoMuebleGrid;
+        }(Serenity.EntityGrid));
+        Northwind.TipoMuebleGrid = TipoMuebleGrid;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var MuestreosDialog = /** @class */ (function (_super) {
+            __extends(MuestreosDialog, _super);
+            function MuestreosDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Registros.MuestreosForm(_this.idPrefix);
+                return _this;
+            }
+            MuestreosDialog.prototype.getFormKey = function () { return Registros.MuestreosForm.formKey; };
+            MuestreosDialog.prototype.getIdProperty = function () { return Registros.MuestreosRow.idProperty; };
+            MuestreosDialog.prototype.getLocalTextPrefix = function () { return Registros.MuestreosRow.localTextPrefix; };
+            MuestreosDialog.prototype.getNameProperty = function () { return Registros.MuestreosRow.nameProperty; };
+            MuestreosDialog.prototype.getService = function () { return Registros.MuestreosService.baseUrl; };
+            MuestreosDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MuestreosDialog);
+            return MuestreosDialog;
+        }(Serenity.EntityDialog));
+        Registros.MuestreosDialog = MuestreosDialog;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var MuestreosGrid = /** @class */ (function (_super) {
+            __extends(MuestreosGrid, _super);
+            function MuestreosGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            MuestreosGrid.prototype.getColumnsKey = function () { return 'Registros.Muestreos'; };
+            MuestreosGrid.prototype.getDialogType = function () { return Registros.MuestreosDialog; };
+            MuestreosGrid.prototype.getIdProperty = function () { return Registros.MuestreosRow.idProperty; };
+            MuestreosGrid.prototype.getLocalTextPrefix = function () { return Registros.MuestreosRow.localTextPrefix; };
+            MuestreosGrid.prototype.getService = function () { return Registros.MuestreosService.baseUrl; };
+            MuestreosGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: Registros.MuestreosService.baseUrl + '/ListExcel',
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    reportTitle: 'Reporte Muestreos',
+                    columnTitles: {
+                        'Discontinued': 'Dis.',
+                    },
+                    tableOptions: {
+                        columnStyles: {
+                            ProductID: {
+                                columnWidth: 25,
+                                halign: 'right'
+                            },
+                            Discountinued: {
+                                columnWidth: 25
+                            }
+                        }
+                    }
+                }));
+                return buttons;
+            };
+            MuestreosGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MuestreosGrid);
+            return MuestreosGrid;
+        }(Serenity.EntityGrid));
+        Registros.MuestreosGrid = MuestreosGrid;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+/// <reference path="MuestreosGrid.ts" />
+var Miapp2;
+(function (Miapp2) {
+    var Registros;
+    (function (Registros) {
+        var Muestreosreport = /** @class */ (function (_super) {
+            __extends(Muestreosreport, _super);
+            function Muestreosreport(container) {
+                return _super.call(this, container) || this;
+            }
+            Muestreosreport.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(Miapp2.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: Registros.MuestreosService.baseUrl + '/ListExcel',
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                buttons.push(Miapp2.Common.PdfExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    reportTitle: 'Product List',
+                    columnTitles: {
+                        'Discontinued': 'Dis.',
+                    },
+                    tableOptions: {
+                        columnStyles: {
+                            ProductID: {
+                                columnWidth: 25,
+                                halign: 'right'
+                            },
+                            Discountinued: {
+                                columnWidth: 25
+                            }
+                        }
+                    }
+                }));
+                return buttons;
+            };
+            Muestreosreport.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                // need to register this plugin for grouping or you'll have errors
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        new Slick.Aggregators.Sum('DesviacionEconomica'),
+                    ]
+                });
+                return grid;
+            };
+            Muestreosreport.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true;
+                return opt;
+            };
+            Muestreosreport.prototype.usePager = function () {
+                return false;
+            };
+            Muestreosreport = __decorate([
+                Serenity.Decorators.registerClass()
+            ], Muestreosreport);
+            return Muestreosreport;
+        }(Registros.MuestreosGrid));
+        Registros.Muestreosreport = Muestreosreport;
+    })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
     var Registros;
     (function (Registros) {
         var RegistrosDialog = /** @class */ (function (_super) {
             __extends(RegistrosDialog, _super);
             function RegistrosDialog() {
-                var _this = _super.call(this) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 _this.form = new Registros.RegistrosForm(_this.idPrefix);
-                _this.toolbar.findButton(".delete-button").remove();
                 return _this;
             }
-            RegistrosDialog.prototype.getFormKey = function () { return 'Registros.Registros'; };
+            RegistrosDialog.prototype.getFormKey = function () { return Registros.RegistrosForm.formKey; };
             RegistrosDialog.prototype.getIdProperty = function () { return Registros.RegistrosRow.idProperty; };
             RegistrosDialog.prototype.getLocalTextPrefix = function () { return Registros.RegistrosRow.localTextPrefix; };
             RegistrosDialog.prototype.getNameProperty = function () { return Registros.RegistrosRow.nameProperty; };
@@ -8490,7 +9051,7 @@ var Miapp2;
                                 Q.notifyError("Please select a file!");
                                 return;
                             }
-                            Miapp2.ImportFiles.PiezaService.ExcelImport({
+                            Miapp2.Northwind.ProductService.ExcelImport({
                                 FileName: _this.form.FileName.value.Filename
                             }, function (response) {
                                 Q.notifyInfo('Inserted: ' + (response.Inserted || 0) +

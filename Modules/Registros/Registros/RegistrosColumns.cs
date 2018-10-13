@@ -13,22 +13,18 @@ namespace Miapp2.Registros.Columns
     [BasedOnRow(typeof(Entities.RegistrosRow), CheckNames = true)]
     public class RegistrosColumns
     {
-
+      
         public DateTime Fecha { get; set; }
-        [DisplayName("Material")]
+        [EditLink]
         public String ProductProductName { get; set; }
         public Decimal Cantidad { get; set; }
-        [Width(140)]
         public Int32 Movimiento { get; set; }
-        [DisplayName("Numero de Orden")]
-        public String NoOrder { get; set; }
-
-
-        [DisplayName("Mueble")]
-        public String DesignTypeId { get; set; }
-
-
-        [DisplayName("Proyecto")]
-        public String ProjectName { get; set; }
+        public String NoOrden { get; set; }
+        [QuickFilter]
+        public String ProyectorProyectorName { get; set; }
+        [QuickFilter]
+        public String TipoMuebleMuebleName { get; set; }
+        [QuickFilter]
+        public String NoCasaNumeroCasa { get; set; }
     }
 }

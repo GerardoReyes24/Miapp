@@ -38,6 +38,18 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.Muestreos",
+          "Identifier": "Muestreos",
+          "Module": "Registros",
+          "PermissionKey": "Administration:Muestreos"
+        },
+        {
+          "Tablename": "dbo.NoCasa",
+          "Identifier": "NoCasa",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.Priority",
           "Identifier": "Priority",
           "Module": "Northwind",
@@ -68,6 +80,12 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.ProyectoR",
+          "Identifier": "ProyectoR",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.Prueba",
           "Identifier": "Prueba",
           "Module": "ImportFiles",
@@ -83,6 +101,12 @@
           "Tablename": "dbo.Registros",
           "Identifier": "Registros",
           "Module": "Registros",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.TipoMueble",
+          "Identifier": "TipoMueble",
+          "Module": "Northwind",
           "PermissionKey": "Administration:General"
         }
       ]

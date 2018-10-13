@@ -19,7 +19,7 @@ export function initEvents (vm: Component) {
   }
 }
 
-let target: any
+let target: Component
 
 function add (event, fn, once) {
   if (once) {
@@ -40,7 +40,6 @@ export function updateComponentListeners (
 ) {
   target = vm
   updateListeners(listeners, oldListeners || {}, add, remove, vm)
-  target = undefined
 }
 
 export function eventsMixin (Vue: Class<Component>) {
@@ -92,7 +91,7 @@ export function eventsMixin (Vue: Class<Component>) {
     if (!cbs) {
       return vm
     }
-    if (!fn) {
+    if (arguments.length === 1) {
       vm._events[event] = null
       return vm
     }

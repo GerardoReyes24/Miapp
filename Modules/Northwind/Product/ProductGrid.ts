@@ -16,7 +16,7 @@
         constructor(container: JQuery) {
             super(container);
 
-            this.slickContainer.on('change', '.edit:input', (e) => this.inputsChange(e));
+   //         this.slickContainer.on('change', '.edit:input', (e) => this.inputsChange(e));
         }
 
         protected getButtons()
@@ -51,34 +51,40 @@
             }));
 
             buttons.push({
+                title: 'Import From Excel',
+                cssClass: 'export-xlsx-button',
+                onClick: () => {
+                    // open import dialog, let it handle rest
+                    var dialog = new BasicSamples.ProductExcelImportDialog();
+                    dialog.element.on('dialogclose', () => {
+                        this.refresh();
+                        dialog = null;
+                    });
+                    dialog.dialogOpen();
+                }
+            });
+
+
+      /*      buttons.push({
                 title: 'Save Changes',
                 cssClass: 'apply-changes-button disabled',
                 onClick: e => this.saveClick(),
                 separator: true
-            });
+            }); */
 
             return buttons;
         }
 
         protected onViewProcessData(response) {
             this.pendingChanges = {};
-            this.setSaveButtonState();
+         //   this.setSaveButtonState();
             return super.onViewProcessData(response);
         }
 
-        // PLEASE NOTE! Inline editing in grids is not something Serenity supports nor recommends.
-        // SlickGrid has some set of limitations, UI is very hard to use on some devices like mobile, 
-        // custom widgets and validations are not possible, and as a bonus the code can become a mess.
-        // 
-        // This was just a sample how-to after much requests, and is not supported. 
-        // This is all we can offer, please don't ask us to Guide you...
+      
 
-        /**
-         * It would be nice if we could use autonumeric, Serenity editors etc. here, to control input validation,
-         * but it's not supported by SlickGrid as we are only allowed to return a string, and should attach
-         * no event handlers to rendered cell contents
-         */
-        private numericInputFormatter(ctx) {
+       
+     /*   private numericInputFormatter(ctx) {
             var klass = 'edit numeric';
             var item = ctx.item as ProductRow;
             var pending = this.pendingChanges[item.ProductID];
@@ -110,12 +116,12 @@
                 "' data-field='" + column.field +
                 "' value='" + Q.attrEncode(value) + 
                 "' maxlength='" + column.sourceItem.maxLength + "'/>";
-        }
+        } */
 
         /**
          * Sorry but you cannot use LookupEditor, e.g. Select2 here, only possible is a SELECT element
          */
-        private selectFormatter(ctx: Slick.FormatterContext, idField: string, lookup: Q.Lookup<any>) {
+   /*    private selectFormatter(ctx: Slick.FormatterContext, idField: string, lookup: Q.Lookup<any>) {
             var klass = 'edit';
             var item = ctx.item as ProductRow;
             var pending = this.pendingChanges[item.ProductID];
@@ -138,7 +144,7 @@
                 markup += ">" + Q.htmlEncode(c[lookup.textField]) + "</option>";
             }
             return markup + "</select>";
-        }
+        } 
 
         private getEffectiveValue(item, field): any {
             var pending = this.pendingChanges[item.ProductID];
@@ -147,9 +153,9 @@
             }
 
             return item[field];
-        }
+        } */
 
-        protected getColumns() {
+   /*     protected getColumns() {
             var columns = super.getColumns();
             var num = ctx => this.numericInputFormatter(ctx);
             var str = ctx => this.stringInputFormatter(ctx);
@@ -159,15 +165,15 @@
 
             var supplier = Q.first(columns, x => x.field === fld.SupplierCompanyName);
             supplier.referencedFields = [fld.SupplierID];
-            supplier.format = ctx => this.selectFormatter(ctx, fld.SupplierID, SupplierRow.getLookup());
+            supplier.format = ctx => this.selectFormatter(ctx, fld.SupplierID, SupplierRow.getLookup()); 
 
-            Q.first(columns, x => x.field === fld.UnitPrice).format = num;
-            Q.first(columns, x => x.field === fld.UnitsInStock).format = num;
+        //    Q.first(columns, x => x.field === fld.UnitPrice).format = num;
+      //      Q.first(columns, x => x.field === fld.UnitsInStock).format = num;
  
             return columns;
-        }
+        } */
 
-        private inputsChange(e: JQueryEventObject) {
+   /*  //     private inputsChange(e: JQueryEventObject) {
             var cell = this.slickGrid.getCellFromEvent(e);
             var item = this.itemAt(cell.row);
             var input = $(e.target);
@@ -219,9 +225,9 @@
             input.val(value).addClass('dirty');
 
             this.setSaveButtonState();
-        }
+      //  }  */
 
-        private setSaveButtonState() {
+    /*    private setSaveButtonState() {
             this.toolbar.findButton('apply-changes-button').toggleClass('disabled',
                 Object.keys(this.pendingChanges).length === 0);
         }
@@ -229,10 +235,9 @@
         private saveClick() {
             if (Object.keys(this.pendingChanges).length === 0) {
                 return;
-            }
+            }  
 
-            // this calls save service for all modified rows, one by one
-            // you could write a batch update service
+      
             var keys = Object.keys(this.pendingChanges);
             var current = -1;
             var self = this;
@@ -254,7 +259,7 @@
                     saveNext();
                 });
             })();
-        }
+        } */
 
         protected getQuickFilters() {
             var flt = super.getQuickFilters();

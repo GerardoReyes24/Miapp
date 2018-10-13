@@ -29,7 +29,7 @@
                             return;
                         }
 
-                        ImportFiles.PiezaService.ExcelImport({
+                        Northwind.ProductService.ExcelImport({
                             FileName: this.form.FileName.value.Filename
                         }, response => {
                             Q.notifyInfo(
