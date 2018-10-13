@@ -14,7 +14,7 @@ using Northwind = Miapp2.Northwind.Pages;
 
 [assembly: NavigationLink(8600, "Controles/Categorias", typeof(Northwind.CategoryController), icon: "fa-folder-o")]
 
-
+//Nada mas quiero hacer la prueba del sync XD
 
 //[assembly: NavigationLink(9000, "Controles/Producción", typeof(MyPages.ProductionController), icon: "fa-archive")]
 //[assembly: NavigationLink(9100, "Controles/Diseño", typeof(Northwind.DesignController ), icon: "far fa-clone")]
