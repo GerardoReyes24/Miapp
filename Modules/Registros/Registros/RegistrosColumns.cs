@@ -17,7 +17,9 @@ namespace Miapp2.Registros.Columns
         public DateTime Fecha { get; set; }
         [EditLink]
         public String ProductProductName { get; set; }
+        [Width(200)]
         public Decimal Cantidad { get; set; }
+        [Width(200)]
         public Int32 Movimiento { get; set; }
         public String NoOrden { get; set; }
         [QuickFilter]

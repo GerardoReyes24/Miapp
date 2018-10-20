@@ -21,7 +21,7 @@ namespace Miapp2.Registros.Columns
         public Decimal CantidadAMuestrear { get; set; }
         [DisplayName("Desviaciones"), Width(200)]
         public Decimal CantidadContada { get; set; }
-       [Width(200), DisplayFormat("#,##0.00")]
+       [Width(200), DisplayFormat("'$'+#,##0.00")]
         public Decimal DesviacionEconomica { get; set; }
     }
 }

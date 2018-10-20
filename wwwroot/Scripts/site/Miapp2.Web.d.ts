@@ -2784,6 +2784,7 @@ declare namespace Miapp2.Registros {
     enum TipoMovimiento {
         Entrada = 1,
         Salida = 2,
+        Devolucion = 3,
     }
 }
 declare namespace Miapp2 {

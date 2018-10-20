@@ -2550,6 +2550,7 @@ var Miapp2;
         (function (TipoMovimiento) {
             TipoMovimiento[TipoMovimiento["Entrada"] = 1] = "Entrada";
             TipoMovimiento[TipoMovimiento["Salida"] = 2] = "Salida";
+            TipoMovimiento[TipoMovimiento["Devolucion"] = 3] = "Devolucion";
         })(TipoMovimiento = Registros.TipoMovimiento || (Registros.TipoMovimiento = {}));
         Serenity.Decorators.registerEnumType(TipoMovimiento, 'Miapp2.Registros.TipoMovimiento', 'Registros.TipoMOvimiento');
     })(Registros = Miapp2.Registros || (Miapp2.Registros = {}));
