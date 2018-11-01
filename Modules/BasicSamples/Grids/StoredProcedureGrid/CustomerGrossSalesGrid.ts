@@ -18,7 +18,7 @@
         /**
          * This method is called to preprocess data returned from the list service
          */
-        protected onViewProcessData(response: Serenity.ListResponse<Northwind.SalesByCategoryRow>) {
+        protected onViewProcessData(response: Serenity.ListResponse<Northwind.CustomerGrossSalesRow>) {
             response = super.onViewProcessData(response);
 
             // there is no __id property in CustomerGrossSalesRow but 
@@ -61,7 +61,7 @@
 
             this.view.setGrouping(
                 [{
-                    getter: 'ContactName'
+                    getter: 'ProyectorName'
                 }]);
 
             return grid;

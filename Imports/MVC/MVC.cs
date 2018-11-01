@@ -383,6 +383,11 @@ namespace MVC
                 public const string RegionIndex = "~/Modules/Northwind/Region/RegionIndex.cshtml";
             }
 
+            public static class RUbicacion
+            {
+                public const string RUbicacionIndex = "~/Modules/Northwind/RUbicacion/RUbicacionIndex.cshtml";
+            }
+
             public static class Shipper
             {
                 public const string ShipperIndex = "~/Modules/Northwind/Shipper/ShipperIndex.cshtml";

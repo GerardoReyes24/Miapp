@@ -8,10 +8,10 @@
     public class CustomerGrossSalesColumns
     {
         [Width(150), SortOrder(1)]
-        public String ContactName { get; set; }
+        public String ProyectorName { get; set; }
 
         [Width(250)]
-        public String ProductName { get; set; }
+        public String NoCasaNumeroCasa { get; set; }
 
         [Width(150), AlignRight, SortOrder(2, descending: true), DisplayFormat("#,##0.00")]
         public Decimal GrossAmount { get; set; }

@@ -104,6 +104,12 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.RUbicacion",
+          "Identifier": "RUbicacion",
+          "Module": "Northwind",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.TipoMueble",
           "Identifier": "TipoMueble",
           "Module": "Northwind",

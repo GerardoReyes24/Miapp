@@ -12,32 +12,32 @@
     [ModifyPermission("Northwind:General")]
     public sealed class CustomerGrossSalesRow : Row, INameRow
     {
-        [DisplayName("Customer Id"), Column("CustomerID"), NotNull]
-        public String CustomerId
+        [DisplayName("Customer Id"), Column("ProyectorID"), NotNull]
+        public Int32? ProyectorId
         {
-            get { return Fields.CustomerId[this]; }
-            set { Fields.CustomerId[this] = value; }
+            get { return Fields.ProyectorId[this]; }
+            set { Fields.ProyectorId[this] = value; }
         }
 
-        [DisplayName("Contact Name"), Size(40), NotNull, QuickSearch]
-        public String ContactName
+        [DisplayName("Proyecto "), Size(40), NotNull, QuickSearch]
+        public String ProyectorName
         {
-            get { return Fields.ContactName[this]; }
-            set { Fields.ContactName[this] = value; }
+            get { return Fields.ProyectorName[this]; }
+            set { Fields.ProyectorName[this] = value; }
         }
 
-        [DisplayName("Product Id"), Column("ProductID"), NotNull]
-        public Int32? ProductId
+        [DisplayName("Product Id"), Column("NoCasaID"), NotNull]
+        public Int32? NoCasaId
         {
-            get { return Fields.ProductId[this]; }
-            set { Fields.ProductId[this] = value; }
+            get { return Fields.NoCasaId[this]; }
+            set { Fields.NoCasaId[this] = value; }
         }
 
-        [DisplayName("Product Name"), Size(40), NotNull, QuickSearch]
-        public String ProductName
+        [DisplayName("Numero Casa"), Size(40), NotNull, QuickSearch]
+        public String NoCasaNumeroCasa
         {
-            get { return Fields.ProductName[this]; }
-            set { Fields.ProductName[this] = value; }
+            get { return Fields.NoCasaNumeroCasa[this]; }
+            set { Fields.NoCasaNumeroCasa[this] = value; }
         }
 
         [DisplayName("Gross Amount"), Size(19), Scale(2)]
@@ -49,7 +49,7 @@
 
         StringField INameRow.NameField
         {
-            get { return Fields.ContactName; }
+            get { return Fields.ProyectorName; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -61,10 +61,10 @@
 
         public class RowFields : RowFieldsBase
         {
-            public StringField CustomerId;
-            public StringField ContactName;
-            public Int32Field ProductId;
-            public StringField ProductName;
+            public Int32Field ProyectorId;
+            public StringField ProyectorName;
+            public Int32Field NoCasaId;
+            public StringField NoCasaNumeroCasa;
             public DecimalField GrossAmount;
         }
     }

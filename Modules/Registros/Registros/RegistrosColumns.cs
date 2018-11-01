@@ -27,6 +27,8 @@ namespace Miapp2.Registros.Columns
         [QuickFilter]
         public String TipoMuebleMuebleName { get; set; }
         [QuickFilter]
+        public String RUbicacionN { get; set; }
+        [QuickFilter]
         public String NoCasaNumeroCasa { get; set; }
     }
 }

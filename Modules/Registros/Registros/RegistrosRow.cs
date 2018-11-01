@@ -84,6 +84,15 @@ namespace Miapp2.Registros.Entities
             set { Fields.NoCasaId[this] = value; }
         }
 
+        [DisplayName("Ubicación"), Column("RUbicacionID"), NotNull, ForeignKey("[dbo].[RUbicacion]", "RUbicacionID"), LeftJoin("jRUbicacion"), TextualField("Ubicacion")]
+        [LookupEditor(typeof(RUbicacionRow), InplaceAdd = true)]
+
+        public Int32? RUbicacionId
+        {
+            get { return Fields.RUbicacionId[this]; }
+            set { Fields.RUbicacionId[this] = value; }
+        }
+
         [DisplayName("Material"), Expression("jProduct.[ProductName]")]
         public String ProductProductName
         {
@@ -104,6 +113,8 @@ namespace Miapp2.Registros.Entities
             get { return Fields.ProductCategoryId[this]; }
             set { Fields.ProductCategoryId[this] = value; }
         }
+
+
 
         [DisplayName("Product Unit Price"), Expression("jProduct.[UnitPrice]")]
         public Decimal? ProductUnitPrice
@@ -168,12 +179,30 @@ namespace Miapp2.Registros.Entities
             set { Fields.TipoMuebleMuebleDescription[this] = value; }
         }
 
+        [DisplayName("Ubicación "), Expression("jRUbicacion.[RUbicacionN]")]
+        public String RUbicacionN
+        {
+            get { return Fields.RUbicacionN[this]; }
+            set { Fields.RUbicacionN[this] = value; }
+        }
+
+        [DisplayName("Descripción Ubicación"), Expression("jRUbicacion.[RUbicacionDesc]")]
+        public String RUbicacionDesc
+            
+     
+        {
+            get { return Fields.RUbicacionDesc[this]; }
+            set { Fields.RUbicacionDesc[this] = value; }
+        }
+
         [DisplayName("No Casa "), Expression("jNoCasa.[NumeroCasa]")]
         public String NoCasaNumeroCasa
         {
             get { return Fields.NoCasaNumeroCasa[this]; }
             set { Fields.NoCasaNumeroCasa[this] = value; }
         }
+
+   
 
         IIdField IIdRow.IdField
         {
@@ -203,6 +232,7 @@ namespace Miapp2.Registros.Entities
             public Int32Field ProyectorId;
             public Int32Field TipoMuebleId;
             public Int32Field NoCasaId;
+            public Int32Field RUbicacionId;
 
             public StringField ProductProductName;
             public Int32Field ProductSupplierId;
@@ -215,6 +245,8 @@ namespace Miapp2.Registros.Entities
 
             public StringField ProyectorProyectorName;
             public StringField ProyectorDescription;
+            public StringField RUbicacionN;
+            public StringField RUbicacionDesc;
 
             public StringField TipoMuebleMuebleName;
             public StringField TipoMuebleMuebleDescription;

@@ -1,21 +1,21 @@
 ﻿namespace Miapp2.Northwind {
     export interface CustomerGrossSalesRow {
-        CustomerId?: string;
-        ContactName?: string;
-        ProductId?: number;
-        ProductName?: string;
+        ProyectorId?: number;
+        ProyectorName?: string;
+        NoCasaId?: number;
+        NoCasaNumeroCasa?: string;
         GrossAmount?: number;
     }
 
     export namespace CustomerGrossSalesRow {
-        export const nameProperty = 'ContactName';
+        export const nameProperty = 'ProyectorName';
         export const localTextPrefix = 'Northwind.CustomerGrossSales';
 
         export declare const enum Fields {
-            CustomerId = "CustomerId",
-            ContactName = "ContactName",
-            ProductId = "ProductId",
-            ProductName = "ProductName",
+            ProyectorId = "ProyectorId",
+            ProyectorName = "ProyectorName",
+            NoCasaId = "NoCasaId",
+            NoCasaNumeroCasa = "NoCasaNumeroCasa",
             GrossAmount = "GrossAmount"
         }
     }

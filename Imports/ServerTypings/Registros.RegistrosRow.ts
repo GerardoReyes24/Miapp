@@ -9,6 +9,7 @@
         ProyectorId?: number;
         TipoMuebleId?: number;
         NoCasaId?: number;
+        RUbicacionId?: number;
         ProductProductName?: string;
         ProductSupplierId?: number;
         ProductCategoryId?: number;
@@ -19,6 +20,8 @@
         ProductProduct2Id?: string;
         ProyectorProyectorName?: string;
         ProyectorDescription?: string;
+        RUbicacionN?: string;
+        RUbicacionDesc?: string;
         TipoMuebleMuebleName?: string;
         TipoMuebleMuebleDescription?: string;
         NoCasaNumeroCasa?: string;
@@ -39,6 +42,7 @@
             ProyectorId = "ProyectorId",
             TipoMuebleId = "TipoMuebleId",
             NoCasaId = "NoCasaId",
+            RUbicacionId = "RUbicacionId",
             ProductProductName = "ProductProductName",
             ProductSupplierId = "ProductSupplierId",
             ProductCategoryId = "ProductCategoryId",
@@ -49,6 +53,8 @@
             ProductProduct2Id = "ProductProduct2Id",
             ProyectorProyectorName = "ProyectorProyectorName",
             ProyectorDescription = "ProyectorDescription",
+            RUbicacionN = "RUbicacionN",
+            RUbicacionDesc = "RUbicacionDesc",
             TipoMuebleMuebleName = "TipoMuebleMuebleName",
             TipoMuebleMuebleDescription = "TipoMuebleMuebleDescription",
             NoCasaNumeroCasa = "NoCasaNumeroCasa"

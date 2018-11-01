@@ -21,6 +21,7 @@ namespace Miapp2.Registros.Forms
         public String NoOrden { get; set; }
         public Int32 ProyectorId { get; set; }
         public Int32 NoCasaId { get; set; }
+        public Int32 RUbicacionId { get; set; }
         public Int32 TipoMuebleId { get; set; }
        
     }

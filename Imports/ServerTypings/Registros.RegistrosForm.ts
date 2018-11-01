@@ -7,6 +7,7 @@
         NoOrden: Serenity.StringEditor;
         ProyectorId: Serenity.LookupEditor;
         NoCasaId: Serenity.LookupEditor;
+        RUbicacionId: Serenity.LookupEditor;
         TipoMuebleId: Serenity.LookupEditor;
     }
 
@@ -35,6 +36,7 @@
                     'NoOrden', w4,
                     'ProyectorId', w1,
                     'NoCasaId', w1,
+                    'RUbicacionId', w1,
                     'TipoMuebleId', w1
                 ]);
             }

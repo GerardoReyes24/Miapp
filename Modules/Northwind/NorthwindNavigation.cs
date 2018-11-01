@@ -27,3 +27,4 @@ using Northwind = Miapp2.Northwind.Pages;
 [assembly: NavigationLink(int.MaxValue, "Northwind/Tipo Mueble", typeof(MyPages.TipoMuebleController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "Northwind/No Casa", typeof(MyPages.NoCasaController), icon: null)]
  */
+//[assembly: NavigationLink(int.MaxValue, "Northwind/R Ubicacion", typeof(MyPages.RUbicacionController), icon: null)]
