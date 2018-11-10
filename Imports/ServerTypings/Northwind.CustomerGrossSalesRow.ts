@@ -3,7 +3,7 @@
         ProyectorId?: number;
         ProyectorName?: string;
         NoCasaId?: number;
-        NoCasaNumeroCasa?: string;
+        NumeroCasa?: string;
         GrossAmount?: number;
     }
 
@@ -15,7 +15,7 @@
             ProyectorId = "ProyectorId",
             ProyectorName = "ProyectorName",
             NoCasaId = "NoCasaId",
-            NoCasaNumeroCasa = "NoCasaNumeroCasa",
+            NumeroCasa = "NumeroCasa",
             GrossAmount = "GrossAmount"
         }
     }

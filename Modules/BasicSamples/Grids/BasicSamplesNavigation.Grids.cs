@@ -20,4 +20,4 @@ using Serenity.Navigation;
 [assembly: NavigationLink(7950, "Temas/Grids/View Without ID", typeof(BasicSamplesController), action: "ViewWithoutID")]
 [assembly: NavigationLink(7950, "Temas/Grids/Wrapped Headers", typeof(BasicSamplesController), action: "WrappedHeaders")]
 */
-[assembly: NavigationLink(7950, "Temas/Grids/Stored Procedure Grid", typeof(BasicSamplesController), action: "StoredProcedureGrid")]
+//[assembly: NavigationLink(7950, "Temas/Grids/Stored Procedure Grid", typeof(BasicSamplesController), action: "StoredProcedureGrid")]

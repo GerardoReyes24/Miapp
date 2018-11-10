@@ -23,3 +23,4 @@ C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyIn
 C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.AssemblyInfo.cs
 C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.dll
 C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.pdb
+C:\Users\Manuel\Source\Repos\Miapp\obj\Debug\netcoreapp2.0\Miapp2.Web.csprojAssemblyReference.cache

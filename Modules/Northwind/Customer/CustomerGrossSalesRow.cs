@@ -7,7 +7,7 @@
     using System.ComponentModel;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[GrossSales]")]
-    [DisplayName("Customer Gross Sales")]
+    [DisplayName("Resumen de costos")]
     [ReadPermission("Northwind:General")]
     [ModifyPermission("Northwind:General")]
     public sealed class CustomerGrossSalesRow : Row, INameRow
@@ -34,13 +34,13 @@
         }
 
         [DisplayName("Numero Casa"), Size(40), NotNull, QuickSearch]
-        public String NoCasaNumeroCasa
+        public String NumeroCasa
         {
-            get { return Fields.NoCasaNumeroCasa[this]; }
-            set { Fields.NoCasaNumeroCasa[this] = value; }
+            get { return Fields.NumeroCasa[this]; }
+            set { Fields.NumeroCasa[this] = value; }
         }
 
-        [DisplayName("Gross Amount"), Size(19), Scale(2)]
+        [DisplayName("Costo"), Size(19), Scale(2)]
         public Decimal? GrossAmount
         {
             get { return Fields.GrossAmount[this]; }
@@ -64,7 +64,7 @@
             public Int32Field ProyectorId;
             public StringField ProyectorName;
             public Int32Field NoCasaId;
-            public StringField NoCasaNumeroCasa;
+            public StringField NumeroCasa;
             public DecimalField GrossAmount;
         }
     }
