@@ -13,7 +13,7 @@
         public ListResponse<MyRow> List(IDbConnection connection, 
             CustomerGrossSalesListRequest request)
         {
-            var data = connection.Query<MyRow>("RegistrosCostos",
+            var data = connection.Query<MyRow>("RegistrosCosto",
                 param: new
                 {
                     startDate = request.StartDate,

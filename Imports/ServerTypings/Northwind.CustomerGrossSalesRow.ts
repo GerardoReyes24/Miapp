@@ -7,6 +7,10 @@
         GrossAmount?: number;
         TipoMuebleId?: number;
         MuebleName?: string;
+        RegistroId?: number;
+        Cantidad?: number;
+        ProductId?: string;
+        ProductName?: string;
     }
 
     export namespace CustomerGrossSalesRow {
@@ -20,7 +24,11 @@
             NumeroCasa = "NumeroCasa",
             GrossAmount = "GrossAmount",
             TipoMuebleId = "TipoMuebleId",
-            MuebleName = "MuebleName"
+            MuebleName = "MuebleName",
+            RegistroId = "RegistroId",
+            Cantidad = "Cantidad",
+            ProductId = "ProductId",
+            ProductName = "ProductName"
         }
     }
 }

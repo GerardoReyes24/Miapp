@@ -56,6 +56,37 @@
         }
 
 
+        [DisplayName("Registro Id"), Column("RegistroID"), NotNull]
+        public Int32? RegistroId
+        {
+            get { return Fields.RegistroId[this]; }
+            set { Fields.RegistroId[this] = value; }
+        }
+
+        [DisplayName("Cantidad"), Size(18), Scale(2), NotNull]
+        public Decimal? Cantidad
+        {
+            get { return Fields.Cantidad[this]; }
+            set { Fields.Cantidad[this] = value; }
+        }
+
+        [DisplayName("Material"), Column("ProductID"), Size(15), NotNull]
+    
+        public String ProductId
+        {
+            get { return Fields.ProductId[this]; }
+            set { Fields.ProductId[this] = value; }
+        }
+
+        [DisplayName("Material")]
+        public String ProductName
+        {
+            get { return Fields.ProductName[this]; }
+            set { Fields.ProductName[this] = value; }
+        }
+
+
+
         [DisplayName("Costo"), Size(19), Scale(2)]
         public Decimal? GrossAmount
         {
@@ -84,6 +115,10 @@
             public DecimalField GrossAmount;
             public Int32Field TipoMuebleId;
             public StringField MuebleName;
+            public Int32Field RegistroId;
+            public DecimalField Cantidad;
+            public StringField ProductId;
+            public StringField ProductName;
         }
     }
 }
