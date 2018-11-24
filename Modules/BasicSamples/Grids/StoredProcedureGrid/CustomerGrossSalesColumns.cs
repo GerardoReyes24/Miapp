@@ -13,6 +13,9 @@
         [Width(250)]
         public String NumeroCasa { get; set; }
 
+        [Width(250)]
+        public String MuebleName { get; set; }
+
         [Width(150), AlignRight, SortOrder(2, descending: true), DisplayFormat("#,##0.00")]
         public Decimal GrossAmount { get; set; }
     }

@@ -40,6 +40,22 @@
             set { Fields.NumeroCasa[this] = value; }
         }
 
+        [DisplayName("TipoMueble Id"), Column("TipoMuebleID"), NotNull]
+        public Int32? TipoMuebleId
+        {
+            get { return Fields.TipoMuebleId[this]; }
+            set { Fields.TipoMuebleId[this] = value; }
+        }
+
+
+        [DisplayName("Mueble"), Size(40), NotNull, QuickSearch]
+        public String MuebleName
+        {
+            get { return Fields.MuebleName[this]; }
+            set { Fields.MuebleName[this] = value; }
+        }
+
+
         [DisplayName("Costo"), Size(19), Scale(2)]
         public Decimal? GrossAmount
         {
@@ -66,6 +82,8 @@
             public Int32Field NoCasaId;
             public StringField NumeroCasa;
             public DecimalField GrossAmount;
+            public Int32Field TipoMuebleId;
+            public StringField MuebleName;
         }
     }
 }

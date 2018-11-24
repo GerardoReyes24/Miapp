@@ -62,7 +62,11 @@
             this.view.setGrouping(
                 [{
                     getter: 'ProyectorName'
-                }]);
+
+
+                }, { getter: 'NumeroCasa' }]);
+
+           
 
             return grid;
         }
