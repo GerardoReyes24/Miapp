@@ -20,7 +20,10 @@ namespace Miapp2.Northwind.Forms
         public Decimal UnitPrice { get; set; }
 
         public Int16 UnitsInStock { get; set; }
-        
-        
+
+        public String QuantityPerUnit { get; set; }
+
+
+
     }
 }

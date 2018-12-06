@@ -1,6 +1,7 @@
 ﻿
 namespace Miapp2.Registros.Entities
 {
+    using Miapp2.Northwind;
     using Miapp2.Northwind.Entities;
     using Miapp2.Registros.Endpoints;
     using Serenity;
@@ -31,8 +32,8 @@ namespace Miapp2.Registros.Entities
             set { Fields.Fecha[this] = value; }
         }
 
-        [DisplayName("Material"), Column("ProductID"), Size(15), NotNull, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), QuickSearch, TextualField("ProductProductName")]
-        [LookupEditor(typeof(ProductRow), InplaceAdd = true)]
+        [DisplayName("Material"), Column("ProductID"), Size(15), NotNull, ForeignKey(typeof(ProductRow), "ProductID"), LeftJoin("jProduct"), ProductEditor]
+      //  [LookupEditor(typeof(ProductRow), InplaceAdd = true)]
         public String ProductId
         {
             get { return Fields.ProductId[this]; }
@@ -46,21 +47,21 @@ namespace Miapp2.Registros.Entities
             set { Fields.Cantidad[this] = value; }
         }
 
-        [DisplayName("Movimiento")]
+        [DisplayName("Movimiento"), NotNull]
         public TipoMovimiento? Movimiento
         {
             get { return (TipoMovimiento)Fields.Movimiento[this]; }
             set { Fields.Movimiento[this] = (Int32?)value; }
         }
 
-        [DisplayName("No Orden"), Size(40), NotNull]
+        [DisplayName("No Orden"), Size(40)]
         public String NoOrden
         {
             get { return Fields.NoOrden[this]; }
             set { Fields.NoOrden[this] = value; }
         }
 
-        [DisplayName("Proyecto"), Column("ProyectorID"), NotNull, ForeignKey("[dbo].[ProyectoR]", "ProyectorID"), LeftJoin("jProyector"), TextualField("ProyectorProyectorName")]
+        [DisplayName("Proyecto"), Column("ProyectorID"), ForeignKey("[dbo].[ProyectoR]", "ProyectorID"), LeftJoin("jProyector"), TextualField("ProyectorProyectorName")]
         [LookupEditor(typeof(ProyectoRRow), InplaceAdd = true)]
         public Int32? ProyectorId
         {
@@ -68,7 +69,7 @@ namespace Miapp2.Registros.Entities
             set { Fields.ProyectorId[this] = value; }
         }
 
-        [DisplayName("Tipo de Mueble"), Column("TipoMuebleID"), NotNull, ForeignKey("[dbo].[TipoMueble]", "TipoMuebleID"), LeftJoin("jTipoMueble"), TextualField("TipoMuebleMuebleName")]
+        [DisplayName("Tipo de Mueble"), Column("TipoMuebleID"), ForeignKey("[dbo].[TipoMueble]", "TipoMuebleID"), LeftJoin("jTipoMueble"), TextualField("TipoMuebleMuebleName")]
         [LookupEditor(typeof(TipoMuebleRow), InplaceAdd = true)]
         public Int32? TipoMuebleId
         {
@@ -76,7 +77,7 @@ namespace Miapp2.Registros.Entities
             set { Fields.TipoMuebleId[this] = value; }
         }
 
-        [DisplayName("No Casa"), Column("NoCasaID"), NotNull, ForeignKey("[dbo].[NoCasa]", "NoCasaID"), LeftJoin("jNoCasa"), TextualField("NoCasaNumeroCasa")]
+        [DisplayName("No Casa"), Column("NoCasaID"),  ForeignKey("[dbo].[NoCasa]", "NoCasaID"), LeftJoin("jNoCasa"), TextualField("NoCasaNumeroCasa")]
         [LookupEditor(typeof(NoCasaRow), InplaceAdd = true)]
         public Int32? NoCasaId
         {
@@ -84,7 +85,7 @@ namespace Miapp2.Registros.Entities
             set { Fields.NoCasaId[this] = value; }
         }
 
-        [DisplayName("Ubicación"), Column("RUbicacionID"), NotNull, ForeignKey("[dbo].[RUbicacion]", "RUbicacionID"), LeftJoin("jRUbicacion"), TextualField("Ubicacion")]
+        [DisplayName("Ubicación"), Column("RUbicacionID"), ForeignKey("[dbo].[RUbicacion]", "RUbicacionID"), LeftJoin("jRUbicacion"), TextualField("Ubicacion")]
         [LookupEditor(typeof(RUbicacionRow), InplaceAdd = true)]
 
         public Int32? RUbicacionId
@@ -93,7 +94,7 @@ namespace Miapp2.Registros.Entities
             set { Fields.RUbicacionId[this] = value; }
         }
 
-        [DisplayName("Material"), Expression("jProduct.[ProductName]")]
+        [DisplayName("Material"), Expression("jProduct.[ProductName]"),QuickSearch]
         public String ProductProductName
         {
             get { return Fields.ProductProductName[this]; }

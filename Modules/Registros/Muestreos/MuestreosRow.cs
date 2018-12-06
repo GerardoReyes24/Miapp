@@ -1,6 +1,7 @@
 ﻿
 namespace Miapp2.Registros.Entities
 {
+    using Miapp2.Northwind;
     using Miapp2.Northwind.Entities;
     using Serenity;
     using Serenity.ComponentModel;
@@ -32,8 +33,8 @@ namespace Miapp2.Registros.Entities
             set { Fields.Fecha[this] = value; }
         }
 
-        [DisplayName("Product"), Column("ProductID"), Size(15), NotNull, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), QuickSearch, TextualField("ProductProductName")]
-        [LookupEditor(typeof(ProductRow), InplaceAdd = true)]
+        [DisplayName("Product"), Column("ProductID"), Size(15), NotNull, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), QuickSearch, ProductEditor]
+        //[LookupEditor(typeof(ProductRow), InplaceAdd = true)]
         [ReadPermission(" SomeSpecialPermission ")]
         public String ProductId
         {

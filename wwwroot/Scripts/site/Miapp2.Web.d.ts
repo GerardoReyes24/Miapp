@@ -1861,6 +1861,7 @@ declare namespace Miapp2.Northwind {
         CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
+        QuantityPerUnit: Serenity.StringEditor;
     }
     class ProductForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -2052,6 +2053,7 @@ declare namespace Miapp2.Northwind {
         SupplierContactName?: string;
         SupplierAddress?: string;
         CategoryName?: string;
+        QuantityPerUnit?: string;
         CategoryDescription?: string;
         CategoryPicture?: number[];
     }
@@ -2075,6 +2077,7 @@ declare namespace Miapp2.Northwind {
             SupplierContactName = "SupplierContactName",
             SupplierAddress = "SupplierAddress",
             CategoryName = "CategoryName",
+            QuantityPerUnit = "QuantityPerUnit",
             CategoryDescription = "CategoryDescription",
             CategoryPicture = "CategoryPicture",
         }
@@ -2683,7 +2686,7 @@ declare namespace Miapp2.Registros {
 declare namespace Miapp2.Registros {
     interface MuestreosForm {
         Fecha: Serenity.DateEditor;
-        ProductId: Serenity.LookupEditor;
+        ProductId: Northwind.ProductEditor;
         CantidadAMuestrear: Serenity.DecimalEditor;
     }
     class MuestreosForm extends Serenity.PrefixedContext {
@@ -2755,7 +2758,7 @@ declare namespace Miapp2.Registros {
 declare namespace Miapp2.Registros {
     interface RegistrosForm {
         Fecha: Serenity.DateEditor;
-        ProductId: Serenity.LookupEditor;
+        ProductId: Northwind.ProductEditor;
         Cantidad: Serenity.DecimalEditor;
         Movimiento: Serenity.EnumEditor;
         NoOrden: Serenity.StringEditor;
@@ -3561,6 +3564,13 @@ declare namespace Miapp2.Northwind {
     }
 }
 declare namespace Miapp2.Northwind {
+    class ProductEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, ProductRow> {
+        constructor(hidden: JQuery);
+        protected getLookupKey(): string;
+        protected getItemText(item: any, lookup: any): string;
+    }
+}
+declare namespace Miapp2.Northwind {
     class ProductGrid extends Serenity.EntityGrid<ProductRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): any;
@@ -4317,16 +4327,6 @@ declare namespace Miapp2.BasicSamples {
          */
         protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
-        /**
-         * This method is called for columns with [EditLink] attribute,
-         * but only for edit links of this grid's own item type.
-         * It is also called by Add Product button with a NULL entityOrId
-         * parameter so we should check that entityOrId is a string
-         * to be sure it is originating from a link.
-         *
-         * As we changed format for other columns, this will only be called
-         * for links in remaining OrderID column
-         */
         protected editItem(entityOrId: any): void;
     }
 }

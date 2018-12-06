@@ -106,25 +106,13 @@ namespace Miapp2.BasicSamples {
             }
         }
 
-        /**
-         * This method is called for columns with [EditLink] attribute,
-         * but only for edit links of this grid's own item type.
-         * It is also called by Add Product button with a NULL entityOrId
-         * parameter so we should check that entityOrId is a string
-         * to be sure it is originating from a link.
-         *
-         * As we changed format for other columns, this will only be called
-         * for links in remaining OrderID column
-         */
         protected editItem(entityOrId) {
-            // check that this is an edit link click, not add button, ID is always a string
+          
             if (typeof entityOrId == "string") {
-                // convert ID to an integer, and find order with that ID
+            
                 var item = this.view.getItemById(Q.toId(entityOrId));
-                // date is a ISO string, so need to parse it first
-                var date = Q.formatDate(item.OrderDate);
-
-                // ask for confirmation
+            
+                var date = Q.formatDate(item.OrderDate);       
                 Q.confirm(Q.format("You clicked edit link for order with ID: {0} and Date: {1}. Should i open that order?",
                     item.OrderID, date), () => {
                         new Northwind.OrderDialog().loadByIdAndOpenDialog(item.OrderID);

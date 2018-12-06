@@ -14,7 +14,8 @@ namespace Miapp2.Northwind.Entities
     [ModifyPermission(PermissionKeys.Materiales.Modify)]
     [DeletePermission(PermissionKeys.Materiales.Delete)]
     [LookupScript("Some.Lookup", Permission = "?")]
-    
+
+
     [LocalizationRow(typeof(ProductLangRow))]
     public sealed class ProductRow : Row, IIdRow, INameRow
     {
@@ -35,12 +36,20 @@ namespace Miapp2.Northwind.Entities
             set { Fields.Product2ID[this] = value; }
         }
 
-        [DisplayName("Descripción"), Size(40), NotNull, QuickSearch]
+        [DisplayName("Descripción"), Size(40), NotNull, QuickSearch,  LookupInclude]
         [ReadPermission(" SomeSpecialPermission ")]
         public String ProductName
         {
             get { return Fields.ProductName[this]; }
             set { Fields.ProductName[this] = value; }
+        }
+
+        [DisplayName("Cantidad Por Unidad"), Size(100), ]
+        [ReadPermission(" SomeSpecialPermission ")]
+        public String QuantityPerUnit
+        {
+            get { return Fields.QuantityPerUnit[this]; }
+            set { Fields.QuantityPerUnit[this] = value; }
         }
 
         [DisplayName("Imagen"), Size(100)]
@@ -188,6 +197,7 @@ namespace Miapp2.Northwind.Entities
     
 
             public StringField CategoryName;
+            public StringField QuantityPerUnit;
             public StringField CategoryDescription;
             public StreamField CategoryPicture;
         }

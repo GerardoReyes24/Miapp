@@ -1,7 +1,7 @@
 ﻿namespace Miapp2.Registros {
     export interface RegistrosForm {
         Fecha: Serenity.DateEditor;
-        ProductId: Serenity.LookupEditor;
+        ProductId: Northwind.ProductEditor;
         Cantidad: Serenity.DecimalEditor;
         Movimiento: Serenity.EnumEditor;
         NoOrden: Serenity.StringEditor;
@@ -23,10 +23,11 @@
 
                 var s = Serenity;
                 var w0 = s.DateEditor;
-                var w1 = s.LookupEditor;
+                var w1 = Northwind.ProductEditor;
                 var w2 = s.DecimalEditor;
                 var w3 = s.EnumEditor;
                 var w4 = s.StringEditor;
+                var w5 = s.LookupEditor;
 
                 Q.initFormType(RegistrosForm, [
                     'Fecha', w0,
@@ -34,10 +35,10 @@
                     'Cantidad', w2,
                     'Movimiento', w3,
                     'NoOrden', w4,
-                    'ProyectorId', w1,
-                    'NoCasaId', w1,
-                    'RUbicacionId', w1,
-                    'TipoMuebleId', w1
+                    'ProyectorId', w5,
+                    'NoCasaId', w5,
+                    'RUbicacionId', w5,
+                    'TipoMuebleId', w5
                 ]);
             }
         }

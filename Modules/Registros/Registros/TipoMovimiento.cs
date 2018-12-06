@@ -14,7 +14,7 @@ namespace Miapp2.Registros.Endpoints
         Entrada = 1,
         [Description("Salida")]
         Salida = 2,
-        [Description("Devolución")]
+       [Description("Cambio Material")]
         Devolucion = 3,
     }
 }

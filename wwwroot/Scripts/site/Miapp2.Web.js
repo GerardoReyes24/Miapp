@@ -1667,7 +1667,8 @@ var Miapp2;
                         'SupplierID', w2,
                         'CategoryID', w2,
                         'UnitPrice', w3,
-                        'UnitsInStock', w4
+                        'UnitsInStock', w4,
+                        'QuantityPerUnit', w0
                     ]);
                 }
                 return _this;
@@ -2483,7 +2484,7 @@ var Miapp2;
                     MuestreosForm.init = true;
                     var s = Serenity;
                     var w0 = s.DateEditor;
-                    var w1 = s.LookupEditor;
+                    var w1 = Miapp2.Northwind.ProductEditor;
                     var w2 = s.DecimalEditor;
                     Q.initFormType(MuestreosForm, [
                         'Fecha', w0,
@@ -2549,20 +2550,21 @@ var Miapp2;
                     RegistrosForm.init = true;
                     var s = Serenity;
                     var w0 = s.DateEditor;
-                    var w1 = s.LookupEditor;
+                    var w1 = Miapp2.Northwind.ProductEditor;
                     var w2 = s.DecimalEditor;
                     var w3 = s.EnumEditor;
                     var w4 = s.StringEditor;
+                    var w5 = s.LookupEditor;
                     Q.initFormType(RegistrosForm, [
                         'Fecha', w0,
                         'ProductId', w1,
                         'Cantidad', w2,
                         'Movimiento', w3,
                         'NoOrden', w4,
-                        'ProyectorId', w1,
-                        'NoCasaId', w1,
-                        'RUbicacionId', w1,
-                        'TipoMuebleId', w1
+                        'ProyectorId', w5,
+                        'NoCasaId', w5,
+                        'RUbicacionId', w5,
+                        'TipoMuebleId', w5
                     ]);
                 }
                 return _this;
@@ -5710,6 +5712,29 @@ var Miapp2;
 (function (Miapp2) {
     var Northwind;
     (function (Northwind) {
+        var ProductEditor = /** @class */ (function (_super) {
+            __extends(ProductEditor, _super);
+            function ProductEditor(hidden) {
+                return _super.call(this, hidden) || this;
+            }
+            ProductEditor.prototype.getLookupKey = function () {
+                return 'Northwind.Product';
+            };
+            ProductEditor.prototype.getItemText = function (item, lookup) {
+                return _super.prototype.getItemText.call(this, item, lookup) + ' [' + item.ProductID + ']';
+            };
+            ProductEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], ProductEditor);
+            return ProductEditor;
+        }(Serenity.LookupEditorBase));
+        Northwind.ProductEditor = ProductEditor;
+    })(Northwind = Miapp2.Northwind || (Miapp2.Northwind = {}));
+})(Miapp2 || (Miapp2 = {}));
+var Miapp2;
+(function (Miapp2) {
+    var Northwind;
+    (function (Northwind) {
         var ProductGrid = /** @class */ (function (_super) {
             __extends(ProductGrid, _super);
             function ProductGrid(container) {
@@ -8507,24 +8532,10 @@ var Miapp2;
                     this.refresh();
                 }
             };
-            /**
-             * This method is called for columns with [EditLink] attribute,
-             * but only for edit links of this grid's own item type.
-             * It is also called by Add Product button with a NULL entityOrId
-             * parameter so we should check that entityOrId is a string
-             * to be sure it is originating from a link.
-             *
-             * As we changed format for other columns, this will only be called
-             * for links in remaining OrderID column
-             */
             CustomLinksInGrid.prototype.editItem = function (entityOrId) {
-                // check that this is an edit link click, not add button, ID is always a string
                 if (typeof entityOrId == "string") {
-                    // convert ID to an integer, and find order with that ID
                     var item = this.view.getItemById(Q.toId(entityOrId));
-                    // date is a ISO string, so need to parse it first
                     var date = Q.formatDate(item.OrderDate);
-                    // ask for confirmation
                     Q.confirm(Q.format("You clicked edit link for order with ID: {0} and Date: {1}. Should i open that order?", item.OrderID, date), function () {
                         new Miapp2.Northwind.OrderDialog().loadByIdAndOpenDialog(item.OrderID);
                     });

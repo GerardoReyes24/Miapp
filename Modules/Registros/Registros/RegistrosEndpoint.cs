@@ -43,7 +43,7 @@ namespace Miapp2.Registros.Endpoints
             }
 
 
-            if ((int)objeto.Movimiento == (int)TipoMovimiento.Entrada)
+            if ((int)objeto.Movimiento == (int)TipoMovimiento.Entrada )
             {
                 product.UnitsInStock = Convert.ToInt16(product.UnitsInStock + objeto.Cantidad);
             }

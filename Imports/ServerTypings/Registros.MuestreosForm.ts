@@ -1,7 +1,7 @@
 ﻿namespace Miapp2.Registros {
     export interface MuestreosForm {
         Fecha: Serenity.DateEditor;
-        ProductId: Serenity.LookupEditor;
+        ProductId: Northwind.ProductEditor;
         CantidadAMuestrear: Serenity.DecimalEditor;
     }
 
@@ -17,7 +17,7 @@
 
                 var s = Serenity;
                 var w0 = s.DateEditor;
-                var w1 = s.LookupEditor;
+                var w1 = Northwind.ProductEditor;
                 var w2 = s.DecimalEditor;
 
                 Q.initFormType(MuestreosForm, [

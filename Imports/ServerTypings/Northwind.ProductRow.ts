@@ -13,6 +13,7 @@
         SupplierContactName?: string;
         SupplierAddress?: string;
         CategoryName?: string;
+        QuantityPerUnit?: string;
         CategoryDescription?: string;
         CategoryPicture?: number[];
     }
@@ -41,6 +42,7 @@
             SupplierContactName = "SupplierContactName",
             SupplierAddress = "SupplierAddress",
             CategoryName = "CategoryName",
+            QuantityPerUnit = "QuantityPerUnit",
             CategoryDescription = "CategoryDescription",
             CategoryPicture = "CategoryPicture"
         }

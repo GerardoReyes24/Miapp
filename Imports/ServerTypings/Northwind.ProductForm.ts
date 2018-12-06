@@ -8,6 +8,7 @@
         CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
         UnitsInStock: Serenity.IntegerEditor;
+        QuantityPerUnit: Serenity.StringEditor;
     }
 
     export class ProductForm extends Serenity.PrefixedContext {
@@ -35,7 +36,8 @@
                     'SupplierID', w2,
                     'CategoryID', w2,
                     'UnitPrice', w3,
-                    'UnitsInStock', w4
+                    'UnitsInStock', w4,
+                    'QuantityPerUnit', w0
                 ]);
             }
         }
