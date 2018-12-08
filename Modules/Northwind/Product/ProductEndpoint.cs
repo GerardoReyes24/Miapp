@@ -178,7 +178,7 @@ namespace Miapp2.Northwind.Endpoints
 
                     product.ProductName = Convert.ToString(worksheet.Cells[row, 3].Value ?? "");
                     product.UnitPrice = Convert.ToDecimal(worksheet.Cells[row, 6].Value ?? 0);
-                    product.UnitsInStock = Convert.ToInt16(worksheet.Cells[row, 7].Value ?? 0);
+                    product.UnitsInStock = Convert.ToDecimal(worksheet.Cells[row, 7].Value ?? 0);
                     product.Product2ID = Convert.ToString(worksheet.Cells[row, 2].Value ?? "");
                     product.ProductID = Convert.ToString(worksheet.Cells[row, 1].Value ?? "");
 

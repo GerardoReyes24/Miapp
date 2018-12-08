@@ -30,7 +30,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.ProyectorName[this] = value; }
         }
 
-        [DisplayName("Description"), Size(1073741823)]
+        [DisplayName("Description"), Size(300)]
         public String Description
         {
             get { return Fields.Description[this]; }

@@ -125,7 +125,7 @@ namespace Miapp2.Registros.Entities
         }
 
         [DisplayName("Product Units In Stock"), Expression("jProduct.[UnitsInStock]")]
-        public Int16? ProductUnitsInStock
+        public Decimal? ProductUnitsInStock
         {
             get { return Fields.ProductUnitsInStock[this]; }
             set { Fields.ProductUnitsInStock[this] = value; }
@@ -239,7 +239,7 @@ namespace Miapp2.Registros.Entities
             public Int32Field ProductSupplierId;
             public Int32Field ProductCategoryId;
             public DecimalField ProductUnitPrice;
-            public Int16Field ProductUnitsInStock;
+            public DecimalField ProductUnitsInStock;
             public BooleanField ProductDiscontinued;
             public StringField ProductProductImage;
             public StringField ProductProduct2Id;

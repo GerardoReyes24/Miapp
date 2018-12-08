@@ -26,7 +26,7 @@ namespace Miapp2.Northwind.Columns
         [Width(150)]
         public Decimal UnitPrice { get; set; }
         [Width(200)]
-        public Int16 UnitsInStock { get; set; }
+        public Decimal UnitsInStock { get; set; }
 
         public String QuantityPerUnit { get; set; }
 

@@ -7,7 +7,7 @@
         SupplierID: Serenity.LookupEditor;
         CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
-        UnitsInStock: Serenity.IntegerEditor;
+        UnitsInStock: Serenity.DecimalEditor;
         QuantityPerUnit: Serenity.StringEditor;
     }
 
@@ -26,7 +26,6 @@
                 var w1 = s.ImageUploadEditor;
                 var w2 = s.LookupEditor;
                 var w3 = s.DecimalEditor;
-                var w4 = s.IntegerEditor;
 
                 Q.initFormType(ProductForm, [
                     'ProductID', w0,
@@ -36,7 +35,7 @@
                     'SupplierID', w2,
                     'CategoryID', w2,
                     'UnitPrice', w3,
-                    'UnitsInStock', w4,
+                    'UnitsInStock', w3,
                     'QuantityPerUnit', w0
                 ]);
             }

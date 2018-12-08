@@ -44,7 +44,7 @@ namespace Miapp2.Northwind.Entities
             set { Fields.ProductName[this] = value; }
         }
 
-        [DisplayName("Cantidad Por Unidad"), Size(100), ]
+        [DisplayName("Unidad"), Size(100), ]
         [ReadPermission(" SomeSpecialPermission ")]
         public String QuantityPerUnit
         {
@@ -94,7 +94,7 @@ namespace Miapp2.Northwind.Entities
 
         [DisplayName("Cantidad en existencia"), NotNull, DefaultValue(0)]
         [ModifyPermission(" SomeSpecialPermission ")]
-        public Int16? UnitsInStock
+        public Decimal? UnitsInStock
         {
             get { return Fields.UnitsInStock[this]; }
             set { Fields.UnitsInStock[this] = value; }
@@ -187,7 +187,7 @@ namespace Miapp2.Northwind.Entities
             public Int32Field CategoryID;
  
             public DecimalField UnitPrice;
-            public Int16Field UnitsInStock;
+            public DecimalField UnitsInStock;
     
             public StringField SupplierCompanyName;
             public StringField SupplierContactName;

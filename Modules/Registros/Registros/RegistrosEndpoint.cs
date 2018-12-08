@@ -45,11 +45,11 @@ namespace Miapp2.Registros.Endpoints
 
             if ((int)objeto.Movimiento == (int)TipoMovimiento.Entrada )
             {
-                product.UnitsInStock = Convert.ToInt16(product.UnitsInStock + objeto.Cantidad);
+                product.UnitsInStock = Convert.ToDecimal(product.UnitsInStock + objeto.Cantidad);
             }
             else
             {
-                product.UnitsInStock = Convert.ToInt16(product.UnitsInStock - objeto.Cantidad);
+                product.UnitsInStock = Convert.ToDecimal(product.UnitsInStock - objeto.Cantidad);
             }
 
 

@@ -19,14 +19,14 @@ namespace Miapp2.Registros.Columns
         public String ProductProductName { get; set; }
         [Width(200)]
         public Decimal Cantidad { get; set; }
-        [Width(200)]
+        [Width(200), QuickFilter]
         public Int32 Movimiento { get; set; }
         public String NoOrden { get; set; }
         [QuickFilter]
         public String ProyectorProyectorName { get; set; }
         [QuickFilter]
         public String TipoMuebleMuebleName { get; set; }
-        [QuickFilter]
+        
         public String RUbicacionN { get; set; }
         [QuickFilter]
         public String NoCasaNumeroCasa { get; set; }

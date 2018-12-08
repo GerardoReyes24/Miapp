@@ -1860,7 +1860,7 @@ declare namespace Miapp2.Northwind {
         SupplierID: Serenity.LookupEditor;
         CategoryID: Serenity.LookupEditor;
         UnitPrice: Serenity.DecimalEditor;
-        UnitsInStock: Serenity.IntegerEditor;
+        UnitsInStock: Serenity.DecimalEditor;
         QuantityPerUnit: Serenity.StringEditor;
     }
     class ProductForm extends Serenity.PrefixedContext {
