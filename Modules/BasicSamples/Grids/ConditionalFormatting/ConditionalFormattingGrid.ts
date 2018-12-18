@@ -39,12 +39,12 @@
             else if (item.UnitsInStock > 50)
                 klass += " needs-reorder";
 
-            if (item.UnitPrice >= 50)
+         /*   if (item.UnitPrice >= 50)
                 klass += " high-price";
             else if (item.UnitPrice >= 20)
                 klass += " medium-price";
             else
-                klass += " low-price";
+                klass += " low-price"; */
 
             return Q.trimToNull(klass);
         }
